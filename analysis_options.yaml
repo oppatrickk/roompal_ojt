@@ -44,6 +44,6 @@ linter:
     unsafe_html: true
     use_full_hex_values_for_flutter_colors: true
 
-# We use 150 line characters
-# This will be setup on the formatter's code editor setups
-lines_longer_than_80_chars: false
+    # We use 150 line characters
+    # This will be setup on the formatter's code editor setups
+    lines_longer_than_80_chars: false
