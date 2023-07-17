@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
-import 'package:roompal_ojt/pages/renter/renter_page.dart';
+import 'package:roompal_ojt/pages/renter/renter_page(0).dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 
 class MyHomePage extends StatefulWidget {
