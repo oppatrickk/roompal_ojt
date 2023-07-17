@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(0).dart';
+import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -41,6 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, LandingPage.id);
               },
               child: const Text('landing page'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RenterPage1.id);
+              },
+              child: const Text('renter page 1'),
             ),
           ],
         ),
