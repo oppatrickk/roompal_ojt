@@ -23,6 +23,7 @@ class RoompalOJT extends StatelessWidget {
         MyHomePage.id: (BuildContext context) => const MyHomePage(title: 'Roompal OJT'),
         RenterPage.id: (BuildContext context) => const RenterPage(),
         LandingPage.id: (BuildContext context) => const LandingPage(),
+        RoomDetails.id: (BuildContext context) => const RoomDetails(),
       },
     );
   }
