@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/home_page.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
+import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'pages/renter/renter_page(1).dart';
 import 'pages/renter/renter_page(0).dart';
 import 'pages/room_details.dart';
@@ -26,6 +27,7 @@ class RoompalOJT extends StatelessWidget {
         LandingPage.id: (BuildContext context) => const LandingPage(),
         RoomDetails.id: (BuildContext context) => const RoomDetails(),
         RenterPage1.id: (BuildContext context) => const RenterPage1(),
+        BookedDetails.id: (BuildContext context) => const BookedDetails(),
       },
     );
   }

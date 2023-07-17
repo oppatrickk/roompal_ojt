@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class RenterPage extends StatefulWidget {
   const RenterPage({super.key});
@@ -17,7 +18,7 @@ class _RenterPageState extends State<RenterPage> {
         title: Image.asset('assets/img/wmB.png'),
         elevation: 5.0,
       ),
-      endDrawer: const NavigationDrawer(children: <Widget>[]),
+      endDrawer: buildSideBar(context),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(20.0, 70.0, 20.0, 20.0),
         child: Column(

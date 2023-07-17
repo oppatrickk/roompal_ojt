@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class RenterPage1 extends StatelessWidget {
   const RenterPage1({super.key});
@@ -13,7 +14,7 @@ class RenterPage1 extends StatelessWidget {
         title: Image.asset('assets/img/wmB.png'),
         elevation: 5.0,
       ),
-      endDrawer: const NavigationDrawer(children: <Widget>[]),
+      endDrawer: buildSideBar(context),
       body: const SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(20.0),
@@ -33,10 +34,10 @@ class RenterPage1 extends StatelessWidget {
                 color: Colors.grey,
                 thickness: 1.0,
               ),
-              BookDetails(),
-              BookDetails(),
-              BookDetails(),
-              BookDetails(),
+              BookDetails(Color(0xFFFFF5C7), 'Processing', Color(0xFFCC8100)),
+              BookDetails(Color(0xFFD7FAE0), 'Successfully booked', Color(0xFF007D3A)),
+              BookDetails(Color(0xFFFFF0F1), 'Failed', Color(0xFFFF424F)),
+              BookDetails(Color(0xFFEBEBF0), 'Cancelled', Color(0xFF808089)),
             ],
           ),
         ),
@@ -46,9 +47,11 @@ class RenterPage1 extends StatelessWidget {
 }
 
 class BookDetails extends StatelessWidget {
-  const BookDetails({
-    super.key,
-  });
+  const BookDetails(this.status, this.condition, this.textColor);
+
+  final Color status;
+  final Color textColor;
+  final String condition;
 
   @override
   Widget build(BuildContext context) {
@@ -70,15 +73,15 @@ class BookDetails extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  color: const Color(0xFFFFF5C7),
+                  color: status,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 30.0,
                     vertical: 5.0,
                   ),
-                  child: const Text(
-                    'Processing',
+                  child: Text(
+                    condition,
                     style: TextStyle(
-                      color: Color(0xFFCC8100),
+                      color: textColor,
                       fontSize: 14.0,
                     ),
                   ),
@@ -90,6 +93,7 @@ class BookDetails extends StatelessWidget {
               title: Text(
                 'Kwarto de Luna',
                 style: TextStyle(
+                  fontFamily: 'ProximaNovaLight',
                   fontSize: 18.0,
                 ),
               ),
