@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class RenterPage1 extends StatelessWidget {
   const RenterPage1({super.key});
@@ -13,7 +14,7 @@ class RenterPage1 extends StatelessWidget {
         title: Image.asset('assets/img/wmB.png'),
         elevation: 5.0,
       ),
-      endDrawer: const NavigationDrawer(children: <Widget>[]),
+      endDrawer: buildSideBar(context),
       body: const SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(20.0),
@@ -90,6 +91,7 @@ class BookDetails extends StatelessWidget {
               title: Text(
                 'Kwarto de Luna',
                 style: TextStyle(
+                  fontFamily: 'ProximaNovaLight',
                   fontSize: 18.0,
                 ),
               ),
