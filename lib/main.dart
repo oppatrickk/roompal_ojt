@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/home_page.dart';
+import 'pages/renter/renter_page.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(RoompalOJT());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class RoompalOJT extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -18,7 +15,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Roompal OJT'),
+      initialRoute: MyHomePage.id,
+      //add other screens here
+      routes: {
+        MyHomePage.id: (BuildContext context) => const MyHomePage(title: 'Roompal OJT'),
+        RenterPage.id: (BuildContext context) => const RenterPage(),
+      },
     );
   }
 }
