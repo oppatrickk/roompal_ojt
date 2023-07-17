@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/renter/renter_page.dart';
+import 'package:roompal_ojt/pages/room_details.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
+  static const String id = 'MyHomePage';
   final String title;
 
   @override
@@ -10,14 +12,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,16 +23,20 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You pressed $_counter times',
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RenterPage.id);
+              },
+              child: const Text('renter page'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RoomDetails.id);
+              },
+              child: const Text('room details'),
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
