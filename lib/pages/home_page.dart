@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/renter/renter_page.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 
@@ -34,6 +35,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, RoomDetails.id);
               },
               child: const Text('room details'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pushNamed(context, LandingPage.id);
+              },
+              child: const Text('landing page'),
             ),
           ],
         ),
