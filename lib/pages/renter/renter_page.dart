@@ -10,6 +10,14 @@ class RenterPage extends StatefulWidget {
 class _RenterPageState extends State<RenterPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.blueAccent),
+      body: Column(
+        children: [
+          Text("You currently don't have a booking"),
+          Text('Check out hundreds of other destinations on our app'),
+        ],
+      ),
+    );
   }
 }
