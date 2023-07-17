@@ -31,7 +31,7 @@ class _LandingPageState extends State<LandingPage> {
                     hintText: 'Search Rooms',
                     hintStyle: TextStyle(
                         fontSize: 16,
-                        fontFamily: 'ProximaNovaRegular',
+                        fontFamily: 'ProximaNovaAltLight',
                         color: Colors.grey),
                     suffixIcon: Icon(
                       Icons.search,
@@ -78,15 +78,19 @@ class _LandingPageState extends State<LandingPage> {
               child: Row(
                 children: [
                   Container(
-                    color: Color(0xFF1C39BB),
                     width: 335,
                     padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                        color: Color(0xFF1C39BB),
+                        borderRadius: BorderRadius.circular(16)),
                     child: Column(children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Image.asset(
                             'assets/img/house.png',
+                            height: 130,
+                            width: 130,
                           ),
                           SizedBox(width: 10),
                           Column(
@@ -97,36 +101,219 @@ class _LandingPageState extends State<LandingPage> {
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
-                                    fontFamily: 'ProximaNovaBold'),
+                                    fontFamily: 'ProximaNovaAltBold'),
                               ),
                               Text(
                                 'RENT?',
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 50,
-                                    fontFamily: 'ProximaNovaBold'),
+                                    fontFamily: 'ProximaNovaAltBold'),
                               )
                             ],
                           )
                         ],
                       ),
+                      SizedBox(height: 20),
                       Container(
                         height: 40,
                         decoration: BoxDecoration(
                           color: Color(0xFFFEB618),
+                          borderRadius: BorderRadius.circular(5),
                         ),
                         child: Center(
                           child: Text(
                             'List your property with us',
                             style: TextStyle(
                                 fontSize: 16,
-                                fontFamily: 'ProximaNovaRegular',
+                                fontFamily: 'ProximaNovaAltBold',
                                 color: Colors.black),
                           ),
                         ),
                       ),
+                      SizedBox(height: 20),
+                      Text(
+                        'With our extensive network of potential tenants and a wide range of features, we strive to make the rental process as effortless as possible.',
+                        style: textStyleContent(size: 14, color: Colors.white),
+                        textAlign: TextAlign.justify,
+                      ),
                     ]),
+                  ),
+                  SizedBox(width: 20),
+                  Container(
+                    width: 335,
+                    height: 330,
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                        color: Color(0xFF1C39BB),
+                        borderRadius: BorderRadius.circular(16)),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          flex: 6,
+                          child: Text(
+                            'Promotional Stuff',
+                            style:
+                                textStyleHeader(color: Colors.white, size: 28),
+                          ),
+                        ),
+                        Expanded(
+                          child: Center(
+                            child: Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              size: 30,
+                              color: Colors.white,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
                   )
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: 35,
+                  child: Divider(
+                    color: Color(0xFF242731),
+                  ),
+                ),
+                Text(
+                  'HELPING YOU FIND A PLACE TO CALL HOME',
+                  style: textStyleHeader(color: Color(0xFF242731), size: 12),
+                ),
+                SizedBox(
+                  width: 35,
+                  child: Divider(
+                    color: Color(0xFF242731),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(
+                  color: Color(0xFFBBBFC1),
+                ),
+              ),
+              child: Column(
+                children: [
+                  Image.asset('assets/img/rental.jpg'),
+                  Container(
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              padding: EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: Color(0xFF00B400),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            SizedBox(width: 5),
+                            Text(
+                              'AVAILABLE',
+                              style: textStyleHeader(
+                                  color: Color(0xFF00B400), size: 12),
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Room Name',
+                              style: textStyleHeader(
+                                  color: Color(0xFF242731), size: 20),
+                            ),
+                            Text(
+                              'Starting at',
+                              style: textStyleContent(
+                                  color: Color(0xFF242731), size: 14),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Room #000',
+                              style: textStyleContent(
+                                  color: Color(0xFF242731), size: 20),
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  '\$ ',
+                                  style: textStyleHeader(
+                                      color: Color(0xFF1C39BB), size: 20),
+                                ),
+                                Text(
+                                  '0000.00',
+                                  style: textStyleHeader(
+                                      color: Color(0xFF242731), size: 20),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'City Name, Region',
+                              style: textStyleHeader(
+                                  color: Color(0xFF242731), size: 12),
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.hotel,
+                                  color: Color(0xFF1C39BB),
+                                ),
+                                Text(
+                                  ' Bedspace',
+                                  style: textStyleHeader(
+                                      color: Color(0xFF242731), size: 12),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                starRating(color: Color(0xFFFEB618), size: 25),
+                                starRating(color: Color(0xFFFEB618), size: 25),
+                                starRating(color: Color(0xFFFEB618), size: 25),
+                                starRating(color: Color(0xFFFEB618), size: 25),
+                                starRating(color: Color(0xFFDEDEDE), size: 25),
+                              ],
+                            ),
+                            Text(
+                              '4-18 people',
+                              style: textStyleContent(
+                                  color: Color(0xFF242731), size: 12),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 ],
               ),
             )

@@ -10,7 +10,8 @@ NavigationDrawer buildSideBar(BuildContext context) {
           children: [
             ListTile(
               title: Text('Welcome User!'),
-              titleTextStyle: textStyleHeader(color: Color(0xFF1C39BB)),
+              titleTextStyle:
+                  textStyleHeader(color: Color(0xFF1C39BB), size: 28),
               trailing: Icon(Icons.close),
               onTap: () => Navigator.pop(context),
             ),
@@ -84,26 +85,35 @@ ListTile buildListTile(
   return ListTile(
     leading: leadingIcon,
     title: Text(label),
-    titleTextStyle: textStyleContent(),
+    titleTextStyle: textStyleContent(size: 20, color: Color(0xFF242731)),
     trailing: trailingIcon,
     onTap: () => onTap,
   );
 }
 
 //Content Style
-TextStyle textStyleContent() {
+TextStyle textStyleContent({required double size, required Color color}) {
   return TextStyle(
-    fontSize: 20,
-    fontFamily: 'ProximaNovaRegular',
-    color: Color(0xFF242731),
+    fontSize: size,
+    fontFamily: 'ProximaNovaAltLight',
+    color: color,
   );
 }
 
 //Header Style
-TextStyle textStyleHeader({required Color color}) {
+TextStyle textStyleHeader({required Color color, required double size}) {
   return TextStyle(
-    fontSize: 30,
-    fontFamily: 'ProximaNovaBold',
+    fontSize: size,
+    fontFamily: 'ProximaNovaAltBold',
     color: color,
+  );
+}
+
+// Star Rating
+Icon starRating({required Color color, required double size}) {
+  return Icon(
+    Icons.star_rate_rounded,
+    color: color,
+    size: size,
   );
 }
