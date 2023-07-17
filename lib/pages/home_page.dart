@@ -23,7 +23,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-<<<<<<< HEAD
             TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, RenterPage.id);
@@ -35,10 +34,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, RoomDetails.id);
               },
               child: const Text('room details'),
-=======
-            Text(
-              'You pressed $_counter times kineme',
->>>>>>> 6dbb5e274700aeb6a25ac37e87648e9cf863d9f2
             ),
           ],
         ),
