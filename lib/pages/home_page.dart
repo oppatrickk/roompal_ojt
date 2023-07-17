@@ -30,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You pressed $_counter times',
+              'You pressed $_counter times kineme',
             ),
           ],
         ),
