@@ -13,7 +13,7 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset("assets/img/mb.png"),
+        title: Image.asset("assets/img/wmB.png"),
       ),
     );
   }
