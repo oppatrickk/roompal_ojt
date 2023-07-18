@@ -55,62 +55,65 @@ class BookDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 10.0),
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                const Text(
-                  'July 3, 2023',
-                  style: TextStyle(
-                    fontSize: 10.0,
-                    color: Color(0xFF808080),
-                  ),
-                ),
-                Container(
-                  color: status,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 30.0,
-                    vertical: 5.0,
-                  ),
-                  child: Text(
-                    condition,
+    return GestureDetector(
+      onTap: () {},
+      child: Card(
+        margin: const EdgeInsets.symmetric(vertical: 10.0),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  const Text(
+                    'July 3, 2023',
                     style: TextStyle(
-                      color: textColor,
-                      fontSize: 14.0,
+                      fontSize: 10.0,
+                      color: Color(0xFF808080),
                     ),
                   ),
+                  Container(
+                    color: status,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 30.0,
+                      vertical: 5.0,
+                    ),
+                    child: Text(
+                      condition,
+                      style: TextStyle(
+                        color: textColor,
+                        fontSize: 14.0,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const ListTile(
+                leading: Icon(Icons.other_houses_rounded),
+                title: Text(
+                  'Kwarto de Luna',
+                  style: TextStyle(
+                    fontFamily: 'ProximaNovaLight',
+                    fontSize: 18.0,
+                  ),
                 ),
-              ],
-            ),
-            const ListTile(
-              leading: Icon(Icons.other_houses_rounded),
-              title: Text(
-                'Kwarto de Luna',
+              ),
+              const Divider(
+                height: 1.0,
+                color: Colors.grey,
+                thickness: 1.0,
+              ),
+              const Text(
+                'P ####.00',
                 style: TextStyle(
-                  fontFamily: 'ProximaNovaLight',
                   fontSize: 18.0,
+                  fontFamily: 'ProximaNovaBold',
                 ),
               ),
-            ),
-            const Divider(
-              height: 1.0,
-              color: Colors.grey,
-              thickness: 1.0,
-            ),
-            const Text(
-              'P ####.00',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontFamily: 'ProximaNovaBold',
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
