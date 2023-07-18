@@ -28,6 +28,10 @@ class _ContactDetailsState extends State<ContactDetails> {
                     'Booking',
                     style: textStyleHeader(color: Colors.grey, size: 18),
                   ),
+                  Text(
+                    'Booking',
+                    style: textStyleHeader(color: Colors.grey, size: 18),
+                  ),
                 ],
               ),
             ],
