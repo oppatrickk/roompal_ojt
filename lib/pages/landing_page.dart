@@ -10,12 +10,12 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
+  bool? actionStatus = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Image.asset("assets/img/wmB.png"),
-        // elevation: 5.0,
       ),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
@@ -32,7 +32,116 @@ class _LandingPageState extends State<LandingPage> {
                 width: 10,
               ),
               Expanded(
-                child: buildFilter(),
+                child: GestureDetector(
+                  child: Container(
+                    padding: EdgeInsets.all(7),
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Color(0xFF242731),
+                      ),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Icon(
+                      Icons.filter_list_rounded,
+                      size: 30,
+                      color: Color(0xFF242731),
+                    ),
+                  ),
+                  onTap: () => showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        height: 700,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(16),
+                            topLeft: Radius.circular(16),
+                          ),
+                          color: Colors.white,
+                        ),
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Filters',
+                                    style: textStyleHeader(
+                                      color: Color(0xFF1C39BB),
+                                      size: 24,
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: Text(
+                                      'Reset',
+                                      style: textStyleHeader(
+                                        color: Colors.red,
+                                        size: 16,
+                                      ),
+                                      textAlign: TextAlign.end,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const Divider(
+                                color: Color(0xFFB9B9C3),
+                              ),
+                              Column(
+                                children: [
+                                  SizedBox(height: 20),
+                                  Column(
+                                    children: [
+                                      filterContents(
+                                          label: 'Show Occupied Rooms'),
+                                      filterContents(
+                                          label: 'Show Vacant Rooms'),
+                                    ],
+                                  ),
+                                  SizedBox(height: 20),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Type of Room',
+                                        style: textStyleHeader(
+                                            color: Color(0xFF242731), size: 20),
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.only(left: 20),
+                                        child: Column(children: [
+                                          filterContents(
+                                              label: 'Boarding House'),
+                                          filterContents(label: 'Bedspace'),
+                                          filterContents(label: 'Apartment'),
+                                          filterContents(label: 'Studio'),
+                                        ]),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height: 80),
+                              buttonLP(
+                                  height: 40,
+                                  color: Color(0xFF1C39BB),
+                                  label: 'Apply Filter',
+                                  textColor: Colors.white,
+                                  size: 16),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
               ),
             ]),
             SizedBox(height: 20),
@@ -74,20 +183,12 @@ class _LandingPageState extends State<LandingPage> {
                         ],
                       ),
                       SizedBox(height: 10),
-                      Container(
-                        height: 40,
-                        decoration: BoxDecoration(
+                      buttonLP(
+                          height: 40,
                           color: Color(0xFFFEB618),
-                          borderRadius: BorderRadius.circular(5),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'List your property with us',
-                            style:
-                                textStyleHeader(color: Colors.black, size: 16),
-                          ),
-                        ),
-                      ),
+                          label: 'List your property with us',
+                          textColor: Colors.black,
+                          size: 16),
                       SizedBox(height: 10),
                       Text(
                         'With our extensive network of potential tenants and a wide range of features, we strive to make the rental process as effortless as possible.',
@@ -226,6 +327,29 @@ class _LandingPageState extends State<LandingPage> {
           ]),
         ),
       ),
+    );
+  }
+
+  Row filterContents({required String label}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: 24,
+          width: 24,
+          child: Checkbox(
+              value: actionStatus,
+              onChanged: (bool? value) {
+                setState(() {
+                  actionStatus = value;
+                });
+                if (actionStatus!) {
+                } else {}
+              }),
+        ),
+        SizedBox(width: 10),
+        filterRoomStatus(label: label)
+      ],
     );
   }
 }
