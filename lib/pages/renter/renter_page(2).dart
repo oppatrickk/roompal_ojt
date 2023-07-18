@@ -106,9 +106,59 @@ class BookedDetails extends StatelessWidget {
                 ),
               ),
               Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: Column(
-                  children: [Text('Contact Info')],
+                margin: const EdgeInsets.symmetric(vertical: 10.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const Text(
+                        'Contact Info',
+                        style: kCardHeaderStyle,
+                      ),
+                      InformationDetails('Full Name', 'Pipay Di Pinili'),
+                      divider,
+                      InformationDetails('Phone', '09423183681'),
+                      divider,
+                      InformationDetails('Email', 'pipaydp@gmail.com'),
+                    ],
+                  ),
+                ),
+              ),
+              Card(
+                margin: const EdgeInsets.symmetric(vertical: 10.0),
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const Text(
+                        'Price Details',
+                        style: kCardHeaderStyle,
+                      ),
+                      PriceDetails('Subtotal', 'P ####.00'),
+                      PriceDetails('Discount', 'P ####.00'),
+                      PriceDetails('Service Fee', 'P ####.00'),
+                      PriceDetails('Booking Fee', 'P ####.00'),
+                      divider,
+                      const Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 5.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              'Total:',
+                              style: kCardTitleStyle,
+                            ),
+                            Text(
+                              'P ####.00',
+                              style: kCardSubtitleStyle,
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -123,6 +173,37 @@ class BookedDetails extends StatelessWidget {
   }
 }
 
+class PriceDetails extends StatelessWidget {
+  PriceDetails(this.title, this.amount);
+  final String title;
+  final String amount;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text(
+            title,
+            style: kCardTitleStyle,
+          ),
+          Text(
+            amount,
+            style: kCardAmountStyle,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+const Divider divider = Divider(
+  height: 1.0,
+  color: Colors.grey,
+  thickness: 1.0,
+);
 const TextStyle kCardHeaderStyle = TextStyle(
   fontFamily: 'ProximaNovaBold',
   fontSize: 16.0,
@@ -135,6 +216,35 @@ const TextStyle kCardTitleStyle = TextStyle(
   fontSize: 14.0,
   fontFamily: 'ProximaNovaRegular',
 );
+const TextStyle kCardAmountStyle = TextStyle(
+  fontSize: 14.0,
+);
+
+class InformationDetails extends StatelessWidget {
+  InformationDetails(this.title, this.subtitle);
+  final String title;
+  final String subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text(
+            title,
+            style: kCardTitleStyle,
+          ),
+          Text(
+            subtitle,
+            style: kCardSubtitleStyle,
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 class ListData extends StatelessWidget {
   const ListData(this.details, this.icons, this.title);
