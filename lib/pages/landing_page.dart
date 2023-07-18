@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/contact_details.dart';
 import '../widgets/widget_elements.dart';
 
 class LandingPage extends StatefulWidget {
@@ -255,18 +256,21 @@ class _LandingPageState extends State<LandingPage> {
               ],
             ),
             SizedBox(height: 20),
-            propertyCardView(
-              propertyImage: 'rental.jpg',
-              propertyStatus: 'AVAILABLE',
-              propertyName: 'ROOM NAME',
-              propertyNumber: 1,
-              propertyPrice: 0000.00,
-              propertyCity: 'Legazpi City',
-              propertyProvince: 'Albay',
-              propertyIcon: Icons.hotel,
-              propertyType: 'Bedspace',
-              propertyAccommodation: '4-18 people',
-              propertyStatusColor: Color(0xFF00B400),
+            GestureDetector(
+              child: propertyCardView(
+                propertyImage: 'rental.jpg',
+                propertyStatus: 'AVAILABLE',
+                propertyName: 'ROOM NAME',
+                propertyNumber: 1,
+                propertyPrice: 0000.00,
+                propertyCity: 'Legazpi City',
+                propertyProvince: 'Albay',
+                propertyIcon: Icons.hotel,
+                propertyType: 'Bedspace',
+                propertyAccommodation: '4-18 people',
+                propertyStatusColor: Color(0xFF00B400),
+              ),
+              onTap: () => Navigator.pushNamed(context, ContactDetails.id),
             ),
             SizedBox(height: 20),
             propertyCardView(
@@ -330,6 +334,7 @@ class _LandingPageState extends State<LandingPage> {
     );
   }
 
+  // Filter
   Row filterContents({required String label}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,

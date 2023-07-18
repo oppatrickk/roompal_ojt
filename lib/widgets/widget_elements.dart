@@ -328,3 +328,21 @@ GestureDetector buttonLP(
     onTap: null,
   );
 }
+
+Container dotSeparator() {
+  return Container(
+    padding: EdgeInsets.all(2),
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(10),
+      color: Color(0xFF242731),
+    ),
+  );
+}
+
+Icon iconStyle(
+        {required IconData icon, required Color color, required double size}) =>
+    Icon(
+      icon,
+      color: color,
+      size: size,
+    );
