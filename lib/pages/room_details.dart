@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class RoomDetails extends StatelessWidget {
@@ -53,9 +54,7 @@ class RoomDetails extends StatelessWidget {
                   RoomDetailsDisplay(Icons.park, 'Albay Park'),
                 ],
               ),
-              SizedBox(
-                height: 20.0,
-              ),
+              kSizedBox,
               TextButton(
                 style: TextButton.styleFrom(
                   backgroundColor: const Color(0xFF1C39BB),
@@ -78,11 +77,11 @@ class RoomDetails extends StatelessWidget {
               const SizedBox(
                 height: 20.0,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   InteractiveIconsDisplay(Icons.favorite_border_outlined, 'Save'),
-                  const SizedBox(
+                  SizedBox(
                     width: 10.0,
                   ),
                   InteractiveIconsDisplay(Icons.share, 'Share'),
@@ -93,29 +92,77 @@ class RoomDetails extends StatelessWidget {
                   Image.asset(
                     'assets/img/rental.jpg',
                     height: 162,
-                    width: 215,
+                    width: 200,
                   ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Container(
-                          color: Colors.black12,
-                          height: 70,
-                          width: 103,
-                        ),
-                        SizedBox(
-                          height: 5.0,
-                        ),
-                        Container(
-                          padding: EdgeInsets.fromLTRB(40, 50, 5, 2.0),
-                          color: Colors.black12,
-                          height: 70,
-                          width: 103,
-                        ),
-                      ],
-                    ),
+                  const SizedBox(width: 10),
+                  Column(
+                    children: <Widget>[
+                      Container(
+                        color: Colors.black12,
+                        height: 65,
+                        width: 100,
+                      ),
+                      const SizedBox(
+                        height: 5.0,
+                      ),
+                      Stack(
+                        children: <Widget>[
+                          Positioned(
+                            top: 38,
+                            bottom: 5,
+                            left: 15,
+                            child: TextButton(
+                              style: TextButton.styleFrom(
+                                backgroundColor: Colors.black38,
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(5),
+                                  ),
+                                ),
+                              ),
+                              onPressed: null,
+                              child: const Text(
+                                'Show all Photos',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 7.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            color: Colors.black12,
+                            height: 65,
+                            width: 100,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
+                ],
+              ),
+              kSizedBox,
+              divider,
+              kSizedBox,
+              const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Room Details',
+                    style: kHeaderTextStyle,
+                  ),
+                  Text(
+                      'Located in -----, a 4-minute walk from ------ and 1.5 miles from ----- Public Beach, Seascape Room#0000 offers free WiFi and air conditioning.'),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text(
+                      'The vacation home is fitted with 2 bedrooms, 2 bathrooms, bed linen, towels, a flat-screen TV with satellite channels, a dining area, a fully equipped kitchen, and a balcony with sea views. For added convenience, the property can provide towels and bed linen for an extra charge.'),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text(
+                      'History and Fishing Museum is 8.9 miles from the vacation home, while Bluewater Bay Resort is 11 miles from the property. The nearest airport is ---- Executive Airport, 6.2 miles from Room#0000.'),
                 ],
               ),
             ],
@@ -125,29 +172,17 @@ class RoomDetails extends StatelessWidget {
     );
   }
 }
- TextButton(
-                            style: TextButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
-                                ),
-                              ),
-                              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
-                            ),
-                            onPressed: null,
-                            child: const Text(
-                              'Show all Photos',
-                              textAlign: ,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 2.0,
-                              ),
-                            ),
-                          ),
+
+const SizedBox kSizedBox = SizedBox(
+  height: 20.0,
+);
+const TextStyle kHeaderTextStyle = TextStyle(
+  fontSize: 20.0,
+  fontFamily: 'ProximaNovaAltBold',
+);
 
 class InteractiveIconsDisplay extends StatelessWidget {
-  InteractiveIconsDisplay(this.icon, this.title);
+  const InteractiveIconsDisplay(this.icon, this.title, {super.key});
   final IconData icon;
   final String title;
 
@@ -173,7 +208,7 @@ class InteractiveIconsDisplay extends StatelessWidget {
 }
 
 class RoomDetailsDisplay extends StatelessWidget {
-  const RoomDetailsDisplay(this.icon, this.title);
+  const RoomDetailsDisplay(this.icon, this.title, {super.key});
   final IconData icon;
   final String title;
 
