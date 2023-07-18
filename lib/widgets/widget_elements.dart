@@ -276,6 +276,47 @@ Container propertyCardView({
   );
 }
 
+//Navigation pane
+Expanded bookingSteps(
+    {required String label,
+    required Color textColor,
+    required Color lineColor,
+    required double textSize}) {
+  return Expanded(
+    flex: 1,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          label,
+          style: textStyleHeader(color: textColor, size: textSize),
+        ),
+        Container(
+          height: 3,
+          color: lineColor,
+        ),
+      ],
+    ),
+  );
+}
+
+//Text Fields
+Column textField({required String label}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      Text(
+        label,
+        style: textStyleContent(
+          size: 14,
+          color: Color(0xFF242426),
+        ),
+      ),
+      textFieldDecoration()
+    ],
+  );
+}
+
 //STYLING
 //Content Style
 TextStyle textStyleContent({required double size, required Color color}) {
@@ -346,3 +387,51 @@ Icon iconStyle(
       color: color,
       size: size,
     );
+
+// Spacing for Column
+const SizedBox ksizedBoxTextFieldCol = SizedBox(
+  height: 10,
+);
+
+//Spacing for Rows
+const SizedBox ksizedBoxTextFieldRow = SizedBox(
+  width: 10,
+);
+
+//Spacing b/w field and buttons
+const SizedBox ksizedBoxTFB = SizedBox(
+  height: 30,
+);
+
+//Box Style
+BoxDecoration boxDecoration() {
+  return BoxDecoration(
+    borderRadius: BorderRadius.circular(16),
+    border: Border.all(
+      color: Color(0xFFBBBFC1),
+    ),
+  );
+}
+
+//Text Field Style
+TextField textFieldDecoration() {
+  return TextField(
+    decoration: InputDecoration(
+      border: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xFFBBBFC1),
+        ),
+      ),
+      focusedBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xFF242426),
+        ),
+      ),
+      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+    ),
+    style: textStyleHeader(
+      size: 18,
+      color: Color(0xFF242426),
+    ),
+  );
+}
