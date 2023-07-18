@@ -38,7 +38,7 @@ class BookedDetails extends StatelessWidget {
               Card(
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Column(
-                  children: [
+                  children: <Widget>[
                     Container(
                       decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
@@ -85,13 +85,56 @@ class BookedDetails extends StatelessWidget {
                   ],
                 ),
               ),
+              const Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(20.0, 20.0, 4.0, 0.0),
+                      child: Text(
+                        'Guest Information',
+                        style: kCardHeaderStyle,
+                      ),
+                    ),
+                    ListData(
+                      'NGUYEN VAN AHN',
+                      Icons.person_2_outlined,
+                      'Guest name',
+                    ),
+                  ],
+                ),
+              ),
+              Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0),
+                child: Column(
+                  children: [Text('Contact Info')],
+                ),
+              ),
             ],
           ),
         ),
       ),
+      // bottomNavigationBar: Container(
+      //   height: 50.0,
+      //   color: Color(0xFF1C39BA),
+      // ),
     );
   }
 }
+
+const TextStyle kCardHeaderStyle = TextStyle(
+  fontFamily: 'ProximaNovaBold',
+  fontSize: 16.0,
+);
+const TextStyle kCardSubtitleStyle = TextStyle(
+  fontSize: 14.0,
+  fontFamily: 'ProximaNovaBlack',
+);
+const TextStyle kCardTitleStyle = TextStyle(
+  fontSize: 14.0,
+  fontFamily: 'ProximaNovaRegular',
+);
 
 class ListData extends StatelessWidget {
   const ListData(this.details, this.icons, this.title);
@@ -106,14 +149,11 @@ class ListData extends StatelessWidget {
       leading: Icon(icons),
       title: Text(
         title,
-        style: const TextStyle(fontSize: 14.0),
+        style: kCardTitleStyle,
       ),
       subtitle: Text(
         details,
-        style: const TextStyle(
-          fontSize: 14.0,
-          fontFamily: 'ProximaNovaBlack',
-        ),
+        style: kCardSubtitleStyle,
       ),
     );
   }
