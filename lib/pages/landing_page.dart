@@ -26,50 +26,13 @@ class _LandingPageState extends State<LandingPage> {
             Row(children: [
               Expanded(
                 flex: 4,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search Rooms',
-                    hintStyle: TextStyle(
-                        fontSize: 16,
-                        fontFamily: 'ProximaNovaAltLight',
-                        color: Colors.grey),
-                    suffixIcon: Icon(
-                      Icons.search,
-                      color: Colors.grey,
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(color: Colors.grey),
-                    ),
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(
-                        color: Color(0xFF242731),
-                      ),
-                    ),
-                  ),
-                ),
+                child: searchBar(),
               ),
               SizedBox(
                 width: 10,
               ),
               Expanded(
-                child: Container(
-                  padding: EdgeInsets.all(7),
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Color(0xFF242731),
-                    ),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Icon(
-                    Icons.filter_list_rounded,
-                    size: 30,
-                    color: Color(0xFF242731),
-                  ),
-                ),
+                child: buildFilter(),
               ),
             ]),
             SizedBox(height: 20),
@@ -98,23 +61,19 @@ class _LandingPageState extends State<LandingPage> {
                             children: [
                               Text(
                                 'ROOM FOR',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontFamily: 'ProximaNovaAltBold'),
+                                style: textStyleHeader(
+                                    color: Colors.white, size: 20),
                               ),
                               Text(
                                 'RENT?',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 50,
-                                    fontFamily: 'ProximaNovaAltBold'),
+                                style: textStyleHeader(
+                                    color: Colors.white, size: 50),
                               )
                             ],
-                          )
+                          ),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 10),
                       Container(
                         height: 40,
                         decoration: BoxDecoration(
@@ -124,14 +83,12 @@ class _LandingPageState extends State<LandingPage> {
                         child: Center(
                           child: Text(
                             'List your property with us',
-                            style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: 'ProximaNovaAltBold',
-                                color: Colors.black),
+                            style:
+                                textStyleHeader(color: Colors.black, size: 16),
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: 10),
                       Text(
                         'With our extensive network of potential tenants and a wide range of features, we strive to make the rental process as effortless as possible.',
                         style: textStyleContent(size: 14, color: Colors.white),
@@ -142,11 +99,12 @@ class _LandingPageState extends State<LandingPage> {
                   SizedBox(width: 20),
                   Container(
                     width: 335,
-                    height: 330,
+                    height: 310,
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                        color: Color(0xFF1C39BB),
-                        borderRadius: BorderRadius.circular(16)),
+                      color: Color(0xFF1C39BB),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -196,127 +154,75 @@ class _LandingPageState extends State<LandingPage> {
               ],
             ),
             SizedBox(height: 20),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                border: Border.all(
-                  color: Color(0xFFBBBFC1),
-                ),
-              ),
-              child: Column(
-                children: [
-                  Image.asset('assets/img/rental.jpg'),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                color: Color(0xFF00B400),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                            SizedBox(width: 5),
-                            Text(
-                              'AVAILABLE',
-                              style: textStyleHeader(
-                                  color: Color(0xFF00B400), size: 12),
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Room Name',
-                              style: textStyleHeader(
-                                  color: Color(0xFF242731), size: 20),
-                            ),
-                            Text(
-                              'Starting at',
-                              style: textStyleContent(
-                                  color: Color(0xFF242731), size: 14),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Room #000',
-                              style: textStyleContent(
-                                  color: Color(0xFF242731), size: 20),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  '\$ ',
-                                  style: textStyleHeader(
-                                      color: Color(0xFF1C39BB), size: 20),
-                                ),
-                                Text(
-                                  '0000.00',
-                                  style: textStyleHeader(
-                                      color: Color(0xFF242731), size: 20),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'City Name, Region',
-                              style: textStyleHeader(
-                                  color: Color(0xFF242731), size: 12),
-                            ),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.hotel,
-                                  color: Color(0xFF1C39BB),
-                                ),
-                                Text(
-                                  ' Bedspace',
-                                  style: textStyleHeader(
-                                      color: Color(0xFF242731), size: 12),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                starRating(color: Color(0xFFFEB618), size: 25),
-                                starRating(color: Color(0xFFFEB618), size: 25),
-                                starRating(color: Color(0xFFFEB618), size: 25),
-                                starRating(color: Color(0xFFFEB618), size: 25),
-                                starRating(color: Color(0xFFDEDEDE), size: 25),
-                              ],
-                            ),
-                            Text(
-                              '4-18 people',
-                              style: textStyleContent(
-                                  color: Color(0xFF242731), size: 12),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            )
+            propertyCardView(
+              propertyImage: 'rental.jpg',
+              propertyStatus: 'AVAILABLE',
+              propertyName: 'ROOM NAME',
+              propertyNumber: 1,
+              propertyPrice: 0000.00,
+              propertyCity: 'Legazpi City',
+              propertyProvince: 'Albay',
+              propertyIcon: Icons.hotel,
+              propertyType: 'Bedspace',
+              propertyAccommodation: '4-18 people',
+              propertyStatusColor: Color(0xFF00B400),
+            ),
+            SizedBox(height: 20),
+            propertyCardView(
+              propertyImage: 'rental.jpg',
+              propertyStatus: 'AVAILABLE',
+              propertyName: 'ROOM NAME',
+              propertyNumber: 1,
+              propertyPrice: 0000.00,
+              propertyCity: 'Legazpi City',
+              propertyProvince: 'Albay',
+              propertyIcon: Icons.hotel,
+              propertyType: 'Bedspace',
+              propertyAccommodation: '4-18 people',
+              propertyStatusColor: Color(0xFF00B400),
+            ),
+            SizedBox(height: 20),
+            propertyCardView(
+              propertyImage: 'rental.jpg',
+              propertyStatus: 'AVAILABLE',
+              propertyName: 'ROOM NAME',
+              propertyNumber: 1,
+              propertyPrice: 0000.00,
+              propertyCity: 'Legazpi City',
+              propertyProvince: 'Albay',
+              propertyIcon: Icons.hotel,
+              propertyType: 'Bedspace',
+              propertyAccommodation: '4-18 people',
+              propertyStatusColor: Color(0xFF00B400),
+            ),
+            SizedBox(height: 20),
+            propertyCardView(
+              propertyImage: 'rental.jpg',
+              propertyStatus: 'AVAILABLE',
+              propertyName: 'ROOM NAME',
+              propertyNumber: 1,
+              propertyPrice: 0000.00,
+              propertyCity: 'Legazpi City',
+              propertyProvince: 'Albay',
+              propertyIcon: Icons.hotel,
+              propertyType: 'Bedspace',
+              propertyAccommodation: '4-18 people',
+              propertyStatusColor: Color(0xFF00B400),
+            ),
+            SizedBox(height: 20),
+            propertyCardView(
+              propertyImage: 'rental.jpg',
+              propertyStatus: 'AVAILABLE',
+              propertyName: 'ROOM NAME',
+              propertyNumber: 1,
+              propertyPrice: 0000.00,
+              propertyCity: 'Legazpi City',
+              propertyProvince: 'Albay',
+              propertyIcon: Icons.hotel,
+              propertyType: 'Bedspace',
+              propertyAccommodation: '4-18 people',
+              propertyStatusColor: Color(0xFF00B400),
+            ),
           ]),
         ),
       ),

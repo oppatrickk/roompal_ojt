@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//COMPONENTS
 // SideBar
 NavigationDrawer buildSideBar(BuildContext context) {
   return NavigationDrawer(
@@ -91,6 +92,194 @@ ListTile buildListTile(
   );
 }
 
+//Filter
+Container buildFilter() {
+  return Container(
+    padding: EdgeInsets.all(7),
+    decoration: BoxDecoration(
+      border: Border.all(
+        color: Color(0xFF242731),
+      ),
+      borderRadius: BorderRadius.circular(5),
+    ),
+    child: Icon(
+      Icons.filter_list_rounded,
+      size: 30,
+      color: Color(0xFF242731),
+    ),
+  );
+}
+
+//SearchBar
+TextField searchBar() {
+  return TextField(
+    decoration: InputDecoration(
+      hintText: 'Search Rooms',
+      hintStyle: textStyleContent(size: 16, color: Colors.grey),
+      suffixIcon: Icon(
+        Icons.search,
+        color: Colors.grey,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(5),
+        borderSide: BorderSide(color: Colors.grey),
+      ),
+      contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(5),
+        borderSide: BorderSide(
+          color: Color(0xFF242731),
+        ),
+      ),
+    ),
+  );
+}
+
+//Card View of Listing
+Container propertyCardView({
+  required String propertyImage,
+  required String propertyStatus,
+  required String propertyName,
+  required int propertyNumber,
+  required double propertyPrice,
+  required String propertyCity,
+  required String propertyProvince,
+  required IconData propertyIcon,
+  required String propertyType,
+  required String propertyAccommodation,
+  required Color propertyStatusColor,
+}) {
+  return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(16),
+      border: Border.all(
+        color: Color(0xFFBBBFC1),
+      ),
+    ),
+    child: Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(16),
+              topLeft: Radius.circular(16),
+            ),
+            image: DecorationImage(
+              fit: BoxFit.fitWidth,
+              image: AssetImage('assets/img/$propertyImage'),
+            ),
+          ),
+          height: 160,
+        ),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: propertyStatusColor,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  SizedBox(width: 5),
+                  Text(
+                    propertyStatus,
+                    style:
+                        textStyleHeader(color: propertyStatusColor, size: 12),
+                  )
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    propertyName,
+                    style: textStyleHeader(color: Color(0xFF242731), size: 20),
+                  ),
+                  Text(
+                    'Starting at',
+                    style: textStyleContent(color: Color(0xFF242731), size: 14),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Room #00$propertyNumber',
+                    style: textStyleContent(color: Color(0xFF242731), size: 20),
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        '\$ ',
+                        style:
+                            textStyleHeader(color: Color(0xFF1C39BB), size: 20),
+                      ),
+                      Text(
+                        '$propertyPrice',
+                        style:
+                            textStyleHeader(color: Color(0xFF242731), size: 20),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '$propertyCity, $propertyProvince',
+                    style: textStyleHeader(color: Color(0xFF242731), size: 12),
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        propertyIcon,
+                        color: Color(0xFF1C39BB),
+                      ),
+                      Text(
+                        ' $propertyType',
+                        style:
+                            textStyleHeader(color: Color(0xFF242731), size: 12),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      starRating(color: Color(0xFFFEB618), size: 25),
+                      starRating(color: Color(0xFFFEB618), size: 25),
+                      starRating(color: Color(0xFFFEB618), size: 25),
+                      starRating(color: Color(0xFFFEB618), size: 25),
+                      starRating(color: Color(0xFFDEDEDE), size: 25),
+                    ],
+                  ),
+                  Text(
+                    propertyAccommodation,
+                    style: textStyleContent(color: Color(0xFF242731), size: 12),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+//STYLING
 //Content Style
 TextStyle textStyleContent({required double size, required Color color}) {
   return TextStyle(
