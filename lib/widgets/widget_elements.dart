@@ -92,24 +92,6 @@ ListTile buildListTile(
   );
 }
 
-//Filter
-Container buildFilter() {
-  return Container(
-    padding: EdgeInsets.all(7),
-    decoration: BoxDecoration(
-      border: Border.all(
-        color: Color(0xFF242731),
-      ),
-      borderRadius: BorderRadius.circular(5),
-    ),
-    child: Icon(
-      Icons.filter_list_rounded,
-      size: 30,
-      color: Color(0xFF242731),
-    ),
-  );
-}
-
 //SearchBar
 TextField searchBar() {
   return TextField(
@@ -133,6 +115,21 @@ TextField searchBar() {
       ),
     ),
   );
+}
+
+// Filter content Show Rooms depending on its Status
+Text filterRoomStatus({required String label}) {
+  return Text(label,
+      style: TextStyle(
+        fontSize: 16,
+        fontFamily: 'ProximaNovaAltLight',
+        color: Color(0xFF242731),
+      )
+      // textStyleContent(
+      //   size: 20,
+      //   color: Color(0xFF242731),
+      // ),
+      );
 }
 
 //Card View of Listing
@@ -304,5 +301,30 @@ Icon starRating({required Color color, required double size}) {
     Icons.star_rate_rounded,
     color: color,
     size: size,
+  );
+}
+
+//Button
+GestureDetector buttonLP(
+    {required double height,
+    required Color color,
+    required String label,
+    required Color textColor,
+    required double size}) {
+  return GestureDetector(
+    child: Container(
+      height: height,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: Center(
+        child: Text(
+          label,
+          style: textStyleHeader(color: textColor, size: size),
+        ),
+      ),
+    ),
+    onTap: null,
   );
 }
