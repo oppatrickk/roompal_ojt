@@ -44,7 +44,7 @@ class RoomDetails extends StatelessWidget {
                   Text(
                     'Nearby Landmarks:',
                     style: TextStyle(
-                      fontSize: 10.0,
+                      fontSize: 12.0,
                       fontFamily: 'ProximaNovaAltBold',
                     ),
                   ),
@@ -83,7 +83,7 @@ class RoomDetails extends StatelessWidget {
                       Container(
                         color: Colors.black12,
                         height: 65,
-                        width: 100,
+                        width: 110,
                       ),
                       const SizedBox(
                         height: 5.0,
@@ -93,7 +93,7 @@ class RoomDetails extends StatelessWidget {
                           Positioned(
                             top: 37,
                             bottom: 5,
-                            left: 15,
+                            left: 30,
                             child: TextButton(
                               style: TextButton.styleFrom(
                                 backgroundColor: Colors.black38,
@@ -116,7 +116,7 @@ class RoomDetails extends StatelessWidget {
                           Container(
                             color: Colors.black12,
                             height: 65,
-                            width: 100,
+                            width: 110,
                           ),
                         ],
                       ),
@@ -213,7 +213,10 @@ class RoomDetails extends StatelessWidget {
                   'Show all Amenities',
                   style: TextStyle(color: Colors.grey),
                 ),
-              )
+              ),
+              kSizedBox,
+              divider,
+              kSizedBox,
             ],
           ),
         ),
@@ -338,12 +341,15 @@ class RoomDetailsDisplay extends StatelessWidget {
           icon,
           size: 13.0,
         ),
+        const SizedBox(
+          width: 2.0,
+        ),
         Text(
           title,
           style: const TextStyle(fontSize: 12.0),
         ),
         const SizedBox(
-          width: 10.0,
+          width: 8.0,
         ),
       ],
     );
