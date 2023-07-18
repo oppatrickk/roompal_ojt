@@ -36,6 +36,12 @@ class BookedDetails extends StatelessWidget {
                 ),
               ),
               Card(
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(
+                    color: Color(0xFF808080),
+                  ),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Column(
                   children: <Widget>[
@@ -85,11 +91,17 @@ class BookedDetails extends StatelessWidget {
                   ],
                 ),
               ),
-              const Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: Column(
+              Card(
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(
+                    color: Color(0xFF808080),
+                  ),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                margin: const EdgeInsets.symmetric(vertical: 10.0),
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: <Widget>[
                     Padding(
                       padding: EdgeInsets.fromLTRB(20.0, 20.0, 4.0, 0.0),
                       child: Text(
@@ -106,6 +118,12 @@ class BookedDetails extends StatelessWidget {
                 ),
               ),
               Card(
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(
+                    color: Color(0xFF808080),
+                  ),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -126,6 +144,12 @@ class BookedDetails extends StatelessWidget {
                 ),
               ),
               Card(
+                shape: RoundedRectangleBorder(
+                  side: const BorderSide(
+                    color: Color(0xFF808080),
+                  ),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -142,7 +166,7 @@ class BookedDetails extends StatelessWidget {
                       PriceDetails('Booking Fee', 'P ####.00'),
                       divider,
                       const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5.0),
+                        padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
@@ -173,6 +197,27 @@ class BookedDetails extends StatelessWidget {
   }
 }
 
+const Divider divider = Divider(
+  height: 1.0,
+  color: Colors.grey,
+  thickness: 1.0,
+);
+const TextStyle kCardHeaderStyle = TextStyle(
+  fontFamily: 'ProximaNovaBold',
+  fontSize: 16.0,
+);
+const TextStyle kCardSubtitleStyle = TextStyle(
+  fontSize: 14.0,
+  fontFamily: 'ProximaNovaBlack',
+);
+const TextStyle kCardTitleStyle = TextStyle(
+  fontSize: 14.0,
+  fontFamily: 'ProximaNovaRegular',
+);
+const TextStyle kCardAmountStyle = TextStyle(
+  fontSize: 14.0,
+);
+
 class PriceDetails extends StatelessWidget {
   PriceDetails(this.title, this.amount);
   final String title;
@@ -198,27 +243,6 @@ class PriceDetails extends StatelessWidget {
     );
   }
 }
-
-const Divider divider = Divider(
-  height: 1.0,
-  color: Colors.grey,
-  thickness: 1.0,
-);
-const TextStyle kCardHeaderStyle = TextStyle(
-  fontFamily: 'ProximaNovaBold',
-  fontSize: 16.0,
-);
-const TextStyle kCardSubtitleStyle = TextStyle(
-  fontSize: 14.0,
-  fontFamily: 'ProximaNovaBlack',
-);
-const TextStyle kCardTitleStyle = TextStyle(
-  fontSize: 14.0,
-  fontFamily: 'ProximaNovaRegular',
-);
-const TextStyle kCardAmountStyle = TextStyle(
-  fontSize: 14.0,
-);
 
 class InformationDetails extends StatelessWidget {
   InformationDetails(this.title, this.subtitle);
