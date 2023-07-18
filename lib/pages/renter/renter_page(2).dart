@@ -36,12 +36,7 @@ class BookedDetails extends StatelessWidget {
                 ),
               ),
               Card(
-                shape: RoundedRectangleBorder(
-                  side: const BorderSide(
-                    color: Color(0xFF808080),
-                  ),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
+                shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Column(
                   children: <Widget>[
@@ -92,12 +87,7 @@ class BookedDetails extends StatelessWidget {
                 ),
               ),
               Card(
-                shape: RoundedRectangleBorder(
-                  side: const BorderSide(
-                    color: Color(0xFF808080),
-                  ),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
+                shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,12 +108,7 @@ class BookedDetails extends StatelessWidget {
                 ),
               ),
               Card(
-                shape: RoundedRectangleBorder(
-                  side: const BorderSide(
-                    color: Color(0xFF808080),
-                  ),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
+                shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -144,12 +129,7 @@ class BookedDetails extends StatelessWidget {
                 ),
               ),
               Card(
-                shape: RoundedRectangleBorder(
-                  side: const BorderSide(
-                    color: Color(0xFF808080),
-                  ),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
+                shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Padding(
                   padding: const EdgeInsets.all(20.0),
@@ -196,6 +176,13 @@ class BookedDetails extends StatelessWidget {
     );
   }
 }
+
+RoundedRectangleBorder border = RoundedRectangleBorder(
+  side: const BorderSide(
+    color: Color(0xFF808080),
+  ),
+  borderRadius: BorderRadius.circular(10.0),
+);
 
 const Divider divider = Divider(
   height: 1.0,
