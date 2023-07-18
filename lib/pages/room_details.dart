@@ -63,7 +63,8 @@ class RoomDetails extends StatelessWidget {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  InteractiveIconsDisplay(Icons.favorite_border_outlined, 'Save'),
+                  InteractiveIconsDisplay(
+                      Icons.favorite_border_outlined, 'Save'),
                   SizedBox(
                     width: 10.0,
                   ),
@@ -96,7 +97,7 @@ class RoomDetails extends StatelessWidget {
                             left: 30,
                             child: TextButton(
                               style: TextButton.styleFrom(
-                                backgroundColor: Colors.black38,
+                                backgroundColor: Color(0xFFFEB618),
                                 shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(5),
@@ -149,12 +150,14 @@ class RoomDetails extends StatelessWidget {
                   Text(
                       'History and Fishing Museum is 8.9 miles from the vacation home, while Bluewater Bay Resort is 11 miles from the property. The nearest airport is ---- Executive Airport, 6.2 miles from Room#0000.',
                       textAlign: TextAlign.justify),
+                  kSizedBox,
                 ],
               ),
               const Card(
                 margin: EdgeInsets.symmetric(vertical: 10.0),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 10.0),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 100.0, vertical: 10.0),
                   child: Column(
                     //crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
@@ -193,7 +196,8 @@ class RoomDetails extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       AmenitiesCard('Airconditioner', Icons.air_outlined),
-                      AmenitiesCard('Washing Area', Icons.dry_cleaning_outlined),
+                      AmenitiesCard(
+                          'Washing Area', Icons.dry_cleaning_outlined),
                     ],
                   ),
                 ],
@@ -206,12 +210,13 @@ class RoomDetails extends StatelessWidget {
                       Radius.circular(10),
                     ),
                   ),
-                  padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 70.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 70.0),
                 ),
                 onPressed: null,
                 child: Text(
                   'Show all Amenities',
-                  style: TextStyle(color: Colors.grey),
+                  style: TextStyle(color: Colors.black),
                 ),
               ),
               kSizedBox,
