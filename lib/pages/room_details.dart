@@ -20,10 +20,11 @@ class RoomDetails extends StatelessWidget {
         child: Padding(
           padding: kPagePadding,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               const Text(
                 'Kwarto De Luna',
+                textAlign: TextAlign.start,
                 style: kRoomName,
               ),
               const Text(
@@ -55,25 +56,7 @@ class RoomDetails extends StatelessWidget {
                 ],
               ),
               kSizedBox,
-              TextButton(
-                style: TextButton.styleFrom(
-                  backgroundColor: const Color(0xFF1C39BB),
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                  padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 70.0),
-                ),
-                onPressed: null,
-                child: const Text(
-                  'Book This Property',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20.0,
-                  ),
-                ),
-              ),
+              const BlueTextButton('Book This Property'),
               const SizedBox(
                 height: 20.0,
               ),
@@ -108,7 +91,7 @@ class RoomDetails extends StatelessWidget {
                       Stack(
                         children: <Widget>[
                           Positioned(
-                            top: 38,
+                            top: 37,
                             bottom: 5,
                             left: 15,
                             child: TextButton(
@@ -152,19 +135,85 @@ class RoomDetails extends StatelessWidget {
                     style: kHeaderTextStyle,
                   ),
                   Text(
-                      'Located in -----, a 4-minute walk from ------ and 1.5 miles from ----- Public Beach, Seascape Room#0000 offers free WiFi and air conditioning.'),
+                      'Located in -----, a 4-minute walk from ------ and 1.5 miles from ----- Public Beach, Seascape Room#0000 offers free WiFi and air conditioning.',
+                      textAlign: TextAlign.justify),
                   SizedBox(
                     height: 10.0,
                   ),
                   Text(
-                      'The vacation home is fitted with 2 bedrooms, 2 bathrooms, bed linen, towels, a flat-screen TV with satellite channels, a dining area, a fully equipped kitchen, and a balcony with sea views. For added convenience, the property can provide towels and bed linen for an extra charge.'),
+                      'The vacation home is fitted with 2 bedrooms, 2 bathrooms, bed linen, towels, a flat-screen TV with satellite channels, a dining area, a fully equipped kitchen, and a balcony with sea views. For added convenience, the property can provide towels and bed linen for an extra charge.',
+                      textAlign: TextAlign.justify),
                   SizedBox(
                     height: 10.0,
                   ),
                   Text(
-                      'History and Fishing Museum is 8.9 miles from the vacation home, while Bluewater Bay Resort is 11 miles from the property. The nearest airport is ---- Executive Airport, 6.2 miles from Room#0000.'),
+                      'History and Fishing Museum is 8.9 miles from the vacation home, while Bluewater Bay Resort is 11 miles from the property. The nearest airport is ---- Executive Airport, 6.2 miles from Room#0000.',
+                      textAlign: TextAlign.justify),
                 ],
               ),
+              const Card(
+                margin: EdgeInsets.symmetric(vertical: 10.0),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 10.0),
+                  child: Column(
+                    //crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Price Details',
+                        style: kHeaderTextStyle,
+                      ),
+                      kSizedBox,
+                      Text('P 0000.00 /night'),
+                      Text('P 0000.00 /night'),
+                      Text('P 0000.00 /night'),
+                    ],
+                  ),
+                ),
+              ),
+              const BlueTextButton('BOOK NOW'),
+              kSizedBox,
+              divider,
+              kSizedBox,
+              const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'What this place offers',
+                    style: kHeaderTextStyle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      AmenitiesCard('Free Parking', Icons.local_parking),
+                      AmenitiesCard('Kitchen', Icons.kitchen),
+                      AmenitiesCard('Free WiFi', Icons.wifi),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      AmenitiesCard('Airconditioner', Icons.air_outlined),
+                      AmenitiesCard('Washing Area', Icons.dry_cleaning_outlined),
+                    ],
+                  ),
+                ],
+              ),
+              OutlinedButton(
+                style: TextButton.styleFrom(
+                  alignment: Alignment.center,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                  ),
+                  padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 70.0),
+                ),
+                onPressed: null,
+                child: Text(
+                  'Show all Amenities',
+                  style: TextStyle(color: Colors.grey),
+                ),
+              )
             ],
           ),
         ),
@@ -173,8 +222,77 @@ class RoomDetails extends StatelessWidget {
   }
 }
 
+class AmenitiesCard extends StatelessWidget {
+  const AmenitiesCard(
+    this.data,
+    this.icon, {
+    super.key,
+  });
+  final IconData icon;
+  final String data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
+        decoration: BoxDecoration(
+          border: Border.all(),
+        ),
+        child: ListTile(
+          contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+          horizontalTitleGap: 0.0,
+          leading: Icon(
+            icon,
+            size: 20,
+          ),
+          title: Text(
+            data,
+            style: TextStyle(
+              fontSize: 10.0,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BlueTextButton extends StatelessWidget {
+  const BlueTextButton(
+    this.buttonTitle, {
+    super.key,
+  });
+
+  final String buttonTitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      style: TextButton.styleFrom(
+        alignment: Alignment.center,
+        backgroundColor: const Color(0xFF1C39BB),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(10),
+          ),
+        ),
+        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 70.0),
+      ),
+      onPressed: null,
+      child: Text(
+        buttonTitle,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 20.0,
+        ),
+      ),
+    );
+  }
+}
+
 const SizedBox kSizedBox = SizedBox(
-  height: 20.0,
+  height: 15.0,
 );
 const TextStyle kHeaderTextStyle = TextStyle(
   fontSize: 20.0,
@@ -218,11 +336,11 @@ class RoomDetailsDisplay extends StatelessWidget {
       children: <Widget>[
         Icon(
           icon,
-          size: 10.0,
+          size: 13.0,
         ),
         Text(
           title,
-          style: const TextStyle(fontSize: 10.0),
+          style: const TextStyle(fontSize: 12.0),
         ),
         const SizedBox(
           width: 10.0,
