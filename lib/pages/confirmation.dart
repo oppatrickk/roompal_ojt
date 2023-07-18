@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/confirmation.dart';
+import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'package:roompal_ojt/pages/room_details.dart';
+
 import '../widgets/widget_elements.dart';
 
-class ContactDetails extends StatefulWidget {
-  const ContactDetails({Key? key}) : super(key: key);
-  static const String id = 'ContactDetails';
+class ConfirmationPage extends StatefulWidget {
+  const ConfirmationPage({Key? key}) : super(key: key);
+  static const String id = 'ConfirmationPage';
 
   @override
-  State<ContactDetails> createState() => _ContactDetailsState();
+  State<ConfirmationPage> createState() => _ConfirmationPageState();
 }
 
-class _ContactDetailsState extends State<ContactDetails> {
+class _ConfirmationPageState extends State<ConfirmationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +39,9 @@ class _ContactDetailsState extends State<ContactDetails> {
                   ),
                   bookingSteps(
                     label: 'Contacts',
-                    textColor: Color(0xFF1C39BB),
-                    lineColor: Color(0xFFFEB618),
-                    textSize: 18,
+                    textColor: Colors.grey,
+                    lineColor: Colors.grey,
+                    textSize: 12,
                     flex: 1,
                   ),
                   bookingSteps(
@@ -52,33 +53,98 @@ class _ContactDetailsState extends State<ContactDetails> {
                   ),
                   bookingSteps(
                     label: 'Confirmation',
-                    textColor: Colors.grey,
-                    lineColor: Colors.grey,
-                    textSize: 12,
-                    flex: 1,
+                    textColor: Color(0xFF1C39BB),
+                    lineColor: Color(0xFFFEB618),
+                    textSize: 18,
+                    flex: 2,
+                  ),
+                ],
+              ),
+              kSizedBox,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Kwarto De Luna',
+                    style: kRoomName,
+                  ),
+                  const Text(
+                    'Room #0000',
+                    style: kRoomNumber,
+                  ),
+                  const Row(
+                    children: <Widget>[
+                      RoomDetailsDisplay(Icons.star, '4.5'),
+                      RoomDetailsDisplay(Icons.person, '125 reviews'),
+                      RoomDetailsDisplay(Icons.table_restaurant, 'Studio'),
+                      RoomDetailsDisplay(Icons.pin_drop, 'Legazpi City, Bicol'),
+                    ],
+                  ),
+                  const Row(
+                    children: <Widget>[
+                      Text(
+                        'Nearby Landmarks:',
+                        style: TextStyle(
+                          fontSize: 10.0,
+                          fontFamily: 'ProximaNovaAltBold',
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5.0,
+                      ),
+                      RoomDetailsDisplay(Icons.church, 'Albay Cathedral'),
+                      RoomDetailsDisplay(Icons.park, 'Albay Park'),
+                    ],
                   ),
                 ],
               ),
               kSizedBox,
               Text(
-                'Confirm your contact data. It will take a couple of minutes.',
+                'Transaction Details',
                 style: textStyleContent(
                   size: 16,
                   color: Color(0xFF575F6E),
                 ),
               ),
-              kSizedBox,
+              ksizedBoxTextFieldCol,
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    textField(label: 'Enter Last Name'),
+                    Text(
+                      'Name',
+                      style: textStyleContent(
+                        size: 14,
+                        color: Color(0xFF242426),
+                      ),
+                    ),
                     ksizedBoxTextFieldCol,
-                    textField(label: 'Enter First Name'),
+                    confirmationDetails(details: 'Cena Una Cortson Bueno'),
                     ksizedBoxTextFieldCol,
-                    textField(label: 'Enter Middle Name'),
+                    divider,
                     ksizedBoxTextFieldCol,
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text(
+                              'Guest',
+                              style: textStyleContent(
+                                size: 14,
+                                color: Color(0xFF242426),
+                              ),
+                            ),
+                            confirmationDetails(details: '1'),
+                            ksizedBoxTextFieldCol,
+                            divider,
+                          ],
+                        )
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -198,8 +264,7 @@ class _ContactDetailsState extends State<ContactDetails> {
                         ],
                       ),
                     ),
-                    onTap: () =>
-                        Navigator.pushNamed(context, ConfirmationPage.id),
+                    onTap: null,
                   ),
                 ],
               ),
@@ -216,11 +281,21 @@ class _ContactDetailsState extends State<ContactDetails> {
                     ),
                   ),
                 ),
-                onTap: () => Navigator.pushNamed(context, RoomDetails.id),
+                onTap: null,
               )
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Container confirmationDetails({required String details}) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: Text(
+        details,
+        style: textStyleHeader(color: Color(0xFF242426), size: 18),
       ),
     );
   }

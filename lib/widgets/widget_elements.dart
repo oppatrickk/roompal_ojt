@@ -277,13 +277,15 @@ Container propertyCardView({
 }
 
 //Navigation pane
-Expanded bookingSteps(
-    {required String label,
-    required Color textColor,
-    required Color lineColor,
-    required double textSize}) {
+Expanded bookingSteps({
+  required String label,
+  required Color textColor,
+  required Color lineColor,
+  required double textSize,
+  required int flex,
+}) {
   return Expanded(
-    flex: 1,
+    flex: flex,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
