@@ -20,99 +20,110 @@ class RoomDetails extends StatelessWidget {
         child: Padding(
           padding: kPagePadding,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              const Text(
-                'Kwarto De Luna',
-                textAlign: TextAlign.start,
-                style: kRoomName,
-              ),
-              const Text(
-                'Room #0000',
-                style: kRoomNumber,
-              ),
-              const Row(
-                children: <Widget>[
-                  RoomDetailsDisplay(Icons.star, '4.5'),
-                  RoomDetailsDisplay(Icons.person, '125 reviews'),
-                  RoomDetailsDisplay(Icons.table_restaurant, 'Studio'),
-                  RoomDetailsDisplay(Icons.pin_drop, 'Legazpi City, Bicol'),
-                ],
-              ),
-              const Row(
-                children: <Widget>[
-                  Text(
-                    'Nearby Landmarks:',
-                    style: TextStyle(
-                      fontSize: 12.0,
-                      fontFamily: 'ProximaNovaAltBold',
-                    ),
-                  ),
-                  SizedBox(
-                    width: 5.0,
-                  ),
-                  RoomDetailsDisplay(Icons.church, 'Albay Cathedral'),
-                  RoomDetailsDisplay(Icons.park, 'Albay Park'),
-                ],
-              ),
-              kSizedBox,
-              const BlueTextButton('Book This Property'),
-              kSizedBox,
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+              //Header of the page
+              const Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  IconWithTextDisplay(Icons.favorite_border_outlined, 'Save', Colors.grey),
-                  ksizedBoxTextFieldRow,
-                  IconWithTextDisplay(Icons.share, 'Share', Colors.grey),
+                  Text(
+                    'Kwarto De Luna',
+                    textAlign: TextAlign.start,
+                    style: kRoomName,
+                  ),
+                  Text(
+                    'Room #0000',
+                    style: kRoomNumber,
+                  ),
+                  Row(
+                    children: <Widget>[
+                      RoomDetailsDisplay(Icons.star, '4.5'),
+                      RoomDetailsDisplay(Icons.person, '125 reviews'),
+                      RoomDetailsDisplay(Icons.table_restaurant, 'Studio'),
+                      RoomDetailsDisplay(Icons.pin_drop, 'Legazpi City, Bicol'),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Text(
+                        'Nearby Landmarks:',
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          fontFamily: 'ProximaNovaAltBold',
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5.0,
+                      ),
+                      RoomDetailsDisplay(Icons.church, 'Albay Cathedral'),
+                      RoomDetailsDisplay(Icons.park, 'Albay Park'),
+                    ],
+                  ),
+                  kSizedBox,
+                  BlueTextButton('Book This Property'),
                 ],
               ),
-              Row(
+              kSizedBox,
+              //Photos, save, and share icons
+              Column(
                 children: <Widget>[
-                  Image.asset(
-                    'assets/img/rental.jpg',
-                    height: 162,
-                    width: 200,
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      IconWithTextDisplay(Icons.favorite_border_outlined, 'Save', Colors.grey),
+                      ksizedBoxTextFieldRow,
+                      IconWithTextDisplay(Icons.share, 'Share', Colors.grey),
+                    ],
                   ),
-                  const SizedBox(width: 10),
-                  Column(
+                  Row(
                     children: <Widget>[
-                      Container(
-                        color: Colors.black12,
-                        height: 65,
-                        width: 110,
+                      Image.asset(
+                        'assets/img/rental.jpg',
+                        height: 162,
+                        width: 200,
                       ),
-                      const SizedBox(
-                        height: 5.0,
-                      ),
-                      Stack(
+                      const SizedBox(width: 10),
+                      Column(
                         children: <Widget>[
-                          Positioned(
-                            top: 37,
-                            bottom: 5,
-                            left: 30,
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                backgroundColor: const Color(0xFFFEB618),
-                                shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(5),
-                                  ),
-                                ),
-                              ),
-                              onPressed: null,
-                              child: const Text(
-                                'Show all Photos',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 7.0,
-                                ),
-                              ),
-                            ),
-                          ),
                           Container(
                             color: Colors.black12,
                             height: 65,
                             width: 110,
+                          ),
+                          const SizedBox(
+                            height: 5.0,
+                          ),
+                          Stack(
+                            children: <Widget>[
+                              Positioned(
+                                top: 37,
+                                bottom: 5,
+                                left: 30,
+                                child: TextButton(
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: const Color(0xFFFEB618),
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(5),
+                                      ),
+                                    ),
+                                  ),
+                                  onPressed: null,
+                                  child: const Text(
+                                    'Show all Photos',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 7.0,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                color: Colors.black12,
+                                height: 65,
+                                width: 110,
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -123,85 +134,96 @@ class RoomDetails extends StatelessWidget {
               kSizedBox,
               divider,
               kSizedBox,
+              //Room Details, Price Details
               const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Room Details',
-                    style: kHeaderTextStyle,
-                  ),
-                  Text(
-                      'Located in -----, a 4-minute walk from ------ and 1.5 miles from ----- Public Beach, Seascape Room#0000 offers free WiFi and air conditioning.',
-                      textAlign: TextAlign.justify),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Text(
-                      'The vacation home is fitted with 2 bedrooms, 2 bathrooms, bed linen, towels, a flat-screen TV with satellite channels, a dining area, a fully equipped kitchen, and a balcony with sea views. For added convenience, the property can provide towels and bed linen for an extra charge.',
-                      textAlign: TextAlign.justify),
-                  SizedBox(
-                    height: 10.0,
-                  ),
-                  Text(
-                      'History and Fishing Museum is 8.9 miles from the vacation home, while Bluewater Bay Resort is 11 miles from the property. The nearest airport is ---- Executive Airport, 6.2 miles from Room#0000.',
-                      textAlign: TextAlign.justify),
-                  kSizedBox,
-                ],
-              ),
-              const Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 10.0),
-                  child: Column(
-                    //crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text(
-                        'Price Details',
+                        'Room Details',
                         style: kHeaderTextStyle,
                       ),
+                      Text(
+                          'Located in -----, a 4-minute walk from ------ and 1.5 miles from ----- Public Beach, Seascape Room#0000 offers free WiFi and air conditioning.',
+                          textAlign: TextAlign.justify),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                          'The vacation home is fitted with 2 bedrooms, 2 bathrooms, bed linen, towels, a flat-screen TV with satellite channels, a dining area, a fully equipped kitchen, and a balcony with sea views. For added convenience, the property can provide towels and bed linen for an extra charge.',
+                          textAlign: TextAlign.justify),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                          'History and Fishing Museum is 8.9 miles from the vacation home, while Bluewater Bay Resort is 11 miles from the property. The nearest airport is ---- Executive Airport, 6.2 miles from Room#0000.',
+                          textAlign: TextAlign.justify),
                       kSizedBox,
-                      Text('P 0000.00 /night'),
-                      Text('P 0000.00 /night'),
-                      Text('P 0000.00 /night'),
                     ],
                   ),
-                ),
-              ),
-              const BlueTextButton('BOOK NOW'),
-              kSizedBox,
-              divider,
-              kSizedBox,
-              const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'What this place offers',
-                    style: kHeaderTextStyle,
+                  Card(
+                    margin: EdgeInsets.symmetric(vertical: 10.0),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 10.0),
+                      child: Column(
+                        //crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Price Details',
+                            style: kHeaderTextStyle,
+                          ),
+                          kSizedBox,
+                          Text('P 0000.00 /night'),
+                          Text('P 0000.00 /night'),
+                          Text('P 0000.00 /night'),
+                        ],
+                      ),
+                    ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      AmenitiesCard('Free Parking', Icons.local_parking),
-                      AmenitiesCard('Kitchen', Icons.kitchen),
-                      AmenitiesCard('Free WiFi', Icons.wifi),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      AmenitiesCard('Airconditioner', Icons.air_outlined),
-                      AmenitiesCard('Washing Area', Icons.dry_cleaning_outlined),
-                    ],
-                  ),
+                  const BlueTextButton('BOOK NOW'),
                 ],
               ),
-              ksizedBoxTextFieldCol,
-              Container(
-                  child: noButtonIcons(
-                      onPressed: null, label: 'Show all Amenities', isBorderRequired: true, buttonColor: Colors.white, textColor: Colors.black)),
               kSizedBox,
               divider,
               kSizedBox,
+              //Amenities
+              Column(
+                children: [
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'What this place offers',
+                        style: kHeaderTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          AmenitiesCard('Free Parking', Icons.local_parking),
+                          AmenitiesCard('Kitchen', Icons.kitchen),
+                          AmenitiesCard('Free WiFi', Icons.wifi),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          AmenitiesCard('Airconditioner', Icons.air_outlined),
+                          AmenitiesCard('Washing Area', Icons.dry_cleaning_outlined),
+                        ],
+                      ),
+                    ],
+                  ),
+                  ksizedBoxTextFieldCol,
+                  Container(
+                      child: noButtonIcons(
+                          onPressed: null, label: 'Show all Amenities', isBorderRequired: true, buttonColor: Colors.white, textColor: Colors.black)),
+                ],
+              ),
+              kSizedBox,
+              divider,
+              kSizedBox,
+              //Map
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -216,9 +238,8 @@ class RoomDetails extends StatelessWidget {
               kSizedBox,
               divider,
               kSizedBox,
+              //House Rules
               const Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     'House Rules',
@@ -245,9 +266,10 @@ class RoomDetails extends StatelessWidget {
               kSizedBox,
               divider,
               kSizedBox,
+              //Reviews
               Column(
                 children: <Widget>[
-                  Row(
+                  const Row(
                     children: <Widget>[
                       IconWithText(Icons.star, '4.5', Colors.black),
                       ksizedBoxTextFieldRow,
@@ -255,14 +277,22 @@ class RoomDetails extends StatelessWidget {
                     ],
                   ),
                   ksizedBoxTextFieldCol,
-                  ReviewCard(),
-                  ReviewCard(),
-                  ReviewCard(),
+                  const ReviewCard(),
+                  const ReviewCard(),
+                  const ReviewCard(),
                   ksizedBoxTextFieldCol,
                   noButtonIcons(
-                      onPressed: null, label: 'Show All Reviews', isBorderRequired: true, buttonColor: Colors.white, textColor: Colors.black),
+                    onPressed: null,
+                    label: 'Show All Reviews',
+                    isBorderRequired: true,
+                    buttonColor: Colors.white,
+                    textColor: Colors.black,
+                  ),
                 ],
               ),
+              kSizedBox,
+              divider,
+              kSizedBox,
             ],
           ),
         ),
