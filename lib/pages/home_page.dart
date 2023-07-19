@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/booking.dart';
 import 'package:roompal_ojt/pages/booking_summary.dart';
 import 'package:roompal_ojt/pages/contact_details.dart';
+import 'package:roompal_ojt/pages/contact_overview.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/payment_fail.dart';
 import 'package:roompal_ojt/pages/payment_success.dart';
@@ -89,6 +90,12 @@ class _MyHomePageState extends State<MyHomePage> {
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, PaymentFail.id);
+                },
+                child: const Text('payment fail'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ContactOverview.id);
                 },
                 child: const Text('payment fail'),
               ),
