@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/booking.dart';
+import 'package:roompal_ojt/pages/booking_summary.dart';
+import 'package:roompal_ojt/pages/contact_details.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
-import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
+import 'package:roompal_ojt/pages/payment_fail.dart';
+import 'package:roompal_ojt/pages/payment_success.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(0).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
@@ -60,9 +64,33 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, OverviewPage.id);
+                  Navigator.pushNamed(context, ContactDetails.id);
                 },
-                child: const Text('Property Owner: Overview'),
+                child: const Text('Contact Details'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, Booking.id);
+                },
+                child: const Text('booking'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, BookingSummary.id);
+                },
+                child: const Text('booking summary'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PaymentSuccess.id);
+                },
+                child: const Text('payment success'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PaymentFail.id);
+                },
+                child: const Text('payment fail'),
               ),
             ],
           ),

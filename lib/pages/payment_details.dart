@@ -74,6 +74,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   decoration: boxDecoration(),
                   child: Column(
                     children: <Widget>[
+<<<<<<< HEAD
                       Row(
                         children: <Widget>[
                           Container(
@@ -84,6 +85,14 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                                 color: Color(0xFF242731),
                               ),
                             ),
+=======
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(
+                            color: Color(0xFF242731),
+>>>>>>> e9938b07790dde77a6c66a42e23a49bb5da1850c
                           ),
                           ksizedBoxTextFieldRow,
                           Expanded(

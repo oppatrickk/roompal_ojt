@@ -48,7 +48,7 @@ class RenterPage1 extends StatelessWidget {
 }
 
 class BookDetails extends StatelessWidget {
-  const BookDetails(this.status, this.condition, this.textColor);
+  const BookDetails(this.status, this.condition, this.textColor, {super.key});
 
   final Color status;
   final Color textColor;

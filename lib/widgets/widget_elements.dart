@@ -6,70 +6,69 @@ import 'const_elements.dart';
 // SideBar
 NavigationDrawer buildSideBar(BuildContext context) {
   return NavigationDrawer(
-    children: [
+    children: <Widget>[
       Padding(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
-          children: [
+          children: <Widget>[
             ListTile(
-              title: Text('Welcome User!'),
-              titleTextStyle:
-                  textStyleHeader(color: Color(0xFF1C39BB), size: 28),
-              trailing: Icon(Icons.close),
+              title: const Text('Welcome User!'),
+              titleTextStyle: textStyleHeader(color: const Color(0xFF1C39BB), size: 28),
+              trailing: const Icon(Icons.close),
               onTap: () => Navigator.pop(context),
             ),
             const Divider(
               color: Color(0xFFB9B9C3),
             ),
             buildListTile(
-              leadingIcon: Icon(Icons.person),
+              leadingIcon: const Icon(Icons.person),
               label: 'Sign up',
-              trailingIcon: Icon(Icons.arrow_right),
+              trailingIcon: const Icon(Icons.arrow_right),
               onTap: null,
             ),
             buildListTile(
-              leadingIcon: Icon(Icons.person),
+              leadingIcon: const Icon(Icons.person),
               label: 'Log in',
-              trailingIcon: Icon(Icons.arrow_right),
+              trailingIcon: const Icon(Icons.arrow_right),
               onTap: null,
             ),
             const Divider(
               color: Color(0xFFB9B9C3),
             ),
             buildListTile(
-              leadingIcon: Icon(Icons.info),
+              leadingIcon: const Icon(Icons.info),
               label: 'About Us',
-              trailingIcon: Icon(Icons.arrow_right),
+              trailingIcon: const Icon(Icons.arrow_right),
               onTap: null,
             ),
             buildListTile(
-              leadingIcon: Icon(Icons.policy),
+              leadingIcon: const Icon(Icons.policy),
               label: 'Privacy Policy',
-              trailingIcon: Icon(Icons.arrow_right),
+              trailingIcon: const Icon(Icons.arrow_right),
               onTap: null,
             ),
             buildListTile(
-              leadingIcon: Icon(Icons.phone),
+              leadingIcon: const Icon(Icons.phone),
               label: 'Contact Us',
-              trailingIcon: Icon(Icons.arrow_right),
+              trailingIcon: const Icon(Icons.arrow_right),
               onTap: null,
             ),
             buildListTile(
-              leadingIcon: Icon(Icons.info),
+              leadingIcon: const Icon(Icons.info),
               label: 'Social Media',
-              trailingIcon: Icon(Icons.arrow_right),
+              trailingIcon: const Icon(Icons.arrow_right),
               onTap: null,
             ),
             buildListTile(
-              leadingIcon: Icon(Icons.info),
+              leadingIcon: const Icon(Icons.info),
               label: 'Terms and Condition',
-              trailingIcon: Icon(Icons.arrow_right),
+              trailingIcon: const Icon(Icons.arrow_right),
               onTap: null,
             ),
             buildListTile(
-              leadingIcon: Icon(Icons.info),
+              leadingIcon: const Icon(Icons.info),
               label: 'FAQs',
-              trailingIcon: Icon(Icons.arrow_right),
+              trailingIcon: const Icon(Icons.arrow_right),
               onTap: null,
             ),
           ],
@@ -80,15 +79,11 @@ NavigationDrawer buildSideBar(BuildContext context) {
 }
 
 // Content in SideBar
-ListTile buildListTile(
-    {required Icon leadingIcon,
-    required String label,
-    required Icon trailingIcon,
-    required Function? onTap}) {
+ListTile buildListTile({required Icon leadingIcon, required String label, required Icon trailingIcon, required Function? onTap}) {
   return ListTile(
     leading: leadingIcon,
     title: Text(label),
-    titleTextStyle: textStyleContent(size: 20, color: Color(0xFF242731)),
+    titleTextStyle: textStyleContent(size: 20, color: const Color(0xFF242731)),
     trailing: trailingIcon,
     onTap: () => onTap,
   );
@@ -100,18 +95,18 @@ TextField searchBar() {
     decoration: InputDecoration(
       hintText: 'Search Rooms',
       hintStyle: textStyleContent(size: 16, color: Colors.grey),
-      suffixIcon: Icon(
+      suffixIcon: const Icon(
         Icons.search,
         color: Colors.grey,
       ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(5),
-        borderSide: BorderSide(color: Colors.grey),
+        borderSide: const BorderSide(color: Colors.grey),
       ),
-      contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(5),
-        borderSide: BorderSide(
+        borderSide: const BorderSide(
           color: Color(0xFF242731),
         ),
       ),
@@ -122,7 +117,7 @@ TextField searchBar() {
 // Filter content Show Rooms depending on its Status
 Text filterRoomStatus({required String label}) {
   return Text(label,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 16,
         fontFamily: 'ProximaNovaAltLight',
         color: Color(0xFF242731),
@@ -152,14 +147,14 @@ Container propertyCardView({
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(16),
       border: Border.all(
-        color: Color(0xFFBBBFC1),
+        color: const Color(0xFFBBBFC1),
       ),
     ),
     child: Column(
-      children: [
+      children: <Widget>[
         Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topRight: Radius.circular(16),
               topLeft: Radius.circular(16),
             ),
@@ -171,57 +166,54 @@ Container propertyCardView({
           height: 160,
         ),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
-            children: [
+            children: <Widget>[
               Row(
-                children: [
+                children: <Widget>[
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       color: propertyStatusColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   Text(
                     propertyStatus,
-                    style:
-                        textStyleHeader(color: propertyStatusColor, size: 12),
+                    style: textStyleHeader(color: propertyStatusColor, size: 12),
                   )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   Text(
                     propertyName,
-                    style: textStyleHeader(color: Color(0xFF242731), size: 20),
+                    style: textStyleHeader(color: const Color(0xFF242731), size: 20),
                   ),
                   Text(
                     'Starting at',
-                    style: textStyleContent(color: Color(0xFF242731), size: 14),
+                    style: textStyleContent(color: const Color(0xFF242731), size: 14),
                   ),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   Text(
                     'Room #00$propertyNumber',
-                    style: textStyleContent(color: Color(0xFF242731), size: 20),
+                    style: textStyleContent(color: const Color(0xFF242731), size: 20),
                   ),
                   Row(
-                    children: [
+                    children: <Widget>[
                       Text(
                         '\$ ',
-                        style:
-                            textStyleHeader(color: Color(0xFF1C39BB), size: 20),
+                        style: textStyleHeader(color: const Color(0xFF1C39BB), size: 20),
                       ),
                       Text(
                         '$propertyPrice',
-                        style:
-                            textStyleHeader(color: Color(0xFF242731), size: 20),
+                        style: textStyleHeader(color: const Color(0xFF242731), size: 20),
                       ),
                     ],
                   ),
@@ -229,44 +221,43 @@ Container propertyCardView({
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   Text(
                     '$propertyCity, $propertyProvince',
-                    style: textStyleHeader(color: Color(0xFF242731), size: 12),
+                    style: textStyleHeader(color: const Color(0xFF242731), size: 12),
                   ),
                   Row(
-                    children: [
+                    children: <Widget>[
                       Icon(
                         propertyIcon,
-                        color: Color(0xFF1C39BB),
+                        color: const Color(0xFF1C39BB),
                       ),
                       Text(
                         ' $propertyType',
-                        style:
-                            textStyleHeader(color: Color(0xFF242731), size: 12),
+                        style: textStyleHeader(color: const Color(0xFF242731), size: 12),
                       ),
                     ],
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   Row(
-                    children: [
-                      starRating(color: Color(0xFFFEB618), size: 25),
-                      starRating(color: Color(0xFFFEB618), size: 25),
-                      starRating(color: Color(0xFFFEB618), size: 25),
-                      starRating(color: Color(0xFFFEB618), size: 25),
-                      starRating(color: Color(0xFFDEDEDE), size: 25),
+                    children: <Widget>[
+                      starRating(color: const Color(0xFFFEB618), size: 25),
+                      starRating(color: const Color(0xFFFEB618), size: 25),
+                      starRating(color: const Color(0xFFFEB618), size: 25),
+                      starRating(color: const Color(0xFFFEB618), size: 25),
+                      starRating(color: const Color(0xFFDEDEDE), size: 25),
                     ],
                   ),
                   Text(
                     propertyAccommodation,
-                    style: textStyleContent(color: Color(0xFF242731), size: 12),
+                    style: textStyleContent(color: const Color(0xFF242731), size: 12),
                   ),
                 ],
               )
@@ -290,7 +281,7 @@ Expanded bookingSteps({
     flex: flex,
     child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+      children: <Widget>[
         Text(
           label,
           style: textStyleHeader(color: textColor, size: textSize),
@@ -308,12 +299,12 @@ Expanded bookingSteps({
 Column textField({required String label}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
-    children: [
+    children: <Widget>[
       Text(
         label,
         style: textStyleContent(
           size: 14,
-          color: Color(0xFF242426),
+          color: const Color(0xFF242426),
         ),
       ),
       textFieldDecoration()
@@ -332,10 +323,10 @@ TextButton navigationButton({
     onPressed: onPressed,
     style: ButtonStyle(
       padding: MaterialStateProperty.all(
-        EdgeInsetsDirectional.symmetric(horizontal: 27, vertical: 15),
+        const EdgeInsetsDirectional.symmetric(horizontal: 27, vertical: 15),
       ),
       side: MaterialStateProperty.all(
-        BorderSide(
+        const BorderSide(
           color: Color(0xFFBBBFC1),
         ),
       ),
@@ -347,23 +338,39 @@ TextButton navigationButton({
     ),
     child: isGoBack == true
         ? Row(
+<<<<<<< HEAD
             children: [
               iconStyle(icon: icon, color: Color(0xFF242426), size: 20),
               ksizedBoxTextFieldRow,
               Text(
                 label,
                 style: TextStyle(color: Color(0xFF242426), fontSize: 14.0),
+=======
+            children: <Widget>[
+              iconStyle(icon: icon, color: const Color(0xFF242426), size: 24),
+              ksizedBoxTextFieldRow,
+              Text(
+                label,
+                style: textStyleHeader(color: const Color(0xFF242426), size: 16),
+>>>>>>> e9938b07790dde77a6c66a42e23a49bb5da1850c
               )
             ],
           )
         : Row(
-            children: [
+            children: <Widget>[
               Text(
                 label,
+<<<<<<< HEAD
                 style: TextStyle(color: Color(0xFF242426), fontSize: 14.0),
               ),
               ksizedBoxTextFieldRow,
               iconStyle(icon: icon, color: Color(0xFF242426), size: 20),
+=======
+                style: textStyleHeader(color: const Color(0xFF242426), size: 16),
+              ),
+              ksizedBoxTextFieldRow,
+              iconStyle(icon: icon, color: const Color(0xFF242426), size: 24),
+>>>>>>> e9938b07790dde77a6c66a42e23a49bb5da1850c
             ],
           ),
   );
@@ -381,11 +388,11 @@ TextButton noButtonIcons({
     onPressed: onPressed,
     style: ButtonStyle(
       padding: MaterialStateProperty.all(
-        EdgeInsetsDirectional.symmetric(horizontal: 27, vertical: 15),
+        const EdgeInsetsDirectional.symmetric(horizontal: 27, vertical: 15),
       ),
       side: isBorderRequired == true
           ? MaterialStateProperty.all(
-              BorderSide(
+              const BorderSide(
                 color: Color(0xFFBBBFC1),
               ),
             )
@@ -400,12 +407,13 @@ TextButton noButtonIcons({
     child: Center(
       child: Text(
         label,
-        style: TextStyle(color: Color(0xFF242426), fontSize: 14.0),
+        style: const TextStyle(color: Color(0xFF242426), fontSize: 14.0),
       ),
     ),
   );
 }
 
+<<<<<<< HEAD
 // Circle indicator in Property Owner Create listing page
 Container circleIcon(
     {required bool? isFillRequired, required bool? isBorderRequired}) {
@@ -435,6 +443,8 @@ Padding lineBetweenCI({required bool? isTrue}) {
   );
 }
 
+=======
+>>>>>>> e9938b07790dde77a6c66a42e23a49bb5da1850c
 //STYLING
 //Content Style
 TextStyle textStyleContent({required double size, required Color color}) {
@@ -464,13 +474,9 @@ Icon starRating({required Color color, required double size}) {
 }
 
 //Button
-GestureDetector buttonLP(
-    {required double height,
-    required Color color,
-    required String label,
-    required Color textColor,
-    required double size}) {
+GestureDetector buttonLP({required double height, required Color color, required String label, required Color textColor, required double size}) {
   return GestureDetector(
+    onTap: null,
     child: Container(
       height: height,
       decoration: BoxDecoration(
@@ -484,24 +490,21 @@ GestureDetector buttonLP(
         ),
       ),
     ),
-    onTap: null,
   );
 }
 
 //Dot Separator
 Container dotSeparator() {
   return Container(
-    padding: EdgeInsets.all(2),
+    padding: const EdgeInsets.all(2),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(10),
-      color: Color(0xFF242731),
+      color: const Color(0xFF242731),
     ),
   );
 }
 
-Icon iconStyle(
-        {required IconData icon, required Color color, required double size}) =>
-    Icon(
+Icon iconStyle({required IconData icon, required Color color, required double size}) => Icon(
       icon,
       color: color,
       size: size,
@@ -512,7 +515,7 @@ BoxDecoration boxDecoration() {
   return BoxDecoration(
     borderRadius: BorderRadius.circular(16),
     border: Border.all(
-      color: Color(0xFFBBBFC1),
+      color: const Color(0xFFBBBFC1),
     ),
   );
 }
@@ -520,7 +523,7 @@ BoxDecoration boxDecoration() {
 //Text Field Style
 TextField textFieldDecoration() {
   return TextField(
-    decoration: InputDecoration(
+    decoration: const InputDecoration(
       border: UnderlineInputBorder(
         borderSide: BorderSide(
           color: Color(0xFFBBBFC1),
@@ -535,7 +538,7 @@ TextField textFieldDecoration() {
     ),
     style: textStyleHeader(
       size: 18,
-      color: Color(0xFF242426),
+      color: const Color(0xFF242426),
     ),
   );
 }
@@ -550,12 +553,12 @@ Expanded displayDetails({
     flex: flex,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         Text(
           label,
           style: textStyleContent(
             size: 14,
-            color: Color(0xFF242426),
+            color: const Color(0xFF242426),
           ),
         ),
         confirmationDetails(details: details),
@@ -570,10 +573,10 @@ Expanded displayDetails({
 //Style for displaying details
 Container confirmationDetails({required String details}) {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 10),
+    padding: const EdgeInsets.symmetric(horizontal: 10),
     child: Text(
       details,
-      style: textStyleHeader(color: Color(0xFF242426), size: 18),
+      style: textStyleHeader(color: const Color(0xFF242426), size: 18),
     ),
   );
 }

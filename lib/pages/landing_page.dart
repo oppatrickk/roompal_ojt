@@ -16,33 +16,33 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset("assets/img/wmB.png"),
+        title: Image.asset('assets/img/wmB.png'),
       ),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-          child: Column(children: [
-            Row(children: [
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+          child: Column(children: <Widget>[
+            Row(children: <Widget>[
               Expanded(
                 flex: 4,
                 child: searchBar(),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Expanded(
                 child: GestureDetector(
                   child: Container(
-                    padding: EdgeInsets.all(7),
+                    padding: const EdgeInsets.all(7),
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Color(0xFF242731),
+                        color: const Color(0xFF242731),
                       ),
                       borderRadius: BorderRadius.circular(5),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.filter_list_rounded,
                       size: 30,
                       color: Color(0xFF242731),
@@ -50,10 +50,10 @@ class _LandingPageState extends State<LandingPage> {
                   ),
                   onTap: () => showModalBottomSheet(
                     context: context,
-                    builder: (context) {
+                    builder: (BuildContext context) {
                       return Container(
                         height: 700,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topRight: Radius.circular(16),
                             topLeft: Radius.circular(16),
@@ -61,18 +61,16 @@ class _LandingPageState extends State<LandingPage> {
                           color: Colors.white,
                         ),
                         child: Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                           child: Column(
-                            children: [
+                            children: <Widget>[
                               Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
                                   Text(
                                     'Filters',
                                     style: textStyleHeader(
-                                      color: Color(0xFF1C39BB),
+                                      color: const Color(0xFF1C39BB),
                                       size: 24,
                                     ),
                                   ),
@@ -93,33 +91,27 @@ class _LandingPageState extends State<LandingPage> {
                                 color: Color(0xFFB9B9C3),
                               ),
                               Column(
-                                children: [
-                                  SizedBox(height: 20),
+                                children: <Widget>[
+                                  const SizedBox(height: 20),
                                   Column(
-                                    children: [
-                                      filterContents(
-                                          label: 'Show Occupied Rooms'),
-                                      filterContents(
-                                          label: 'Show Vacant Rooms'),
+                                    children: <Widget>[
+                                      filterContents(label: 'Show Occupied Rooms'),
+                                      filterContents(label: 'Show Vacant Rooms'),
                                     ],
                                   ),
-                                  SizedBox(height: 20),
+                                  const SizedBox(height: 20),
                                   Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: <Widget>[
                                       Text(
                                         'Type of Room',
-                                        style: textStyleHeader(
-                                            color: Color(0xFF242731), size: 20),
+                                        style: textStyleHeader(color: const Color(0xFF242731), size: 20),
                                       ),
                                       Container(
-                                        padding: EdgeInsets.only(left: 20),
-                                        child: Column(children: [
-                                          filterContents(
-                                              label: 'Boarding House'),
+                                        padding: const EdgeInsets.only(left: 20),
+                                        child: Column(children: <Widget>[
+                                          filterContents(label: 'Boarding House'),
                                           filterContents(label: 'Bedspace'),
                                           filterContents(label: 'Apartment'),
                                           filterContents(label: 'Studio'),
@@ -129,13 +121,8 @@ class _LandingPageState extends State<LandingPage> {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 80),
-                              buttonLP(
-                                  height: 40,
-                                  color: Color(0xFF1C39BB),
-                                  label: 'Apply Filter',
-                                  textColor: Colors.white,
-                                  size: 16),
+                              const SizedBox(height: 80),
+                              buttonLP(height: 40, color: const Color(0xFF1C39BB), label: 'Apply Filter', textColor: Colors.white, size: 16),
                             ],
                           ),
                         ),
@@ -145,52 +132,43 @@ class _LandingPageState extends State<LandingPage> {
                 ),
               ),
             ]),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: [
+                children: <Widget>[
                   Container(
                     width: 335,
-                    padding: EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                        color: Color(0xFF1C39BB),
-                        borderRadius: BorderRadius.circular(16)),
-                    child: Column(children: [
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(color: const Color(0xFF1C39BB), borderRadius: BorderRadius.circular(16)),
+                    child: Column(children: <Widget>[
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: <Widget>[
                           Image.asset(
                             'assets/img/house.png',
                             height: 130,
                             width: 130,
                           ),
-                          SizedBox(width: 10),
+                          const SizedBox(width: 10),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                            children: <Widget>[
                               Text(
                                 'ROOM FOR',
-                                style: textStyleHeader(
-                                    color: Colors.white, size: 20),
+                                style: textStyleHeader(color: Colors.white, size: 20),
                               ),
                               Text(
                                 'RENT?',
-                                style: textStyleHeader(
-                                    color: Colors.white, size: 50),
+                                style: textStyleHeader(color: Colors.white, size: 50),
                               )
                             ],
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
-                      buttonLP(
-                          height: 40,
-                          color: Color(0xFFFEB618),
-                          label: 'List your property with us',
-                          textColor: Colors.black,
-                          size: 16),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
+                      buttonLP(height: 40, color: const Color(0xFFFEB618), label: 'List your property with us', textColor: Colors.black, size: 16),
+                      const SizedBox(height: 10),
                       Text(
                         'With our extensive network of potential tenants and a wide range of features, we strive to make the rental process as effortless as possible.',
                         style: textStyleContent(size: 14, color: Colors.white),
@@ -198,27 +176,26 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                     ]),
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Container(
                     width: 335,
                     height: 310,
-                    padding: EdgeInsets.all(20),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Color(0xFF1C39BB),
+                      color: const Color(0xFF1C39BB),
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: <Widget>[
                         Expanded(
                           flex: 6,
                           child: Text(
                             'Promotional Stuff',
-                            style:
-                                textStyleHeader(color: Colors.white, size: 28),
+                            style: textStyleHeader(color: Colors.white, size: 28),
                           ),
                         ),
-                        Expanded(
+                        const Expanded(
                           child: Center(
                             child: Icon(
                               Icons.arrow_forward_ios_rounded,
@@ -233,11 +210,11 @@ class _LandingPageState extends State<LandingPage> {
                 ],
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
+              children: <Widget>[
+                const SizedBox(
                   width: 35,
                   child: Divider(
                     color: Color(0xFF242731),
@@ -245,9 +222,9 @@ class _LandingPageState extends State<LandingPage> {
                 ),
                 Text(
                   'HELPING YOU FIND A PLACE TO CALL HOME',
-                  style: textStyleHeader(color: Color(0xFF242731), size: 12),
+                  style: textStyleHeader(color: const Color(0xFF242731), size: 12),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 35,
                   child: Divider(
                     color: Color(0xFF242731),
@@ -255,7 +232,7 @@ class _LandingPageState extends State<LandingPage> {
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             GestureDetector(
               child: propertyCardView(
                 propertyImage: 'rental.jpg',
@@ -268,11 +245,11 @@ class _LandingPageState extends State<LandingPage> {
                 propertyIcon: Icons.hotel,
                 propertyType: 'Bedspace',
                 propertyAccommodation: '4-18 people',
-                propertyStatusColor: Color(0xFF00B400),
+                propertyStatusColor: const Color(0xFF00B400),
               ),
               onTap: () => Navigator.pushNamed(context, ContactDetails.id),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             propertyCardView(
               propertyImage: 'rental.jpg',
               propertyStatus: 'AVAILABLE',
@@ -284,9 +261,9 @@ class _LandingPageState extends State<LandingPage> {
               propertyIcon: Icons.hotel,
               propertyType: 'Bedspace',
               propertyAccommodation: '4-18 people',
-              propertyStatusColor: Color(0xFF00B400),
+              propertyStatusColor: const Color(0xFF00B400),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             propertyCardView(
               propertyImage: 'rental.jpg',
               propertyStatus: 'AVAILABLE',
@@ -298,9 +275,9 @@ class _LandingPageState extends State<LandingPage> {
               propertyIcon: Icons.hotel,
               propertyType: 'Bedspace',
               propertyAccommodation: '4-18 people',
-              propertyStatusColor: Color(0xFF00B400),
+              propertyStatusColor: const Color(0xFF00B400),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             propertyCardView(
               propertyImage: 'rental.jpg',
               propertyStatus: 'AVAILABLE',
@@ -312,9 +289,9 @@ class _LandingPageState extends State<LandingPage> {
               propertyIcon: Icons.hotel,
               propertyType: 'Bedspace',
               propertyAccommodation: '4-18 people',
-              propertyStatusColor: Color(0xFF00B400),
+              propertyStatusColor: const Color(0xFF00B400),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             propertyCardView(
               propertyImage: 'rental.jpg',
               propertyStatus: 'AVAILABLE',
@@ -326,7 +303,7 @@ class _LandingPageState extends State<LandingPage> {
               propertyIcon: Icons.hotel,
               propertyType: 'Bedspace',
               propertyAccommodation: '4-18 people',
-              propertyStatusColor: Color(0xFF00B400),
+              propertyStatusColor: const Color(0xFF00B400),
             ),
           ]),
         ),
@@ -338,7 +315,7 @@ class _LandingPageState extends State<LandingPage> {
   Row filterContents({required String label}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
-      children: [
+      children: <Widget>[
         SizedBox(
           height: 24,
           width: 24,
@@ -352,7 +329,7 @@ class _LandingPageState extends State<LandingPage> {
                 } else {}
               }),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         filterRoomStatus(label: label)
       ],
     );

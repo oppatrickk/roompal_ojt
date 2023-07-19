@@ -17,17 +17,17 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset("assets/img/wmB.png"),
+        title: Image.asset('assets/img/wmB.png'),
       ),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          padding: const EdgeInsets.all(20),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: <Widget>[
             Row(
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.ideographic,
-              children: [
+              children: <Widget>[
                 bookingSteps(
                   label: 'Booking',
                   textColor: Colors.grey,
@@ -51,26 +51,26 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                 ),
                 bookingSteps(
                   label: 'Confirmation',
-                  textColor: Color(0xFF1C39BB),
-                  lineColor: Color(0xFFFEB618),
+                  textColor: const Color(0xFF1C39BB),
+                  lineColor: const Color(0xFFFEB618),
                   textSize: 18,
                   flex: 2,
                 ),
               ],
             ),
             kSizedBox,
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
+              children: <Widget>[
+                Text(
                   'Kwarto De Luna',
                   style: kRoomName,
                 ),
-                const Text(
+                Text(
                   'Room #0000',
                   style: kRoomNumber,
                 ),
-                const Row(
+                Row(
                   children: <Widget>[
                     RoomDetailsDisplay(Icons.star, '4.5'),
                     RoomDetailsDisplay(Icons.person, '125 reviews'),
@@ -78,7 +78,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                     RoomDetailsDisplay(Icons.pin_drop, 'Legazpi City, Bicol'),
                   ],
                 ),
-                const Row(
+                Row(
                   children: <Widget>[
                     Text(
                       'Nearby Landmarks:',
@@ -101,21 +101,21 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
               'Transaction Details',
               style: textStyleContent(
                 size: 16,
-                color: Color(0xFF575F6E),
+                color: const Color(0xFF575F6E),
               ),
             ),
             ksizedBoxTextFieldCol,
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: boxDecoration(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Text(
                     'Name',
                     style: textStyleContent(
                       size: 14,
-                      color: Color(0xFF242426),
+                      color: const Color(0xFF242426),
                     ),
                   ),
                   ksizedBoxTextFieldCol,
@@ -124,7 +124,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                   divider,
                   ksizedBoxTextFieldCol,
                   Row(
-                    children: [
+                    children: <Widget>[
                       displayDetails(
                         label: 'Guest',
                         details: '1',
@@ -143,20 +143,20 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
             ),
             kSizedBox,
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: boxDecoration(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Text(
                     'Phone Number',
                     style: textStyleContent(
                       size: 14,
-                      color: Color(0xFF242426),
+                      color: const Color(0xFF242426),
                     ),
                   ),
                   Row(
-                    children: [
+                    children: <Widget>[
                       displayDetails(
                         label: '',
                         details: '+63',
@@ -175,16 +175,16 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
             ),
             kSizedBox,
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: boxDecoration(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Text(
                     'Check in & Check out Date',
                     style: textStyleContent(
                       size: 14,
-                      color: Color(0xFF242426),
+                      color: const Color(0xFF242426),
                     ),
                   ),
                   ksizedBoxTextFieldCol,
@@ -197,16 +197,16 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
             ),
             kSizedBox,
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: boxDecoration(),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: <Widget>[
                   Text(
                     'Email',
                     style: textStyleContent(
                       size: 14,
-                      color: Color(0xFF242426),
+                      color: const Color(0xFF242426),
                     ),
                   ),
                   ksizedBoxTextFieldCol,
@@ -220,7 +220,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
             ksizedBoxTFB,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 navigationButton(
                     onPressed: () => Navigator.pushNamed(context, PaymentDetails.id), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                 navigationButton(onPressed: null, label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
@@ -232,7 +232,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
               label: 'Cancel',
               isBorderRequired: true,
               buttonColor: Colors.white,
-              textColor: Color(0xFF242426),
+              textColor: const Color(0xFF242426),
             ),
           ]),
         ),
