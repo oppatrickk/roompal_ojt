@@ -348,11 +348,11 @@ TextButton navigationButton({
     child: isGoBack == true
         ? Row(
             children: [
-              iconStyle(icon: icon, color: Color(0xFF242426), size: 24),
+              iconStyle(icon: icon, color: Color(0xFF242426), size: 20),
               ksizedBoxTextFieldRow,
               Text(
                 label,
-                style: textStyleHeader(color: Color(0xFF242426), size: 16),
+                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0),
               )
             ],
           )
@@ -360,10 +360,10 @@ TextButton navigationButton({
             children: [
               Text(
                 label,
-                style: textStyleHeader(color: Color(0xFF242426), size: 16),
+                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0),
               ),
               ksizedBoxTextFieldRow,
-              iconStyle(icon: icon, color: Color(0xFF242426), size: 24),
+              iconStyle(icon: icon, color: Color(0xFF242426), size: 20),
             ],
           ),
   );
@@ -407,12 +407,30 @@ TextButton noButtonIcons({
 }
 
 // Circle indicator in Property Owner Create listing page
-Container circleIcon({required bool? isFillRequired}) {
+Container circleIcon(
+    {required bool? isFillRequired, required bool? isBorderRequired}) {
   return Container(
-    padding: EdgeInsets.all(10),
+    padding: EdgeInsets.all(8),
     decoration: BoxDecoration(
-      // isFillRequired == true ? color: Color(0xFF1C39BB) : color:null,
+      color: isFillRequired == true ? Color(0xFF1C39BB) : null,
       borderRadius: BorderRadius.circular(20),
+      border: isBorderRequired == true
+          ? Border.all(color: Colors.grey)
+          : Border.all(
+              color: Color(0xFF1C39BB),
+            ),
+    ),
+  );
+}
+
+//Line between Circle Icon
+Padding lineBetweenCI({required bool? isTrue}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+    child: Container(
+      padding: EdgeInsets.all(1),
+      width: 30,
+      color: isTrue == true ? Color(0xFF1C39BB) : Colors.grey,
     ),
   );
 }
