@@ -17,19 +17,19 @@ class _ContactDetailsState extends State<ContactDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset("assets/img/wmB.png"),
+        title: Image.asset('assets/img/wmB.png'),
       ),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
+            children: <Widget>[
               Row(
                 crossAxisAlignment: CrossAxisAlignment.baseline,
                 textBaseline: TextBaseline.ideographic,
-                children: [
+                children: <Widget>[
                   bookingSteps(
                     label: 'Booking',
                     textColor: Colors.grey,
@@ -39,8 +39,8 @@ class _ContactDetailsState extends State<ContactDetails> {
                   ),
                   bookingSteps(
                     label: 'Contacts',
-                    textColor: Color(0xFF1C39BB),
-                    lineColor: Color(0xFFFEB618),
+                    textColor: const Color(0xFF1C39BB),
+                    lineColor: const Color(0xFFFEB618),
                     textSize: 18,
                     flex: 1,
                   ),
@@ -65,15 +65,15 @@ class _ContactDetailsState extends State<ContactDetails> {
                 'Confirm your contact data. It will take a couple of minutes.',
                 style: textStyleContent(
                   size: 16,
-                  color: Color(0xFF575F6E),
+                  color: const Color(0xFF575F6E),
                 ),
               ),
               kSizedBox,
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
-                  children: [
+                  children: <Widget>[
                     textField(label: 'Enter Last Name'),
                     ksizedBoxTextFieldCol,
                     textField(label: 'Enter First Name'),
@@ -85,26 +85,26 @@ class _ContactDetailsState extends State<ContactDetails> {
               ),
               kSizedBox,
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
-                  children: [
+                  children: <Widget>[
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
+                      children: <Widget>[
                         Text(
                           'Enter Phone Number',
                           style: textStyleContent(
                             size: 14,
-                            color: Color(0xFF242426),
+                            color: const Color(0xFF242426),
                           ),
                         ),
                         Row(
-                          children: [
+                          children: <Widget>[
                             Expanded(
                               flex: 1,
                               child: TextField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   border: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0xFFBBBFC1),
@@ -115,13 +115,12 @@ class _ContactDetailsState extends State<ContactDetails> {
                                       color: Color(0xFF242426),
                                     ),
                                   ),
-                                  contentPadding:
-                                      EdgeInsets.symmetric(horizontal: 30),
+                                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
                                   labelText: '+63',
                                 ),
                                 style: textStyleHeader(
                                   size: 18,
-                                  color: Color(0xFF242426),
+                                  color: const Color(0xFF242426),
                                 ),
                               ),
                             ),
@@ -139,13 +138,13 @@ class _ContactDetailsState extends State<ContactDetails> {
               ),
               kSizedBox,
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
-                  children: [
+                  children: <Widget>[
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
+                      children: <Widget>[
                         textField(label: 'Enter Email'),
                         ksizedBoxTextFieldCol,
                       ],
@@ -156,18 +155,10 @@ class _ContactDetailsState extends State<ContactDetails> {
               ksizedBoxTFB,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
+                  navigationButton(onPressed: null, icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                   navigationButton(
-                      onPressed: null,
-                      icon: Icons.arrow_back,
-                      label: 'Go back',
-                      isGoBack: true),
-                  navigationButton(
-                      onPressed: () =>
-                          Navigator.pushNamed(context, PaymentDetails.id),
-                      label: 'Go next',
-                      icon: Icons.arrow_forward,
-                      isGoBack: false)
+                      onPressed: () => Navigator.pushNamed(context, PaymentDetails.id), label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
                 ],
               ),
               ksizedBoxTextFieldCol,
@@ -176,7 +167,7 @@ class _ContactDetailsState extends State<ContactDetails> {
                 label: 'Cancel',
                 isBorderRequired: true,
                 buttonColor: Colors.white,
-                textColor: Color(0xFF242426),
+                textColor: const Color(0xFF242426),
               ),
             ],
           ),

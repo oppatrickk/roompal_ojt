@@ -79,11 +79,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
-<<<<<<< HEAD
                             color: Color(0xFF242731),
-=======
-                            color: const Color(0xFF242426),
->>>>>>> 1eda25a90a87cc8d91c2652884ce8add8bede4ff
                           ),
                         ),
                       ),
