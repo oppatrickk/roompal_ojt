@@ -6,6 +6,7 @@ import 'package:roompal_ojt/pages/contact_overview.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/payment_fail.dart';
 import 'package:roompal_ojt/pages/payment_success.dart';
+import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(0).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
@@ -98,6 +99,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, ContactOverview.id);
                 },
                 child: const Text('payment fail'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, OverviewPage.id);
+                },
+                child: const Text('Property Owner: Overview'),
               ),
             ],
           ),
