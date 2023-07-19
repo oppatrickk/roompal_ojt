@@ -25,7 +25,7 @@ class RoomDetails extends StatelessWidget {
               //Header of the page
               const Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
+                children: <Widget>[
                   Text(
                     'Kwarto De Luna',
                     textAlign: TextAlign.start,
@@ -60,7 +60,7 @@ class RoomDetails extends StatelessWidget {
                     ],
                   ),
                   kSizedBox,
-                  BlueTextButton('Book This Property'),
+                  BlueTextButton(null, 'Book This Property'),
                 ],
               ),
               kSizedBox,
@@ -181,7 +181,7 @@ class RoomDetails extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const BlueTextButton('BOOK NOW'),
+                  BlueTextButton(null, 'BOOK NOW'),
                 ],
               ),
               kSizedBox,
@@ -293,8 +293,130 @@ class RoomDetails extends StatelessWidget {
               kSizedBox,
               divider,
               kSizedBox,
+              //Property QnA
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  const HostCard('Mimay', 'July 10, 2021'),
+                  const PropertyQnA(
+                    'Do you allow pets?',
+                    'Hello, this particular unit does not accept pets, but we do have some other great properties that do accept pets.',
+                  ),
+                  const PropertyQnA(
+                    'How safe is the area? ',
+                    'Hello, yes the property is situated in a safe residential area and has no history of any dangerous activity, if it helps there are cctv’s around the streets',
+                  ),
+                  ksizedBoxTextFieldCol,
+                  noButtonIcons(
+                    onPressed: null,
+                    label: 'Ask a Question',
+                    isBorderRequired: true,
+                    buttonColor: Colors.white,
+                    textColor: Colors.black,
+                  ),
+                ],
+              ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class PropertyQnA extends StatelessWidget {
+  const PropertyQnA(
+    this.question,
+    this.answer, {
+    super.key,
+  });
+  final String question;
+  final String answer;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: border,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              question,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              answer,
+              style: kReviewText,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class HostCard extends StatelessWidget {
+  const HostCard(
+    this.username,
+    this.date, {
+    super.key,
+  });
+  final String username;
+  final String date;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: border,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                const CircleAvatar(
+                  radius: 20.0,
+                  backgroundColor: Colors.grey,
+                  backgroundImage: null,
+                ),
+                ksizedBoxTextFieldRow,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      username,
+                      style: kCardHeaderStyle,
+                    ),
+                    Text(
+                      'Joined in $date',
+                      style: kReviewSmallSubtitle,
+                    )
+                  ],
+                ),
+              ],
+            ),
+            ksizedBoxTextFieldCol,
+            Text(
+              '$username is a Trusted Host',
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const Text(
+              'Trusted host are experienced, highly rated home owners who are committed to giving he best place to stay at.',
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                fontSize: 12,
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -413,11 +535,13 @@ class AmenitiesCard extends StatelessWidget {
 
 class BlueTextButton extends StatelessWidget {
   const BlueTextButton(
+    this.onPress,
     this.buttonTitle, {
     super.key,
   });
 
   final String buttonTitle;
+  final void Function()? onPress;
 
   @override
   Widget build(BuildContext context) {
@@ -431,7 +555,7 @@ class BlueTextButton extends StatelessWidget {
         ),
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
       ),
-      onPressed: null,
+      onPressed: onPress,
       child: Text(
         buttonTitle,
         style: const TextStyle(
