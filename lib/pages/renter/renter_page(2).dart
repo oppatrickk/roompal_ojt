@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class BookedDetails extends StatelessWidget {
@@ -17,7 +18,7 @@ class BookedDetails extends StatelessWidget {
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: kPagePadding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -176,34 +177,6 @@ class BookedDetails extends StatelessWidget {
     );
   }
 }
-
-RoundedRectangleBorder border = RoundedRectangleBorder(
-  side: const BorderSide(
-    color: Color(0xFF808080),
-  ),
-  borderRadius: BorderRadius.circular(10.0),
-);
-
-const Divider divider = Divider(
-  height: 1.0,
-  color: Colors.grey,
-  thickness: 1.0,
-);
-const TextStyle kCardHeaderStyle = TextStyle(
-  fontFamily: 'ProximaNovaBold',
-  fontSize: 16.0,
-);
-const TextStyle kCardSubtitleStyle = TextStyle(
-  fontSize: 14.0,
-  fontFamily: 'ProximaNovaBlack',
-);
-const TextStyle kCardTitleStyle = TextStyle(
-  fontSize: 14.0,
-  fontFamily: 'ProximaNovaRegular',
-);
-const TextStyle kCardAmountStyle = TextStyle(
-  fontSize: 14.0,
-);
 
 class PriceDetails extends StatelessWidget {
   PriceDetails(this.title, this.amount);
