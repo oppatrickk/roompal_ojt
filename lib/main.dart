@@ -3,6 +3,7 @@ import 'package:roompal_ojt/pages/confirmation.dart';
 import 'package:roompal_ojt/pages/home_page.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/contact_details.dart';
+import 'package:roompal_ojt/pages/payment_details.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'pages/renter/renter_page(1).dart';
 import 'pages/renter/renter_page(0).dart';
@@ -33,6 +34,7 @@ class RoompalOJT extends StatelessWidget {
         BookedDetails.id: (BuildContext context) => const BookedDetails(),
         ContactDetails.id: (BuildContext context) => const ContactDetails(),
         ConfirmationPage.id: (BuildContext context) => const ConfirmationPage(),
+        PaymentDetails.id: (BuildContext context) => const PaymentDetails(),
       },
     );
   }

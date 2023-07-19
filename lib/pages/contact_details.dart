@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/confirmation.dart';
+import 'package:roompal_ojt/pages/payment_details.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 import '../widgets/const_elements.dart';
 import '../widgets/widget_elements.dart';
@@ -164,7 +164,7 @@ class _ContactDetailsState extends State<ContactDetails> {
                       isGoBack: true),
                   navigationButton(
                       onPressed: () =>
-                          Navigator.pushNamed(context, ConfirmationPage.id),
+                          Navigator.pushNamed(context, PaymentDetails.id),
                       label: 'Go next',
                       icon: Icons.arrow_forward,
                       isGoBack: false)

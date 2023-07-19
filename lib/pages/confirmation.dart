@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/payment_details.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 import '../widgets/const_elements.dart';
 import '../widgets/widget_elements.dart';
@@ -222,7 +223,8 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 navigationButton(
-                    onPressed: null,
+                    onPressed: () =>
+                        Navigator.pushNamed(context, PaymentDetails.id),
                     icon: Icons.arrow_back,
                     label: 'Go back',
                     isGoBack: true),
