@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
+import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class RoomDetails extends StatelessWidget {
@@ -63,8 +63,7 @@ class RoomDetails extends StatelessWidget {
               const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  InteractiveIconsDisplay(
-                      Icons.favorite_border_outlined, 'Save'),
+                  InteractiveIconsDisplay(Icons.favorite_border_outlined, 'Save'),
                   SizedBox(
                     width: 10.0,
                   ),
@@ -156,8 +155,7 @@ class RoomDetails extends StatelessWidget {
               const Card(
                 margin: EdgeInsets.symmetric(vertical: 10.0),
                 child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 100.0, vertical: 10.0),
+                  padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 10.0),
                   child: Column(
                     //crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
@@ -196,8 +194,7 @@ class RoomDetails extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       AmenitiesCard('Airconditioner', Icons.air_outlined),
-                      AmenitiesCard(
-                          'Washing Area', Icons.dry_cleaning_outlined),
+                      AmenitiesCard('Washing Area', Icons.dry_cleaning_outlined),
                     ],
                   ),
                 ],
@@ -210,8 +207,7 @@ class RoomDetails extends StatelessWidget {
                       Radius.circular(10),
                     ),
                   ),
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 10.0, horizontal: 70.0),
+                  padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 70.0),
                 ),
                 onPressed: null,
                 child: Text(
@@ -299,14 +295,6 @@ class BlueTextButton extends StatelessWidget {
   }
 }
 
-const SizedBox kSizedBox = SizedBox(
-  height: 15.0,
-);
-const TextStyle kHeaderTextStyle = TextStyle(
-  fontSize: 20.0,
-  fontFamily: 'ProximaNovaAltBold',
-);
-
 class InteractiveIconsDisplay extends StatelessWidget {
   const InteractiveIconsDisplay(this.icon, this.title, {super.key});
   final IconData icon;
@@ -360,14 +348,3 @@ class RoomDetailsDisplay extends StatelessWidget {
     );
   }
 }
-
-const EdgeInsets kPagePadding = EdgeInsets.all(20.0);
-
-const TextStyle kRoomName = TextStyle(
-  fontSize: 32.0,
-  fontFamily: 'ProximaNovaAltBold',
-);
-const TextStyle kRoomNumber = TextStyle(
-  fontSize: 16.0,
-  fontFamily: 'ProximaNovaRegular',
-);
