@@ -18,7 +18,7 @@ class BookedDetails extends StatelessWidget {
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: kPagePadding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

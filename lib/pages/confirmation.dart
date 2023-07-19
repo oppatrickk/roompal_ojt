@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 
 import '../widgets/const_elements.dart';
@@ -181,8 +180,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                                       color: Color(0xFF242426),
                                     ),
                                   ),
-                                  contentPadding:
-                                      EdgeInsets.symmetric(horizontal: 30),
+                                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
                                   labelText: '+63',
                                 ),
                                 style: textStyleHeader(
@@ -225,20 +223,15 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                 children: [
                   GestureDetector(
                     child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                       decoration: boxDecoration(),
                       child: Row(
                         children: [
-                          iconStyle(
-                              icon: Icons.arrow_back,
-                              color: Color(0xFF242426),
-                              size: 24),
+                          iconStyle(icon: Icons.arrow_back, color: Color(0xFF242426), size: 24),
                           ksizedBoxTextFieldRow,
                           Text(
                             'Go Back',
-                            style: textStyleHeader(
-                                color: Color(0xFF242426), size: 16),
+                            style: textStyleHeader(color: Color(0xFF242426), size: 16),
                           )
                         ],
                       ),
@@ -247,21 +240,16 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                   ),
                   GestureDetector(
                     child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                       decoration: boxDecoration(),
                       child: Row(
                         children: [
                           Text(
                             'Go Next',
-                            style: textStyleHeader(
-                                color: Color(0xFF242426), size: 16),
+                            style: textStyleHeader(color: Color(0xFF242426), size: 16),
                           ),
                           ksizedBoxTextFieldRow,
-                          iconStyle(
-                              icon: Icons.arrow_forward,
-                              color: Color(0xFF242426),
-                              size: 24),
+                          iconStyle(icon: Icons.arrow_forward, color: Color(0xFF242426), size: 24),
                         ],
                       ),
                     ),
@@ -277,8 +265,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                   child: Center(
                     child: Text(
                       'Cancel',
-                      style:
-                          textStyleHeader(color: Color(0xFF242426), size: 16),
+                      style: textStyleHeader(color: Color(0xFF242426), size: 16),
                     ),
                   ),
                 ),

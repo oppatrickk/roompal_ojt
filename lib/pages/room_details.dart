@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_const
+
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
@@ -57,21 +59,17 @@ class RoomDetails extends StatelessWidget {
               ),
               kSizedBox,
               const BlueTextButton('Book This Property'),
-              const SizedBox(
-                height: 20.0,
-              ),
+              kSizedBox,
               const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  InteractiveIconsDisplay(Icons.favorite_border_outlined, 'Save'),
-                  SizedBox(
-                    width: 10.0,
-                  ),
-                  InteractiveIconsDisplay(Icons.share, 'Share'),
+                  IconWithTextDisplay(Icons.favorite_border_outlined, 'Save', Colors.grey),
+                  ksizedBoxTextFieldRow,
+                  IconWithTextDisplay(Icons.share, 'Share', Colors.grey),
                 ],
               ),
               Row(
-                children: [
+                children: <Widget>[
                   Image.asset(
                     'assets/img/rental.jpg',
                     height: 162,
@@ -96,7 +94,7 @@ class RoomDetails extends StatelessWidget {
                             left: 30,
                             child: TextButton(
                               style: TextButton.styleFrom(
-                                backgroundColor: Color(0xFFFEB618),
+                                backgroundColor: const Color(0xFFFEB618),
                                 shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(5),
@@ -200,17 +198,18 @@ class RoomDetails extends StatelessWidget {
                 ],
               ),
               OutlinedButton(
-                style: TextButton.styleFrom(
+                style: OutlinedButton.styleFrom(
                   alignment: Alignment.center,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
                   ),
+                  side: const BorderSide(width: 1.0, color: Colors.black),
                   padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 70.0),
                 ),
                 onPressed: null,
-                child: Text(
+                child: const Text(
                   'Show all Amenities',
                   style: TextStyle(color: Colors.black),
                 ),
@@ -218,8 +217,145 @@ class RoomDetails extends StatelessWidget {
               kSizedBox,
               divider,
               kSizedBox,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const Text(
+                    "Where you'll be",
+                    style: kHeaderTextStyle,
+                  ),
+                  ksizedBoxTextFieldCol,
+                  Image.asset('assets/img/map.png'),
+                ],
+              ),
+              kSizedBox,
+              divider,
+              kSizedBox,
+              const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    'House Rules',
+                    style: kHeaderTextStyle,
+                  ),
+                  ksizedBoxTextFieldCol,
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Column(
+                      children: <Text>[
+                        Text(
+                          '1. insert rule',
+                          style: kCardTitleStyle,
+                        ),
+                        Text(
+                          '2. insert rule',
+                          style: kCardTitleStyle,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              kSizedBox,
+              divider,
+              kSizedBox,
+              const Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      IconWithTextDisplay(Icons.star, '4.5', Colors.black),
+                      ksizedBoxTextFieldRow,
+                      IconWithTextDisplay(Icons.person, '125 Reviews', Colors.black),
+                    ],
+                  ),
+                  ksizedBoxTextFieldCol,
+                  Column(
+                    children: <Widget>[
+                      ReviewCard(),
+                      ReviewCard(),
+                      ReviewCard(),
+                      ReviewCard(),
+                      ReviewCard(),
+                    ],
+                  ),
+                ],
+              ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class ReviewCard extends StatelessWidget {
+  const ReviewCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Card(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                CircleAvatar(
+                  radius: 20.0,
+                  backgroundColor: Colors.grey,
+                  backgroundImage: null,
+                ),
+                ksizedBoxTextFieldRow,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Text>[
+                    Text(
+                      'Cardo on Ahking Room',
+                      style: kReviewTitle,
+                    ),
+                    Text(
+                      'July 5, 2023 | 10:23 AM',
+                      style: kReviewSmallSubtitle,
+                    ),
+                  ],
+                ),
+                ksizedBoxTextFieldRow,
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.star, size: 10, color: Colors.orangeAccent),
+                      Icon(Icons.star, size: 10, color: Colors.orangeAccent),
+                      Icon(Icons.star, size: 10, color: Colors.orangeAccent),
+                      Icon(Icons.star, size: 10, color: Colors.orangeAccent),
+                      Icon(Icons.star, size: 10, color: Colors.orangeAccent),
+                      Text('Excellent', style: TextStyle(color: Colors.green, fontSize: 8.0)),
+                      Icon(Icons.check_circle_outline, color: Colors.green, size: 8.0),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            ksizedBoxTextFieldCol,
+            Text(
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+              style: kReviewText,
+              textAlign: TextAlign.justify,
+            ),
+            ksizedBoxTextFieldCol,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Icon(Icons.favorite_border_outlined, size: 15, color: Colors.grey),
+                ksizedBoxTextFieldRow,
+                IconWithTextDisplay(Icons.reply, 'Reply', Colors.grey),
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -239,12 +375,12 @@ class AmenitiesCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
+        margin: const EdgeInsets.symmetric(horizontal: 3.0, vertical: 3.0),
         decoration: BoxDecoration(
           border: Border.all(),
         ),
         child: ListTile(
-          contentPadding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
           horizontalTitleGap: 0.0,
           leading: Icon(
             icon,
@@ -252,7 +388,7 @@ class AmenitiesCard extends StatelessWidget {
           ),
           title: Text(
             data,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 10.0,
             ),
           ),
@@ -295,10 +431,11 @@ class BlueTextButton extends StatelessWidget {
   }
 }
 
-class InteractiveIconsDisplay extends StatelessWidget {
-  const InteractiveIconsDisplay(this.icon, this.title, {super.key});
+class IconWithTextDisplay extends StatelessWidget {
+  const IconWithTextDisplay(this.icon, this.title, this.color, {super.key});
   final IconData icon;
   final String title;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -307,13 +444,13 @@ class InteractiveIconsDisplay extends StatelessWidget {
         Icon(
           icon,
           size: 15.0,
-          color: Colors.grey,
+          color: color,
         ),
         Text(
           title,
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 12.0,
-            color: Colors.grey,
+            color: color,
           ),
         ),
       ],

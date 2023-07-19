@@ -61,6 +61,24 @@ const TextStyle kCardAmountStyle = TextStyle(
   fontSize: 14.0,
 );
 
+//font style for reviews subtitle (date and time)
+const TextStyle kReviewSmallSubtitle = TextStyle(
+  fontSize: 8.0,
+  color: Colors.grey,
+);
+
+//font style for reviews subtitle (date and time)
+const TextStyle kReviewText = TextStyle(
+  fontSize: 11.0,
+  color: Colors.black,
+);
+
+//fonr style for reviews header(names)
+const TextStyle kReviewTitle = TextStyle(
+  fontSize: 12.0,
+  color: Colors.blue,
+);
+
 //font style used in room details subject header
 const TextStyle kHeaderTextStyle = TextStyle(
   fontSize: 20.0,
