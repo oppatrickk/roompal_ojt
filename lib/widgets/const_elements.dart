@@ -76,7 +76,7 @@ const TextStyle kReviewText = TextStyle(
 //fonr style for reviews header(names)
 const TextStyle kReviewTitle = TextStyle(
   fontSize: 12.0,
-  color: Colors.blue,
+  color: Colors.black,
 );
 
 //font style used in room details subject header

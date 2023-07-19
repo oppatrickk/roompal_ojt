@@ -195,23 +195,10 @@ class RoomDetails extends StatelessWidget {
                   ),
                 ],
               ),
-              OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  alignment: Alignment.center,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                  side: const BorderSide(width: 1.0, color: Colors.black),
-                  padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 70.0),
-                ),
-                onPressed: null,
-                child: const Text(
-                  'Show all Amenities',
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
+              ksizedBoxTextFieldCol,
+              Container(
+                  child: noButtonIcons(
+                      onPressed: null, label: 'Show all Amenities', isBorderRequired: true, buttonColor: Colors.white, textColor: Colors.black)),
               kSizedBox,
               divider,
               kSizedBox,
@@ -230,6 +217,7 @@ class RoomDetails extends StatelessWidget {
               divider,
               kSizedBox,
               const Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
@@ -257,19 +245,22 @@ class RoomDetails extends StatelessWidget {
               kSizedBox,
               divider,
               kSizedBox,
-              const Column(
+              Column(
                 children: <Widget>[
                   Row(
                     children: <Widget>[
-                      IconWithTextDisplay(Icons.star, '4.5', Colors.black),
+                      IconWithText(Icons.star, '4.5', Colors.black),
                       ksizedBoxTextFieldRow,
-                      IconWithTextDisplay(Icons.person, '125 Reviews', Colors.black),
+                      IconWithText(Icons.person, '125 Reviews', Colors.black),
                     ],
                   ),
                   ksizedBoxTextFieldCol,
                   ReviewCard(),
                   ReviewCard(),
                   ReviewCard(),
+                  ksizedBoxTextFieldCol,
+                  noButtonIcons(
+                      onPressed: null, label: 'Show All Reviews', isBorderRequired: true, buttonColor: Colors.white, textColor: Colors.black),
                 ],
               ),
             ],
@@ -402,14 +393,13 @@ class BlueTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        alignment: Alignment.center,
         backgroundColor: const Color(0xFF1C39BB),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(10),
           ),
         ),
-        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 70.0),
+        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 30.0),
       ),
       onPressed: null,
       child: Text(
@@ -442,6 +432,33 @@ class IconWithTextDisplay extends StatelessWidget {
           title,
           style: TextStyle(
             fontSize: 12.0,
+            color: color,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class IconWithText extends StatelessWidget {
+  const IconWithText(this.icon, this.title, this.color, {super.key});
+  final IconData icon;
+  final String title;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Icon(
+          icon,
+          size: 25.0,
+          color: color,
+        ),
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 16.0,
             color: color,
           ),
         ),
