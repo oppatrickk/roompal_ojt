@@ -338,12 +338,21 @@ TextButton navigationButton({
     ),
     child: isGoBack == true
         ? Row(
+<<<<<<< HEAD
+            children: [
+              iconStyle(icon: icon, color: Color(0xFF242426), size: 20),
+              ksizedBoxTextFieldRow,
+              Text(
+                label,
+                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0),
+=======
             children: <Widget>[
               iconStyle(icon: icon, color: const Color(0xFF242426), size: 24),
               ksizedBoxTextFieldRow,
               Text(
                 label,
                 style: textStyleHeader(color: const Color(0xFF242426), size: 16),
+>>>>>>> e9938b07790dde77a6c66a42e23a49bb5da1850c
               )
             ],
           )
@@ -351,10 +360,17 @@ TextButton navigationButton({
             children: <Widget>[
               Text(
                 label,
+<<<<<<< HEAD
+                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0),
+              ),
+              ksizedBoxTextFieldRow,
+              iconStyle(icon: icon, color: Color(0xFF242426), size: 20),
+=======
                 style: textStyleHeader(color: const Color(0xFF242426), size: 16),
               ),
               ksizedBoxTextFieldRow,
               iconStyle(icon: icon, color: const Color(0xFF242426), size: 24),
+>>>>>>> e9938b07790dde77a6c66a42e23a49bb5da1850c
             ],
           ),
   );
@@ -397,6 +413,38 @@ TextButton noButtonIcons({
   );
 }
 
+<<<<<<< HEAD
+// Circle indicator in Property Owner Create listing page
+Container circleIcon(
+    {required bool? isFillRequired, required bool? isBorderRequired}) {
+  return Container(
+    padding: EdgeInsets.all(8),
+    decoration: BoxDecoration(
+      color: isFillRequired == true ? Color(0xFF1C39BB) : null,
+      borderRadius: BorderRadius.circular(20),
+      border: isBorderRequired == true
+          ? Border.all(color: Colors.grey)
+          : Border.all(
+              color: Color(0xFF1C39BB),
+            ),
+    ),
+  );
+}
+
+//Line between Circle Icon
+Padding lineBetweenCI({required bool? isTrue}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 5.0),
+    child: Container(
+      padding: EdgeInsets.all(1),
+      width: 30,
+      color: isTrue == true ? Color(0xFF1C39BB) : Colors.grey,
+    ),
+  );
+}
+
+=======
+>>>>>>> e9938b07790dde77a6c66a42e23a49bb5da1850c
 //STYLING
 //Content Style
 TextStyle textStyleContent({required double size, required Color color}) {
