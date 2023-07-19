@@ -406,6 +406,17 @@ TextButton noButtonIcons({
   );
 }
 
+// Circle indicator in Property Owner Create listing page
+Container circleIcon({required bool? isFillRequired}) {
+  return Container(
+    padding: EdgeInsets.all(10),
+    decoration: BoxDecoration(
+      isFillRequired == true ? color: Color(0xFF1C39BB) : color:null,
+      borderRadius: BorderRadius.circular(20),
+    ),
+  );
+}
+
 //STYLING
 //Content Style
 TextStyle textStyleContent({required double size, required Color color}) {

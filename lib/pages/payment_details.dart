@@ -78,9 +78,9 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                       Container(
                         padding: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
+                          borderRadius: BorderRadius.circular(20),
                           border: Border.all(
-                            color: Color(0xFF242426),
+                            color: Color(0xFF242731),
                           ),
                         ),
                       ),
@@ -132,6 +132,18 @@ class _PaymentDetailsState extends State<PaymentDetails> {
               textColor: Color(0xFF242426),
             ),
           ]),
+        ),
+      ),
+    );
+  }
+
+  Container circleIcon() {
+    return Container(
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(50),
+        border: Border.all(
+          color: Color(0xFF242426),
         ),
       ),
     );

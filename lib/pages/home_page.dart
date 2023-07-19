@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
+import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(0).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
@@ -56,6 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, BookedDetails.id);
                 },
                 child: const Text('renter page 2:Booked Room Details'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, OverviewPage.id);
+                },
+                child: const Text('Property Owner: Overview'),
               ),
             ],
           ),
