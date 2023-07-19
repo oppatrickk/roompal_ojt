@@ -17,18 +17,17 @@ class _PaymentDetailsState extends State<PaymentDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Image.asset("assets/img/wmB.png"),
+        title: Image.asset('assets/img/wmB.png'),
       ),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          padding: const EdgeInsets.all(20),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: <Widget>[
             Row(
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.ideographic,
-              children: [
+              children: <Widget>[
                 bookingSteps(
                   label: 'Booking',
                   textColor: Colors.grey,
@@ -45,8 +44,8 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 ),
                 bookingSteps(
                   label: 'Payment',
-                  textColor: Color(0xFF1C39BB),
-                  lineColor: Color(0xFFFEB618),
+                  textColor: const Color(0xFF1C39BB),
+                  lineColor: const Color(0xFFFEB618),
                   textSize: 18,
                   flex: 1,
                 ),
@@ -64,23 +63,27 @@ class _PaymentDetailsState extends State<PaymentDetails> {
               'Choose your payment options',
               style: textStyleContent(
                 size: 16,
-                color: Color(0xFF575F6E),
+                color: const Color(0xFF575F6E),
               ),
             ),
             ksizedBoxTextFieldCol,
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: boxDecoration(),
               child: Column(
-                children: [
+                children: <Widget>[
                   Row(
-                    children: [
+                    children: <Widget>[
                       Container(
-                        padding: EdgeInsets.all(10),
+                        padding: const EdgeInsets.all(10),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
+<<<<<<< HEAD
                             color: Color(0xFF242731),
+=======
+                            color: const Color(0xFF242426),
+>>>>>>> 1eda25a90a87cc8d91c2652884ce8add8bede4ff
                           ),
                         ),
                       ),
@@ -89,15 +92,11 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                         flex: 5,
                         child: Text(
                           'CREDIT CARD',
-                          style: textStyleContent(
-                              size: 16, color: Color(0xFF242426)),
+                          style: textStyleContent(size: 16, color: const Color(0xFF242426)),
                         ),
                       ),
                       Expanded(
-                        child: iconStyle(
-                            icon: Icons.control_point_rounded,
-                            color: Color(0xFF242426),
-                            size: 24),
+                        child: iconStyle(icon: Icons.control_point_rounded, color: const Color(0xFF242426), size: 24),
                       ),
                     ],
                   )
@@ -108,19 +107,11 @@ class _PaymentDetailsState extends State<PaymentDetails> {
             ksizedBoxTFB,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: <Widget>[
                 navigationButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, ContactDetails.id),
-                    icon: Icons.arrow_back,
-                    label: 'Go back',
-                    isGoBack: true),
+                    onPressed: () => Navigator.pushNamed(context, ContactDetails.id), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                 navigationButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, ConfirmationPage.id),
-                    label: 'Go next',
-                    icon: Icons.arrow_forward,
-                    isGoBack: false)
+                    onPressed: () => Navigator.pushNamed(context, ConfirmationPage.id), label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
               ],
             ),
             ksizedBoxTextFieldCol,
@@ -129,7 +120,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
               label: 'Cancel',
               isBorderRequired: true,
               buttonColor: Colors.white,
-              textColor: Color(0xFF242426),
+              textColor: const Color(0xFF242426),
             ),
           ]),
         ),
