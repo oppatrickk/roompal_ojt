@@ -23,8 +23,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(20),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.ideographic,
@@ -223,16 +222,8 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 navigationButton(
-                    onPressed: () =>
-                        Navigator.pushNamed(context, PaymentDetails.id),
-                    icon: Icons.arrow_back,
-                    label: 'Go back',
-                    isGoBack: true),
-                navigationButton(
-                    onPressed: null,
-                    label: 'Go next',
-                    icon: Icons.arrow_forward,
-                    isGoBack: false)
+                    onPressed: () => Navigator.pushNamed(context, PaymentDetails.id), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
+                navigationButton(onPressed: null, label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
               ],
             ),
             ksizedBoxTextFieldCol,
