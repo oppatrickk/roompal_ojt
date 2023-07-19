@@ -21,7 +21,7 @@ class BookedDetails extends StatelessWidget {
           padding: kPagePadding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               Container(
                 color: const Color(0xFFD7FAE0),
                 padding: const EdgeInsets.symmetric(
@@ -111,12 +111,12 @@ class BookedDetails extends StatelessWidget {
               Card(
                 shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(20.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      const Text(
+                      Text(
                         'Contact Info',
                         style: kCardHeaderStyle,
                       ),
@@ -132,12 +132,12 @@ class BookedDetails extends StatelessWidget {
               Card(
                 shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                child: const Padding(
+                  padding: EdgeInsets.all(20.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      const Text(
+                      Text(
                         'Price Details',
                         style: kCardHeaderStyle,
                       ),
@@ -146,7 +146,7 @@ class BookedDetails extends StatelessWidget {
                       PriceDetails('Service Fee', 'P ####.00'),
                       PriceDetails('Booking Fee', 'P ####.00'),
                       divider,
-                      const Padding(
+                      Padding(
                         padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -179,7 +179,7 @@ class BookedDetails extends StatelessWidget {
 }
 
 class PriceDetails extends StatelessWidget {
-  PriceDetails(this.title, this.amount);
+  const PriceDetails(this.title, this.amount, {super.key});
   final String title;
   final String amount;
 
@@ -205,7 +205,7 @@ class PriceDetails extends StatelessWidget {
 }
 
 class InformationDetails extends StatelessWidget {
-  InformationDetails(this.title, this.subtitle);
+  const InformationDetails(this.title, this.subtitle, {super.key});
   final String title;
   final String subtitle;
 
@@ -231,7 +231,7 @@ class InformationDetails extends StatelessWidget {
 }
 
 class ListData extends StatelessWidget {
-  const ListData(this.details, this.icons, this.title);
+  const ListData(this.details, this.icons, this.title, {super.key});
 
   final IconData icons;
   final String title;
