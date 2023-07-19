@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/room_details.dart';
+import 'package:roompal_ojt/widgets/const_elements.dart';
 import '../../widgets/widget_elements.dart';
 
 class Booking extends StatefulWidget {
@@ -32,24 +32,28 @@ class _BookingState extends State<Booking> {
                     textColor: Color(0xFF1C39BB),
                     lineColor: Color(0xFFFEB618),
                     textSize: 18,
+                    flex: 1,
                   ),
                   bookingSteps(
                     label: 'Contacts',
                     textColor: Colors.grey,
                     lineColor: Colors.grey,
                     textSize: 12,
+                    flex: 1,
                   ),
                   bookingSteps(
                     label: 'Payment',
                     textColor: Colors.grey,
                     lineColor: Colors.grey,
                     textSize: 12,
+                    flex: 1,
                   ),
                   bookingSteps(
                     label: 'Confirmation',
                     textColor: Colors.grey,
                     lineColor: Colors.grey,
                     textSize: 12,
+                    flex: 1,
                   ),
                 ],
               ),
