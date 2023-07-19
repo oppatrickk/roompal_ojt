@@ -13,7 +13,8 @@ NavigationDrawer buildSideBar(BuildContext context) {
           children: [
             ListTile(
               title: Text('Welcome User!'),
-              titleTextStyle: textStyleHeader(color: Color(0xFF1C39BB), size: 28),
+              titleTextStyle:
+                  textStyleHeader(color: Color(0xFF1C39BB), size: 28),
               trailing: Icon(Icons.close),
               onTap: () => Navigator.pop(context),
             ),
@@ -79,7 +80,11 @@ NavigationDrawer buildSideBar(BuildContext context) {
 }
 
 // Content in SideBar
-ListTile buildListTile({required Icon leadingIcon, required String label, required Icon trailingIcon, required Function? onTap}) {
+ListTile buildListTile(
+    {required Icon leadingIcon,
+    required String label,
+    required Icon trailingIcon,
+    required Function? onTap}) {
   return ListTile(
     leading: leadingIcon,
     title: Text(label),
@@ -181,7 +186,8 @@ Container propertyCardView({
                   SizedBox(width: 5),
                   Text(
                     propertyStatus,
-                    style: textStyleHeader(color: propertyStatusColor, size: 12),
+                    style:
+                        textStyleHeader(color: propertyStatusColor, size: 12),
                   )
                 ],
               ),
@@ -209,11 +215,13 @@ Container propertyCardView({
                     children: [
                       Text(
                         '\$ ',
-                        style: textStyleHeader(color: Color(0xFF1C39BB), size: 20),
+                        style:
+                            textStyleHeader(color: Color(0xFF1C39BB), size: 20),
                       ),
                       Text(
                         '$propertyPrice',
-                        style: textStyleHeader(color: Color(0xFF242731), size: 20),
+                        style:
+                            textStyleHeader(color: Color(0xFF242731), size: 20),
                       ),
                     ],
                   ),
@@ -234,7 +242,8 @@ Container propertyCardView({
                       ),
                       Text(
                         ' $propertyType',
-                        style: textStyleHeader(color: Color(0xFF242731), size: 12),
+                        style:
+                            textStyleHeader(color: Color(0xFF242731), size: 12),
                       ),
                     ],
                   ),
@@ -402,7 +411,7 @@ Container circleIcon({required bool? isFillRequired}) {
   return Container(
     padding: EdgeInsets.all(10),
     decoration: BoxDecoration(
-      isFillRequired == true ? color: Color(0xFF1C39BB) : color:null,
+      // isFillRequired == true ? color: Color(0xFF1C39BB) : color:null,
       borderRadius: BorderRadius.circular(20),
     ),
   );
@@ -437,7 +446,12 @@ Icon starRating({required Color color, required double size}) {
 }
 
 //Button
-GestureDetector buttonLP({required double height, required Color color, required String label, required Color textColor, required double size}) {
+GestureDetector buttonLP(
+    {required double height,
+    required Color color,
+    required String label,
+    required Color textColor,
+    required double size}) {
   return GestureDetector(
     child: Container(
       height: height,
@@ -467,7 +481,9 @@ Container dotSeparator() {
   );
 }
 
-Icon iconStyle({required IconData icon, required Color color, required double size}) => Icon(
+Icon iconStyle(
+        {required IconData icon, required Color color, required double size}) =>
+    Icon(
       icon,
       color: color,
       size: size,

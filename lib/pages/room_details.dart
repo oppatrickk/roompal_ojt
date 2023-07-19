@@ -9,6 +9,7 @@ class RoomDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFFFFFF),
       appBar: AppBar(
         toolbarHeight: 80.0,
         backgroundColor: Colors.white,
@@ -70,7 +71,8 @@ class RoomDetails extends StatelessWidget {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      IconWithTextDisplay(Icons.favorite_border_outlined, 'Save', Colors.grey),
+                      IconWithTextDisplay(
+                          Icons.favorite_border_outlined, 'Save', Colors.grey),
                       ksizedBoxTextFieldRow,
                       IconWithTextDisplay(Icons.share, 'Share', Colors.grey),
                     ],
@@ -163,9 +165,11 @@ class RoomDetails extends StatelessWidget {
                     ],
                   ),
                   Card(
+                    surfaceTintColor: Colors.white,
                     margin: EdgeInsets.symmetric(vertical: 10.0),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 10.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 100.0, vertical: 10.0),
                       child: Column(
                         //crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
@@ -209,7 +213,8 @@ class RoomDetails extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           AmenitiesCard('Airconditioner', Icons.air_outlined),
-                          AmenitiesCard('Washing Area', Icons.dry_cleaning_outlined),
+                          AmenitiesCard(
+                              'Washing Area', Icons.dry_cleaning_outlined),
                         ],
                       ),
                     ],
@@ -217,7 +222,11 @@ class RoomDetails extends StatelessWidget {
                   ksizedBoxTextFieldCol,
                   Container(
                       child: noButtonIcons(
-                          onPressed: null, label: 'Show all Amenities', isBorderRequired: true, buttonColor: Colors.white, textColor: Colors.black)),
+                          onPressed: null,
+                          label: 'Show all Amenities',
+                          isBorderRequired: true,
+                          buttonColor: Colors.white,
+                          textColor: Colors.black)),
                 ],
               ),
               kSizedBox,
@@ -336,6 +345,7 @@ class PropertyQnA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      surfaceTintColor: Colors.white,
       shape: border,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
@@ -372,6 +382,7 @@ class HostCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      surfaceTintColor: Colors.white,
       shape: border,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
@@ -430,7 +441,8 @@ class ReviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
+    return Card(
+      surfaceTintColor: Colors.white,
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
         child: Column(
@@ -468,8 +480,10 @@ class ReviewCard extends StatelessWidget {
                       Icon(Icons.star, size: 10, color: Colors.orangeAccent),
                       Icon(Icons.star, size: 10, color: Colors.orangeAccent),
                       Icon(Icons.star, size: 10, color: Colors.orangeAccent),
-                      Text('Excellent', style: TextStyle(color: Colors.green, fontSize: 8.0)),
-                      Icon(Icons.check_circle_outline, color: Colors.green, size: 8.0),
+                      Text('Excellent',
+                          style: TextStyle(color: Colors.green, fontSize: 8.0)),
+                      Icon(Icons.check_circle_outline,
+                          color: Colors.green, size: 8.0),
                     ],
                   ),
                 ),
@@ -485,7 +499,8 @@ class ReviewCard extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Icon(Icons.favorite_border_outlined, size: 15, color: Colors.grey),
+                Icon(Icons.favorite_border_outlined,
+                    size: 15, color: Colors.grey),
                 ksizedBoxTextFieldRow,
                 IconWithTextDisplay(Icons.reply, 'Reply', Colors.grey),
               ],
@@ -515,7 +530,8 @@ class AmenitiesCard extends StatelessWidget {
           border: Border.all(),
         ),
         child: ListTile(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
           horizontalTitleGap: 0.0,
           leading: Icon(
             icon,
