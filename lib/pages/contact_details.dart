@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/confirmation.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
+import '../widgets/const_elements.dart';
 import '../widgets/widget_elements.dart';
 
 class ContactDetails extends StatefulWidget {
