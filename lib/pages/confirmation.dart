@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/payment_details.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
-import 'package:roompal_ojt/widgets/const_elements.dart';
-import 'package:roompal_ojt/widgets/widget_elements.dart';
+import '../widgets/const_elements.dart';
+import '../widgets/widget_elements.dart';
 
 class ConfirmationPage extends StatefulWidget {
   const ConfirmationPage({Key? key}) : super(key: key);
@@ -23,8 +23,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(20),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.baseline,
               textBaseline: TextBaseline.ideographic,
@@ -188,54 +187,56 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                       color: Color(0xFF242426),
                     ),
                   ),
-                ),
+                  ksizedBoxTextFieldCol,
+                  confirmationDetails(details: 'July 03-17 (14 days)'),
+                  ksizedBoxTextFieldCol,
+                  divider,
+                  ksizedBoxTextFieldCol,
+                ],
               ),
-              ksizedBoxTextFieldCol,
-              confirmationDetails(details: 'July 03-17 (14 days)'),
-              ksizedBoxTextFieldCol,
-              divider,
-              ksizedBoxTextFieldCol,
-        kSizedBox,
-        Container(
-          padding: EdgeInsets.all(10),
-          decoration: boxDecoration(),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Email',
-                style: textStyleContent(
-                  size: 14,
-                  color: Color(0xFF242426),
-                ),
+            ),
+            kSizedBox,
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: boxDecoration(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Email',
+                    style: textStyleContent(
+                      size: 14,
+                      color: Color(0xFF242426),
+                    ),
+                  ),
+                  ksizedBoxTextFieldCol,
+                  confirmationDetails(details: 'coratsoncu@gmail.com'),
+                  ksizedBoxTextFieldCol,
+                  divider,
+                  ksizedBoxTextFieldCol,
+                ],
               ),
-              ksizedBoxTextFieldCol,
-              confirmationDetails(details: 'coratsoncu@gmail.com'),
-              ksizedBoxTextFieldCol,
-              divider,
-              ksizedBoxTextFieldCol,
-            ],
-          ),
+            ),
+            ksizedBoxTFB,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                navigationButton(
+                    onPressed: () => Navigator.pushNamed(context, PaymentDetails.id), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
+                navigationButton(onPressed: null, label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
+              ],
+            ),
+            ksizedBoxTextFieldCol,
+            noButtonIcons(
+              onPressed: () => Navigator.pushNamed(context, RoomDetails.id),
+              label: 'Cancel',
+              isBorderRequired: true,
+              buttonColor: Colors.white,
+              textColor: Color(0xFF242426),
+            ),
+          ]),
         ),
-        ksizedBoxTFB,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            navigationButton(
-                onPressed: () => Navigator.pushNamed(context, PaymentDetails.id), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
-            navigationButton(onPressed: null, label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
-          ],
-        ),
-        ksizedBoxTextFieldCol,
-        noButtonIcons(
-          onPressed: () => Navigator.pushNamed(context, RoomDetails.id),
-          label: 'Cancel',
-          isBorderRequired: true,
-          buttonColor: Colors.white,
-          textColor: Color(0xFF242426),
-        ),
-            
-              ];
-
+      ),
+    );
   }
 }
