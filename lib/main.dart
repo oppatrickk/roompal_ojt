@@ -9,7 +9,7 @@ import 'pages/renter/renter_page(1).dart';
 import 'pages/renter/renter_page(0).dart';
 import 'pages/room_details.dart';
 
-void main() => runApp(RoompalOJT());
+void main() => runApp(const RoompalOJT());
 
 class RoompalOJT extends StatelessWidget {
   const RoompalOJT({super.key});
