@@ -329,7 +329,7 @@ TextButton navigationButton({
   required bool? isGoBack,
 }) {
   return TextButton(
-    onPressed: () => onPressed,
+    onPressed: onPressed,
     style: ButtonStyle(
       padding: MaterialStateProperty.all(
         EdgeInsetsDirectional.symmetric(horizontal: 27, vertical: 15),
@@ -378,7 +378,7 @@ TextButton noButtonIcons({
   required Color textColor,
 }) {
   return TextButton(
-    onPressed: () => onPressed,
+    onPressed: onPressed,
     style: ButtonStyle(
       padding: MaterialStateProperty.all(
         EdgeInsetsDirectional.symmetric(horizontal: 27, vertical: 15),

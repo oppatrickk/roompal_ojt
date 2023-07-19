@@ -235,7 +235,7 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
             ),
             ksizedBoxTextFieldCol,
             noButtonIcons(
-              onPressed: null,
+              onPressed: () => Navigator.pushNamed(context, RoomDetails.id),
               label: 'Cancel',
               isBorderRequired: true,
               buttonColor: Colors.white,
