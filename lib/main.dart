@@ -12,6 +12,8 @@ import 'pages/room_details.dart';
 void main() => runApp(RoompalOJT());
 
 class RoompalOJT extends StatelessWidget {
+  const RoompalOJT({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -25,8 +27,7 @@ class RoompalOJT extends StatelessWidget {
       initialRoute: MyHomePage.id,
       //add other screens here
       routes: {
-        MyHomePage.id: (BuildContext context) =>
-            const MyHomePage(title: 'Roompal OJT'),
+        MyHomePage.id: (BuildContext context) => const MyHomePage(title: 'Roompal OJT'),
         RenterPage.id: (BuildContext context) => const RenterPage(),
         LandingPage.id: (BuildContext context) => const LandingPage(),
         RoomDetails.id: (BuildContext context) => const RoomDetails(),

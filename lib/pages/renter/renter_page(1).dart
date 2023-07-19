@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class RenterPage1 extends StatelessWidget {
@@ -17,7 +18,7 @@ class RenterPage1 extends StatelessWidget {
       endDrawer: buildSideBar(context),
       body: const SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: kPagePadding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
