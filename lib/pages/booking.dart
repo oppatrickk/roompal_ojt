@@ -61,31 +61,29 @@ class _BookingState extends State<Booking> {
                   border: Border.all(color: Colors.white, width: 2.0),
                 ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Room Name",
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Room Name",
+                          textAlign: TextAlign.start,
+                          style: textStyleHeader(color: Color(0xFF242426), size: 32),
+                        ),
+                        Text(
+                          "Room #000",
+                          textAlign: TextAlign.start,
+                          style: textStyleHeader(color: Color(0xFF242426), size: 16),
+                        ),
+                      ],
                     ),
-                    Text(
-                      "Room #000",
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+                    kSizedBox,
                     Text(
                       "Choose Details",
                       textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
+                      style: textStyleHeader(
+                        size: 16,
                         color: Color(0xFF575F6E),
                       ),
                     ),

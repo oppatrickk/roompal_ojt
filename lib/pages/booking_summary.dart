@@ -29,7 +29,7 @@ class _BookingSummaryState extends State<BookingSummary> {
                 'Booking Summary',
                 style: textStyleHeader(
                   size: 24,
-                  color: Colors.black,
+                  color: Color(0xFF242426),
                 ),
               ),
               divider,
@@ -37,14 +37,14 @@ class _BookingSummaryState extends State<BookingSummary> {
                 'Room #000',
                 style: textStyleHeader(
                   size: 20,
-                  color: Colors.black,
+                  color: Color(0xFF242426),
                 ),
               ),
               Text(
                 'Studio Type',
                 style: textStyleHeader(
                   size: 15,
-                  color: Colors.black,
+                  color: Color(0xFF242426),
                 ),
               ),
               ksizedBoxTextFieldCol,
@@ -55,14 +55,14 @@ class _BookingSummaryState extends State<BookingSummary> {
                     'Check in date',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                   Text(
                     'July 14, 2023',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                 ],
@@ -74,14 +74,14 @@ class _BookingSummaryState extends State<BookingSummary> {
                     'Check out date',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                   Text(
                     'July 27, 2023',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                 ],
@@ -93,14 +93,14 @@ class _BookingSummaryState extends State<BookingSummary> {
                     'Total days',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                   Text(
                     '14 days (2 weeks)',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                 ],
@@ -112,14 +112,14 @@ class _BookingSummaryState extends State<BookingSummary> {
                     'Number of Guest',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                   Text(
                     '2',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                 ],
@@ -134,14 +134,14 @@ class _BookingSummaryState extends State<BookingSummary> {
                     'Subtotal',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                   Text(
                     'Php. ####.00',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                 ],
@@ -153,14 +153,14 @@ class _BookingSummaryState extends State<BookingSummary> {
                     'Discount',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                   Text(
                     'Php. ###.00',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                 ],
@@ -172,14 +172,14 @@ class _BookingSummaryState extends State<BookingSummary> {
                     'Serving Fee',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                   Text(
                     'Php. ####.00',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                 ],
@@ -191,14 +191,14 @@ class _BookingSummaryState extends State<BookingSummary> {
                     'Booking Fee',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                   Text(
                     'Php. ####.00',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                 ],
@@ -214,14 +214,14 @@ class _BookingSummaryState extends State<BookingSummary> {
                     'Total',
                     style: textStyleContent(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                   Text(
                     'Php. ####.00',
                     style: textStyleHeader(
                       size: 18,
-                      color: Colors.black,
+                      color: Color(0xFF242426),
                     ),
                   ),
                 ],

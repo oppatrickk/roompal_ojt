@@ -10,8 +10,6 @@ import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 
-import 'booking/booking_page.dart';
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
   static const String id = 'MyHomePage';
