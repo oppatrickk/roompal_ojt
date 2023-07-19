@@ -155,6 +155,7 @@ class _ContactDetailsState extends State<ContactDetails> {
               ksizedBoxTFB,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+<<<<<<< HEAD
                 children: <Widget>[
                   navigationButton(onPressed: null, icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                   navigationButton(
@@ -169,6 +170,59 @@ class _ContactDetailsState extends State<ContactDetails> {
                 buttonColor: Colors.white,
                 textColor: const Color(0xFF242426),
               ),
+=======
+                children: [
+                  GestureDetector(
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                      decoration: boxDecoration(),
+                      child: Row(
+                        children: [
+                          iconStyle(icon: Icons.arrow_back, color: Color(0xFF242426), size: 24),
+                          ksizedBoxTextFieldRow,
+                          Text(
+                            'Go Back',
+                            style: textStyleHeader(color: Color(0xFF242426), size: 16),
+                          )
+                        ],
+                      ),
+                    ),
+                    onTap: null,
+                  ),
+                  GestureDetector(
+                    child: Container(
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                      decoration: boxDecoration(),
+                      child: Row(
+                        children: [
+                          Text(
+                            'Go Next',
+                            style: textStyleHeader(color: Color(0xFF242426), size: 16),
+                          ),
+                          ksizedBoxTextFieldRow,
+                          iconStyle(icon: Icons.arrow_forward, color: Color(0xFF242426), size: 24),
+                        ],
+                      ),
+                    ),
+                    onTap: null,
+                  ),
+                ],
+              ),
+              ksizedBoxTextFieldCol,
+              GestureDetector(
+                child: Container(
+                  decoration: boxDecoration(),
+                  padding: EdgeInsets.symmetric(vertical: 15),
+                  child: Center(
+                    child: Text(
+                      'Cancel',
+                      style: textStyleHeader(color: Color(0xFF242426), size: 16),
+                    ),
+                  ),
+                ),
+                onTap: null,
+              )
+>>>>>>> 67fc8420abe085bfa2ee097fd4513dc5fb32ff97
             ],
           ),
         ),
