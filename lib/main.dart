@@ -6,6 +6,7 @@ import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/contact_details.dart';
 import 'package:roompal_ojt/pages/payment_fail.dart';
 import 'package:roompal_ojt/pages/payment_success.dart';
+import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'pages/renter/renter_page(1).dart';
 import 'pages/renter/renter_page(0).dart';
@@ -38,6 +39,7 @@ class RoompalOJT extends StatelessWidget {
         BookingSummary.id: (BuildContext context) => const BookingSummary(),
         PaymentSuccess.id: (BuildContext context) => const PaymentSuccess(),
         PaymentFail.id: (BuildContext context) => const PaymentFail(),
+        LocationPage.id: (BuildContext context) => const LocationPage(),
       },
     );
   }
