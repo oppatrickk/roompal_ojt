@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_const
-
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
@@ -269,15 +267,9 @@ class RoomDetails extends StatelessWidget {
                     ],
                   ),
                   ksizedBoxTextFieldCol,
-                  Column(
-                    children: <Widget>[
-                      ReviewCard(),
-                      ReviewCard(),
-                      ReviewCard(),
-                      ReviewCard(),
-                      ReviewCard(),
-                    ],
-                  ),
+                  ReviewCard(),
+                  ReviewCard(),
+                  ReviewCard(),
                 ],
               ),
             ],
@@ -297,7 +289,7 @@ class ReviewCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Card(
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
         child: Column(
           children: <Widget>[
             Row(
@@ -324,7 +316,7 @@ class ReviewCard extends StatelessWidget {
                 ),
                 ksizedBoxTextFieldRow,
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
+                  padding: EdgeInsets.only(bottom: 12),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
