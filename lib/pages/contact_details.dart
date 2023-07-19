@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/confirmation.dart';
+import 'package:roompal_ojt/pages/payment_details.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
-import 'package:roompal_ojt/widgets/const_elements.dart';
+import '../widgets/const_elements.dart';
 import '../widgets/widget_elements.dart';
 
 class ContactDetails extends StatefulWidget {
@@ -115,7 +115,8 @@ class _ContactDetailsState extends State<ContactDetails> {
                                       color: Color(0xFF242426),
                                     ),
                                   ),
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
+                                  contentPadding:
+                                      EdgeInsets.symmetric(horizontal: 30),
                                   labelText: '+63',
                                 ),
                                 style: textStyleHeader(
@@ -156,56 +157,27 @@ class _ContactDetailsState extends State<ContactDetails> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                      decoration: boxDecoration(),
-                      child: Row(
-                        children: [
-                          iconStyle(icon: Icons.arrow_back, color: Color(0xFF242426), size: 24),
-                          ksizedBoxTextFieldRow,
-                          Text(
-                            'Go Back',
-                            style: textStyleHeader(color: Color(0xFF242426), size: 16),
-                          )
-                        ],
-                      ),
-                    ),
-                    onTap: null,
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                      decoration: boxDecoration(),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Go Next',
-                            style: textStyleHeader(color: Color(0xFF242426), size: 16),
-                          ),
-                          ksizedBoxTextFieldRow,
-                          iconStyle(icon: Icons.arrow_forward, color: Color(0xFF242426), size: 24),
-                        ],
-                      ),
-                    ),
-                    onTap: () => Navigator.pushNamed(context, ConfirmationPage.id),
-                  ),
+                  navigationButton(
+                      onPressed: null,
+                      icon: Icons.arrow_back,
+                      label: 'Go back',
+                      isGoBack: true),
+                  navigationButton(
+                      onPressed: () =>
+                          Navigator.pushNamed(context, PaymentDetails.id),
+                      label: 'Go next',
+                      icon: Icons.arrow_forward,
+                      isGoBack: false)
                 ],
               ),
               ksizedBoxTextFieldCol,
-              GestureDetector(
-                child: Container(
-                  decoration: boxDecoration(),
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  child: Center(
-                    child: Text(
-                      'Cancel',
-                      style: textStyleHeader(color: Color(0xFF242426), size: 16),
-                    ),
-                  ),
-                ),
-                onTap: () => Navigator.pushNamed(context, RoomDetails.id),
-              )
+              noButtonIcons(
+                onPressed: () => Navigator.pushNamed(context, RoomDetails.id),
+                label: 'Cancel',
+                isBorderRequired: true,
+                buttonColor: Colors.white,
+                textColor: Color(0xFF242426),
+              ),
             ],
           ),
         ),

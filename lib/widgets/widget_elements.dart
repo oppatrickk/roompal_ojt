@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'const_elements.dart';
+
 //COMPONENTS
 // SideBar
 NavigationDrawer buildSideBar(BuildContext context) {
@@ -319,6 +321,91 @@ Column textField({required String label}) {
   );
 }
 
+//Button for go back and go next
+TextButton navigationButton({
+  required void Function()? onPressed,
+  required IconData icon,
+  required String label,
+  required bool? isGoBack,
+}) {
+  return TextButton(
+    onPressed: onPressed,
+    style: ButtonStyle(
+      padding: MaterialStateProperty.all(
+        EdgeInsetsDirectional.symmetric(horizontal: 27, vertical: 15),
+      ),
+      side: MaterialStateProperty.all(
+        BorderSide(
+          color: Color(0xFFBBBFC1),
+        ),
+      ),
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+    ),
+    child: isGoBack == true
+        ? Row(
+            children: [
+              iconStyle(icon: icon, color: Color(0xFF242426), size: 24),
+              ksizedBoxTextFieldRow,
+              Text(
+                label,
+                style: textStyleHeader(color: Color(0xFF242426), size: 16),
+              )
+            ],
+          )
+        : Row(
+            children: [
+              Text(
+                label,
+                style: textStyleHeader(color: Color(0xFF242426), size: 16),
+              ),
+              ksizedBoxTextFieldRow,
+              iconStyle(icon: icon, color: Color(0xFF242426), size: 24),
+            ],
+          ),
+  );
+}
+
+//Button for w/out icons
+TextButton noButtonIcons({
+  required void Function()? onPressed,
+  required String label,
+  required bool? isBorderRequired,
+  required Color buttonColor,
+  required Color textColor,
+}) {
+  return TextButton(
+    onPressed: onPressed,
+    style: ButtonStyle(
+      padding: MaterialStateProperty.all(
+        EdgeInsetsDirectional.symmetric(horizontal: 27, vertical: 15),
+      ),
+      side: isBorderRequired == true
+          ? MaterialStateProperty.all(
+              BorderSide(
+                color: Color(0xFFBBBFC1),
+              ),
+            )
+          : null,
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+      backgroundColor: MaterialStatePropertyAll(buttonColor),
+    ),
+    child: Center(
+      child: Text(
+        label,
+        style: textStyleHeader(color: textColor, size: 16),
+      ),
+    ),
+  );
+}
+
 //STYLING
 //Content Style
 TextStyle textStyleContent({required double size, required Color color}) {
@@ -420,6 +507,44 @@ TextField textFieldDecoration() {
     style: textStyleHeader(
       size: 18,
       color: Color(0xFF242426),
+    ),
+  );
+}
+
+// Display Details for 2 fields in single row Confirmation Page
+Expanded displayDetails({
+  required String label,
+  required String details,
+  required int flex,
+}) {
+  return Expanded(
+    flex: flex,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: textStyleContent(
+            size: 14,
+            color: Color(0xFF242426),
+          ),
+        ),
+        confirmationDetails(details: details),
+        ksizedBoxTextFieldCol,
+        divider,
+        ksizedBoxTextFieldCol,
+      ],
+    ),
+  );
+}
+
+//Style for displaying details
+Container confirmationDetails({required String details}) {
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal: 10),
+    child: Text(
+      details,
+      style: textStyleHeader(color: Color(0xFF242426), size: 18),
     ),
   );
 }

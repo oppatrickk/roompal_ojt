@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
-
 import '../widgets/const_elements.dart';
 import '../widgets/widget_elements.dart';
 
@@ -23,77 +22,120 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.baseline,
-                textBaseline: TextBaseline.ideographic,
-                children: [
-                  bookingSteps(
-                    label: 'Booking',
-                    textColor: Colors.grey,
-                    lineColor: Colors.grey,
-                    textSize: 12,
-                    flex: 1,
-                  ),
-                  bookingSteps(
-                    label: 'Contacts',
-                    textColor: Colors.grey,
-                    lineColor: Colors.grey,
-                    textSize: 12,
-                    flex: 1,
-                  ),
-                  bookingSteps(
-                    label: 'Payment',
-                    textColor: Colors.grey,
-                    lineColor: Colors.grey,
-                    textSize: 12,
-                    flex: 1,
-                  ),
-                  bookingSteps(
-                    label: 'Confirmation',
-                    textColor: Color(0xFF1C39BB),
-                    lineColor: Color(0xFFFEB618),
-                    textSize: 18,
-                    flex: 2,
-                  ),
-                ],
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.ideographic,
+              children: [
+                bookingSteps(
+                  label: 'Booking',
+                  textColor: Colors.grey,
+                  lineColor: Colors.grey,
+                  textSize: 12,
+                  flex: 1,
+                ),
+                bookingSteps(
+                  label: 'Contacts',
+                  textColor: Colors.grey,
+                  lineColor: Colors.grey,
+                  textSize: 12,
+                  flex: 1,
+                ),
+                bookingSteps(
+                  label: 'Payment',
+                  textColor: Colors.grey,
+                  lineColor: Colors.grey,
+                  textSize: 12,
+                  flex: 1,
+                ),
+                bookingSteps(
+                  label: 'Confirmation',
+                  textColor: Color(0xFF1C39BB),
+                  lineColor: Color(0xFFFEB618),
+                  textSize: 18,
+                  flex: 2,
+                ),
+              ],
+            ),
+            kSizedBox,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Kwarto De Luna',
+                  style: kRoomName,
+                ),
+                const Text(
+                  'Room #0000',
+                  style: kRoomNumber,
+                ),
+                const Row(
+                  children: <Widget>[
+                    RoomDetailsDisplay(Icons.star, '4.5'),
+                    RoomDetailsDisplay(Icons.person, '125 reviews'),
+                    RoomDetailsDisplay(Icons.table_restaurant, 'Studio'),
+                    RoomDetailsDisplay(Icons.pin_drop, 'Legazpi City, Bicol'),
+                  ],
+                ),
+                const Row(
+                  children: <Widget>[
+                    Text(
+                      'Nearby Landmarks:',
+                      style: TextStyle(
+                        fontSize: 10.0,
+                        fontFamily: 'ProximaNovaAltBold',
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5.0,
+                    ),
+                    RoomDetailsDisplay(Icons.church, 'Albay Cathedral'),
+                    RoomDetailsDisplay(Icons.park, 'Albay Park'),
+                  ],
+                ),
+              ],
+            ),
+            kSizedBox,
+            Text(
+              'Transaction Details',
+              style: textStyleContent(
+                size: 16,
+                color: Color(0xFF575F6E),
               ),
-              kSizedBox,
-              Column(
+            ),
+            ksizedBoxTextFieldCol,
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: boxDecoration(),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    'Kwarto De Luna',
-                    style: kRoomName,
+                  Text(
+                    'Name',
+                    style: textStyleContent(
+                      size: 14,
+                      color: Color(0xFF242426),
+                    ),
                   ),
-                  const Text(
-                    'Room #0000',
-                    style: kRoomNumber,
-                  ),
-                  const Row(
-                    children: <Widget>[
-                      RoomDetailsDisplay(Icons.star, '4.5'),
-                      RoomDetailsDisplay(Icons.person, '125 reviews'),
-                      RoomDetailsDisplay(Icons.table_restaurant, 'Studio'),
-                      RoomDetailsDisplay(Icons.pin_drop, 'Legazpi City, Bicol'),
-                    ],
-                  ),
-                  const Row(
-                    children: <Widget>[
-                      Text(
-                        'Nearby Landmarks:',
-                        style: TextStyle(
-                          fontSize: 10.0,
-                          fontFamily: 'ProximaNovaAltBold',
-                        ),
+                  ksizedBoxTextFieldCol,
+                  confirmationDetails(details: 'Cena Una Cortson Bueno'),
+                  ksizedBoxTextFieldCol,
+                  divider,
+                  ksizedBoxTextFieldCol,
+                  Row(
+                    children: [
+                      displayDetails(
+                        label: 'Guest',
+                        details: '1',
+                        flex: 1,
                       ),
-                      SizedBox(
-                        width: 5.0,
+                      ksizedBoxTextFieldRow,
+                      displayDetails(
+                        label: 'Payment Method',
+                        details: 'Credit Card',
+                        flex: 3,
                       ),
-                      RoomDetailsDisplay(Icons.church, 'Albay Cathedral'),
-                      RoomDetailsDisplay(Icons.park, 'Albay Park'),
                     ],
                   ),
                 ],
@@ -236,7 +278,6 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                         ],
                       ),
                     ),
-                    onTap: null,
                   ),
                   GestureDetector(
                     child: Container(
@@ -252,8 +293,13 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                           iconStyle(icon: Icons.arrow_forward, color: Color(0xFF242426), size: 24),
                         ],
                       ),
-                    ),
-                    onTap: null,
+                      ksizedBoxTextFieldRow,
+                      displayDetails(
+                        label: '',
+                        details: '912 7689 991',
+                        flex: 3,
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -268,22 +314,63 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                       style: textStyleHeader(color: Color(0xFF242426), size: 16),
                     ),
                   ),
-                ),
-                onTap: null,
-              )
-            ],
-          ),
+                  ksizedBoxTextFieldCol,
+                  confirmationDetails(details: 'July 03-17 (14 days)'),
+                  ksizedBoxTextFieldCol,
+                  divider,
+                  ksizedBoxTextFieldCol,
+                ],
+              ),
+            ),
+            kSizedBox,
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: boxDecoration(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Email',
+                    style: textStyleContent(
+                      size: 14,
+                      color: Color(0xFF242426),
+                    ),
+                  ),
+                  ksizedBoxTextFieldCol,
+                  confirmationDetails(details: 'coratsoncu@gmail.com'),
+                  ksizedBoxTextFieldCol,
+                  divider,
+                  ksizedBoxTextFieldCol,
+                ],
+              ),
+            ),
+            ksizedBoxTFB,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                navigationButton(
+                    onPressed: () =>
+                        Navigator.pushNamed(context, PaymentDetails.id),
+                    icon: Icons.arrow_back,
+                    label: 'Go back',
+                    isGoBack: true),
+                navigationButton(
+                    onPressed: null,
+                    label: 'Go next',
+                    icon: Icons.arrow_forward,
+                    isGoBack: false)
+              ],
+            ),
+            ksizedBoxTextFieldCol,
+            noButtonIcons(
+              onPressed: () => Navigator.pushNamed(context, RoomDetails.id),
+              label: 'Cancel',
+              isBorderRequired: true,
+              buttonColor: Colors.white,
+              textColor: Color(0xFF242426),
+            ),
+          ]),
         ),
-      ),
-    );
-  }
-
-  Container confirmationDetails({required String details}) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: Text(
-        details,
-        style: textStyleHeader(color: Color(0xFF242426), size: 18),
       ),
     );
   }
