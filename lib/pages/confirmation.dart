@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 import '../widgets/const_elements.dart';
 import '../widgets/widget_elements.dart';
@@ -126,38 +125,124 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
                   ksizedBoxTextFieldCol,
                   Row(
                     children: [
-                      Column(
-                        children: [
-                          Text(
-                            'Guest',
-                            style: textStyleContent(
-                              size: 14,
-                              color: Color(0xFF242426),
-                            ),
-                          ),
-                          confirmationDetails(details: '1'),
-                          ksizedBoxTextFieldCol,
-                          divider,
-                          ksizedBoxTextFieldCol,
-                        ],
-                      )
+                      displayDetails(
+                        label: 'Guest',
+                        details: '1',
+                        flex: 1,
+                      ),
+                      ksizedBoxTextFieldRow,
+                      displayDetails(
+                        label: 'Payment Method',
+                        details: 'Credit Card',
+                        flex: 3,
+                      ),
                     ],
                   ),
                 ],
               ),
             ),
+            kSizedBox,
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: boxDecoration(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Phone Number',
+                    style: textStyleContent(
+                      size: 14,
+                      color: Color(0xFF242426),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      displayDetails(
+                        label: '',
+                        details: '+63',
+                        flex: 1,
+                      ),
+                      ksizedBoxTextFieldRow,
+                      displayDetails(
+                        label: '',
+                        details: '912 7689 991',
+                        flex: 3,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            kSizedBox,
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: boxDecoration(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Check in & Check out Date',
+                    style: textStyleContent(
+                      size: 14,
+                      color: Color(0xFF242426),
+                    ),
+                  ),
+                  ksizedBoxTextFieldCol,
+                  confirmationDetails(details: 'July 03-17 (14 days)'),
+                  ksizedBoxTextFieldCol,
+                  divider,
+                  ksizedBoxTextFieldCol,
+                ],
+              ),
+            ),
+            kSizedBox,
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: boxDecoration(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Email',
+                    style: textStyleContent(
+                      size: 14,
+                      color: Color(0xFF242426),
+                    ),
+                  ),
+                  ksizedBoxTextFieldCol,
+                  confirmationDetails(details: 'coratsoncu@gmail.com'),
+                  ksizedBoxTextFieldCol,
+                  divider,
+                  ksizedBoxTextFieldCol,
+                ],
+              ),
+            ),
+            ksizedBoxTFB,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                navigationButton(
+                    onPressed: null,
+                    icon: Icons.arrow_back,
+                    label: 'Go back',
+                    isGoBack: true),
+                navigationButton(
+                    onPressed: null,
+                    label: 'Go next',
+                    icon: Icons.arrow_forward,
+                    isGoBack: false)
+              ],
+            ),
+            ksizedBoxTextFieldCol,
+            noButtonIcons(
+              onPressed: null,
+              label: 'Cancel',
+              isBorderRequired: true,
+              buttonColor: Colors.white,
+              textColor: Color(0xFF242426),
+            ),
           ]),
         ),
-      ),
-    );
-  }
-
-  Container confirmationDetails({required String details}) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: Text(
-        details,
-        style: textStyleHeader(color: Color(0xFF242426), size: 18),
       ),
     );
   }
