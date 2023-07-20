@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
+import 'package:roompal_ojt/pages/property_owner/detail_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
@@ -39,7 +41,7 @@ class _LocationPageState extends State<LocationPage> {
                 child: Image.asset('assets/img/cl3.png'),
               ),
               ksizedBoxTextFieldCol,
-              //status bar
+              //circle bar
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -221,13 +223,13 @@ class _LocationPageState extends State<LocationPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   navigationButton(
-                    onPressed: () => null,
+                    onPressed: () => Navigator.pushNamed(context, ContactOverview.id),
                     icon: Icons.arrow_back,
                     label: 'Go back',
                     isGoBack: true,
                   ),
                   navigationButton(
-                    onPressed: null,
+                    onPressed: () => Navigator.pushNamed(context, DetailPage.id),
                     label: 'Go next',
                     icon: Icons.arrow_forward,
                     isGoBack: false,
