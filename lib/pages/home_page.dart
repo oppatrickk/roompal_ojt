@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/booking.dart';
+import 'package:roompal_ojt/pages/booking/booking.dart';
 import 'package:roompal_ojt/pages/booking/booking_summary.dart';
 import 'package:roompal_ojt/pages/booking/contact_details.dart';
 import 'package:roompal_ojt/pages/booking/payment_fail.dart';
