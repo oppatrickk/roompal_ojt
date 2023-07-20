@@ -13,7 +13,6 @@ class LocationPage extends StatelessWidget {
         toolbarHeight: 80.0,
         backgroundColor: Colors.white,
         title: Image.asset('assets/img/wmB.png'),
-        elevation: 5.0,
       ),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
@@ -182,7 +181,7 @@ class LocationPage extends StatelessWidget {
               ksizedBoxTextFieldCol,
               //landmark
               Container(
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
                   children: <Widget>[
@@ -191,8 +190,9 @@ class LocationPage extends StatelessWidget {
                       children: <Widget>[
                         Flexible(
                           flex: 1,
-                          child: textField(
+                          child: textFieldWithHintText(
                             label: 'Icon',
+                            hint: 'rando',
                           ),
                         ),
                         ksizedBoxTextFieldRow,

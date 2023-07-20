@@ -311,6 +311,23 @@ Column textField({required String label}) {
   );
 }
 
+//Text Fields with hintText
+Column textFieldWithHintText({required String label, required String hint}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: <Widget>[
+      Text(
+        label,
+        style: textStyleContent(
+          size: 14,
+          color: const Color(0xFF242426),
+        ),
+      ),
+      textFieldwithHintTextDecoration(hint),
+    ],
+  );
+}
+
 //Button for go back and go next
 TextButton navigationButton({
   required void Function()? onPressed,
@@ -514,6 +531,35 @@ TextField textFieldDecoration() {
         ),
       ),
       contentPadding: EdgeInsets.symmetric(horizontal: 10),
+    ),
+    style: textStyleHeader(
+      size: 18,
+      color: const Color(0xFF242426),
+    ),
+  );
+}
+
+//Text Field Style with hint text
+TextField textFieldwithHintTextDecoration(String hintText) {
+  return TextField(
+    decoration: InputDecoration(
+      hintText: hintText,
+      hintStyle: const TextStyle(
+        color: Colors.grey,
+        fontSize: 15,
+        fontFamily: 'ProximaNovaRegular',
+      ),
+      border: const UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xFFBBBFC1),
+        ),
+      ),
+      focusedBorder: const UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xFF242426),
+        ),
+      ),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 10),
     ),
     style: textStyleHeader(
       size: 18,

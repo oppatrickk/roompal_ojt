@@ -13,7 +13,6 @@ class RenterPage1 extends StatelessWidget {
         toolbarHeight: 80.0,
         backgroundColor: Colors.white,
         title: Image.asset('assets/img/wmB.png'),
-        elevation: 5.0,
       ),
       endDrawer: buildSideBar(context),
       body: const SingleChildScrollView(
