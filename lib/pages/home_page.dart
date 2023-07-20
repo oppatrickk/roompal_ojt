@@ -9,6 +9,7 @@ import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
 import 'package:roompal_ojt/pages/property_owner/detail_page.dart';
 import 'package:roompal_ojt/pages/property_owner/listing_owner_tableview.dart';
 import 'package:roompal_ojt/pages/property_owner/listing_ownersView.dart';
+import 'package:roompal_ojt/pages/property_owner/listing_rentersView.dart';
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/property_owner/photo_page.dart';
@@ -17,8 +18,6 @@ import 'package:roompal_ojt/pages/renter/renter_page(0).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'package:roompal_ojt/pages/room_details.dart';
-
-import 'booking/booking.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -148,7 +147,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.pushNamed(context, ListingOwnerTV.id);
                 },
-                child: const Text('Listing Owner TV'),
+                child: const Text("Listing Owner' TV"),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ListingRenter.id);
+                },
+                child: const Text("Manage Listing: Renter's View"),
               ),
             ],
           ),

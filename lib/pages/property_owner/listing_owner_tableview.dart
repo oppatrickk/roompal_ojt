@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/widget_property_owner.dart';
@@ -12,6 +13,8 @@ class ListingOwnerTV extends StatefulWidget {
 }
 
 class _ListingOwnerTVState extends State<ListingOwnerTV> {
+  int? viewValue = 0; //part of view changer option
+  int? iconValue = 0; //part of showcase option
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,6 +60,88 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
                   ),
                 ],
               ),
+              kSizedBox,
+              Row(
+                children: <Widget>[
+                  //View button
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: CupertinoSegmentedControl<int>(
+                      padding: const EdgeInsets.all(4),
+                      groupValue: viewValue,
+                      selectedColor: const Color(0xFF1C39BB),
+                      borderColor: const Color(0xFF808080),
+                      children: const <int, Widget>{
+                        0: BuildSegment("Owner's View"),
+                        1: BuildSegment("Renter's View"),
+                      },
+                      onValueChanged: (int? groupValue) {
+                        setState(() => this.viewValue = groupValue);
+                        //for future use
+                        //   if (groupValue == 0) {
+                        //     setState(() {
+                        //       this.groupValue = groupValue;
+                        //       Navigator.pushNamed(context, ContactOverview.id);
+                        //     });
+                        //   } else {
+                        //     setState(() {
+                        //       this.groupValue = groupValue;
+                        //     });
+                        //   }
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  //Add Button
+                  Container(
+                    height: 31,
+                    child: FloatingActionButton.extended(
+                      isExtended: true,
+                      elevation: 0,
+                      onPressed: () {},
+                      label: const Text('Add New'),
+                      icon: const Icon(Icons.add),
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                          color: Color(0xFF808080),
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      backgroundColor: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              ksizedBoxTextFieldCol,
+              Container(
+                alignment: Alignment.topRight,
+                child: CupertinoSegmentedControl<int>(
+                  padding: const EdgeInsets.all(4),
+                  groupValue: iconValue,
+                  selectedColor: const Color(0xFF1C39BB),
+                  borderColor: const Color(0xFF808080),
+                  children: const <int, Widget>{
+                    0: BuildSegment1(Icons.list),
+                    1: BuildSegment1(Icons.window_outlined),
+                  },
+                  onValueChanged: (int? groupValue) {
+                    setState(() => this.iconValue = groupValue);
+                    //for future use
+                    //   if (groupValue == 0) {
+                    //     setState(() {
+                    //       this.groupValue = groupValue;
+                    //       Navigator.pushNamed(context, ContactOverview.id);
+                    //     });
+                    //   } else {
+                    //     setState(() {
+                    //       this.groupValue = groupValue;
+                    //     });
+                    //   }
+                  },
+                ),
+              ),
               ksizedBoxTextFieldCol,
               Table(
                 border: TableBorder.all(
@@ -80,7 +165,7 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
                   TableRow(children: [
                     tableContent(content: '001', color: Color(0xFF242731)),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(5.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
@@ -110,12 +195,35 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
                           ),
                           ksizedBoxTextFieldCol,
                           Row(
-                            children: [roomType(buttonColor: Color(0xFFFEB618), label: 'Room Type', textColor: Colors.black)],
-                          )
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              label(buttonColor: Color(0xFFFEB618), label: 'Room Type', textColor: Colors.black),
+                              label(buttonColor: Color(0xFF5C8BE1), label: 'Occupied', textColor: Colors.white),
+                            ],
+                          ),
                         ],
                       ),
                     ),
-                    tableContent(content: 'Actions', color: Colors.white),
+                    Padding(
+                      padding: const EdgeInsets.all(5.0),
+                      child: Column(
+                        children: [
+                          ActionButtons(
+                            Colors.green,
+                            Icons.edit_square,
+                            'Edit',
+                            () {},
+                          ),
+                          ksizedBoxTextFieldCol,
+                          ActionButtons(
+                            Colors.red,
+                            Icons.delete_outline,
+                            'Delete',
+                            () {},
+                          ),
+                        ],
+                      ),
+                    ),
                   ]),
                   TableRow(children: [
                     Column(children: [Text('Javatpoint')]),
@@ -136,7 +244,7 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
     );
   }
 
-  Container roomType({required String label, required Color textColor, required Color buttonColor}) {
+  Container label({required String label, required Color textColor, required Color buttonColor}) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
@@ -154,15 +262,13 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
     );
   }
 
-  Column tableContent({required String content, required Color color}) => Column(children: [
-        Container(
+  Center tableContent({required String content, required Color color}) => Center(
+        child: Container(
           padding: EdgeInsets.symmetric(vertical: 10),
-          child: Center(
-            child: Text(
-              content,
-              style: textStyleHeader(color: color, size: 12),
-            ),
+          child: Text(
+            content,
+            style: textStyleHeader(color: color, size: 14),
           ),
         ),
-      ]);
+      );
 }
