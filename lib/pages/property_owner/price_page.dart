@@ -91,54 +91,62 @@ class _PricePageState extends State<PricePage> {
                 ),
               ),
               kSizedBox,
-              //Trtansient Price and Transaction Fee
 
+              //Trtansient Price and Transaction Fee
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Text(
-                          'Enter Transient (Daily) Price',
-                          style: textStyleContent(
-                            size: 14,
-                            color: const Color(0xFF242426),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Text(
+                            'Enter transient (Daily) Price',
+                            style: textStyleContent(
+                              size: 14,
+                              color: const Color(0xFF242426),
+                            ),
                           ),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Expanded(
-                              flex: 1,
-                              child: TextField(
-                                decoration: const InputDecoration(
-                                  border: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFBBBFC1),
-                                    ),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFF242426),
-                                    ),
-                                  ),
-                                ),
-                                style: textStyleHeader(
-                                  size: 18,
-                                  color: const Color(0xFF242426),
+                          textFieldDecoration(),
+                        ],
+                      ),
+                    ),
+                    ksizedBoxTextFieldRow,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Transaction Fee',
+                            style: textStyleContent(
+                              size: 14,
+                              color: const Color(0xFF1C39BB),
+                            ),
+                          ),
+                          TextField(
+                            decoration: const InputDecoration(
+                              border: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFBBBFC1),
                                 ),
                               ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFF242426),
+                                ),
+                              ),
+                              contentPadding: EdgeInsets.symmetric(horizontal: 30),
                             ),
-                            ksizedBoxTextFieldRow,
-                            Expanded(
-                              flex: 2,
-                              child: textFieldDecoration(),
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: const Color(0xFF1C39BB),
                             ),
-                          ],
-                        ),
-                      ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -147,14 +155,57 @@ class _PricePageState extends State<PricePage> {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        textField(label: 'Email'),
-                        ksizedBoxTextFieldCol,
-                      ],
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          Text(
+                            'Enter transient (Daily) Price',
+                            style: textStyleContent(
+                              size: 14,
+                              color: const Color(0xFF242426),
+                            ),
+                          ),
+                          textFieldDecoration(),
+                        ],
+                      ),
+                    ),
+                    ksizedBoxTextFieldRow,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Transaction Fee',
+                            style: textStyleContent(
+                              size: 14,
+                              color: const Color(0xFF1C39BB),
+                            ),
+                          ),
+                          TextField(
+                            decoration: const InputDecoration(
+                              border: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFFBBBFC1),
+                                ),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0xFF242426),
+                                ),
+                              ),
+                              contentPadding: EdgeInsets.symmetric(horizontal: 30),
+                            ),
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: const Color(0xFF1C39BB),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -175,7 +226,9 @@ class _PricePageState extends State<PricePage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
-                        textField(label: 'Enter Details'),
+                        textField(
+                          label: 'Enter Details',
+                        ),
                         ksizedBoxTextFieldCol,
                       ],
                     ),

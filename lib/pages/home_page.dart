@@ -18,6 +18,8 @@ import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 
+import 'booking/booking.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
   static const String id = 'MyHomePage';
@@ -140,13 +142,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.pushNamed(context, ListingOwner.id);
                 },
-                child: const Text('Manage Listing: Owners View'),
+                child: const Text('Listing Owner'),
               ),
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, ListingOwnerTV.id);
                 },
-                child: const Text('Manage Listing: Owners View - Table Format'),
+                child: const Text('Listing Owner TV'),
               ),
             ],
           ),
