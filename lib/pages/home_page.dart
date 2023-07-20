@@ -99,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.pushNamed(context, ContactOverview.id);
                 },
-                child: const Text('payment fail'),
+                child: const Text('contact overview'),
               ),
               TextButton(
                 onPressed: () {
