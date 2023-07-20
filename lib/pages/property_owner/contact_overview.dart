@@ -28,6 +28,23 @@ class _ContactOverviewState extends State<ContactOverview> {
               Center(
                 child: Image.asset('assets/img/cl2.png'),
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  circleIcon(isFillRequired: true, isBorderRequired: false),
+                  lineBetweenCI(isTrue: true),
+                  circleIcon(isFillRequired: true, isBorderRequired: false),
+                  lineBetweenCI(isTrue: false),
+                  circleIcon(isFillRequired: false, isBorderRequired: true),
+                  lineBetweenCI(isTrue: false),
+                  circleIcon(isFillRequired: false, isBorderRequired: true),
+                  lineBetweenCI(isTrue: false),
+                  circleIcon(isFillRequired: false, isBorderRequired: true),
+                  lineBetweenCI(isTrue: false),
+                  circleIcon(isFillRequired: false, isBorderRequired: true),
+                ],
+              ),
+              kSizedBox,
               Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -39,15 +56,9 @@ class _ContactOverviewState extends State<ContactOverview> {
                     Text(
                       'Fill in the property location data. It will take a couple of minutes. ',
                       style: kRoomNumber,
+                      textAlign: TextAlign.center,
                     ),
                   ],
-                ),
-              ),
-              Text(
-                'Fill in contact data. It will take a couple of minutes.',
-                style: textStyleContent(
-                  size: 16,
-                  color: const Color(0xFF575F6E),
                 ),
               ),
               kSizedBox,
