@@ -5,13 +5,7 @@ import 'package:roompal_ojt/pages/booking/contact_details.dart';
 import 'package:roompal_ojt/pages/booking/payment_fail.dart';
 import 'package:roompal_ojt/pages/booking/payment_success.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
-<<<<<<< HEAD
-import 'package:roompal_ojt/pages/payment_fail.dart';
-import 'package:roompal_ojt/pages/payment_success.dart';
-=======
 import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
-import 'package:roompal_ojt/pages/property_owner/location_page.dart';
->>>>>>> cbac09740e78d8df9992d516e50d1e32a17a0684
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(0).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
