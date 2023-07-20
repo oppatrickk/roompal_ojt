@@ -156,6 +156,7 @@ class _LocationPageState extends State<LocationPage> {
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     Row(
                       children: <Widget>[
@@ -203,17 +204,10 @@ class _LocationPageState extends State<LocationPage> {
                             hint: 'Parks nearby',
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20, left: 10),
-                          child: IconButton.outlined(
-                            onPressed: () {},
-                            icon: const Icon(Icons.add),
-                            hoverColor: Colors.blue,
-                          ),
-                        ),
                       ],
                     ),
                     ksizedBoxTextFieldCol,
+                    addButton(),
                   ],
                 ),
               ),
