@@ -1,11 +1,21 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
+import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
-class ListingOwner extends StatelessWidget {
+class ListingOwner extends StatefulWidget {
   const ListingOwner({super.key});
 
   static const String id = "ListingOwner";
+
+  @override
+  State<ListingOwner> createState() => _ListingOwnerState();
+}
+
+class _ListingOwnerState extends State<ListingOwner> {
+  int? groupValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +62,56 @@ class ListingOwner extends StatelessWidget {
                 ],
               ),
               ksizedBoxTextFieldCol,
+              Container(
+                alignment: Alignment.topLeft,
+                child: CupertinoSegmentedControl<int>(
+                  padding: const EdgeInsets.all(4),
+                  groupValue: groupValue,
+                  selectedColor: Color(0xFF1C39BB),
+                  borderColor: Color(0xFF808080),
+                  children: <int, Widget>{
+                    0: BuildSegment("Owner's View"),
+                    1: BuildSegment("Renter's View"),
+                  },
+                  onValueChanged: (int? groupValue) {
+                    setState(() => this.groupValue = groupValue);
+                    //for future use
+                    //   if (groupValue == 0) {
+                    //     setState(() {
+                    //       this.groupValue = groupValue;
+                    //       Navigator.pushNamed(context, ContactOverview.id);
+                    //     });
+                    //   } else {
+                    //     setState(() {
+                    //       this.groupValue = groupValue;
+                    //     });
+                    //   }
+                  },
+                ),
+              ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class BuildSegment extends StatelessWidget {
+  BuildSegment(
+    this.text, {
+    super.key,
+  });
+  String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(6),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 12,
         ),
       ),
     );

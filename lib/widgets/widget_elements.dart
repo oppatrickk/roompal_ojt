@@ -700,3 +700,25 @@ Container confirmationDetails({required String details}) {
     ),
   );
 }
+
+//Style for segmented control
+class BuildSegment extends StatelessWidget {
+  BuildSegment(
+    this.text, {
+    super.key,
+  });
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(6),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 12,
+        ),
+      ),
+    );
+  }
+}
