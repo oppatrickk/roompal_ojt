@@ -6,11 +6,8 @@ import 'package:roompal_ojt/pages/contact_overview.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/payment_fail.dart';
 import 'package:roompal_ojt/pages/payment_success.dart';
-<<<<<<< HEAD
-import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
-=======
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
->>>>>>> d87f89a80775226a4794264148cd88927b91e7c9
+import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(0).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
@@ -106,15 +103,15 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               TextButton(
                 onPressed: () {
-<<<<<<< HEAD
                   Navigator.pushNamed(context, OverviewPage.id);
                 },
                 child: const Text('Property Owner: Overview'),
-=======
+              ),
+              TextButton(
+                onPressed: () {
                   Navigator.pushNamed(context, LocationPage.id);
                 },
                 child: const Text('Location Page'),
->>>>>>> d87f89a80775226a4794264148cd88927b91e7c9
               ),
             ],
           ),

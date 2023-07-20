@@ -6,11 +6,8 @@ import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/contact_details.dart';
 import 'package:roompal_ojt/pages/payment_fail.dart';
 import 'package:roompal_ojt/pages/payment_success.dart';
-<<<<<<< HEAD
-import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
-=======
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
->>>>>>> d87f89a80775226a4794264148cd88927b91e7c9
+import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'pages/renter/renter_page(1).dart';
 import 'pages/renter/renter_page(0).dart';
@@ -43,11 +40,8 @@ class RoompalOJT extends StatelessWidget {
         BookingSummary.id: (BuildContext context) => const BookingSummary(),
         PaymentSuccess.id: (BuildContext context) => const PaymentSuccess(),
         PaymentFail.id: (BuildContext context) => const PaymentFail(),
-<<<<<<< HEAD
         OverviewPage.id: (BuildContext context) => const OverviewPage(),
-=======
         LocationPage.id: (BuildContext context) => const LocationPage(),
->>>>>>> d87f89a80775226a4794264148cd88927b91e7c9
       },
     );
   }
