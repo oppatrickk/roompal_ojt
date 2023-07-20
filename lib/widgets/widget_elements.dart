@@ -311,7 +311,7 @@ Column textField({required String label}) {
   );
 }
 
-//Text Fields with hintText
+//Text Fields with hintText and label
 Column textFieldWithHintText({required String label, required String hint}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -325,6 +325,63 @@ Column textFieldWithHintText({required String label, required String hint}) {
       ),
       textFieldwithHintTextDecoration(hint),
     ],
+  );
+}
+
+//Text Fields with hintText and without label
+Column textFieldWithHintTextButNoLabel({required String hint}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: <Widget>[
+      textFieldwithHintTextDecoration(hint),
+    ],
+  );
+}
+
+//Field Style in Details Page
+Container detailFields({required String label, required String hintText1, required String hintText2, required String labelDesc}) {
+  return Container(
+    padding: const EdgeInsets.all(10),
+    decoration: boxDecoration(),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              label,
+              style: textStyleContent(
+                size: 14,
+                color: Color(0xFF575F6E),
+              ),
+            ),
+          ],
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Flexible(
+              flex: 1,
+              child: textFieldWithHintTextButNoLabel(
+                hint: hintText1,
+              ),
+            ),
+            ksizedBoxTextFieldRow,
+            Flexible(
+              flex: 2,
+              child: textFieldWithHintTextButNoLabel(
+                hint: hintText2,
+              ),
+            ),
+          ],
+        ),
+        ksizedBoxTextFieldCol,
+        textFieldWithHintTextButNoLabel(hint: labelDesc),
+        ksizedBoxTextFieldCol,
+        addButton(),
+      ],
+    ),
   );
 }
 
@@ -437,6 +494,23 @@ Padding lineBetweenCI({required bool? isTrue}) {
       padding: EdgeInsets.all(1),
       width: 30,
       color: isTrue == true ? Color(0xFF1C39BB) : Colors.grey,
+    ),
+  );
+}
+
+//Add Button
+Container addButton() {
+  return Container(
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(5),
+      border: Border.all(color: Colors.grey),
+    ),
+    height: 40,
+    width: 60,
+    child: IconButton(
+      onPressed: () {},
+      icon: Icon(Icons.add),
+      hoverColor: Colors.black,
     ),
   );
 }
