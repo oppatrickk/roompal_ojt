@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:roompal_ojt/pages/contact_details.dart';
+import 'package:roompal_ojt/pages/booking/contact_details.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
-=======
->>>>>>> 0b6600ce4cd39f8dddcea33736b8eb298aee9b31
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import '../../widgets/widget_elements.dart';
 
