@@ -172,13 +172,15 @@ class _LocationPageState extends State<LocationPage> {
                                   color: const Color(0xFF242426),
                                 ),
                               ),
-                              DropdownButton<Icon>(
+                              DropdownButtonFormField<Icon>(
                                 isExpanded: true,
                                 value: dropdownValue,
                                 icon: const Icon(Icons.arrow_drop_down),
                                 elevation: 16,
                                 style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
-                                underline: Container(),
+                                decoration: InputDecoration(
+                                  contentPadding: EdgeInsets.all(0),
+                                ),
                                 onChanged: (Icon? value) {
                                   setState(
                                     () {

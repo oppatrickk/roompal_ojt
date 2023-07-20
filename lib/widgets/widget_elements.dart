@@ -618,6 +618,8 @@ BoxDecoration boxDecoration() {
 //Text Field Style
 TextField textFieldDecoration() {
   return TextField(
+    keyboardType: TextInputType.multiline,
+    maxLines: null,
     decoration: const InputDecoration(
       border: UnderlineInputBorder(
         borderSide: BorderSide(
@@ -641,6 +643,8 @@ TextField textFieldDecoration() {
 //Text Field Style with hint text
 TextField textFieldwithHintTextDecoration(String hintText) {
   return TextField(
+    keyboardType: TextInputType.multiline,
+    maxLines: null,
     decoration: InputDecoration(
       hintText: hintText,
       hintStyle: textStyleContent(color: Colors.grey, size: 18),

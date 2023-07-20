@@ -81,7 +81,7 @@ class PropertyCount extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              fontSize: 10,
+              fontSize: 12,
               fontFamily: 'ProximaNovaAltBold',
             ),
             textAlign: TextAlign.center,
