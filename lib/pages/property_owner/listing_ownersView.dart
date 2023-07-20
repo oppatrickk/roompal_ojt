@@ -70,6 +70,7 @@ class _ListingOwnerState extends State<ListingOwner> {
                     child: CupertinoSegmentedControl<int>(
                       padding: const EdgeInsets.all(4),
                       groupValue: viewValue,
+                      pressedColor: Colors.grey,
                       selectedColor: const Color(0xFF1C39BB),
                       borderColor: const Color(0xFF808080),
                       children: const <int, Widget>{

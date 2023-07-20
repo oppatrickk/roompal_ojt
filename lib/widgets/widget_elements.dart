@@ -782,7 +782,7 @@ class BuildSegment1 extends StatelessWidget {
       padding: EdgeInsets.all(6),
       child: Icon(
         icon,
-        size: 15,
+        size: 24,
       ),
     );
   }
