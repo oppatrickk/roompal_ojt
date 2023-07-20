@@ -6,6 +6,7 @@ import 'package:roompal_ojt/pages/booking/payment_fail.dart';
 import 'package:roompal_ojt/pages/booking/payment_success.dart';
 import 'package:roompal_ojt/pages/home_page.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
+import 'package:roompal_ojt/pages/property_owner/detail_page.dart';
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/property_owner/photo_page.dart';
@@ -44,6 +45,7 @@ class RoompalOJT extends StatelessWidget {
         OverviewPage.id: (BuildContext context) => const OverviewPage(),
         LocationPage.id: (BuildContext context) => const LocationPage(),
         PhotoPage.id: (BuildContext context) => const PhotoPage(),
+        DetailPage.id: (BuildContext context) => const DetailPage(),
       },
     );
   }
