@@ -40,6 +40,11 @@ class _OverviewPageState extends State<OverviewPage> {
     });
   }
 
+  //DropDown
+  static const List<String> list = <String>['Apartment', 'Studio', 'Bedspace'];
+
+  String dropdownValue = list.first;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,26 +119,52 @@ class _OverviewPageState extends State<OverviewPage> {
               padding: const EdgeInsets.all(10),
               decoration: boxDecoration(),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
+                  Text(
+                    'Select Category',
+                    style: textStyleContent(
+                      size: 14,
+                      color: Color(0xFF575F6E),
+                    ),
+                  ),
+                  DropdownButton<String>(
+                    isExpanded: true,
+                    value: dropdownValue,
+                    icon: const Icon(Icons.arrow_drop_down),
+                    elevation: 16,
+                    style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
+                    underline: Container(
+                      height: 1,
+                      color: Color(0xFF575F6E),
+                    ),
+                    onChanged: (String? value) {
+                      setState(() {
+                        dropdownValue = value!;
+                      });
+                    },
+                    items: list.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
                   ksizedBoxTextFieldCol,
                 ],
               ),
             ),
             ksizedBoxTFB,
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                navigationButton(onPressed: null, icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
-                navigationButton(onPressed: null, label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                navigationButton(
+                  onPressed: null,
+                  label: 'Go next',
+                  icon: Icons.arrow_forward,
+                  isGoBack: false,
+                ),
               ],
-            ),
-            ksizedBoxTextFieldCol,
-            noButtonIcons(
-              onPressed: () => Navigator.pushNamed(context, RoomDetails.id),
-              label: 'Cancel',
-              isBorderRequired: true,
-              buttonColor: Colors.white,
-              textColor: const Color(0xFF242426),
             ),
           ]),
         ),
