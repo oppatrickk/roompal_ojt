@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../widgets/const_elements.dart';
 import '../../widgets/widget_elements.dart';
-import '../room_details.dart';
 
 class OverviewPage extends StatefulWidget {
   const OverviewPage({Key? key}) : super(key: key);
@@ -83,7 +82,7 @@ class _OverviewPageState extends State<OverviewPage> {
               style: textStyleHeader(color: Color(0xFF242731), size: 32),
               textAlign: TextAlign.center,
             ),
-            kSizedBox,
+            ksizedBoxTextFieldCol,
             Text(
               'Fill in the property overview data. It will take a couple of minutes. ',
               style: textStyleContent(

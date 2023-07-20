@@ -11,13 +11,25 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
-  //DropDown
-  static const List<Icon> list = <Icon>[
-    Icon(Icons.house),
-    Icon(Icons.park),
-    Icon(Icons.streetview),
+  //DropDown for Amenities
+  static const List<Icon> amenityList = <Icon>[
+    Icon(Icons.wifi),
+    Icon(Icons.water_drop),
+    Icon(Icons.flash_on),
+    Icon(Icons.hotel),
+    Icon(Icons.kitchen),
   ];
-  Icon dropdownValue = list.first;
+  Icon ddValAL = amenityList.first;
+
+  //Dropdown for Inclusion
+  static const List<Icon> inclusionList = <Icon>[
+    Icon(Icons.wifi),
+    Icon(Icons.water_drop),
+    Icon(Icons.flash_on),
+    Icon(Icons.hotel),
+    Icon(Icons.kitchen),
+  ];
+  Icon ddValIL = inclusionList.first;
 
   @override
   Widget build(BuildContext context) {
@@ -72,16 +84,16 @@ class _DetailPageState extends State<DetailPage> {
               kSizedBox,
               detailFields(
                 label: 'Enter Room Amenities',
-                hintText1: '~Icon~',
                 hintText2: 'Amenity Modal',
                 labelDesc: 'Amenity description',
+                isAmenity: true,
               ),
               kSizedBox,
               detailFields(
                 label: 'Enter Room Inclusion',
-                hintText1: '~Icon~',
                 hintText2: 'Inclusion Modal',
                 labelDesc: 'Inclusion description',
+                isAmenity: false,
               ),
               kSizedBox,
               Container(
@@ -124,9 +136,9 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                         ksizedBoxTextFieldRow,
                         Flexible(
-                          flex: 2,
+                          flex: 4,
                           child: textFieldWithHintTextButNoLabel(
-                            hint: 'Rule Number 1',
+                            hint: 'Bawal an may jowa',
                           ),
                         ),
                       ],
@@ -151,7 +163,8 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 
-  Container detailFields({required String label, required String hintText1, required String hintText2, required String labelDesc}) {
+//Dropdown Button for Amenity and Inclusion
+  Container detailFields({required String label, required bool? isAmenity, required String hintText2, required String labelDesc}) {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: boxDecoration(),
@@ -171,17 +184,43 @@ class _DetailPageState extends State<DetailPage> {
             ],
           ),
           Row(
-            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Flexible(
                 flex: 1,
-                child: textFieldWithHintTextButNoLabel(
-                  hint: hintText1,
+                child: DropdownButtonFormField<Icon>(
+                  isExpanded: true,
+                  icon: const Icon(Icons.arrow_drop_down),
+                  elevation: 16,
+                  style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(0),
+                  ),
+                  value: isAmenity == true ? ddValAL : ddValIL,
+                  onChanged: (Icon? value) {
+                    setState(
+                      () {
+                        isAmenity == true ? ddValAL = value! : ddValIL == value!;
+                      },
+                    );
+                  },
+                  items: isAmenity == true
+                      ? amenityList.map<DropdownMenuItem<Icon>>((Icon value) {
+                          return DropdownMenuItem<Icon>(
+                            value: value,
+                            child: value,
+                          );
+                        }).toList()
+                      : inclusionList.map<DropdownMenuItem<Icon>>((Icon value) {
+                          return DropdownMenuItem<Icon>(
+                            value: value,
+                            child: value,
+                          );
+                        }).toList(),
                 ),
               ),
               ksizedBoxTextFieldRow,
               Flexible(
-                flex: 2,
+                flex: 4,
                 child: textFieldWithHintTextButNoLabel(
                   hint: hintText2,
                 ),
