@@ -26,6 +26,25 @@ class LocationPage extends StatelessWidget {
               Center(
                 child: Image.asset('assets/img/cl3.png'),
               ),
+              ksizedBoxTextFieldCol,
+              //status bar
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  circleIcon(isFillRequired: true, isBorderRequired: false),
+                  lineBetweenCI(isTrue: true),
+                  circleIcon(isFillRequired: true, isBorderRequired: false),
+                  lineBetweenCI(isTrue: true),
+                  circleIcon(isFillRequired: true, isBorderRequired: false),
+                  lineBetweenCI(isTrue: false),
+                  circleIcon(isFillRequired: false, isBorderRequired: true),
+                  lineBetweenCI(isTrue: false),
+                  circleIcon(isFillRequired: false, isBorderRequired: true),
+                  lineBetweenCI(isTrue: false),
+                  circleIcon(isFillRequired: false, isBorderRequired: true),
+                ],
+              ),
+              ksizedBoxTextFieldCol,
               //Title and subtitle
               const Center(
                 child: Column(
@@ -43,6 +62,7 @@ class LocationPage extends StatelessWidget {
                 ),
               ),
               ksizedBoxTextFieldCol,
+              //region and province selection
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
@@ -89,6 +109,7 @@ class LocationPage extends StatelessWidget {
                 ),
               ),
               ksizedBoxTextFieldCol,
+              //City and barangay selection
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
@@ -135,78 +156,68 @@ class LocationPage extends StatelessWidget {
                 ),
               ),
               ksizedBoxTextFieldCol,
+              //postal code
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      'Enter Postal Code',
-                      style: textStyleContent(
-                        size: 14,
-                        color: const Color(0xFF242426),
-                      ),
-                    ),
-                    ksizedBoxTextFieldCol,
-                    confirmationDetails(details: '4501'),
-                    ksizedBoxTextFieldCol,
-                    divider,
+                    textField(label: 'Enter Postal Code'),
                     ksizedBoxTextFieldCol,
                   ],
                 ),
               ),
               ksizedBoxTextFieldCol,
+              //address
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      'Enter Street Name, Building, House No.',
-                      style: textStyleContent(
-                        size: 14,
-                        color: const Color(0xFF242426),
-                      ),
-                    ),
-                    ksizedBoxTextFieldCol,
-                    confirmationDetails(details: 'Purok 4, Building, House No.'),
-                    ksizedBoxTextFieldCol,
-                    divider,
+                    textField(label: 'Enter Street Name, Building, House No.'),
                     ksizedBoxTextFieldCol,
                   ],
                 ),
               ),
               ksizedBoxTextFieldCol,
+              //landmark
               Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                 decoration: boxDecoration(),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      'Enter Nearby Landmark',
-                      style: textStyleContent(
-                        size: 14,
-                        color: const Color(0xFF242426),
-                      ),
-                    ),
                     Row(
+                      mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        //DropdownButtonExample(),
+                        Flexible(
+                          flex: 1,
+                          child: textField(
+                            label: 'Icon',
+                          ),
+                        ),
                         ksizedBoxTextFieldRow,
-                        displayDetails(
-                          label: '',
-                          details: 'Sawangan Park',
-                          flex: 4,
+                        Flexible(
+                          flex: 2,
+                          child: textField(
+                            label: 'Enter Landmark/s',
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, left: 10),
+                          child: IconButton.outlined(
+                            onPressed: () {},
+                            icon: Icon(Icons.add),
+                            hoverColor: Colors.blue,
+                          ),
                         ),
                       ],
                     ),
+                    ksizedBoxTextFieldCol,
                   ],
                 ),
               ),
               ksizedBoxTFB,
+              //Go back and Go next button
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -225,6 +236,7 @@ class LocationPage extends StatelessWidget {
                 ],
               ),
               ksizedBoxTextFieldCol,
+              //cancel button
               noButtonIcons(
                 onPressed: () => null,
                 label: 'Cancel',
