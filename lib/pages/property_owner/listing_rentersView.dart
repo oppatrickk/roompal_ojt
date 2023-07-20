@@ -4,16 +4,15 @@ import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 
-class ListingOwner extends StatefulWidget {
-  const ListingOwner({super.key});
-
-  static const String id = "ListingOwner";
+class ListingRenter extends StatefulWidget {
+  const ListingRenter({super.key});
+  static const String id = "ListingRenter";
 
   @override
-  State<ListingOwner> createState() => _ListingOwnerState();
+  State<ListingRenter> createState() => _ListingRenterState();
 }
 
-class _ListingOwnerState extends State<ListingOwner> {
+class _ListingRenterState extends State<ListingRenter> {
   int? viewValue = 0; //part of view changer option
   int? iconValue = 0; //part of showcase option
 
@@ -71,6 +70,7 @@ class _ListingOwnerState extends State<ListingOwner> {
                     child: CupertinoSegmentedControl<int>(
                       padding: const EdgeInsets.all(4),
                       groupValue: viewValue,
+                      pressedColor: Colors.grey,
                       selectedColor: const Color(0xFF1C39BB),
                       borderColor: const Color(0xFF808080),
                       children: const <int, Widget>{
@@ -145,7 +145,7 @@ class _ListingOwnerState extends State<ListingOwner> {
                 ),
               ),
               ksizedBoxTextFieldCol,
-              propertyCardOwnerView(
+              propertyCardView(
                 propertyImage: 'rental.jpg',
                 propertyStatus: 'AVAILABLE',
                 propertyName: 'ROOM NAME',
@@ -159,7 +159,7 @@ class _ListingOwnerState extends State<ListingOwner> {
                 propertyStatusColor: const Color(0xFF00B400),
               ),
               ksizedBoxTextFieldCol,
-              propertyCardOwnerView(
+              propertyCardView(
                 propertyImage: 'rental.jpg',
                 propertyStatus: 'AVAILABLE',
                 propertyName: 'ROOM NAME',

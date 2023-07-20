@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/property_owner/listing_ownersView.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
+import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 import '../../widgets/const_elements.dart';
 
 class ListingOwnerTV extends StatefulWidget {
