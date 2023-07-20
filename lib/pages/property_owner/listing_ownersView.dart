@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
-import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
@@ -15,7 +13,8 @@ class ListingOwner extends StatefulWidget {
 }
 
 class _ListingOwnerState extends State<ListingOwner> {
-  int? groupValue = 0;
+  int? viewValue = 0; //part of view changer option
+  int? iconValue = 0; //part of showcase option
 
   @override
   Widget build(BuildContext context) {
@@ -62,19 +61,74 @@ class _ListingOwnerState extends State<ListingOwner> {
                 ],
               ),
               ksizedBoxTextFieldCol,
+              //buttons
+              Row(
+                children: <Widget>[
+                  //View button
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: CupertinoSegmentedControl<int>(
+                      padding: const EdgeInsets.all(4),
+                      groupValue: viewValue,
+                      selectedColor: const Color(0xFF1C39BB),
+                      borderColor: const Color(0xFF808080),
+                      children: const <int, Widget>{
+                        0: BuildSegment("Owner's View"),
+                        1: BuildSegment("Renter's View"),
+                      },
+                      onValueChanged: (int? groupValue) {
+                        setState(() => this.viewValue = groupValue);
+                        //for future use
+                        //   if (groupValue == 0) {
+                        //     setState(() {
+                        //       this.groupValue = groupValue;
+                        //       Navigator.pushNamed(context, ContactOverview.id);
+                        //     });
+                        //   } else {
+                        //     setState(() {
+                        //       this.groupValue = groupValue;
+                        //     });
+                        //   }
+                      },
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 30,
+                  ),
+                  //Add Button
+                  Container(
+                    height: 31,
+                    child: FloatingActionButton.extended(
+                      isExtended: true,
+                      elevation: 0,
+                      onPressed: () {},
+                      label: const Text('Add New'),
+                      icon: const Icon(Icons.add),
+                      shape: RoundedRectangleBorder(
+                        side: const BorderSide(
+                          color: Color(0xFF808080),
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      backgroundColor: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              ksizedBoxTextFieldCol,
               Container(
-                alignment: Alignment.topLeft,
+                alignment: Alignment.topRight,
                 child: CupertinoSegmentedControl<int>(
                   padding: const EdgeInsets.all(4),
-                  groupValue: groupValue,
-                  selectedColor: Color(0xFF1C39BB),
-                  borderColor: Color(0xFF808080),
-                  children: <int, Widget>{
-                    0: BuildSegment("Owner's View"),
-                    1: BuildSegment("Renter's View"),
+                  groupValue: iconValue,
+                  selectedColor: const Color(0xFF1C39BB),
+                  borderColor: const Color(0xFF808080),
+                  children: const <int, Widget>{
+                    0: BuildSegment1(Icons.list),
+                    1: BuildSegment1(Icons.window_outlined),
                   },
                   onValueChanged: (int? groupValue) {
-                    setState(() => this.groupValue = groupValue);
+                    setState(() => this.iconValue = groupValue);
                     //for future use
                     //   if (groupValue == 0) {
                     //     setState(() {
@@ -92,68 +146,6 @@ class _ListingOwnerState extends State<ListingOwner> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class BuildSegment extends StatelessWidget {
-  BuildSegment(
-    this.text, {
-    super.key,
-  });
-  String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(6),
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: 12,
-        ),
-      ),
-    );
-  }
-}
-
-class PropertyCount extends StatelessWidget {
-  PropertyCount(
-    this.title,
-    this.count, {
-    super.key,
-  });
-  String title;
-  String count;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      surfaceTintColor: Colors.white,
-      shape: border,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          ksizedBoxTextFieldCol,
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 10,
-              fontFamily: 'ProximaNovaAltBold',
-            ),
-            textAlign: TextAlign.center,
-          ),
-          Text(
-            count,
-            style: const TextStyle(
-              fontSize: 40,
-              color: Color(0xFF1C39BB),
-              fontFamily: 'ProximaNovaAltBold',
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ],
       ),
     );
   }
