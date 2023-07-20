@@ -113,6 +113,31 @@ TextField searchBar() {
   );
 }
 
+//filterBox
+class FilterBox extends StatelessWidget {
+  const FilterBox({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(7),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: const Color(0xFF242731),
+        ),
+        borderRadius: BorderRadius.circular(5),
+      ),
+      child: const Icon(
+        Icons.filter_list_rounded,
+        size: 30,
+        color: Color(0xFF242731),
+      ),
+    );
+  }
+}
+
 // Filter content Show Rooms depending on its Status
 Text filterRoomStatus({required String label}) {
   return Text(label,
