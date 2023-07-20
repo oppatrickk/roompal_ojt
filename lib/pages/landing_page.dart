@@ -34,20 +34,7 @@ class _LandingPageState extends State<LandingPage> {
               ),
               Expanded(
                 child: GestureDetector(
-                  child: Container(
-                    padding: const EdgeInsets.all(7),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: const Color(0xFF242731),
-                      ),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: const Icon(
-                      Icons.filter_list_rounded,
-                      size: 30,
-                      color: Color(0xFF242731),
-                    ),
-                  ),
+                  child: FilterBox(),
                   onTap: () => showModalBottomSheet(
                     context: context,
                     builder: (BuildContext context) {
