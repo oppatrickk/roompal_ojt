@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/booking/payment_details.dart';
+import 'package:roompal_ojt/pages/booking/payment_details.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
-import '../../widgets/const_elements.dart';
-import '../../widgets/widget_elements.dart';
+import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class ConfirmationPage extends StatefulWidget {
   const ConfirmationPage({Key? key}) : super(key: key);
