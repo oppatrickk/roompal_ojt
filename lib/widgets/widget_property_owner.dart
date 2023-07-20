@@ -195,3 +195,87 @@ class ActionButtons extends StatelessWidget {
     );
   }
 }
+
+//Card layout used in displaying property count details
+class PropertyCount extends StatelessWidget {
+  PropertyCount(
+    this.title,
+    this.count, {
+    super.key,
+  });
+  final String title;
+  final String count;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      surfaceTintColor: Colors.white,
+      shape: border,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          ksizedBoxTextFieldCol,
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 10,
+              fontFamily: 'ProximaNovaAltBold',
+            ),
+            textAlign: TextAlign.center,
+          ),
+          Text(
+            count,
+            style: const TextStyle(
+              fontSize: 40,
+              color: Color(0xFF1C39BB),
+              fontFamily: 'ProximaNovaAltBold',
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+//Style for segmented control (text)
+class BuildSegment extends StatelessWidget {
+  const BuildSegment(
+    this.text, {
+    super.key,
+  });
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(6),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 12,
+        ),
+      ),
+    );
+  }
+}
+
+//Style for segmented control (icons)
+class BuildSegment1 extends StatelessWidget {
+  const BuildSegment1(
+    this.icon, {
+    super.key,
+  });
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(6),
+      child: Icon(
+        icon,
+        size: 24,
+      ),
+    );
+  }
+}

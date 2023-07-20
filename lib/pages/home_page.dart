@@ -9,6 +9,7 @@ import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
 import 'package:roompal_ojt/pages/property_owner/detail_page.dart';
 import 'package:roompal_ojt/pages/property_owner/listing_owner_tableview.dart';
 import 'package:roompal_ojt/pages/property_owner/listing_ownersView.dart';
+import 'package:roompal_ojt/pages/property_owner/listing_rentersView.dart';
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/property_owner/photo_page.dart';
@@ -146,7 +147,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   Navigator.pushNamed(context, ListingOwnerTV.id);
                 },
-                child: const Text('Manage Listing: Owners View - Table Format'),
+                child: const Text("Manage Listing: Owner's View - Table Format"),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ListingRenter.id);
+                },
+                child: const Text("Manage Listing: Renter's View"),
               ),
             ],
           ),
