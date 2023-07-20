@@ -46,7 +46,7 @@ class RoompalOJT extends StatelessWidget {
         PaymentFail.id: (BuildContext context) => const PaymentFail(),
         ContactOverview.id: (BuildContext context) => const ContactOverview(),
         OverviewPage.id: (BuildContext context) => const OverviewPage(),
-        LocationPage.id: (BuildContext context) => const LocationPage(),
+        LocationPage.id: (BuildContext context) => LocationPage(),
         PhotoPage.id: (BuildContext context) => const PhotoPage(),
         DetailPage.id: (BuildContext context) => const DetailPage(),
         PricePage.id: (BuildContext context) => const PricePage(),

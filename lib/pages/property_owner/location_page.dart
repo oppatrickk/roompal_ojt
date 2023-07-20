@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
+import 'package:roompal_ojt/pages/property_owner/detail_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
-class LocationPage extends StatelessWidget {
-  const LocationPage({super.key});
+class LocationPage extends StatefulWidget {
+  LocationPage({super.key});
   static const String id = "LocationPage";
+
+  @override
+  State<LocationPage> createState() => _LocationPageState();
+}
+
+class _LocationPageState extends State<LocationPage> {
+  //DropDown
+  static const List<Icon> list = <Icon>[
+    Icon(Icons.house),
+    Icon(Icons.park),
+    Icon(Icons.streetview),
+  ];
+  Icon dropdownValue = list.first;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +41,7 @@ class LocationPage extends StatelessWidget {
                 child: Image.asset('assets/img/cl3.png'),
               ),
               ksizedBoxTextFieldCol,
-              //status bar
+              //circle bar
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -61,95 +76,52 @@ class LocationPage extends StatelessWidget {
                 ),
               ),
               ksizedBoxTextFieldCol,
-              //region and province selection
+              //region and province
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
-                child: Column(
+                child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          'Select Region',
-                          style: textStyleContent(
-                            size: 14,
-                            color: const Color(0xFF242426),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 66,
-                        ),
-                        Text(
-                          'Select Province',
-                          style: textStyleContent(
-                            size: 14,
-                            color: const Color(0xFF242426),
-                          ),
-                        ),
-                      ],
+                    Flexible(
+                      flex: 4,
+                      child: textFieldWithHintText(
+                        label: 'Enter Region',
+                        hint: '~Region~',
+                      ),
                     ),
-                    Row(
-                      children: <Widget>[
-                        displayDetails(
-                          label: '',
-                          details: '~Region~',
-                          flex: 4,
-                        ),
-                        ksizedBoxTextFieldRow,
-                        displayDetails(
-                          label: '',
-                          details: '~Province~',
-                          flex: 4,
-                        ),
-                      ],
+                    ksizedBoxTextFieldRow,
+                    Flexible(
+                      flex: 4,
+                      child: textFieldWithHintText(
+                        label: 'Enter Province',
+                        hint: '~Province~',
+                      ),
                     ),
                   ],
                 ),
               ),
               ksizedBoxTextFieldCol,
-              //City and barangay selection
+              //City and barangay
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
                   children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          'Select City',
-                          style: textStyleContent(
-                            size: 14,
-                            color: const Color(0xFF242426),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 66,
-                        ),
-                        Text(
-                          'Select Barangay',
-                          style: textStyleContent(
-                            size: 14,
-                            color: const Color(0xFF242426),
-                          ),
-                        ),
-                      ],
+                    Flexible(
+                      flex: 4,
+                      child: textFieldWithHintText(
+                        label: 'Enter City',
+                        hint: '~City~',
+                      ),
                     ),
-                    Row(
-                      children: <Widget>[
-                        displayDetails(
-                          label: '',
-                          details: '~City~',
-                          flex: 4,
-                        ),
-                        ksizedBoxTextFieldRow,
-                        displayDetails(
-                          label: '',
-                          details: '~Barangay~',
-                          flex: 4,
-                        ),
-                      ],
+                    ksizedBoxTextFieldRow,
+                    Flexible(
+                      flex: 4,
+                      child: textFieldWithHintText(
+                        label: 'Enter Barangay',
+                        hint: '~Barangay~',
+                      ),
                     ),
                   ],
                 ),
@@ -179,34 +151,63 @@ class LocationPage extends StatelessWidget {
                 ),
               ),
               ksizedBoxTextFieldCol,
-              //landmark
+              //Icon dropdown and landmark
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
                   children: <Widget>[
                     Row(
-                      mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Flexible(
                           flex: 1,
-                          child: textFieldWithHintText(
-                            label: 'Icon',
-                            hint: 'rando',
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: <Widget>[
+                              Text(
+                                'Icons',
+                                style: textStyleContent(
+                                  size: 14,
+                                  color: const Color(0xFF242426),
+                                ),
+                              ),
+                              DropdownButton<Icon>(
+                                isExpanded: true,
+                                value: dropdownValue,
+                                icon: const Icon(Icons.arrow_drop_down),
+                                elevation: 16,
+                                style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
+                                underline: Container(),
+                                onChanged: (Icon? value) {
+                                  setState(
+                                    () {
+                                      dropdownValue = value!;
+                                    },
+                                  );
+                                },
+                                items: list.map<DropdownMenuItem<Icon>>((Icon value) {
+                                  return DropdownMenuItem<Icon>(
+                                    value: value,
+                                    child: value,
+                                  );
+                                }).toList(),
+                              ),
+                            ],
                           ),
                         ),
                         ksizedBoxTextFieldRow,
                         Flexible(
-                          flex: 2,
-                          child: textField(
+                          flex: 3,
+                          child: textFieldWithHintText(
                             label: 'Enter Landmark/s',
+                            hint: 'Parks nearby',
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 20, left: 10),
                           child: IconButton.outlined(
                             onPressed: () {},
-                            icon: Icon(Icons.add),
+                            icon: const Icon(Icons.add),
                             hoverColor: Colors.blue,
                           ),
                         ),
@@ -222,13 +223,13 @@ class LocationPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   navigationButton(
-                    onPressed: () => null,
+                    onPressed: () => Navigator.pushNamed(context, ContactOverview.id),
                     icon: Icons.arrow_back,
                     label: 'Go back',
                     isGoBack: true,
                   ),
                   navigationButton(
-                    onPressed: null,
+                    onPressed: () => Navigator.pushNamed(context, DetailPage.id),
                     label: 'Go next',
                     icon: Icons.arrow_forward,
                     isGoBack: false,
