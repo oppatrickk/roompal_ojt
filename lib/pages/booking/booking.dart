@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/booking/contact_details.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
-import '../../widgets/widget_elements.dart';
+import '../../../widgets/widget_elements.dart';
+import '../../widgets/const_elements.dart';
+import 'contact_details.dart';
 
 class Booking extends StatefulWidget {
   const Booking({Key? key}) : super(key: key);
