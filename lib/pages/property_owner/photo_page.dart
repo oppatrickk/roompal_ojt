@@ -3,15 +3,15 @@ import 'package:roompal_ojt/pages/booking/payment_details.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
-class ContactOverview extends StatefulWidget {
-  const ContactOverview({Key? key}) : super(key: key);
-  static const String id = 'ContactOverview';
+class PhotoPage extends StatefulWidget {
+  const PhotoPage({Key? key}) : super(key: key);
+  static const String id = 'PhotoPage';
 
   @override
-  State<ContactOverview> createState() => _ContactOverviewState();
+  State<PhotoPage> createState() => _PhotoPageState();
 }
 
-class _ContactOverviewState extends State<ContactOverview> {
+class _PhotoPageState extends State<PhotoPage> {
 // BottoNavigationBar
   int selectedIndex = 0;
   static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -54,7 +54,7 @@ class _ContactOverviewState extends State<ContactOverview> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               Center(
-                child: Image.asset('assets/img/cl2.png'),
+                child: Image.asset('assets/img/cl5.png'),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -62,12 +62,12 @@ class _ContactOverviewState extends State<ContactOverview> {
                   circleIcon(isFillRequired: true, isBorderRequired: false),
                   lineBetweenCI(isTrue: true),
                   circleIcon(isFillRequired: true, isBorderRequired: false),
-                  lineBetweenCI(isTrue: false),
-                  circleIcon(isFillRequired: false, isBorderRequired: true),
-                  lineBetweenCI(isTrue: false),
-                  circleIcon(isFillRequired: false, isBorderRequired: true),
-                  lineBetweenCI(isTrue: false),
-                  circleIcon(isFillRequired: false, isBorderRequired: true),
+                  lineBetweenCI(isTrue: true),
+                  circleIcon(isFillRequired: true, isBorderRequired: false),
+                  lineBetweenCI(isTrue: true),
+                  circleIcon(isFillRequired: true, isBorderRequired: false),
+                  lineBetweenCI(isTrue: true),
+                  circleIcon(isFillRequired: true, isBorderRequired: false),
                   lineBetweenCI(isTrue: false),
                   circleIcon(isFillRequired: false, isBorderRequired: true),
                 ],
@@ -78,11 +78,11 @@ class _ContactOverviewState extends State<ContactOverview> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Location',
+                      'Photos',
                       style: kRoomName,
                     ),
                     Text(
-                      'Fill in the property location data. It will take a couple of minutes. ',
+                      'Upload property photos. It will take a couple of minutes. ',
                       style: kRoomNumber,
                       textAlign: TextAlign.center,
                     ),
@@ -95,81 +95,22 @@ class _ContactOverviewState extends State<ContactOverview> {
                 decoration: boxDecoration(),
                 child: Column(
                   children: <Widget>[
-                    textField(label: 'Last Name'),
-                    ksizedBoxTextFieldCol,
-                    textField(label: 'First Name'),
-                    ksizedBoxTextFieldCol,
-                    textField(label: 'Middle Name'),
-                    ksizedBoxTextFieldCol,
-                  ],
-                ),
-              ),
-              kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Text(
-                          'Phone Number',
-                          style: textStyleContent(
-                            size: 14,
-                            color: const Color(0xFF242426),
-                          ),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Expanded(
-                              flex: 1,
-                              child: TextField(
-                                decoration: const InputDecoration(
-                                  border: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFBBBFC1),
-                                    ),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFF242426),
-                                    ),
-                                  ),
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
-                                  labelText: '+63',
-                                ),
-                                style: textStyleHeader(
-                                  size: 18,
-                                  color: const Color(0xFF242426),
-                                ),
-                              ),
-                            ),
-                            ksizedBoxTextFieldRow,
-                            Expanded(
-                              flex: 2,
-                              child: textFieldDecoration(),
-                            ),
-                          ],
-                        ),
-                      ],
+                    ksizedBoxTFB,
+                    Icon(
+                      Icons.add_photo_alternate_outlined,
+                      color: Color(0xFFBBBFC1),
+                      size: 70,
                     ),
-                  ],
-                ),
-              ),
-              kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        textField(label: 'Email'),
-                        ksizedBoxTextFieldCol,
-                      ],
+                    ksizedBoxTextFieldCol,
+                    Text(
+                      'Click to upload images',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontFamily: 'ProximaNovaRegular',
+                        color: Color(0xFFBBBFC1),
+                      ),
                     ),
+                    ksizedBoxTFB,
                   ],
                 ),
               ),
