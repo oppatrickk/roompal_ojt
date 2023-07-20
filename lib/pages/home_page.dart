@@ -8,6 +8,7 @@ import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
+import 'package:roompal_ojt/pages/property_owner/photo_page.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(0).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
@@ -112,6 +113,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, LocationPage.id);
                 },
                 child: const Text('Location Page'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PhotoPage.id);
+                },
+                child: const Text('Photo Page'),
               ),
             ],
           ),
