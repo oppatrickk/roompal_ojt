@@ -208,29 +208,18 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
                       padding: const EdgeInsets.all(5.0),
                       child: Column(
                         children: [
-                          TextButton(
-                            onPressed: null,
-                            style: ButtonStyle(
-                              side: MaterialStatePropertyAll(
-                                BorderSide(color: Colors.green),
-                              ),
-                              shape: MaterialStatePropertyAll(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Edit',
-                                  style: textStyleHeader(size: 14, color: Colors.green),
-                                ),
-                                SizedBox(width: 5),
-                                iconStyle(icon: Icons.edit_square, color: Colors.green, size: 14),
-                              ],
-                            ),
+                          ActionButtons(
+                            Colors.green,
+                            Icons.edit_square,
+                            'Edit',
+                            () {},
+                          ),
+                          ksizedBoxTextFieldCol,
+                          ActionButtons(
+                            Colors.red,
+                            Icons.delete_outline,
+                            'Delete',
+                            () {},
                           ),
                         ],
                       ),

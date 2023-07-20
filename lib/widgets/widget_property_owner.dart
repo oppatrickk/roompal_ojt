@@ -123,7 +123,7 @@ Container propertyCardOwnerView({
                     children: <Widget>[
                       ActionButtons(
                         Colors.green,
-                        Icons.edit_document,
+                        Icons.edit_square,
                         'Edit',
                         () {/*onPress*/},
                       ),
@@ -167,7 +167,7 @@ class ActionButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 25,
+      height: 40,
       width: 70,
       child: FloatingActionButton.extended(
         elevation: 0,
@@ -188,7 +188,7 @@ class ActionButtons extends StatelessWidget {
           label,
           style: TextStyle(
             color: color,
-            fontSize: 11,
+            fontSize: 12,
           ),
         ),
       ),
