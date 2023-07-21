@@ -441,7 +441,7 @@ TextButton navigationButton({
               ksizedBoxTextFieldRow,
               Text(
                 label,
-                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0),
+                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
               )
             ],
           )
@@ -449,7 +449,7 @@ TextButton navigationButton({
             children: <Widget>[
               Text(
                 label,
-                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0),
+                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
               ),
               ksizedBoxTextFieldRow,
               iconStyle(icon: icon, color: Color(0xFF242426), size: 20),
@@ -491,7 +491,7 @@ TextButton noButtonIcons({
     child: Center(
       child: Text(
         label,
-        style: TextStyle(color: textColor, fontSize: 14.0),
+        style: TextStyle(color: textColor, fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
       ),
     ),
   );
