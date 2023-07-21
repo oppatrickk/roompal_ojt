@@ -337,6 +337,7 @@ class PropertyQnA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      surfaceTintColor: Colors.white,
       shape: border,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
@@ -373,6 +374,7 @@ class HostCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      surfaceTintColor: Colors.white,
       shape: border,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
