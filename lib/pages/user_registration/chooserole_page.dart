@@ -28,48 +28,59 @@ class _ChooseRoleState extends State<ChooseRole> {
                     style: kRoomName,
                     textAlign: TextAlign.center,
                   ),
-                  kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        textField(label: 'Email'),
-                        ksizedBoxTextFieldCol,
-                      ],
-                    ),
+                  ksizedBoxTextFieldCol,
+                  Text(
+                    'Ready to get started? Please choose whether you want to sign up as a property owner or a renter.',
+                    style: kRoomNumber,
+                    textAlign: TextAlign.center,
                   ),
-                  kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            textField(label: 'Password'),
-                            ksizedBoxTextFieldCol,
-                          ],
-                        ),
-                      ],
-                    ),
+                  ksizedBoxTFB,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      noButtonIcons(
+                        onPressed: null,
+                        label: 'Property Owner',
+                        isBorderRequired: false,
+                        buttonColor: Color(0xFF1C39BB),
+                        textColor: Colors.white,
+                        horizontalPadding: 80,
+                        verticalPadding: 15,
+                      ),
+                    ],
                   ),
-                  kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            textField(label: 'Description'),
-                            ksizedBoxTextFieldCol,
-                          ],
-                        ),
-                      ],
-                    ),
+                  ksizedBoxTextFieldCol,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      noButtonIcons(
+                        onPressed: null,
+                        label: 'Renter',
+                        isBorderRequired: false,
+                        buttonColor: Color(0xFF1C39BB),
+                        textColor: Colors.white,
+                        horizontalPadding: 108,
+                        verticalPadding: 15,
+                      ),
+                    ],
+                  ),
+                  ksizedBoxTFB,
+                  Text(
+                    'You can later change your status in your account.',
+                    style: textStyleContent(size: 16, color: Colors.red[800]!),
+                    textAlign: TextAlign.center,
+                  ),
+                  ksizedBoxTFB,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      navigationButton(
+                        onPressed: null,
+                        label: 'Go back',
+                        icon: Icons.arrow_back,
+                        isGoBack: true,
+                      ),
+                    ],
                   ),
                 ],
               ),
