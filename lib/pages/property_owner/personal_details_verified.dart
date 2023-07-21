@@ -11,6 +11,15 @@ class PersonalDetailsV extends StatefulWidget {
 }
 
 class _PersonalDetailsVState extends State<PersonalDetailsV> {
+  void _showDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2024),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,6 +110,138 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
                   children: <Widget>[
                     textField(label: 'Address'),
                     ksizedBoxTextFieldCol,
+                  ],
+                ),
+              ),
+              kSizedBox,
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: boxDecoration(),
+                child: Column(
+                  children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        Text(
+                          'Phone Number',
+                          style: textStyleContent(
+                            size: 14,
+                            color: const Color(0xFF242426),
+                          ),
+                        ),
+                        Row(
+                          children: <Widget>[
+                            Expanded(
+                              flex: 1,
+                              child: TextField(
+                                decoration: const InputDecoration(
+                                  border: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0xFFBBBFC1),
+                                    ),
+                                  ),
+                                  focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: Color(0xFF242426),
+                                    ),
+                                  ),
+                                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
+                                  labelText: '+63',
+                                ),
+                                style: textStyleHeader(
+                                  size: 18,
+                                  color: const Color(0xFF242426),
+                                ),
+                              ),
+                            ),
+                            ksizedBoxTextFieldRow,
+                            Expanded(
+                              flex: 2,
+                              child: textFieldDecoration(),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              kSizedBox,
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: boxDecoration(),
+                child: Column(
+                  children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        textField(label: 'Email'),
+                        ksizedBoxTextFieldCol,
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              kSizedBox,
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: boxDecoration(),
+                child: Column(
+                  children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        textField(label: 'Sex'),
+                        ksizedBoxTextFieldCol,
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              kSizedBox,
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: boxDecoration(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Text(
+                      'Date of Birth',
+                      style: textStyleContent(
+                        size: 14,
+                        color: Color(0xFF575F6E),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: _showDatePicker,
+                          child: Icon(
+                            Icons.calendar_today_outlined,
+                            color: Color(0xFF242426),
+                          ),
+                        ),
+                      ],
+                    ),
+                    divider,
+                    ksizedBoxTextFieldCol,
+                  ],
+                ),
+              ),
+              kSizedBox,
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: boxDecoration(),
+                child: Column(
+                  children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        textField(label: 'Description'),
+                        ksizedBoxTextFieldCol,
+                      ],
+                    ),
                   ],
                 ),
               ),
