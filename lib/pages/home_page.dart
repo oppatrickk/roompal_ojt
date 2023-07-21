@@ -22,6 +22,7 @@ import 'package:roompal_ojt/pages/renter/renter_page(0).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'package:roompal_ojt/pages/room_details.dart';
+import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -182,6 +183,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, PersonalDetailsNV.id);
                 },
                 child: const Text('Personal Details Not Verified'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, LoginPage.id);
+                },
+                child: const Text('Login Page'),
               ),
             ],
           ),
