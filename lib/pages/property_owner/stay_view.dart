@@ -105,6 +105,50 @@ class _StayViewState extends State<StayView> {
                         stats(label: 'Vacant', number: 15),
                       ],
                     ),
+                    Table(
+                      border: TableBorder.all(
+                        color: Colors.grey,
+                      ),
+                      columnWidths: {
+                        0: FlexColumnWidth(2),
+                        1: FlexColumnWidth(1),
+                        2: FlexColumnWidth(1),
+                        3: FlexColumnWidth(1),
+                        4: FlexColumnWidth(1),
+                      },
+                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                      children: [
+                        TableRow(children: [
+                          tableHeader(label: 'Room'),
+                          tableHeader(label: '3 Jul Mon'),
+                          tableHeader(label: '4 Jul Tue'),
+                          tableHeader(label: '5 Jul Wed'),
+                          tableHeader(label: '6 Jul Thu'),
+                        ]),
+                        TableRow(children: [
+                          tableHeader(label: 'Bedspace'),
+                          SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: Container(
+                              padding: EdgeInsets.all(2),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                color: Color(0xFFFEB618),
+                              ),
+                              child: Text(
+                                '2',
+                                style: textStyleHeader(color: Colors.white, size: 12),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                          Container(),
+                          Container(),
+                          Container(),
+                        ]),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -112,6 +156,14 @@ class _StayViewState extends State<StayView> {
           ),
         ),
       ),
+    );
+  }
+
+  Text tableHeader({required String label}) {
+    return Text(
+      label,
+      style: textStyleHeader(color: Color(0xFF242731), size: 12),
+      textAlign: TextAlign.center,
     );
   }
 
