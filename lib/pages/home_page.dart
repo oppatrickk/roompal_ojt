@@ -14,6 +14,7 @@ import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/property_owner/photo_page.dart';
 import 'package:roompal_ojt/pages/property_owner/price_page.dart';
+import 'package:roompal_ojt/pages/property_owner/reviews_page.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(0).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
@@ -154,6 +155,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, ListingRenter.id);
                 },
                 child: const Text("Manage Listing: Renter's View"),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, OwnerReviewPage.id);
+                },
+                child: const Text('Owner Review Page'),
               ),
             ],
           ),
