@@ -184,24 +184,16 @@ class _AsRenter extends State<AsRenter> {
                         label: 'Go back',
                         isGoBack: true,
                       ),
-                      navigationButton(
-                        onPressed: null,
-                        label: 'Go next',
-                        icon: Icons.arrow_forward,
-                        isGoBack: false,
-                      )
+                      noButtonIcons(
+                        onPressed: () => null,
+                        label: 'Create Account',
+                        isBorderRequired: false,
+                        buttonColor: Color(0xFF1C39BB),
+                        textColor: Colors.white,
+                        horizontalPadding: 27,
+                        verticalPadding: 15,
+                      ),
                     ],
-                  ),
-                  ksizedBoxTextFieldCol,
-                  //cancel button
-                  noButtonIcons(
-                    onPressed: () => null,
-                    label: 'Cancel',
-                    isBorderRequired: true,
-                    buttonColor: Colors.white,
-                    textColor: const Color(0xFF242426),
-                    horizontalPadding: 27,
-                    verticalPadding: 15,
                   ),
                 ],
               ),
