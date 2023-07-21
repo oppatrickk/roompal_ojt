@@ -233,6 +233,8 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
               isBorderRequired: true,
               buttonColor: Colors.white,
               textColor: const Color(0xFF242426),
+              horizontalPadding: 27,
+              verticalPadding: 15,
             ),
           ]),
         ),

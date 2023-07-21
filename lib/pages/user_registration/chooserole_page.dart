@@ -24,7 +24,7 @@ class _ChooseRoleState extends State<ChooseRole> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Text(
-                    'Login',
+                    'Sign up',
                     style: kRoomName,
                     textAlign: TextAlign.center,
                   ),
