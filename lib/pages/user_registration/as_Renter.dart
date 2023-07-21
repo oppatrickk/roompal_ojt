@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
-class AsPropertyOwner extends StatefulWidget {
-  const AsPropertyOwner({super.key});
-  static const String id = 'AsPropertyOwner';
+class AsRenter extends StatefulWidget {
+  const AsRenter({super.key});
+  static const String id = 'AsRenter';
 
   @override
-  State<AsPropertyOwner> createState() => _AsPropertyOwnerState();
+  State<AsRenter> createState() => _AsRenter();
 }
 
-class _AsPropertyOwnerState extends State<AsPropertyOwner> {
+class _AsRenter extends State<AsRenter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,7 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
                         style: kRoomName,
                       ),
                       Text(
-                        'Property Owner',
+                        'Renter',
                         style: TextStyle(
                           fontSize: 32.0,
                           fontFamily: 'ProximaNovaAltBold',
