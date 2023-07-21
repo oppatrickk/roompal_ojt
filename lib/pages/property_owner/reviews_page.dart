@@ -17,7 +17,7 @@ class OwnerReviewPage extends StatelessWidget {
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
-          color: Color(0xFFFFFFFF),
+          color: const Color(0xFFFFFFFF),
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           child: Column(
             children: [
@@ -106,24 +106,29 @@ class OwnerReviewPage extends StatelessWidget {
                 ),
               ),
               ksizedBoxTextFieldCol,
+              //rating analysis
               Card(
                 surfaceTintColor: Colors.white,
                 child: Row(
                   children: <Widget>[
+                    //average rating
                     Container(
-                      width: 160,
-                      padding: EdgeInsets.all(8),
+                      width: 145,
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
                       child: Column(
-                        children: [
-                          Text(
+                        children: <Widget>[
+                          const Text(
                             'Average Rating ',
-                            style: kCardHeaderStyle,
+                            style: TextStyle(
+                              fontFamily: 'ProximaNovaBold',
+                              fontSize: 14.0,
+                            ),
                           ),
-                          Text(
+                          const Text(
                             '4.0',
                             style: TextStyle(
                               height: 0,
-                              fontSize: 40,
+                              fontSize: 30,
                               color: Color(0xFF1C39BB),
                               fontFamily: 'ProximaNovaAltBold',
                             ),
@@ -138,24 +143,27 @@ class OwnerReviewPage extends StatelessWidget {
                               starRating(color: const Color(0xFFDEDEDE), size: 25),
                             ],
                           ),
-                          Text(
+                          const Text(
                             'Average Rating this year',
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 11,
                             ),
                           ),
                         ],
                       ),
                     ),
+                    //graph name label
                     const BarGraphLabel(),
+                    //bar graph
                     Container(
-                      padding: EdgeInsets.all(5),
-                      child: Column(
+                      padding: const EdgeInsets.all(5),
+                      child: const Column(
                         children: [
                           Row(),
                         ],
                       ),
                     ),
+                    //graph number label
                     const BarGraphNumberLabel(
                       excellent: '300',
                       veryGood: '275',
@@ -167,8 +175,11 @@ class OwnerReviewPage extends StatelessWidget {
                 ),
               ),
               ksizedBoxTextFieldCol,
+              //reviews
               const ReviewCard(),
+              ksizedBoxTextFieldCol,
               const ReviewCard(),
+              ksizedBoxTextFieldCol,
               const ReviewCard(),
             ],
           ),
@@ -196,41 +207,41 @@ class BarGraphNumberLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
             excellent,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 10,
             ),
           ),
           Text(
             veryGood,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 10,
             ),
           ),
           Text(
             good,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 10,
             ),
           ),
           Text(
             fair,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 10,
             ),
           ),
           Text(
             poor,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 10,
             ),
@@ -249,7 +260,7 @@ class BarGraphLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -261,7 +272,7 @@ class BarGraphLabel extends StatelessWidget {
               color: Colors.green[900],
             ),
           ),
-          Text(
+          const Text(
             'Very Good',
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -269,7 +280,7 @@ class BarGraphLabel extends StatelessWidget {
               color: Colors.green,
             ),
           ),
-          Text(
+          const Text(
             'Good',
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -277,7 +288,7 @@ class BarGraphLabel extends StatelessWidget {
               color: Colors.orangeAccent,
             ),
           ),
-          Text(
+          const Text(
             'Fair',
             style: TextStyle(
               fontWeight: FontWeight.bold,
@@ -285,7 +296,7 @@ class BarGraphLabel extends StatelessWidget {
               color: Color(0xFFFF6B00),
             ),
           ),
-          Text(
+          const Text(
             'Poor',
             style: TextStyle(
               fontWeight: FontWeight.bold,
