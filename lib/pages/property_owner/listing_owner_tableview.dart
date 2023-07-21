@@ -171,18 +171,31 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
                     roomProvince: 'Albay',
                     roomPrice: 1000,
                     roomType: 'Studio',
-                    roomStatus: roomStatus,
+                    roomStatus: 'Occupied',
+                    colorBasedOnRoomStatus: Color(0xFF5C8BE1),
                   ),
-                  TableRow(children: [
-                    Column(children: [Text('Javatpoint')]),
-                    Column(children: [Text('MySQL')]),
-                    Column(children: [Text('5*')]),
-                  ]),
-                  TableRow(children: [
-                    Column(children: [Text('Javatpoint')]),
-                    Column(children: [Text('ReactJS')]),
-                    Column(children: [Text('5*')]),
-                  ]),
+                  tableRowContents(
+                    roomNumber: '002',
+                    imageAsset: AssetImage('assets/img/rental.jpg'),
+                    roomName: 'Kwarto De Luna',
+                    roomCity: 'Legazpi City',
+                    roomProvince: 'Albay',
+                    roomPrice: 1000,
+                    roomType: 'Apartment',
+                    roomStatus: 'Occupied',
+                    colorBasedOnRoomStatus: Color(0xFF5C8BE1),
+                  ),
+                  tableRowContents(
+                    roomNumber: '003',
+                    imageAsset: AssetImage('assets/img/rental.jpg'),
+                    roomName: 'Kwarto De Luna',
+                    roomCity: 'Legazpi City',
+                    roomProvince: 'Albay',
+                    roomPrice: 1000,
+                    roomType: 'Bedspace',
+                    roomStatus: 'Available',
+                    colorBasedOnRoomStatus: Colors.green[500]!,
+                  ),
                 ],
               ),
             ],
@@ -192,6 +205,7 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
     );
   }
 
+  // Table Contents
   TableRow tableRowContents({
     required String roomNumber,
     required ImageProvider imageAsset,
@@ -201,6 +215,7 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
     required double roomPrice,
     required String roomType,
     required String roomStatus,
+    required Color colorBasedOnRoomStatus,
   }) {
     return TableRow(children: [
       tableContent(content: roomNumber, color: Color(0xFF242731)),
@@ -235,10 +250,11 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
             ),
             ksizedBoxTextFieldCol,
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 label(buttonColor: Color(0xFFFEB618), label: roomType, textColor: Colors.black),
-                label(buttonColor: Color(0xFF5C8BE1), label: roomStatus, textColor: Colors.white),
+                ksizedBoxTextFieldRow,
+                label(buttonColor: colorBasedOnRoomStatus, label: roomStatus, textColor: Colors.white),
               ],
             ),
           ],
