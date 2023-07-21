@@ -2,10 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/widget_property_owner.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
-class OwnerReviewPage extends StatelessWidget {
+class OwnerReviewPage extends StatefulWidget {
   const OwnerReviewPage({super.key});
   static const String id = 'OwnerReviewPage';
+
+  @override
+  State<OwnerReviewPage> createState() => _OwnerReviewPageState();
+}
+
+class _OwnerReviewPageState extends State<OwnerReviewPage> {
+  late List<ReviewData> _chartData;
+
+  @override
+  void initState() {
+    _chartData = getChartData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +34,7 @@ class OwnerReviewPage extends StatelessWidget {
           color: const Color(0xFFFFFFFF),
           padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
           child: Column(
-            children: [
+            children: <Widget>[
               //search bar and filter box
               Row(
                 children: <Widget>[
@@ -152,24 +166,18 @@ class OwnerReviewPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    //graph name label
-                    const BarGraphLabel(),
-                    //bar graph
-                    Container(
-                      padding: const EdgeInsets.all(5),
-                      child: const Column(
-                        children: [
-                          Row(),
+                    SizedBox(
+                      height: 150,
+                      width: 180,
+                      child: SfCartesianChart(
+                        series: <ChartSeries>[
+                          BarSeries<ReviewData, String>(
+                              dataSource: _chartData,
+                              xValueMapper: (ReviewData data, _) => data.label,
+                              yValueMapper: (ReviewData data, _) => data.value)
                         ],
+                        primaryXAxis: CategoryAxis(),
                       ),
-                    ),
-                    //graph number label
-                    const BarGraphNumberLabel(
-                      excellent: '300',
-                      veryGood: '275',
-                      good: '200',
-                      fair: '80',
-                      poor: '20',
                     ),
                   ],
                 ),
@@ -187,125 +195,21 @@ class OwnerReviewPage extends StatelessWidget {
       ),
     );
   }
-}
 
-class BarGraphNumberLabel extends StatelessWidget {
-  const BarGraphNumberLabel({
-    required this.excellent,
-    required this.veryGood,
-    required this.good,
-    required this.fair,
-    required this.poor,
-    super.key,
-  });
-  final String excellent;
-  final String veryGood;
-  final String good;
-  final String fair;
-  final String poor;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            excellent,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-            ),
-          ),
-          Text(
-            veryGood,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-            ),
-          ),
-          Text(
-            good,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-            ),
-          ),
-          Text(
-            fair,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-            ),
-          ),
-          Text(
-            poor,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-            ),
-          ),
-        ],
-      ),
-    );
+  List<ReviewData> getChartData() {
+    final List<ReviewData> chartData = [
+      ReviewData('Excellent', 300),
+      ReviewData('Very Good', 275),
+      ReviewData('Good', 200),
+      ReviewData('Fair', 80),
+      ReviewData('Poor', 30),
+    ];
+    return chartData;
   }
 }
 
-class BarGraphLabel extends StatelessWidget {
-  const BarGraphLabel({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            'Excellent',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-              color: Colors.green[900],
-            ),
-          ),
-          const Text(
-            'Very Good',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-              color: Colors.green,
-            ),
-          ),
-          const Text(
-            'Good',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-              color: Colors.orangeAccent,
-            ),
-          ),
-          const Text(
-            'Fair',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-              color: Color(0xFFFF6B00),
-            ),
-          ),
-          const Text(
-            'Poor',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-              color: Colors.red,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+class ReviewData {
+  ReviewData(this.label, this.value);
+  final String label;
+  final int value;
 }
