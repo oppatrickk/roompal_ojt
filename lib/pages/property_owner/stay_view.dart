@@ -127,24 +127,35 @@ class _StayViewState extends State<StayView> {
                         ]),
                         TableRow(children: [
                           tableHeader(label: 'Bedspace'),
-                          SizedBox(
-                            width: 20,
-                            height: 20,
-                            child: Container(
-                              padding: EdgeInsets.all(2),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                color: Color(0xFFFEB618),
-                              ),
-                              child: Text(
-                                '2',
-                                style: textStyleHeader(color: Colors.white, size: 12),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
+                          pendingRequest(totalRequest: 2),
                           Container(),
+                          pendingRequest(totalRequest: 3),
                           Container(),
+                        ]),
+                      ],
+                    ),
+                    Table(
+                      border: TableBorder.all(
+                        color: Colors.grey,
+                      ),
+                      columnWidths: {
+                        0: FlexColumnWidth(2),
+                        1: FlexColumnWidth(4),
+                      },
+                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                      children: [
+                        TableRow(children: [
+                          tableHeader(label: 'Room'),
+                          tableHeader(label: '3 Jul Mon'),
+                          tableHeader(label: '4 Jul Tue'),
+                          tableHeader(label: '5 Jul Wed'),
+                          tableHeader(label: '6 Jul Thu'),
+                        ]),
+                        TableRow(children: [
+                          tableHeader(label: 'Bedspace'),
+                          pendingRequest(totalRequest: 2),
+                          Container(),
+                          pendingRequest(totalRequest: 3),
                           Container(),
                         ]),
                       ],
@@ -155,6 +166,22 @@ class _StayViewState extends State<StayView> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Container pendingRequest({required int totalRequest}) {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 14, vertical: 5),
+      padding: EdgeInsets.all(2),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(150),
+        color: Color(0xFFFEB618),
+      ),
+      child: Text(
+        totalRequest.toString(),
+        style: textStyleHeader(color: Colors.white, size: 12),
+        textAlign: TextAlign.center,
       ),
     );
   }
