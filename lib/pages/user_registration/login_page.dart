@@ -13,25 +13,35 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
+    return SafeArea(
+      child: Scaffold(
+        body: SingleChildScrollView(
           child: Column(
             children: [
               Container(
-                color: Color(0xFF1C39BB),
+                decoration: BoxDecoration(
+                  color: Color(0xFF1C39BB),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20),
+                  ),
+                ),
                 child: Center(
                   child: Column(children: [
                     Image.asset(
                       'assets/img/logo2.png',
                       height: 100,
-                      width: 100,
+                      width: 120,
                     ),
-                    Image.asset(
-                      'assets/img/bW.png',
-                      height: 100,
-                      width: 400,
-                    ),
+                    Text(
+                      'roompal',
+                      style: TextStyle(color: Colors.white, fontFamily: 'ProximaNovaBold', fontSize: 50),
+                    )
+                    // Image.asset(
+                    //   'assets/img/bW.png',
+                    //   height: 80,
+                    //   width: 400,
+                    // ),
                   ]),
                 ),
               ),
