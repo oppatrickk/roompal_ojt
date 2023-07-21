@@ -105,6 +105,7 @@ class _StayViewState extends State<StayView> {
                         stats(label: 'Vacant', number: 15),
                       ],
                     ),
+                    ksizedBoxTextFieldCol,
                     Table(
                       border: TableBorder.all(
                         color: Colors.grey,
@@ -145,21 +146,78 @@ class _StayViewState extends State<StayView> {
                       defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                       children: [
                         TableRow(children: [
-                          tableHeader(label: 'Room'),
-                          tableHeader(label: '3 Jul Mon'),
-                          tableHeader(label: '4 Jul Tue'),
-                          tableHeader(label: '5 Jul Wed'),
-                          tableHeader(label: '6 Jul Thu'),
+                          tableHeader(label: '#001'),
+                          Column(
+                            children: [
+                              guestTracker(
+                                guestName: 'Anonymous',
+                                trackerColor: Color(0xFF5C8BE1),
+                                margin: EdgeInsets.only(
+                                  right: 45,
+                                  top: 5,
+                                  bottom: 5,
+                                ),
+                              ),
+                              guestTracker(
+                                guestName: 'Anonymous',
+                                trackerColor: Colors.green,
+                                margin: EdgeInsets.only(
+                                  right: 45,
+                                  bottom: 5,
+                                ),
+                              ),
+                            ],
+                          ),
                         ]),
                         TableRow(children: [
-                          tableHeader(label: 'Bedspace'),
-                          pendingRequest(totalRequest: 2),
-                          Container(),
-                          pendingRequest(totalRequest: 3),
-                          Container(),
+                          tableHeader(label: '#002'),
+                          Column(),
+                        ]),
+                        TableRow(children: [
+                          tableHeader(label: '#003'),
+                          guestTracker(
+                            guestName: 'Anonymous',
+                            trackerColor: Color(0xFF5C8BE1),
+                            margin: EdgeInsets.only(
+                              right: 20,
+                              left: 20,
+                              top: 5,
+                              bottom: 5,
+                            ),
+                          ),
+                        ]),
+                        TableRow(children: [
+                          tableHeader(label: '#004'),
+                          Column(),
+                        ]),
+                        TableRow(children: [
+                          tableHeader(label: '#005'),
+                          guestTracker(
+                            guestName: 'Anonymous',
+                            trackerColor: Color(0xFF5C8BE1),
+                            margin: EdgeInsets.only(
+                              right: 20,
+                              left: 20,
+                              top: 5,
+                              bottom: 5,
+                            ),
+                          ),
+                        ]),
+                        TableRow(children: [
+                          tableHeader(label: '#006'),
+                          Column(),
+                        ]),
+                        TableRow(children: [
+                          tableHeader(label: '#007'),
+                          Column(),
+                        ]),
+                        TableRow(children: [
+                          tableHeader(label: '#008'),
+                          Column(),
                         ]),
                       ],
                     ),
+                    kSizedBox,
                   ],
                 ),
               ),
@@ -167,6 +225,34 @@ class _StayViewState extends State<StayView> {
           ),
         ),
       ),
+    );
+  }
+
+  GestureDetector guestTracker({required Color trackerColor, required String guestName, required EdgeInsets margin}) {
+    return GestureDetector(
+      child: Container(
+        margin: margin,
+        padding: EdgeInsets.only(left: 15),
+        decoration: BoxDecoration(
+          color: trackerColor,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              guestName,
+              style: textStyleHeader(color: Colors.white, size: 12),
+            ),
+            IconButton(
+              icon: Icon(Icons.cancel_outlined),
+              color: Colors.white,
+              onPressed: null,
+            ),
+          ],
+        ),
+      ),
+      onTap: null,
     );
   }
 
