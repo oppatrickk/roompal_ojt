@@ -540,6 +540,32 @@ Container addButton() {
   );
 }
 
+Container branding() {
+  return Container(
+    padding: EdgeInsets.only(top: 40),
+    decoration: BoxDecoration(
+      color: Color(0xFF1C39BB),
+      borderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(20),
+        bottomRight: Radius.circular(20),
+      ),
+    ),
+    child: Center(
+      child: Column(children: [
+        Image.asset(
+          'assets/img/logo2.png',
+          height: 100,
+          width: 120,
+        ),
+        Text(
+          'roompal',
+          style: TextStyle(color: Colors.white, fontFamily: 'ProximaNovaBold', fontSize: 50),
+        )
+      ]),
+    ),
+  );
+}
+
 //STYLING
 //Content Style
 TextStyle textStyleContent({required double size, required Color color}) {

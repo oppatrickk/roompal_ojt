@@ -17,34 +17,7 @@ class _LoginPageState extends State<LoginPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              padding: EdgeInsets.only(top: 40),
-              decoration: BoxDecoration(
-                color: Color(0xFF1C39BB),
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(20),
-                  bottomRight: Radius.circular(20),
-                ),
-              ),
-              child: Center(
-                child: Column(children: [
-                  Image.asset(
-                    'assets/img/logo2.png',
-                    height: 100,
-                    width: 120,
-                  ),
-                  Text(
-                    'roompal',
-                    style: TextStyle(color: Colors.white, fontFamily: 'ProximaNovaBold', fontSize: 50),
-                  )
-                  // Image.asset(
-                  //   'assets/img/bW.png',
-                  //   height: 80,
-                  //   width: 400,
-                  // ),
-                ]),
-              ),
-            ),
+            branding(),
             Container(
               padding: const EdgeInsets.all(20),
               child: Column(
