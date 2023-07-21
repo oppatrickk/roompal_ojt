@@ -11,12 +11,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-<<<<<<< HEAD
-  currency_symbols: ^0.0.1+2
-=======
-  currency_symbols: ^0.0.1
+  #currency_symbols: ^0.0.1
   syncfusion_flutter_charts: ^22.1.39
->>>>>>> 28b18d81c64b4dd79e5c238353e89459954d4d7e
 
 dev_dependencies:
   flutter_test:

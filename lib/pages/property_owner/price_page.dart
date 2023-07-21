@@ -3,7 +3,7 @@ import 'package:roompal_ojt/pages/booking/booking.dart';
 import 'package:roompal_ojt/pages/booking/payment_details.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
-import 'package:currency_symbols/currency_symbols.dart';
+// import 'package:currency_symbols/currency_symbols.dart';
 
 class PricePage extends StatefulWidget {
   const PricePage({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class PricePage extends StatefulWidget {
 
 class _PricePageState extends State<PricePage> {
 //peso symbol
-  String? pesoSymbol = cSymbol("PHP");
+  // String? pesoSymbol = cSymbol("PHP");
 
 // BottoNavigationBar
   int selectedIndex = 0;
