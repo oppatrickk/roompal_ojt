@@ -153,6 +153,7 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
                   1: FlexColumnWidth(4),
                   2: FlexColumnWidth(2),
                 },
+                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
                 children: [
                   TableRow(
                       decoration: BoxDecoration(
@@ -162,79 +163,39 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
                         tableContent(content: 'Property Details', color: Colors.white),
                         tableContent(content: 'Actions', color: Colors.white),
                       ]),
-                  TableRow(children: [
-                    tableContent(content: '001', color: Color(0xFF242731)),
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Container(
-                            height: 100,
-                            decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(8),
-                              ),
-                              image: DecorationImage(
-                                fit: BoxFit.fitWidth,
-                                image: AssetImage('assets/img/rental.jpg'),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'Kwarto De Luna',
-                            style: textStyleHeader(color: Color(0xFF242731), size: 16),
-                          ),
-                          Text(
-                            'City Name, Region',
-                            style: textStyleContent(color: Color(0xFF242731), size: 12),
-                          ),
-                          Text(
-                            'Starting at P 1, ###.00',
-                            style: textStyleContent(color: Color(0xFF242731), size: 12),
-                          ),
-                          ksizedBoxTextFieldCol,
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              label(buttonColor: Color(0xFFFEB618), label: 'Room Type', textColor: Colors.black),
-                              label(buttonColor: Color(0xFF5C8BE1), label: 'Occupied', textColor: Colors.white),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Column(
-                        children: [
-                          ActionButtons(
-                            Colors.green,
-                            Icons.edit_square,
-                            'Edit',
-                            () {},
-                          ),
-                          ksizedBoxTextFieldCol,
-                          ActionButtons(
-                            Colors.red,
-                            Icons.delete_outline,
-                            'Delete',
-                            () {},
-                          ),
-                        ],
-                      ),
-                    ),
-                  ]),
-                  TableRow(children: [
-                    Column(children: [Text('Javatpoint')]),
-                    Column(children: [Text('MySQL')]),
-                    Column(children: [Text('5*')]),
-                  ]),
-                  TableRow(children: [
-                    Column(children: [Text('Javatpoint')]),
-                    Column(children: [Text('ReactJS')]),
-                    Column(children: [Text('5*')]),
-                  ]),
+                  tableRowContents(
+                    roomNumber: '001',
+                    imageAsset: AssetImage('assets/img/rental.jpg'),
+                    roomName: 'Kwarto De Luna',
+                    roomCity: 'Legazpi City',
+                    roomProvince: 'Albay',
+                    roomPrice: 1000,
+                    roomType: 'Studio',
+                    roomStatus: 'Occupied',
+                    colorBasedOnRoomStatus: Color(0xFF5C8BE1),
+                  ),
+                  tableRowContents(
+                    roomNumber: '002',
+                    imageAsset: AssetImage('assets/img/rental.jpg'),
+                    roomName: 'Kwarto De Luna',
+                    roomCity: 'Legazpi City',
+                    roomProvince: 'Albay',
+                    roomPrice: 1000,
+                    roomType: 'Apartment',
+                    roomStatus: 'Occupied',
+                    colorBasedOnRoomStatus: Color(0xFF5C8BE1),
+                  ),
+                  tableRowContents(
+                    roomNumber: '003',
+                    imageAsset: AssetImage('assets/img/rental.jpg'),
+                    roomName: 'Kwarto De Luna',
+                    roomCity: 'Legazpi City',
+                    roomProvince: 'Albay',
+                    roomPrice: 1000,
+                    roomType: 'Bedspace',
+                    roomStatus: 'Available',
+                    colorBasedOnRoomStatus: Colors.green[500]!,
+                  ),
                 ],
               ),
             ],
@@ -244,9 +205,88 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
     );
   }
 
+  // Table Contents
+  TableRow tableRowContents({
+    required String roomNumber,
+    required ImageProvider imageAsset,
+    required String roomName,
+    required String roomCity,
+    required String roomProvince,
+    required double roomPrice,
+    required String roomType,
+    required String roomStatus,
+    required Color colorBasedOnRoomStatus,
+  }) {
+    return TableRow(children: [
+      tableContent(content: roomNumber, color: Color(0xFF242731)),
+      Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              height: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8),
+                ),
+                image: DecorationImage(
+                  fit: BoxFit.fitWidth,
+                  image: imageAsset,
+                ),
+              ),
+            ),
+            Text(
+              roomName,
+              style: textStyleHeader(color: Color(0xFF242731), size: 16),
+            ),
+            Text(
+              '$roomCity, $roomProvince',
+              style: textStyleContent(color: Color(0xFF242731), size: 12),
+            ),
+            Text(
+              'Starting at P $roomPrice',
+              style: textStyleContent(color: Color(0xFF242731), size: 12),
+            ),
+            ksizedBoxTextFieldCol,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                label(buttonColor: Color(0xFFFEB618), label: roomType, textColor: Colors.black),
+                ksizedBoxTextFieldRow,
+                label(buttonColor: colorBasedOnRoomStatus, label: roomStatus, textColor: Colors.white),
+              ],
+            ),
+          ],
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Column(
+          children: [
+            ActionButtons(
+              Colors.green,
+              Icons.edit_square,
+              'Edit',
+              () {},
+            ),
+            ksizedBoxTextFieldCol,
+            ActionButtons(
+              Colors.red,
+              Icons.delete_outline,
+              'Delete',
+              () {},
+            ),
+          ],
+        ),
+      ),
+    ]);
+  }
+
+  // Room Type & Room Status
   Container label({required String label, required Color textColor, required Color buttonColor}) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(5),
@@ -262,6 +302,7 @@ class _ListingOwnerTVState extends State<ListingOwnerTV> {
     );
   }
 
+  // Table title and Room# Content
   Center tableContent({required String content, required Color color}) => Center(
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 10),
