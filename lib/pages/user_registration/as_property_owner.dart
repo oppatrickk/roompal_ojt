@@ -192,17 +192,6 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
                       )
                     ],
                   ),
-                  ksizedBoxTextFieldCol,
-                  //cancel button
-                  noButtonIcons(
-                    onPressed: () => null,
-                    label: 'Cancel',
-                    isBorderRequired: true,
-                    buttonColor: Colors.white,
-                    textColor: const Color(0xFF242426),
-                    horizontalPadding: 27,
-                    verticalPadding: 15,
-                  ),
                 ],
               ),
             ),
