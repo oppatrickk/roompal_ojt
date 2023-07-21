@@ -168,6 +168,8 @@ class _ContactDetailsState extends State<ContactDetails> {
                 isBorderRequired: true,
                 buttonColor: Colors.white,
                 textColor: const Color(0xFF242426),
+                horizontalPadding: 27,
+                verticalPadding: 15,
               ),
             ],
           ),

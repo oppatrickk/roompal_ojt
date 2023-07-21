@@ -299,6 +299,8 @@ class _BookingState extends State<Booking> {
                     isBorderRequired: true,
                     buttonColor: Colors.white,
                     textColor: const Color(0xFF242426),
+                    horizontalPadding: 27,
+                    verticalPadding: 15,
                   ),
                   navigationButton(
                       onPressed: () => Navigator.pushNamed(context, ContactDetails.id), label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)

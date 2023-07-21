@@ -465,16 +465,18 @@ TextButton noButtonIcons({
   required bool? isBorderRequired,
   required Color buttonColor,
   required Color textColor,
+  required double horizontalPadding,
+  required double verticalPadding,
 }) {
   return TextButton(
     onPressed: onPressed,
     style: ButtonStyle(
       padding: MaterialStateProperty.all(
-        const EdgeInsetsDirectional.symmetric(horizontal: 27, vertical: 15),
+        EdgeInsetsDirectional.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
       ),
       side: isBorderRequired == true
           ? MaterialStateProperty.all(
-              const BorderSide(
+              BorderSide(
                 color: Color(0xFFBBBFC1),
               ),
             )
@@ -489,7 +491,7 @@ TextButton noButtonIcons({
     child: Center(
       child: Text(
         label,
-        style: const TextStyle(color: Color(0xFF242426), fontSize: 14.0),
+        style: TextStyle(color: textColor, fontSize: 14.0),
       ),
     ),
   );
