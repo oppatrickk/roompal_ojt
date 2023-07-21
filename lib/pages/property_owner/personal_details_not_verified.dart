@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
-class PersonalDetailsV extends StatefulWidget {
-  const PersonalDetailsV({Key? key}) : super(key: key);
-  static const String id = 'PersonalDetailsV';
+class PersonalDetailsNV extends StatefulWidget {
+  const PersonalDetailsNV({Key? key}) : super(key: key);
+  static const String id = 'PersonalDetailsNV';
 
   @override
-  State<PersonalDetailsV> createState() => _PersonalDetailsVState();
+  State<PersonalDetailsNV> createState() => _PersonalDetailsNVState();
 }
 
-class _PersonalDetailsVState extends State<PersonalDetailsV> {
+class _PersonalDetailsNVState extends State<PersonalDetailsNV> {
   void _showDatePicker() {
     showDatePicker(
       context: context,
@@ -48,17 +48,29 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
                             'Coratson B. Cena Una',
                             style: kPersonName,
                           ),
-                          Icon(
-                            Icons.verified_rounded,
-                            color: Color(0xFF1C39BB),
-                          ),
                         ],
                       ),
                       Text('Manage your personal details.'),
                       ksizedBoxTextFieldCol,
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          SizedBox(
+                            height: 31,
+                            child: FloatingActionButton.extended(
+                              isExtended: true,
+                              elevation: 0,
+                              onPressed: () {},
+                              label: const Text('Verify Account'),
+                              shape: RoundedRectangleBorder(
+                                side: const BorderSide(
+                                  color: Color(0xFF808080),
+                                ),
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              backgroundColor: Colors.white,
+                            ),
+                          ),
                           SizedBox(
                             height: 31,
                             child: FloatingActionButton.extended(
@@ -85,6 +97,7 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
                   ),
                 ),
               ),
+              kSizedBox,
               Text(
                 'Personal Information',
                 style: kHeaderTextStyle,
