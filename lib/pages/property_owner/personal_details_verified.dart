@@ -94,6 +94,16 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
                 ),
               ),
               kSizedBox,
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: boxDecoration(),
+                child: Column(
+                  children: <Widget>[
+                    textField(label: 'Address'),
+                    ksizedBoxTextFieldCol,
+                  ],
+                ),
+              ),
               ksizedBoxTFB,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
