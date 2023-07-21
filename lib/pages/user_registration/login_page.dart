@@ -36,12 +36,7 @@ class _LoginPageState extends State<LoginPage> {
                   Text(
                     'roompal',
                     style: TextStyle(color: Colors.white, fontFamily: 'ProximaNovaBold', fontSize: 50),
-                  )
-                  // Image.asset(
-                  //   'assets/img/bW.png',
-                  //   height: 80,
-                  //   width: 400,
-                  // ),
+                  ),
                 ]),
               ),
             ),
@@ -82,6 +77,8 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                   ),
+                  kSizedBox,
+                  noButtonIcons(onPressed: null, label: 'Login', isBorderRequired: true, buttonColor: Color(0xFF1C39BB), textColor: Colors.white),
                   kSizedBox,
                   Container(
                     padding: const EdgeInsets.all(10),
