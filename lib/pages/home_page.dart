@@ -12,6 +12,7 @@ import 'package:roompal_ojt/pages/property_owner/listing_ownersView.dart';
 import 'package:roompal_ojt/pages/property_owner/listing_rentersView.dart';
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
+import 'package:roompal_ojt/pages/property_owner/personal_details_verified.dart';
 import 'package:roompal_ojt/pages/property_owner/photo_page.dart';
 import 'package:roompal_ojt/pages/property_owner/price_page.dart';
 import 'package:roompal_ojt/pages/property_owner/reviews_page.dart';
@@ -161,6 +162,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, OwnerReviewPage.id);
                 },
                 child: const Text('Owner Review Page'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PersonalDetailsV.id);
+                },
+                child: const Text('Personal Details Verified'),
               ),
             ],
           ),

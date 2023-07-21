@@ -13,6 +13,7 @@ import 'package:roompal_ojt/pages/property_owner/listing_ownersView.dart';
 import 'package:roompal_ojt/pages/property_owner/listing_rentersView.dart';
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
+import 'package:roompal_ojt/pages/property_owner/personal_details_verified.dart';
 import 'package:roompal_ojt/pages/property_owner/photo_page.dart';
 import 'package:roompal_ojt/pages/property_owner/price_page.dart';
 import 'package:roompal_ojt/pages/property_owner/reviews_page.dart';
@@ -58,6 +59,7 @@ class RoompalOJT extends StatelessWidget {
         ListingOwnerTV.id: (BuildContext context) => const ListingOwnerTV(),
         ListingRenter.id: (BuildContext context) => const ListingRenter(),
         OwnerReviewPage.id: (BuildContext context) => const OwnerReviewPage(),
+        PersonalDetailsV.id: (BuildContext context) => const PersonalDetailsV(),
       },
     );
   }
