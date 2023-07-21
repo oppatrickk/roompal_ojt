@@ -75,11 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Text(
                         'Forgot Password?',
-                        style: TextStyle(
-                          fontFamily: 'ProximaNovaRegular',
-                          fontSize: 15,
-                          color: Color(0xFF242731),
-                        ),
+                        style: kRoomNumber,
                       ),
                       TextButton(
                         onPressed: null,
@@ -87,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                           'Click here',
                           style: TextStyle(
                             fontFamily: 'ProximaNovaRegular',
-                            fontSize: 15,
+                            fontSize: 16,
                             color: Color(0xFF1C39BB),
                           ),
                         ),
@@ -106,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Text(
                         'or',
-                        style: textStyleHeader(color: const Color(0xFF242731), size: 15),
+                        style: textStyleHeader(color: const Color(0xFF242731), size: 16),
                       ),
                       const SizedBox(
                         width: 150,
@@ -122,25 +118,40 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        navigationButton(
+                        signUpButton(
                           onPressed: null,
                           label: 'Continue with Facebook',
                           icon: Icons.facebook_rounded,
-                          isGoBack: true,
+                          iconColor: Color(0xFF1C39BB),
                         ),
                         ksizedBoxTextFieldCol,
-                        navigationButton(
-                          onPressed: null,
-                          label: 'Continue with Google',
-                          icon: Icons.local_grocery_store_outlined,
-                          isGoBack: true,
+                        Container(
+                          padding: EdgeInsets.all(10),
+                          decoration: boxDecoration(),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                child: Image.asset('assets/img/google.png'),
+                                height: 25,
+                                width: 25,
+                              ),
+                              SizedBox(
+                                width: 7,
+                              ),
+                              Text(
+                                'Continue with Google',
+                                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+                              ),
+                            ],
+                          ),
                         ),
                         ksizedBoxTextFieldCol,
-                        navigationButton(
+                        signUpButton(
                           onPressed: null,
                           label: 'Continue with Apple',
                           icon: Icons.apple_rounded,
-                          isGoBack: true,
+                          iconColor: Color(0xFF242426),
                         ),
                       ],
                     ),
@@ -151,11 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Text(
                         "Don't have an account?",
-                        style: TextStyle(
-                          fontFamily: 'ProximaNovaRegular',
-                          fontSize: 15,
-                          color: Color(0xFF242731),
-                        ),
+                        style: kRoomNumber,
                       ),
                       TextButton(
                         onPressed: null,
@@ -163,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
                           'Sign up',
                           style: TextStyle(
                             fontFamily: 'ProximaNovaRegular',
-                            fontSize: 15,
+                            fontSize: 16,
                             color: Color(0xFF1C39BB),
                           ),
                         ),
@@ -180,7 +187,39 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-const TextStyle kTextButton = TextStyle(
-  fontFamily: 'ProximaNovaRegular',
-  fontSize: 15,
-);
+//Button for go back and go next
+TextButton signUpButton({
+  required void Function()? onPressed,
+  required IconData icon,
+  required String label,
+  required Color iconColor,
+}) {
+  return TextButton(
+      onPressed: onPressed,
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all(
+          const EdgeInsetsDirectional.symmetric(horizontal: 27, vertical: 15),
+        ),
+        side: MaterialStateProperty.all(
+          const BorderSide(
+            color: Color(0xFFBBBFC1),
+          ),
+        ),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          iconStyle(icon: icon, color: iconColor, size: 20),
+          ksizedBoxTextFieldRow,
+          Text(
+            label,
+            style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+          )
+        ],
+      ));
+}
