@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/room_details.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
@@ -275,6 +276,82 @@ class BuildSegment1 extends StatelessWidget {
       child: Icon(
         icon,
         size: 24,
+      ),
+    );
+  }
+}
+
+//review card
+
+class ReviewCard extends StatelessWidget {
+  const ReviewCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Card(
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                CircleAvatar(
+                  radius: 20.0,
+                  backgroundColor: Colors.grey,
+                  backgroundImage: null,
+                ),
+                ksizedBoxTextFieldRow,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Text>[
+                    Text(
+                      'Cardo on Ahking Room',
+                      style: kReviewTitle,
+                    ),
+                    Text(
+                      'July 5, 2023 | 10:23 AM',
+                      style: kReviewSmallSubtitle,
+                    ),
+                  ],
+                ),
+                ksizedBoxTextFieldRow,
+                Padding(
+                  padding: EdgeInsets.only(bottom: 12),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Icon(Icons.star, size: 10, color: Colors.orangeAccent),
+                      Icon(Icons.star, size: 10, color: Colors.orangeAccent),
+                      Icon(Icons.star, size: 10, color: Colors.orangeAccent),
+                      Icon(Icons.star, size: 10, color: Colors.orangeAccent),
+                      Icon(Icons.star, size: 10, color: Colors.orangeAccent),
+                      Text('Excellent', style: TextStyle(color: Colors.green, fontSize: 8.0)),
+                      Icon(Icons.check_circle_outline, color: Colors.green, size: 8.0),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            ksizedBoxTextFieldCol,
+            Text(
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+              style: kReviewText,
+              textAlign: TextAlign.justify,
+            ),
+            ksizedBoxTextFieldCol,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Icon(Icons.favorite_border_outlined, size: 15, color: Colors.grey),
+                ksizedBoxTextFieldRow,
+                IconWithTextDisplay(Icons.reply, 'Reply', Colors.grey),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
