@@ -22,6 +22,7 @@ import 'package:roompal_ojt/pages/renter/renter_page(0).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'package:roompal_ojt/pages/room_details.dart';
+import 'package:roompal_ojt/pages/user_registration/as_Renter.dart';
 import 'package:roompal_ojt/pages/user_registration/as_property_owner.dart';
 import 'package:roompal_ojt/pages/user_registration/chooserole_page.dart';
 import 'package:roompal_ojt/pages/user_registration/login_page.dart';
@@ -203,6 +204,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, AsPropertyOwner.id);
                 },
                 child: const Text('Sign up: As Property Owner'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, AsRenter.id);
+                },
+                child: const Text('Sign up: As Renter'),
               ),
             ],
           ),
