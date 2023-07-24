@@ -25,6 +25,7 @@ import 'package:roompal_ojt/pages/room_details.dart';
 import 'package:roompal_ojt/pages/user_registration/as_Renter.dart';
 import 'package:roompal_ojt/pages/user_registration/as_property_owner.dart';
 import 'package:roompal_ojt/pages/user_registration/chooserole_page.dart';
+import 'package:roompal_ojt/pages/user_registration/forgot_password.dart';
 import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -210,6 +211,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, AsRenter.id);
                 },
                 child: const Text('Sign up: As Renter'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ForgotPassword.id);
+                },
+                child: const Text('Sign up: Forgot Password'),
               ),
             ],
           ),

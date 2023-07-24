@@ -23,6 +23,7 @@ import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'package:roompal_ojt/pages/user_registration/as_Renter.dart';
 import 'package:roompal_ojt/pages/user_registration/as_property_owner.dart';
 import 'package:roompal_ojt/pages/user_registration/chooserole_page.dart';
+import 'package:roompal_ojt/pages/user_registration/forgot_password.dart';
 import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'pages/renter/renter_page(1).dart';
 import 'pages/renter/renter_page(0).dart';
@@ -72,6 +73,7 @@ class RoompalOJT extends StatelessWidget {
         ChooseRole.id: (BuildContext context) => const ChooseRole(),
         AsPropertyOwner.id: (BuildContext context) => const AsPropertyOwner(),
         AsRenter.id: (BuildContext context) => const AsRenter(),
+        ForgotPassword.id: (BuildContext context) => const ForgotPassword(),
       },
     );
   }
