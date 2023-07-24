@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/booking/contact_details.dart';
-import 'package:roompal_ojt/pages/room_details.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
-import 'confirmation.dart';
 
 class PaymentDetails extends StatefulWidget {
   const PaymentDetails({Key? key}) : super(key: key);
@@ -84,6 +82,57 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 ),
                 ksizedBoxTextFieldCol,
                 Container(
+                  padding: const EdgeInsets.all(5),
+                  decoration: boxDecoration(),
+                  child: DropdownButtonHideUnderline(
+                    child: ButtonTheme(
+                      alignedDropdown: true,
+                      child: DropdownButton(
+                        hint: Text(
+                          'Payment Center / E-Wallet',
+                          style: textStyleContent(
+                            size: 16,
+                            color: Color(0xFF242426),
+                          ),
+                        ),
+                        icon: iconStyle(
+                          icon: Icons.control_point_rounded,
+                          color: Color(0xFF242426),
+                          size: 24,
+                        ),
+                        value: _selected,
+                        items: _onlinePayment.map((opItem) {
+                          return DropdownMenuItem(
+                            value: opItem['id'].toString(),
+                            child: Row(
+                              children: [
+                                SvgPicture.asset(
+                                  opItem['image'],
+                                  height: 24,
+                                  width: 24,
+                                ),
+                                ksizedBoxTextFieldRow,
+                                Text(
+                                  opItem['label'],
+                                  style: textStyleContent(
+                                    size: 14,
+                                    color: Color(0xFF242426),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        }).toList(),
+                        onChanged: (newValue) {
+                          setState(() {
+                            _selected = newValue;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
                   padding: const EdgeInsets.all(10),
                   decoration: boxDecoration(),
                   child: Column(
@@ -125,14 +174,12 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     navigationButton(
-                        onPressed: () =>
-                            Navigator.pushNamed(context, ContactDetails.id),
+                        onPressed: null,
                         icon: Icons.arrow_back,
                         label: 'Go back',
                         isGoBack: true),
                     navigationButton(
-                        onPressed: () =>
-                            Navigator.pushNamed(context, ConfirmationPage.id),
+                        onPressed: null,
                         label: 'Go next',
                         icon: Icons.arrow_forward,
                         isGoBack: false)
@@ -140,7 +187,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 ),
                 ksizedBoxTextFieldCol,
                 noButtonIcons(
-                  onPressed: () => Navigator.pushNamed(context, RoomDetails.id),
+                  onPressed: null,
                   label: 'Cancel',
                   isBorderRequired: true,
                   buttonColor: Colors.white,

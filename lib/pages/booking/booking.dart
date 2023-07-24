@@ -133,26 +133,7 @@ class _BookingState extends State<Booking> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20),
-                          child: TextButton(
-                            onPressed: _showDatePicker,
-                            child: Container(
-                              width: 30,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: Color(0xFF242426),
-                                ),
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              child: Icon(
-                                Icons.calendar_today_outlined,
-                                color: Color(0xFF242426),
-                              ),
-                            ),
-                          ),
-                        ),
+                        calendarIcon(),
 
                         //Check in date
                         Column(
@@ -165,62 +146,7 @@ class _BookingState extends State<Booking> {
                                 color: const Color(0xFF242426),
                               ),
                             ),
-                            Row(
-                              children: [
-                                Container(
-                                  width: 130,
-                                  height: 30,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black),
-                                    borderRadius: BorderRadius.circular(5.0),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          '07',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            color: Color(0xFF242426),
-                                          ),
-                                        ),
-                                      ),
-                                      VerticalDivider(
-                                        color: Colors.black,
-                                        thickness: 1,
-                                        width: 10,
-                                      ),
-                                      Expanded(
-                                        child: Text(
-                                          '03',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            color: Color(0xFF242426),
-                                          ),
-                                        ),
-                                      ),
-                                      VerticalDivider(
-                                        color: Colors.black,
-                                        thickness: 1,
-                                        width: 10,
-                                      ),
-                                      Expanded(
-                                        child: Text(
-                                          '2023',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            color: Color(0xFF242426),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                            displayDate(),
                           ],
                         ),
 
@@ -239,62 +165,7 @@ class _BookingState extends State<Booking> {
                                 color: const Color(0xFF242426),
                               ),
                             ),
-                            Row(
-                              children: [
-                                Container(
-                                  width: 130,
-                                  height: 30,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black),
-                                    borderRadius: BorderRadius.circular(5.0),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          '07',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            color: Color(0xFF242426),
-                                          ),
-                                        ),
-                                      ),
-                                      VerticalDivider(
-                                        color: Colors.black,
-                                        thickness: 1,
-                                        width: 10,
-                                      ),
-                                      Expanded(
-                                        child: Text(
-                                          '03',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            color: Color(0xFF242426),
-                                          ),
-                                        ),
-                                      ),
-                                      VerticalDivider(
-                                        color: Colors.black,
-                                        thickness: 1,
-                                        width: 10,
-                                      ),
-                                      Expanded(
-                                        child: Text(
-                                          '2023',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            color: Color(0xFF242426),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                            displayDate(),
                           ],
                         ),
                       ],
@@ -345,7 +216,8 @@ class _BookingState extends State<Booking> {
                       value: dropdownValue,
                       icon: const Icon(Icons.arrow_drop_down),
                       elevation: 16,
-                      style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
+                      style:
+                          textStyleContent(size: 16, color: Color(0xFF575F6E)),
                       underline: Container(
                         height: 1,
                         color: Color(0xFF575F6E),
@@ -366,7 +238,8 @@ class _BookingState extends State<Booking> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Requires 2 months advance payments', style: kRedText),
+                        Text('Requires 2 months advance payments',
+                            style: kRedText),
                       ],
                     ),
                     ksizedBoxTextFieldCol,
@@ -409,7 +282,8 @@ class _BookingState extends State<Booking> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   noButtonIcons(
-                    onPressed: () => Navigator.pushNamed(context, RoomDetails.id),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, RoomDetails.id),
                     label: 'Cancel',
                     isBorderRequired: true,
                     buttonColor: Colors.white,
@@ -418,7 +292,11 @@ class _BookingState extends State<Booking> {
                     verticalPadding: 15,
                   ),
                   navigationButton(
-                      onPressed: () => Navigator.pushNamed(context, ContactDetails.id), label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
+                      onPressed: () =>
+                          Navigator.pushNamed(context, ContactDetails.id),
+                      label: 'Go next',
+                      icon: Icons.arrow_forward,
+                      isGoBack: false)
                 ],
               ),
             ],

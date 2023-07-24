@@ -12,7 +12,8 @@ NavigationDrawer buildSideBar(BuildContext context) {
           children: <Widget>[
             ListTile(
               title: const Text('Welcome User!'),
-              titleTextStyle: textStyleHeader(color: const Color(0xFF1C39BB), size: 28),
+              titleTextStyle:
+                  textStyleHeader(color: const Color(0xFF1C39BB), size: 28),
               trailing: const Icon(Icons.close),
               onTap: () => Navigator.pop(context),
             ),
@@ -78,7 +79,11 @@ NavigationDrawer buildSideBar(BuildContext context) {
 }
 
 // Content in SideBar
-ListTile buildListTile({required Icon leadingIcon, required String label, required Icon trailingIcon, required Function? onTap}) {
+ListTile buildListTile(
+    {required Icon leadingIcon,
+    required String label,
+    required Icon trailingIcon,
+    required Function? onTap}) {
   return ListTile(
     leading: leadingIcon,
     title: Text(label),
@@ -205,7 +210,8 @@ Container propertyCardView({
                   const SizedBox(width: 5),
                   Text(
                     propertyStatus,
-                    style: textStyleHeader(color: propertyStatusColor, size: 12),
+                    style:
+                        textStyleHeader(color: propertyStatusColor, size: 12),
                   )
                 ],
               ),
@@ -214,11 +220,13 @@ Container propertyCardView({
                 children: <Widget>[
                   Text(
                     propertyName,
-                    style: textStyleHeader(color: const Color(0xFF242731), size: 20),
+                    style: textStyleHeader(
+                        color: const Color(0xFF242731), size: 20),
                   ),
                   Text(
                     'Starting at',
-                    style: textStyleContent(color: const Color(0xFF242731), size: 14),
+                    style: textStyleContent(
+                        color: const Color(0xFF242731), size: 14),
                   ),
                 ],
               ),
@@ -227,17 +235,20 @@ Container propertyCardView({
                 children: <Widget>[
                   Text(
                     'Room #00$propertyNumber',
-                    style: textStyleContent(color: const Color(0xFF242731), size: 20),
+                    style: textStyleContent(
+                        color: const Color(0xFF242731), size: 20),
                   ),
                   Row(
                     children: <Widget>[
                       Text(
                         '\$ ',
-                        style: textStyleHeader(color: const Color(0xFF1C39BB), size: 20),
+                        style: textStyleHeader(
+                            color: const Color(0xFF1C39BB), size: 20),
                       ),
                       Text(
                         '$propertyPrice',
-                        style: textStyleHeader(color: const Color(0xFF242731), size: 20),
+                        style: textStyleHeader(
+                            color: const Color(0xFF242731), size: 20),
                       ),
                     ],
                   ),
@@ -248,7 +259,8 @@ Container propertyCardView({
                 children: <Widget>[
                   Text(
                     '$propertyCity, $propertyProvince',
-                    style: textStyleHeader(color: const Color(0xFF242731), size: 12),
+                    style: textStyleHeader(
+                        color: const Color(0xFF242731), size: 12),
                   ),
                   Row(
                     children: <Widget>[
@@ -258,7 +270,8 @@ Container propertyCardView({
                       ),
                       Text(
                         ' $propertyType',
-                        style: textStyleHeader(color: const Color(0xFF242731), size: 12),
+                        style: textStyleHeader(
+                            color: const Color(0xFF242731), size: 12),
                       ),
                     ],
                   ),
@@ -281,7 +294,8 @@ Container propertyCardView({
                   ),
                   Text(
                     propertyAccommodation,
-                    style: textStyleContent(color: const Color(0xFF242731), size: 12),
+                    style: textStyleContent(
+                        color: const Color(0xFF242731), size: 12),
                   ),
                 ],
               )
@@ -364,7 +378,11 @@ Column textFieldWithHintTextButNoLabel({required String hint}) {
 }
 
 //Field Style in Details Page
-Container detailFields({required String label, required String hintText1, required String hintText2, required String labelDesc}) {
+Container detailFields(
+    {required String label,
+    required String hintText1,
+    required String hintText2,
+    required String labelDesc}) {
   return Container(
     padding: const EdgeInsets.all(10),
     decoration: boxDecoration(),
@@ -441,7 +459,10 @@ TextButton navigationButton({
               ksizedBoxTextFieldRow,
               Text(
                 label,
-                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+                style: TextStyle(
+                    color: Color(0xFF242426),
+                    fontSize: 14.0,
+                    fontFamily: 'ProximaNovaBold'),
               )
             ],
           )
@@ -449,7 +470,10 @@ TextButton navigationButton({
             children: <Widget>[
               Text(
                 label,
-                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+                style: TextStyle(
+                    color: Color(0xFF242426),
+                    fontSize: 14.0,
+                    fontFamily: 'ProximaNovaBold'),
               ),
               ksizedBoxTextFieldRow,
               iconStyle(icon: icon, color: Color(0xFF242426), size: 20),
@@ -472,7 +496,8 @@ TextButton noButtonIcons({
     onPressed: onPressed,
     style: ButtonStyle(
       padding: MaterialStateProperty.all(
-        EdgeInsetsDirectional.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
+        EdgeInsetsDirectional.symmetric(
+            horizontal: horizontalPadding, vertical: verticalPadding),
       ),
       side: isBorderRequired == true
           ? MaterialStateProperty.all(
@@ -491,14 +516,16 @@ TextButton noButtonIcons({
     child: Center(
       child: Text(
         label,
-        style: TextStyle(color: textColor, fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+        style: TextStyle(
+            color: textColor, fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
       ),
     ),
   );
 }
 
 // Circle indicator in Property Owner Create listing page
-Container circleIcon({required bool? isFillRequired, required bool? isBorderRequired}) {
+Container circleIcon(
+    {required bool? isFillRequired, required bool? isBorderRequired}) {
   return Container(
     padding: EdgeInsets.all(8),
     decoration: BoxDecoration(
@@ -561,9 +588,92 @@ Container branding() {
         ),
         Text(
           'roompal',
-          style: TextStyle(color: Colors.white, fontFamily: 'ProximaNovaBold', fontSize: 50),
+          style: TextStyle(
+              color: Colors.white, fontFamily: 'ProximaNovaBold', fontSize: 50),
         )
       ]),
+    ),
+  );
+}
+
+Row displayDate() {
+  return Row(
+    children: [
+      Container(
+        width: 130,
+        height: 30,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                '07',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Color(0xFF242426),
+                ),
+              ),
+            ),
+            VerticalDivider(
+              color: Colors.black,
+              thickness: 1,
+              width: 10,
+            ),
+            Expanded(
+              child: Text(
+                '03',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Color(0xFF242426),
+                ),
+              ),
+            ),
+            VerticalDivider(
+              color: Colors.black,
+              thickness: 1,
+              width: 10,
+            ),
+            Expanded(
+              child: Text(
+                '2023',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Color(0xFF242426),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ],
+  );
+}
+
+Padding calendarIcon() {
+  return Padding(
+    padding: const EdgeInsets.only(top: 20),
+    child: TextButton(
+      onPressed: _showDatePicker,
+      child: Container(
+        width: 30,
+        height: 30,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Color(0xFF242426),
+          ),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        child: Icon(
+          Icons.calendar_today_outlined,
+          color: Color(0xFF242426),
+        ),
+      ),
     ),
   );
 }
@@ -597,7 +707,12 @@ Icon starRating({required Color color, required double size}) {
 }
 
 //Button
-GestureDetector buttonLP({required double height, required Color color, required String label, required Color textColor, required double size}) {
+GestureDetector buttonLP(
+    {required double height,
+    required Color color,
+    required String label,
+    required Color textColor,
+    required double size}) {
   return GestureDetector(
     onTap: null,
     child: Container(
@@ -627,7 +742,9 @@ Container dotSeparator() {
   );
 }
 
-Icon iconStyle({required IconData icon, required Color color, required double size}) => Icon(
+Icon iconStyle(
+        {required IconData icon, required Color color, required double size}) =>
+    Icon(
       icon,
       color: color,
       size: size,
