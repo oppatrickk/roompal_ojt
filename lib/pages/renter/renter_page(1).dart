@@ -58,6 +58,7 @@ class BookDetails extends StatelessWidget {
     return GestureDetector(
       onTap: () {},
       child: Card(
+        surfaceTintColor: Colors.white,
         margin: const EdgeInsets.symmetric(vertical: 10.0),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
