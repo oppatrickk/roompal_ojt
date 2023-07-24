@@ -82,6 +82,43 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 ),
                 ksizedBoxTextFieldCol,
                 Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: boxDecoration(),
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                                color: Color(0xFF242731),
+                              ),
+                            ),
+                          ),
+                          ksizedBoxTextFieldRow,
+                          Expanded(
+                            flex: 5,
+                            child: Text(
+                              'CREDIT CARD',
+                              style: textStyleContent(
+                                  size: 16, color: const Color(0xFF242426)),
+                            ),
+                          ),
+                          Expanded(
+                            child: iconStyle(
+                                icon: Icons.control_point_rounded,
+                                color: const Color(0xFF242426),
+                                size: 24),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                ksizedBoxTextFieldCol,
+                Container(
                   padding: const EdgeInsets.all(5),
                   decoration: boxDecoration(),
                   child: DropdownButtonHideUnderline(
@@ -132,43 +169,6 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                     ),
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: boxDecoration(),
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: Color(0xFF242731),
-                              ),
-                            ),
-                          ),
-                          ksizedBoxTextFieldRow,
-                          Expanded(
-                            flex: 5,
-                            child: Text(
-                              'CREDIT CARD',
-                              style: textStyleContent(
-                                  size: 16, color: const Color(0xFF242426)),
-                            ),
-                          ),
-                          Expanded(
-                            child: iconStyle(
-                                icon: Icons.control_point_rounded,
-                                color: const Color(0xFF242426),
-                                size: 24),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                ksizedBoxTextFieldCol,
                 ksizedBoxTFB,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,

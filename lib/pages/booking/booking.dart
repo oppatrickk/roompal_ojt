@@ -120,7 +120,7 @@ class _BookingState extends State<Booking> {
                 padding: EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Text(
                       'Choose your dates',
@@ -131,45 +131,67 @@ class _BookingState extends State<Booking> {
                     ),
                     ksizedBoxTextFieldCol,
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        calendarIcon(),
-
-                        //Check in date
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Check-In',
-                              style: textStyleContent(
-                                size: 14,
-                                color: const Color(0xFF242426),
-                              ),
-                            ),
-                            displayDate(),
-                          ],
+                      children: [
+                        Expanded(child: calendarIcon()),
+                        Expanded(
+                          flex: 2,
+                          child: dateDisplay(
+                              label: 'Check-In',
+                              month: 07,
+                              day: 03,
+                              year: 2023),
                         ),
-
-                        SizedBox(
-                          width: 20.0,
-                        ),
-
-                        //Check out date
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Check-Out',
-                              style: textStyleContent(
-                                size: 14,
-                                color: const Color(0xFF242426),
-                              ),
-                            ),
-                            displayDate(),
-                          ],
+                        ksizedBoxTextFieldRow,
+                        Expanded(
+                          flex: 2,
+                          child: dateDisplay(
+                              label: 'Check-Out',
+                              month: 07,
+                              day: 17,
+                              year: 2023),
                         ),
                       ],
                     ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.start,
+                    //   children: <Widget>[
+                    //     calendarIcon(),
+                    //
+                    //     //Check in date
+                    //     Column(
+                    //       crossAxisAlignment: CrossAxisAlignment.start,
+                    //       children: [
+                    //         Text(
+                    //           'Check-In',
+                    //           style: textStyleContent(
+                    //             size: 14,
+                    //             color: const Color(0xFF242426),
+                    //           ),
+                    //         ),
+                    //         displayDate(),
+                    //       ],
+                    //     ),
+                    //
+                    //     SizedBox(
+                    //       width: 20.0,
+                    //     ),
+                    //
+                    //     //Check out date
+                    //     Column(
+                    //       crossAxisAlignment: CrossAxisAlignment.start,
+                    //       children: [
+                    //         Text(
+                    //           'Check-Out',
+                    //           style: textStyleContent(
+                    //             size: 14,
+                    //             color: const Color(0xFF242426),
+                    //           ),
+                    //         ),
+                    //         displayDate(),
+                    //       ],
+                    //     ),
+                    //   ],
+                    // ),
 
                     //Days
                     Padding(
@@ -303,6 +325,67 @@ class _BookingState extends State<Booking> {
           ),
         ),
       ),
+    );
+  }
+
+  Column dateDisplay(
+      {required String label,
+      required int month,
+      required int day,
+      required int year}) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: textStyleContent(
+            size: 14,
+            color: const Color(0xFF242426),
+          ),
+        ),
+        Table(
+          border: TableBorder.all(
+            color: Colors.grey,
+            borderRadius: BorderRadius.all(
+              Radius.circular(8),
+            ),
+          ),
+          columnWidths: {
+            0: FlexColumnWidth(1),
+            1: FlexColumnWidth(1),
+            2: FlexColumnWidth(2),
+          },
+          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+          children: [
+            TableRow(children: [
+              Text(
+                month.toString(),
+                style: textStyleContent(
+                  size: 16,
+                  color: Color(0xFF242426),
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                day.toString(),
+                style: textStyleContent(
+                  size: 16,
+                  color: Color(0xFF242426),
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Text(
+                year.toString(),
+                style: textStyleContent(
+                  size: 16,
+                  color: Color(0xFF242426),
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ]),
+          ],
+        ),
+      ],
     );
   }
 
