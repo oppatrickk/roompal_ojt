@@ -28,6 +28,7 @@ import 'package:roompal_ojt/pages/user_registration/chooserole_page.dart';
 import 'package:roompal_ojt/pages/user_registration/forgot_password.dart';
 import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/pages/user_registration/reset_password.dart';
+import 'package:roompal_ojt/pages/user_registration/verification.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -224,6 +225,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, ResetPassword.id);
                 },
                 child: const Text('Sign up: Reset Password'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, Verification.id);
+                },
+                child: const Text('Sign up: Verification'),
               ),
             ],
           ),

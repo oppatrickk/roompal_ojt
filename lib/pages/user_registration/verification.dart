@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
-class ResetPassword extends StatefulWidget {
-  const ResetPassword({Key? key}) : super(key: key);
-  static const String id = 'ResetPassword';
+class Verification extends StatefulWidget {
+  const Verification({super.key});
+  static const String id = 'Verification';
 
   @override
-  State<ResetPassword> createState() => _ResetPasswordState();
+  State<Verification> createState() => _Verification();
 }
 
-class _ResetPasswordState extends State<ResetPassword> {
+class _Verification extends State<Verification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,14 +27,14 @@ class _ResetPasswordState extends State<ResetPassword> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Reset Password',
+                        'Verification',
                         style: kRoomName,
                       ),
                     ],
                   ),
                   ksizedBoxTextFieldCol,
                   Text(
-                    'Create new password.',
+                    'Enter the verification code sent in your email.',
                     style: kRoomNumber,
                     textAlign: TextAlign.center,
                   ),
@@ -47,23 +47,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
-                            textField(label: 'Password'),
-                            ksizedBoxTextFieldCol,
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            textField(label: 'Confirm Password'),
+                            textField(label: 'Verification Code'),
                             ksizedBoxTextFieldCol,
                           ],
                         ),
@@ -82,13 +66,14 @@ class _ResetPasswordState extends State<ResetPassword> {
                         isGoBack: true,
                       ),
                       noButtonIcons(
-                          onPressed: null,
-                          label: 'Save',
-                          isBorderRequired: false,
-                          buttonColor: Color(0xFF1C39BA),
-                          textColor: Colors.white,
-                          horizontalPadding: 30,
-                          verticalPadding: 15)
+                        onPressed: () => null,
+                        label: 'Continue',
+                        isBorderRequired: false,
+                        buttonColor: Color(0xFF1C39BB),
+                        textColor: Colors.white,
+                        horizontalPadding: 27,
+                        verticalPadding: 15,
+                      ),
                     ],
                   ),
                 ],
