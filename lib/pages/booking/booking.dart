@@ -13,6 +13,21 @@ class Booking extends StatefulWidget {
 }
 
 class _BookingState extends State<Booking> {
+  //DropDown
+  static const List<String> list = <String>['Transient', 'Monthly'];
+
+  //calendar
+  void _showDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime(2024),
+    );
+  }
+
+  String dropdownValue = list.first;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,25 +82,25 @@ class _BookingState extends State<Booking> {
                   Text(
                     "Room Name",
                     textAlign: TextAlign.start,
-                    style: textStyleHeader(color: Color(0xFF242426), size: 32),
+                    style: kRoomName,
                   ),
                   Text(
-                    "Room #000",
+                    "Room #0000",
                     textAlign: TextAlign.start,
-                    style: textStyleHeader(color: Color(0xFF242426), size: 16),
+                    style: kRoomNumber,
                   ),
                 ],
               ),
               kSizedBox,
               Text(
-                "Choose Details",
+                "Choose your booking details",
                 textAlign: TextAlign.start,
-                style: textStyleHeader(
+                style: textStyleContent(
                   size: 16,
-                  color: Color(0xFF575F6E),
+                  color: const Color(0xFF575F6E),
                 ),
               ),
-              kSizedBox,
+              ksizedBoxTextFieldCol,
 
               //Room Category
               Container(
@@ -107,60 +122,102 @@ class _BookingState extends State<Booking> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(2.0, 1.0, 4.0, 5.0),
-                      child: Text('Choose your dates'),
+                    Text(
+                      'Choose your dates',
+                      style: textStyleContent(
+                        size: 14,
+                        color: const Color(0xFF242426),
+                      ),
                     ),
+                    ksizedBoxTextFieldCol,
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Padding(
-                          padding: EdgeInsets.fromLTRB(5.0, 15.0, 4.0, 0.0),
-                          child: Container(
-                            padding: EdgeInsets.all(3.0),
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black, width: 1.0),
-                              borderRadius: BorderRadius.circular(5.0),
+                          padding: const EdgeInsets.only(top: 20),
+                          child: TextButton(
+                            onPressed: _showDatePicker,
+                            child: Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Color(0xFF242426),
+                                ),
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
+                              child: Icon(
+                                Icons.calendar_today_outlined,
+                                color: Color(0xFF242426),
+                              ),
                             ),
-                            child: Icon(Icons.calendar_today, color: Colors.black),
                           ),
                         ),
 
-                        //Spacing
-                        SizedBox(
-                          width: 20.0,
-                        ),
                         //Check in date
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Check-In'),
+                            Text(
+                              'Check-In',
+                              style: textStyleContent(
+                                size: 14,
+                                color: const Color(0xFF242426),
+                              ),
+                            ),
                             Row(
                               children: [
                                 Container(
-                                  width: 40,
-                                  padding: EdgeInsets.all(4.0),
+                                  width: 130,
+                                  height: 30,
                                   decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black, width: 1.0),
-                                    borderRadius: BorderRadius.only(topLeft: Radius.circular(5.0), bottomLeft: Radius.circular(5.0)),
+                                    border: Border.all(color: Colors.black),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
-                                  child: Text('mm', textAlign: TextAlign.center),
-                                ),
-                                Container(
-                                  width: 40,
-                                  padding: EdgeInsets.all(4.0),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black, width: 1.0),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          '07',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: Color(0xFF242426),
+                                          ),
+                                        ),
+                                      ),
+                                      VerticalDivider(
+                                        color: Colors.black,
+                                        thickness: 1,
+                                        width: 10,
+                                      ),
+                                      Expanded(
+                                        child: Text(
+                                          '03',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: Color(0xFF242426),
+                                          ),
+                                        ),
+                                      ),
+                                      VerticalDivider(
+                                        color: Colors.black,
+                                        thickness: 1,
+                                        width: 10,
+                                      ),
+                                      Expanded(
+                                        child: Text(
+                                          '2023',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: Color(0xFF242426),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  child: Text('dd', textAlign: TextAlign.center),
-                                ),
-                                Container(
-                                  width: 40,
-                                  padding: EdgeInsets.all(4.0),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black, width: 1.0),
-                                    borderRadius: BorderRadius.only(topRight: Radius.circular(5.0), bottomRight: Radius.circular(5.0)),
-                                  ),
-                                  child: Text('yyyy', textAlign: TextAlign.center),
                                 ),
                               ],
                             ),
@@ -175,34 +232,66 @@ class _BookingState extends State<Booking> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Check-Out'),
+                            Text(
+                              'Check-Out',
+                              style: textStyleContent(
+                                size: 14,
+                                color: const Color(0xFF242426),
+                              ),
+                            ),
                             Row(
                               children: [
                                 Container(
-                                  width: 40,
-                                  padding: EdgeInsets.all(4.0),
+                                  width: 130,
+                                  height: 30,
                                   decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black, width: 1.0),
-                                    borderRadius: BorderRadius.only(topLeft: Radius.circular(5.0), bottomLeft: Radius.circular(5.0)),
+                                    border: Border.all(color: Colors.black),
+                                    borderRadius: BorderRadius.circular(5.0),
                                   ),
-                                  child: Text('mm', textAlign: TextAlign.center),
-                                ),
-                                Container(
-                                  width: 40,
-                                  padding: EdgeInsets.all(4.0),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black, width: 1.0),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          '07',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: Color(0xFF242426),
+                                          ),
+                                        ),
+                                      ),
+                                      VerticalDivider(
+                                        color: Colors.black,
+                                        thickness: 1,
+                                        width: 10,
+                                      ),
+                                      Expanded(
+                                        child: Text(
+                                          '03',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: Color(0xFF242426),
+                                          ),
+                                        ),
+                                      ),
+                                      VerticalDivider(
+                                        color: Colors.black,
+                                        thickness: 1,
+                                        width: 10,
+                                      ),
+                                      Expanded(
+                                        child: Text(
+                                          '2023',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: Color(0xFF242426),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  child: Text('dd', textAlign: TextAlign.center),
-                                ),
-                                Container(
-                                  width: 40,
-                                  padding: EdgeInsets.all(4.0),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.black, width: 1.0),
-                                    borderRadius: BorderRadius.only(topRight: Radius.circular(5.0), bottomRight: Radius.circular(5.0)),
-                                  ),
-                                  child: Text('yyyy', textAlign: TextAlign.center),
                                 ),
                               ],
                             ),
@@ -218,7 +307,7 @@ class _BookingState extends State<Booking> {
                         decoration: BoxDecoration(
                           border: Border(
                             bottom: BorderSide(
-                              color: Colors.black,
+                              color: Color(0xFF242426),
                               width: 1.0,
                             ),
                           ),
@@ -227,7 +316,7 @@ class _BookingState extends State<Booking> {
                           '14 days',
                           style: TextStyle(
                             fontSize: 14,
-                            color: Colors.black,
+                            color: Color(0xFF242426),
                           ),
                         ),
                       ),
@@ -238,23 +327,49 @@ class _BookingState extends State<Booking> {
 
               kSizedBox,
 
-              //Option Category
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    textField(
-                      label: 'Choose Option',
-                      //suffixIcon: Icon(Icons.arrow_drop_down_outlined),
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Text(
+                      'Choose Option',
+                      style: textStyleContent(
+                        size: 14,
+                        color: Color(0xFF575F6E),
+                      ),
+                    ),
+                    DropdownButton<String>(
+                      isExpanded: true,
+                      value: dropdownValue,
+                      icon: const Icon(Icons.arrow_drop_down),
+                      elevation: 16,
+                      style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
+                      underline: Container(
+                        height: 1,
+                        color: Color(0xFF575F6E),
+                      ),
+                      onChanged: (String? value) {
+                        setState(() {
+                          dropdownValue = value!;
+                        });
+                      },
+                      items: list.map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
                     ),
                     ksizedBoxTextFieldCol,
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Requires 2 months advance payments', style: kRedText),
                       ],
                     ),
+                    ksizedBoxTextFieldCol,
                   ],
                 ),
               ),
@@ -273,13 +388,13 @@ class _BookingState extends State<Booking> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               'Maximum of 2 guests',
                               style: kRedText,
                             ),
-                            SizedBox(width: 195.0),
-                            Icon(Icons.add_circle_outline), // Add icon to the right side of the text
+                            addButton(), // Add icon to the right side of the text
                           ],
                         ),
                       ],
@@ -288,7 +403,7 @@ class _BookingState extends State<Booking> {
                 ),
               ),
 
-              kSizedBox,
+              ksizedBoxTFB,
               //button
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -317,4 +432,5 @@ class _BookingState extends State<Booking> {
 const TextStyle kRedText = TextStyle(
   fontSize: 10.0,
   color: Colors.red,
+  fontFamily: 'ProximaNovaRegular',
 );
