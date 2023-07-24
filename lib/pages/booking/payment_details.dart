@@ -13,6 +13,20 @@ class PaymentDetails extends StatefulWidget {
 }
 
 class _PaymentDetailsState extends State<PaymentDetails> {
+  String? _selected;
+  List<Map> _onlinePayment = [
+    {
+      'id': '1',
+      'image': 'assets/svg/paypal.svg',
+      'label': 'Paypal',
+    },
+    {
+      'id': '2',
+      'image': 'assets/svg/gcash.svg',
+      'label': 'Gcash',
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,104 +37,118 @@ class _PaymentDetailsState extends State<PaymentDetails> {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: <Widget>[
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.baseline,
-              textBaseline: TextBaseline.ideographic,
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                bookingSteps(
-                  label: 'Booking',
-                  textColor: Colors.grey,
-                  lineColor: Colors.grey,
-                  textSize: 12,
-                  flex: 1,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.ideographic,
+                  children: <Widget>[
+                    bookingSteps(
+                      label: 'Booking',
+                      textColor: Colors.grey,
+                      lineColor: Colors.grey,
+                      textSize: 12,
+                      flex: 1,
+                    ),
+                    bookingSteps(
+                      label: 'Contacts',
+                      textColor: Colors.grey,
+                      lineColor: Colors.grey,
+                      textSize: 12,
+                      flex: 1,
+                    ),
+                    bookingSteps(
+                      label: 'Payment',
+                      textColor: const Color(0xFF1C39BB),
+                      lineColor: const Color(0xFFFEB618),
+                      textSize: 18,
+                      flex: 1,
+                    ),
+                    bookingSteps(
+                      label: 'Confirmation',
+                      textColor: Colors.grey,
+                      lineColor: Colors.grey,
+                      textSize: 12,
+                      flex: 1,
+                    ),
+                  ],
                 ),
-                bookingSteps(
-                  label: 'Contacts',
-                  textColor: Colors.grey,
-                  lineColor: Colors.grey,
-                  textSize: 12,
-                  flex: 1,
+                kSizedBox,
+                Text(
+                  'Choose your payment options',
+                  style: textStyleContent(
+                    size: 16,
+                    color: const Color(0xFF575F6E),
+                  ),
                 ),
-                bookingSteps(
-                  label: 'Payment',
-                  textColor: const Color(0xFF1C39BB),
-                  lineColor: const Color(0xFFFEB618),
-                  textSize: 18,
-                  flex: 1,
-                ),
-                bookingSteps(
-                  label: 'Confirmation',
-                  textColor: Colors.grey,
-                  lineColor: Colors.grey,
-                  textSize: 12,
-                  flex: 1,
-                ),
-              ],
-            ),
-            kSizedBox,
-            Text(
-              'Choose your payment options',
-              style: textStyleContent(
-                size: 16,
-                color: const Color(0xFF575F6E),
-              ),
-            ),
-            ksizedBoxTextFieldCol,
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: boxDecoration(),
-              child: Column(
-                children: <Widget>[
-                  Row(
+                ksizedBoxTextFieldCol,
+                Container(
+                  padding: const EdgeInsets.all(10),
+                  decoration: boxDecoration(),
+                  child: Column(
                     children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          border: Border.all(
-                            color: Color(0xFF242731),
+                      Row(
+                        children: <Widget>[
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                                color: Color(0xFF242731),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                      ksizedBoxTextFieldRow,
-                      Expanded(
-                        flex: 5,
-                        child: Text(
-                          'CREDIT CARD',
-                          style: textStyleContent(size: 16, color: const Color(0xFF242426)),
-                        ),
-                      ),
-                      Expanded(
-                        child: iconStyle(icon: Icons.control_point_rounded, color: const Color(0xFF242426), size: 24),
-                      ),
+                          ksizedBoxTextFieldRow,
+                          Expanded(
+                            flex: 5,
+                            child: Text(
+                              'CREDIT CARD',
+                              style: textStyleContent(
+                                  size: 16, color: const Color(0xFF242426)),
+                            ),
+                          ),
+                          Expanded(
+                            child: iconStyle(
+                                icon: Icons.control_point_rounded,
+                                color: const Color(0xFF242426),
+                                size: 24),
+                          ),
+                        ],
+                      )
                     ],
-                  )
-                ],
-              ),
-            ),
-            ksizedBoxTextFieldCol,
-            ksizedBoxTFB,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                navigationButton(
-                    onPressed: () => Navigator.pushNamed(context, ContactDetails.id), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
-                navigationButton(
-                    onPressed: () => Navigator.pushNamed(context, ConfirmationPage.id), label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
-              ],
-            ),
-            ksizedBoxTextFieldCol,
-            noButtonIcons(
-              onPressed: () => Navigator.pushNamed(context, RoomDetails.id),
-              label: 'Cancel',
-              isBorderRequired: true,
-              buttonColor: Colors.white,
-              textColor: const Color(0xFF242426),
-              horizontalPadding: 27,
-              verticalPadding: 15,
-            ),
-          ]),
+                  ),
+                ),
+                ksizedBoxTextFieldCol,
+                ksizedBoxTFB,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    navigationButton(
+                        onPressed: () =>
+                            Navigator.pushNamed(context, ContactDetails.id),
+                        icon: Icons.arrow_back,
+                        label: 'Go back',
+                        isGoBack: true),
+                    navigationButton(
+                        onPressed: () =>
+                            Navigator.pushNamed(context, ConfirmationPage.id),
+                        label: 'Go next',
+                        icon: Icons.arrow_forward,
+                        isGoBack: false)
+                  ],
+                ),
+                ksizedBoxTextFieldCol,
+                noButtonIcons(
+                  onPressed: () => Navigator.pushNamed(context, RoomDetails.id),
+                  label: 'Cancel',
+                  isBorderRequired: true,
+                  buttonColor: Colors.white,
+                  textColor: const Color(0xFF242426),
+                  horizontalPadding: 27,
+                  verticalPadding: 15,
+                ),
+              ]),
         ),
       ),
     );
