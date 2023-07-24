@@ -13,13 +13,20 @@ class OwnerReviewPage extends StatefulWidget {
 }
 
 class _OwnerReviewPageState extends State<OwnerReviewPage> {
-  late List<ReviewData> _chartData;
+  //late List<ReviewData> _chartData;
+  // @override
+  // void initState() {
+  //   _chartData = getChartData();
+  //   super.initState();
+  // }
 
-  @override
-  void initState() {
-    _chartData = getChartData();
-    super.initState();
-  }
+  final List<ReviewData> chartData = <ReviewData>[
+    ReviewData('Poor', 30, Colors.red),
+    ReviewData('Fair', 80, Colors.orange),
+    ReviewData('Good', 200, Colors.orangeAccent),
+    ReviewData('Very Good', 275, Colors.green),
+    ReviewData('Excellent', 300, const Color.fromRGBO(27, 94, 32, 1)),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -172,9 +179,15 @@ class _OwnerReviewPageState extends State<OwnerReviewPage> {
                       child: SfCartesianChart(
                         series: <ChartSeries>[
                           BarSeries<ReviewData, String>(
-                              dataSource: _chartData,
-                              xValueMapper: (ReviewData data, _) => data.label,
-                              yValueMapper: (ReviewData data, _) => data.value)
+                            pointColorMapper: (ReviewData data, _) => data.color,
+                            dataSource: chartData,
+                            xValueMapper: (ReviewData data, _) => data.label,
+                            yValueMapper: (ReviewData data, _) => data.value,
+                            dataLabelSettings: DataLabelSettings(
+                              isVisible: true,
+                              labelAlignment: ChartDataLabelAlignment.outer,
+                            ),
+                          ),
                         ],
                         primaryXAxis: CategoryAxis(),
                       ),
@@ -195,21 +208,11 @@ class _OwnerReviewPageState extends State<OwnerReviewPage> {
       ),
     );
   }
-
-  List<ReviewData> getChartData() {
-    final List<ReviewData> chartData = [
-      ReviewData('Excellent', 300),
-      ReviewData('Very Good', 275),
-      ReviewData('Good', 200),
-      ReviewData('Fair', 80),
-      ReviewData('Poor', 30),
-    ];
-    return chartData;
-  }
 }
 
 class ReviewData {
-  ReviewData(this.label, this.value);
+  ReviewData(this.label, this.value, this.color);
   final String label;
   final int value;
+  final Color color;
 }
