@@ -109,12 +109,12 @@ class _PricePageState extends State<PricePage> {
                         children: [
                           Text(
                             'Enter transient (Daily) Price',
-                            style: textStyleContent(
+                            style: textPesoStyle(
                               size: 14,
                               color: const Color(0xFF242426),
                             ),
                           ),
-                          textFieldDecoration(),
+                          textPesoField(),
                         ],
                       ),
                     ),
@@ -125,30 +125,12 @@ class _PricePageState extends State<PricePage> {
                         children: [
                           Text(
                             'Transaction Fee',
-                            style: textStyleContent(
+                            style: textPesoStyle(
                               size: 14,
                               color: const Color(0xFF1C39BB),
                             ),
                           ),
-                          TextField(
-                            decoration: const InputDecoration(
-                              border: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFBBBFC1),
-                                ),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFF242426),
-                                ),
-                              ),
-                              contentPadding: EdgeInsets.symmetric(horizontal: 30),
-                            ),
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: const Color(0xFF1C39BB),
-                            ),
-                          ),
+                          textPesoFieldBlue(),
                         ],
                       ),
                     ),
@@ -168,12 +150,12 @@ class _PricePageState extends State<PricePage> {
                         children: [
                           Text(
                             'Enter transient (Daily) Price',
-                            style: textStyleContent(
+                            style: textPesoStyle(
                               size: 14,
                               color: const Color(0xFF242426),
                             ),
                           ),
-                          textFieldDecoration(),
+                          textPesoField(),
                         ],
                       ),
                     ),
@@ -189,25 +171,7 @@ class _PricePageState extends State<PricePage> {
                               color: const Color(0xFF1C39BB),
                             ),
                           ),
-                          TextField(
-                            decoration: const InputDecoration(
-                              border: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFFBBBFC1),
-                                ),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0xFF242426),
-                                ),
-                              ),
-                              contentPadding: EdgeInsets.symmetric(horizontal: 30),
-                            ),
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: const Color(0xFF1C39BB),
-                            ),
-                          ),
+                          textPesoFieldBlue()
                         ],
                       ),
                     ),
@@ -281,4 +245,62 @@ class _PricePageState extends State<PricePage> {
       ),
     );
   }
+}
+
+TextField textPesoFieldBlue() {
+  return TextField(
+    keyboardType: TextInputType.multiline,
+    maxLines: null,
+    decoration: const InputDecoration(
+      prefixText: '₱ ',
+      prefixStyle: TextStyle(color: Color(0xFF1C39BB), fontSize: 18),
+      border: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xFFBBBFC1),
+        ),
+      ),
+      focusedBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xFF242426),
+        ),
+      ),
+      contentPadding: EdgeInsets.symmetric(horizontal: 30),
+    ),
+    style: TextStyle(
+      fontSize: 18,
+      color: const Color(0xFF1C39BB),
+    ),
+  );
+}
+
+TextStyle textPesoStyle({required double size, required Color color}) {
+  return TextStyle(
+    fontSize: size,
+    color: color,
+  );
+}
+
+TextField textPesoField() {
+  return TextField(
+    keyboardType: TextInputType.multiline,
+    maxLines: null,
+    decoration: const InputDecoration(
+      prefixText: '₱ ',
+      border: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xFFBBBFC1),
+        ),
+      ),
+      focusedBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: Color(0xFF242426),
+        ),
+      ),
+      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+    ),
+    style: textPesoStyle(
+      size: 18,
+      color: const Color(0xFF242426),
+    ),
+  );
 }
