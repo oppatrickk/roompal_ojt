@@ -27,120 +27,16 @@ class _ResetPasswordState extends State<ResetPassword> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Sign up as',
+                        'Reset Password',
                         style: kRoomName,
-                      ),
-                      Text(
-                        'Property Owner',
-                        style: TextStyle(
-                          fontSize: 32.0,
-                          fontFamily: 'ProximaNovaAltBold',
-                          color: Color(0xFF1C39BB),
-                        ),
                       ),
                     ],
                   ),
                   ksizedBoxTextFieldCol,
                   Text(
-                    'Fill in the data require to sign up. It will take a couple of minutes.',
+                    'Create new password.',
                     style: kRoomNumber,
                     textAlign: TextAlign.center,
-                  ),
-                  kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        textField(label: 'Last Name'),
-                        ksizedBoxTextFieldCol,
-                        textField(label: 'First Name'),
-                        ksizedBoxTextFieldCol,
-                        textField(label: 'Middle Name'),
-                        ksizedBoxTextFieldCol,
-                      ],
-                    ),
-                  ),
-                  kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            Text(
-                              'Phone Number',
-                              style: textStyleContent(
-                                size: 14,
-                                color: const Color(0xFF242426),
-                              ),
-                            ),
-                            Row(
-                              children: <Widget>[
-                                Expanded(
-                                  flex: 1,
-                                  child: TextField(
-                                    decoration: const InputDecoration(
-                                      border: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0xFFBBBFC1),
-                                        ),
-                                      ),
-                                      focusedBorder: UnderlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0xFF242426),
-                                        ),
-                                      ),
-                                      contentPadding:
-                                          EdgeInsets.symmetric(horizontal: 30),
-                                      labelText: '+63',
-                                    ),
-                                    style: textStyleHeader(
-                                      size: 18,
-                                      color: const Color(0xFF242426),
-                                    ),
-                                  ),
-                                ),
-                                ksizedBoxTextFieldRow,
-                                Expanded(
-                                  flex: 2,
-                                  child: textFieldDecoration(),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            textField(label: 'Email'),
-                            ksizedBoxTextFieldCol,
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        textField(label: 'Complete Address'),
-                        ksizedBoxTextFieldCol,
-                      ],
-                    ),
                   ),
                   kSizedBox,
                   Container(
@@ -185,12 +81,14 @@ class _ResetPasswordState extends State<ResetPassword> {
                         label: 'Go back',
                         isGoBack: true,
                       ),
-                      navigationButton(
-                        onPressed: null,
-                        label: 'Go next',
-                        icon: Icons.arrow_forward,
-                        isGoBack: false,
-                      )
+                      noButtonIcons(
+                          onPressed: null,
+                          label: 'Save',
+                          isBorderRequired: false,
+                          buttonColor: Color(0xFF1C39BA),
+                          textColor: Colors.white,
+                          horizontalPadding: 30,
+                          verticalPadding: 15)
                     ],
                   ),
                 ],

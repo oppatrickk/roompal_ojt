@@ -93,7 +93,8 @@ class _AsRenter extends State<AsRenter> {
                                           color: Color(0xFF242426),
                                         ),
                                       ),
-                                      contentPadding: EdgeInsets.symmetric(horizontal: 30),
+                                      contentPadding:
+                                          EdgeInsets.symmetric(horizontal: 30),
                                       labelText: '+63',
                                     ),
                                     style: textStyleHeader(
@@ -190,7 +191,7 @@ class _AsRenter extends State<AsRenter> {
                         isBorderRequired: false,
                         buttonColor: Color(0xFF1C39BB),
                         textColor: Colors.white,
-                        horizontalPadding: 27,
+                        horizontalPadding: 30,
                         verticalPadding: 15,
                       ),
                     ],
