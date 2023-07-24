@@ -655,29 +655,6 @@ Row displayDate() {
   );
 }
 
-Padding calendarIcon() {
-  return Padding(
-    padding: const EdgeInsets.only(top: 20),
-    child: TextButton(
-      onPressed: _showDatePicker,
-      child: Container(
-        width: 30,
-        height: 30,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Color(0xFF242426),
-          ),
-          borderRadius: BorderRadius.circular(5.0),
-        ),
-        child: Icon(
-          Icons.calendar_today_outlined,
-          color: Color(0xFF242426),
-        ),
-      ),
-    ),
-  );
-}
-
 //STYLING
 //Content Style
 TextStyle textStyleContent({required double size, required Color color}) {
