@@ -152,46 +152,6 @@ class _BookingState extends State<Booking> {
                         ),
                       ],
                     ),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.start,
-                    //   children: <Widget>[
-                    //     calendarIcon(),
-                    //
-                    //     //Check in date
-                    //     Column(
-                    //       crossAxisAlignment: CrossAxisAlignment.start,
-                    //       children: [
-                    //         Text(
-                    //           'Check-In',
-                    //           style: textStyleContent(
-                    //             size: 14,
-                    //             color: const Color(0xFF242426),
-                    //           ),
-                    //         ),
-                    //         displayDate(),
-                    //       ],
-                    //     ),
-                    //
-                    //     SizedBox(
-                    //       width: 20.0,
-                    //     ),
-                    //
-                    //     //Check out date
-                    //     Column(
-                    //       crossAxisAlignment: CrossAxisAlignment.start,
-                    //       children: [
-                    //         Text(
-                    //           'Check-Out',
-                    //           style: textStyleContent(
-                    //             size: 14,
-                    //             color: const Color(0xFF242426),
-                    //           ),
-                    //         ),
-                    //         displayDate(),
-                    //       ],
-                    //     ),
-                    //   ],
-                    // ),
 
                     //Days
                     Padding(
@@ -358,29 +318,38 @@ class _BookingState extends State<Booking> {
           defaultVerticalAlignment: TableCellVerticalAlignment.middle,
           children: [
             TableRow(children: [
-              Text(
-                month.toString(),
-                style: textStyleContent(
-                  size: 16,
-                  color: Color(0xFF242426),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Text(
+                  month.toString(),
+                  style: textStyleContent(
+                    size: 16,
+                    color: Color(0xFF242426),
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
-              Text(
-                day.toString(),
-                style: textStyleContent(
-                  size: 16,
-                  color: Color(0xFF242426),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Text(
+                  day.toString(),
+                  style: textStyleContent(
+                    size: 16,
+                    color: Color(0xFF242426),
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
-              Text(
-                year.toString(),
-                style: textStyleContent(
-                  size: 16,
-                  color: Color(0xFF242426),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Text(
+                  year.toString(),
+                  style: textStyleContent(
+                    size: 16,
+                    color: Color(0xFF242426),
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
             ]),
           ],
