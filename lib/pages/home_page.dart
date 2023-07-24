@@ -30,6 +30,8 @@ import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/pages/user_registration/reset_password.dart';
 import 'package:roompal_ojt/pages/user_registration/verification.dart';
 
+import 'booking/payment_details.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
   static const String id = 'MyHomePage';
@@ -231,6 +233,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, Verification.id);
                 },
                 child: const Text('Sign up: Verification'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PaymentDetails.id);
+                },
+                child: const Text('Payment Details'),
               ),
             ],
           ),
