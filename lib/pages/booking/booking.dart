@@ -216,7 +216,6 @@ class _BookingState extends State<Booking> {
                         );
                       }).toList(),
                     ),
-                    ksizedBoxTextFieldCol,
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -383,7 +382,7 @@ class _BookingState extends State<Booking> {
 }
 
 const TextStyle kRedText = TextStyle(
-  fontSize: 10.0,
+  fontSize: 12.0,
   color: Colors.red,
   fontFamily: 'ProximaNovaRegular',
 );
