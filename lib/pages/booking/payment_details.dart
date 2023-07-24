@@ -16,10 +16,17 @@ class _PaymentDetailsState extends State<PaymentDetails> {
   String? _selected;
   List<Map> _onlinePayment = [
     {
-    'id': '1',
-      'image': ''
-  },
+      'id': '1',
+      'image': 'assets/svg/paypal.svg',
+      'label': 'Paypal',
+    },
+    {
+      'id': '2',
+      'image': 'assets/svg/gcash.svg',
+      'label': 'Gcash',
+    },
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +83,6 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   ),
                 ),
                 ksizedBoxTextFieldCol,
-                DropdownButtonFormField(items: onlinePayment, onChanged: onChanged)
                 Container(
                   padding: const EdgeInsets.all(10),
                   decoration: boxDecoration(),
