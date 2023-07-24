@@ -29,6 +29,7 @@ import 'package:roompal_ojt/pages/user_registration/forgot_password.dart';
 import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/pages/user_registration/reset_password.dart';
 import 'package:roompal_ojt/pages/user_registration/verification.dart';
+import 'package:roompal_ojt/widgets/pop_up.dart';
 
 import 'booking/payment_details.dart';
 
@@ -239,6 +240,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, PaymentDetails.id);
                 },
                 child: const Text('Payment Details'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PopUpTemporary.id);
+                },
+                child: const Text('PopUp Temporary'),
               ),
             ],
           ),

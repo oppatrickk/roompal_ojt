@@ -28,6 +28,7 @@ import 'package:roompal_ojt/pages/user_registration/forgot_password.dart';
 import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/pages/user_registration/reset_password.dart';
 import 'package:roompal_ojt/pages/user_registration/verification.dart';
+import 'package:roompal_ojt/widgets/pop_up.dart';
 import 'pages/renter/renter_page(1).dart';
 import 'pages/renter/renter_page(0).dart';
 import 'pages/room_details.dart';
@@ -48,8 +49,7 @@ class RoompalOJT extends StatelessWidget {
       initialRoute: MyHomePage.id,
       //add other screens here
       routes: {
-        MyHomePage.id: (BuildContext context) =>
-            const MyHomePage(title: 'Roompal OJT'),
+        MyHomePage.id: (BuildContext context) => const MyHomePage(title: 'Roompal OJT'),
         RenterPage.id: (BuildContext context) => const RenterPage(),
         LandingPage.id: (BuildContext context) => const LandingPage(),
         RoomDetails.id: (BuildContext context) => const RoomDetails(),
@@ -72,8 +72,7 @@ class RoompalOJT extends StatelessWidget {
         OwnerReviewPage.id: (BuildContext context) => const OwnerReviewPage(),
         PersonalDetailsV.id: (BuildContext context) => const PersonalDetailsV(),
         StayView.id: (BuildContext context) => const StayView(),
-        PersonalDetailsNV.id: (BuildContext context) =>
-            const PersonalDetailsNV(),
+        PersonalDetailsNV.id: (BuildContext context) => const PersonalDetailsNV(),
         LoginPage.id: (BuildContext context) => const LoginPage(),
         ChooseRole.id: (BuildContext context) => const ChooseRole(),
         AsPropertyOwner.id: (BuildContext context) => const AsPropertyOwner(),
@@ -82,6 +81,7 @@ class RoompalOJT extends StatelessWidget {
         ResetPassword.id: (BuildContext context) => const ResetPassword(),
         Verification.id: (BuildContext context) => const Verification(),
         PaymentDetails.id: (BuildContext context) => const PaymentDetails(),
+        PopUpTemporary.id: (BuildContext context) => const PopUpTemporary(),
       },
     );
   }
