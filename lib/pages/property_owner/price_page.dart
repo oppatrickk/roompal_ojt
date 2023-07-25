@@ -101,15 +101,14 @@ class _PricePageState extends State<PricePage> {
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Expanded(
                       child: Column(
                         children: [
                           Text(
-                            'Enter transient (Daily) Price',
-                            style: textPesoStyle(
+                            'Enter Transient (Daily) Price',
+                            style: textStyleContent(
                               size: 14,
                               color: const Color(0xFF242426),
                             ),
@@ -125,7 +124,7 @@ class _PricePageState extends State<PricePage> {
                         children: [
                           Text(
                             'Transaction Fee',
-                            style: textPesoStyle(
+                            style: textStyleContent(
                               size: 14,
                               color: const Color(0xFF1C39BB),
                             ),
@@ -142,15 +141,14 @@ class _PricePageState extends State<PricePage> {
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Expanded(
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Enter transient (Daily) Price',
-                            style: textPesoStyle(
+                            'Enter Monthly Price',
+                            style: textStyleContent(
                               size: 14,
                               color: const Color(0xFF242426),
                             ),
@@ -273,13 +271,6 @@ TextField textPesoFieldBlue() {
   );
 }
 
-TextStyle textPesoStyle({required double size, required Color color}) {
-  return TextStyle(
-    fontSize: size,
-    color: color,
-  );
-}
-
 TextField textPesoField() {
   return TextField(
     keyboardType: TextInputType.multiline,
@@ -298,8 +289,8 @@ TextField textPesoField() {
       ),
       contentPadding: EdgeInsets.symmetric(horizontal: 10),
     ),
-    style: textPesoStyle(
-      size: 18,
+    style: TextStyle(
+      fontSize: 18,
       color: const Color(0xFF242426),
     ),
   );
