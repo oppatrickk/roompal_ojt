@@ -17,11 +17,11 @@ class PopUpTemporary extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return DialogButton();
+                    return const DialogButton();
                   },
                 );
               },
-              child: Text('Sample 1'),
+              child: const Text('Sample 1'),
             ),
             ksizedBoxTextFieldCol,
             ElevatedButton(
@@ -30,14 +30,14 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return CustomDialogButton1(
+                    return const CustomDialogButton1(
                       'Property Listing',
                       'Submit your Listing?',
                     );
                   },
                 );
               },
-              child: Text('Listing'),
+              child: const Text('Listing'),
             ),
             ksizedBoxTextFieldCol,
             ElevatedButton(
@@ -46,14 +46,14 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return CustomDialogButton1(
+                    return const CustomDialogButton1(
                       'Payment',
                       'Confirm your Payment?',
                     );
                   },
                 );
               },
-              child: Text('Payment'),
+              child: const Text('Payment'),
             ),
             ksizedBoxTextFieldCol,
             ElevatedButton(
@@ -66,7 +66,7 @@ class PopUpTemporary extends StatelessWidget {
                   },
                 );
               },
-              child: Text('Thank You'),
+              child: const Text('Thank You'),
             ),
             ksizedBoxTextFieldCol,
             ElevatedButton(
@@ -79,7 +79,7 @@ class PopUpTemporary extends StatelessWidget {
                   },
                 );
               },
-              child: Text('Success'),
+              child: const Text('Success'),
             ),
             ksizedBoxTextFieldCol,
             ElevatedButton(
@@ -91,7 +91,18 @@ class PopUpTemporary extends StatelessWidget {
                   },
                 );
               },
-              child: Text('Sample 3'),
+              child: const Text('Sample 3'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return PendingRequestPrompt();
+                  },
+                );
+              },
+              child: Text('Pending Request'),
             ),
           ],
         ),
@@ -106,15 +117,15 @@ class DialogButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Alert'),
-      content: Text('something something'),
+      title: const Text('Alert'),
+      content: const Text('something something'),
       actions: <Widget>[
-        TextButton(onPressed: () {}, child: Text('Okay')),
+        TextButton(onPressed: () {}, child: const Text('Okay')),
         TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            child: Text('Cancel')),
+            child: const Text('Cancel')),
       ],
     );
   }
@@ -150,7 +161,7 @@ class CustomDialogButton3 extends StatelessWidget {
                   ),
                   padding: const EdgeInsets.all(12),
                   height: 50,
-                  child: Column(
+                  child: const Column(
                     children: [
                       //sparkle icons/ photo
                     ],
@@ -166,7 +177,7 @@ class CustomDialogButton3 extends StatelessWidget {
                   child: Text(
                     content,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 17,
                       color: Colors.black,
@@ -202,10 +213,11 @@ class CustomDialogButton3 extends StatelessWidget {
               ],
             ),
             Container(
-              padding: EdgeInsets.all(10),
-              child: CircleAvatar(
+              decoration: const BoxDecoration(),
+              padding: const EdgeInsets.all(10),
+              child: const CircleAvatar(
                 backgroundColor: Color(0xFF6CE679),
-                radius: 30,
+                radius: 33,
                 child: Icon(
                   Icons.check,
                   size: 50,
@@ -257,7 +269,7 @@ class CustomDialogButton2 extends StatelessWidget {
               child: Text(
                 content,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
                   color: Colors.black,
@@ -327,7 +339,7 @@ class CustomDialogButton1 extends StatelessWidget {
                 child: Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                     color: Colors.white,
@@ -345,7 +357,7 @@ class CustomDialogButton1 extends StatelessWidget {
               child: Text(
                 content,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   color: Colors.black,
                 ),
@@ -423,94 +435,91 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4),
       ),
-      child: SizedBox(
-        height: 550,
-        child: Column(
-          children: <Widget>[
-            Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(4),
-                  topLeft: Radius.circular(4),
-                ),
-                color: Color(0xFF1C39BB),
+      child: Column(
+        children: <Widget>[
+          Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(4),
+                topLeft: Radius.circular(4),
               ),
-              padding: const EdgeInsets.all(12),
-              height: 50,
-              child: const SizedBox.expand(
-                child: const Text(
-                  'Details',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.white,
-                  ),
+              color: Color(0xFF1C39BB),
+            ),
+            padding: const EdgeInsets.all(12),
+            height: 50,
+            child: const SizedBox.expand(
+              child: const Text(
+                'Details',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white,
                 ),
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Color(0xFF96A9CC),
-              ),
-              padding: const EdgeInsets.all(12),
-              height: 50,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      setState(() {
-                        selectedButton = 'Booking';
-                      });
-                    },
-                    style: TextButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: const Text(
-                      'Booking',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 14,
-                        color: Color(0xFF242426),
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      setState(() {
-                        selectedButton = 'Tenant';
-                      });
-                    },
-                    style: TextButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: const Text(
-                      'Tenant',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 14,
-                        color: Color(0xFF242426),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF96A9CC),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: selectedButton == 'Booking' ? BookingWidget() : TenantWidget(),
+            padding: const EdgeInsets.all(12),
+            height: 50,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedButton = 'Booking';
+                    });
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    padding: EdgeInsets.zero,
+                  ),
+                  child: const Text(
+                    'Booking',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 14,
+                      color: Color(0xFF242426),
+                    ),
+                  ),
                 ),
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedButton = 'Tenant';
+                    });
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    padding: EdgeInsets.zero,
+                  ),
+                  child: const Text(
+                    'Tenant',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 14,
+                      color: Color(0xFF242426),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: selectedButton == 'Booking' ? BookingWidget() : TenantWidget(),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -520,10 +529,10 @@ class BookingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 30, right: 30),
+      padding: const EdgeInsets.only(left: 30, right: 30),
       child: Column(
         children: [
-          Text(
+          const Text(
             'Room No: 001',
             textAlign: TextAlign.center,
             style: textStyleContent(size: 14, color: Color(0xFF242426)),
@@ -539,7 +548,7 @@ class BookingWidget extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  border: Border.all(width: 1, color: const Color(0xFF808080)),
                   borderRadius: BorderRadius.circular(5),
                   color: const Color(0xFFF1F1F1),
                 ),
@@ -589,7 +598,7 @@ class BookingWidget extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  border: Border.all(width: 1, color: const Color(0xFF808080)),
                   borderRadius: BorderRadius.circular(5),
                   color: const Color(0xFFF1F1F1),
                 ),
@@ -639,7 +648,7 @@ class BookingWidget extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  border: Border.all(width: 1, color: const Color(0xFF808080)),
                   borderRadius: BorderRadius.circular(5),
                   color: const Color(0xFFF1F1F1),
                 ),
@@ -667,7 +676,7 @@ class BookingWidget extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  border: Border.all(width: 1, color: const Color(0xFF808080)),
                   borderRadius: BorderRadius.circular(5),
                   color: const Color(0xFFF1F1F1),
                 ),
@@ -955,6 +964,81 @@ class TenantWidget extends StatelessWidget {
               ),
             ],
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class PendingRequestPrompt extends StatefulWidget {
+  const PendingRequestPrompt({Key? key}) : super(key: key);
+
+  @override
+  State<PendingRequestPrompt> createState() => _PendingRequestPromptState();
+}
+
+class _PendingRequestPromptState extends State<PendingRequestPrompt> {
+  bool? isVisible;
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      surfaceTintColor: Colors.white,
+      child: SizedBox(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(4),
+                topLeft: Radius.circular(4),
+              ),
+              color: Color(0xFF1C39BB),
+            ),
+            padding: const EdgeInsets.all(12),
+            height: 50,
+            child: const SizedBox.expand(
+              child: const Text(
+                'Pending Request',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(12),
+            child: Column(
+              children: [
+                pendingRequestContent(tenantName: 'Cardo Dalisay'),
+                ksizedBoxTextFieldCol,
+                pendingRequestContent(tenantName: 'Alden Ritsards'),
+              ],
+            ),
+          )
+        ]),
+      ),
+    );
+  }
+
+  Container pendingRequestContent({required String tenantName}) {
+    return Container(
+      child: Column(
+        children: [
+          Container(),
+          ListTile(
+            title: Text(
+              tenantName,
+              style: textStyleContent(size: 18, color: Colors.black),
+            ),
+            trailing: iconStyle(
+              icon: Icons.keyboard_arrow_down_rounded,
+              color: Colors.yellow[800]!,
+              size: 24,
+            ),
+          ),
+          divider,
         ],
       ),
     );
