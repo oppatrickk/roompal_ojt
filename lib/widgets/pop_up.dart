@@ -527,269 +527,273 @@ class BookingWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(left: 30, right: 30),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Room No: 001',
             textAlign: TextAlign.center,
           ),
-          ksizedBoxTextFieldCol,
-          Text('Start Date'),
-          Container(
-            padding: const EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              border: Border.all(width: 1, color: Color(0xFF808080)),
-              borderRadius: BorderRadius.circular(5),
-              color: const Color(0xFFF1F1F1),
-            ),
-            child: Row(
-              children: [
-                ksizedBoxTextFieldRow,
-                Icon(
-                  Icons.calendar_today_outlined,
-                  color: Colors.yellow[800],
-                ),
-                ksizedBoxTextFieldRow,
-                ksizedBoxTextFieldRow,
-                Text('07'),
-                VerticalDivider(
-                  thickness: 2,
-                  color: Colors.black,
-                  width: 10,
-                ),
-                Text('03'),
-                VerticalDivider(
-                  thickness: 2,
-                  color: Colors.black,
-                  width: 10,
-                ),
-                Text('2023'),
-                VerticalDivider(
-                  thickness: 2,
-                  color: Colors.black,
-                ),
-              ],
-            ),
-          ),
-          ksizedBoxTextFieldCol,
-          Text('End Date'),
-          Container(
-            padding: const EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              border: Border.all(width: 1, color: Color(0xFF808080)),
-              borderRadius: BorderRadius.circular(5),
-              color: const Color(0xFFF1F1F1),
-            ),
-            child: Row(
-              children: [
-                ksizedBoxTextFieldRow,
-                Icon(
-                  Icons.calendar_today_outlined,
-                  color: Colors.yellow[800],
-                ),
-                ksizedBoxTextFieldRow,
-                ksizedBoxTextFieldRow,
-                Text('07'),
-                VerticalDivider(
-                  thickness: 2,
-                  color: Colors.black,
-                  width: 10,
-                ),
-                Text('06'),
-                VerticalDivider(
-                  thickness: 2,
-                  color: Colors.black,
-                  width: 10,
-                ),
-                Text('2023'),
-                VerticalDivider(
-                  thickness: 2,
-                  color: Colors.black,
-                ),
-              ],
-            ),
-          ),
-          ksizedBoxTextFieldCol,
-          Text('Number of Tenant'),
-          Container(
-            padding: const EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              border: Border.all(width: 1, color: Color(0xFF808080)),
-              borderRadius: BorderRadius.circular(5),
-              color: const Color(0xFFF1F1F1),
-            ),
-            child: Row(
-              children: [
-                ksizedBoxTextFieldRow,
-                Icon(
-                  Icons.person_outline,
-                  color: Colors.yellow[800],
-                ),
-                ksizedBoxTextFieldRow,
-                ksizedBoxTextFieldRow,
-                Text('1'),
-              ],
-            ),
-          ),
-          ksizedBoxTextFieldCol,
-          Text('Bill To'),
-          Container(
-            padding: const EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              border: Border.all(width: 1, color: Color(0xFF808080)),
-              borderRadius: BorderRadius.circular(5),
-              color: const Color(0xFFF1F1F1),
-            ),
-            child: Row(
-              children: [
-                ksizedBoxTextFieldRow,
-                Icon(
-                  Icons.payment_outlined,
-                  color: Colors.yellow[800],
-                ),
-                ksizedBoxTextFieldRow,
-                ksizedBoxTextFieldRow,
-                Text('Pipay My Loves'),
-              ],
-            ),
-          ),
-          ksizedBoxTextFieldCol,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                children: [
-                  Text('Transient'),
-                  Container(
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Color(0xFF808080)),
-                      borderRadius: BorderRadius.circular(5),
-                      color: const Color(0xFFF1F1F1),
+              ksizedBoxTextFieldCol,
+              Text('Start Date'),
+              Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  borderRadius: BorderRadius.circular(5),
+                  color: const Color(0xFFF1F1F1),
+                ),
+                child: Row(
+                  children: [
+                    ksizedBoxTextFieldRow,
+                    Icon(
+                      Icons.calendar_today_outlined,
+                      color: Colors.yellow[800],
                     ),
-                    child: Row(
-                      children: [
-                        ksizedBoxTextFieldRow,
-                        Text(
-                          '₱ ',
-                          style: TextStyle(color: Colors.yellow[800]),
-                        ),
-                        ksizedBoxTextFieldRow,
-                        ksizedBoxTextFieldRow,
-                        Text('3500.00'),
-                      ],
+                    ksizedBoxTextFieldRow,
+                    ksizedBoxTextFieldRow,
+                    Text('07'),
+                    VerticalDivider(
+                      thickness: 2,
+                      color: Colors.black,
+                      width: 10,
                     ),
-                  ),
-                ],
+                    Text('03'),
+                    VerticalDivider(
+                      thickness: 2,
+                      color: Colors.black,
+                      width: 10,
+                    ),
+                    Text('2023'),
+                    VerticalDivider(
+                      thickness: 2,
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
               ),
-              Column(
-                children: [
-                  Text(
-                    'Transaction Fee',
-                    style: TextStyle(
-                      color: Color(0xFF1C39BB),
+              ksizedBoxTextFieldCol,
+              Text('End Date'),
+              Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  borderRadius: BorderRadius.circular(5),
+                  color: const Color(0xFFF1F1F1),
+                ),
+                child: Row(
+                  children: [
+                    ksizedBoxTextFieldRow,
+                    Icon(
+                      Icons.calendar_today_outlined,
+                      color: Colors.yellow[800],
                     ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                        color: Color(0xFF1C39BB),
+                    ksizedBoxTextFieldRow,
+                    ksizedBoxTextFieldRow,
+                    Text('07'),
+                    VerticalDivider(
+                      thickness: 2,
+                      color: Colors.black,
+                      width: 10,
+                    ),
+                    Text('06'),
+                    VerticalDivider(
+                      thickness: 2,
+                      color: Colors.black,
+                      width: 10,
+                    ),
+                    Text('2023'),
+                    VerticalDivider(
+                      thickness: 2,
+                      color: Colors.black,
+                    ),
+                  ],
+                ),
+              ),
+              ksizedBoxTextFieldCol,
+              Text('Number of Tenant'),
+              Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  borderRadius: BorderRadius.circular(5),
+                  color: const Color(0xFFF1F1F1),
+                ),
+                child: Row(
+                  children: [
+                    ksizedBoxTextFieldRow,
+                    Icon(
+                      Icons.person_outline,
+                      color: Colors.yellow[800],
+                    ),
+                    ksizedBoxTextFieldRow,
+                    ksizedBoxTextFieldRow,
+                    Text('1'),
+                  ],
+                ),
+              ),
+              ksizedBoxTextFieldCol,
+              Text('Bill To'),
+              Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  borderRadius: BorderRadius.circular(5),
+                  color: const Color(0xFFF1F1F1),
+                ),
+                child: Row(
+                  children: [
+                    ksizedBoxTextFieldRow,
+                    Icon(
+                      Icons.payment_outlined,
+                      color: Colors.yellow[800],
+                    ),
+                    ksizedBoxTextFieldRow,
+                    ksizedBoxTextFieldRow,
+                    Text('Pipay My Loves'),
+                  ],
+                ),
+              ),
+              ksizedBoxTextFieldCol,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      Text('Transient'),
+                      Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 1, color: Color(0xFF808080)),
+                          borderRadius: BorderRadius.circular(5),
+                          color: const Color(0xFFF1F1F1),
+                        ),
+                        child: Row(
+                          children: [
+                            ksizedBoxTextFieldRow,
+                            Text(
+                              '₱ ',
+                              style: TextStyle(color: Colors.yellow[800]),
+                            ),
+                            ksizedBoxTextFieldRow,
+                            ksizedBoxTextFieldRow,
+                            Text('3500.00'),
+                          ],
+                        ),
                       ),
-                      borderRadius: BorderRadius.circular(5),
-                      color: const Color(0xFFF1F1F1),
-                    ),
-                    child: Row(
-                      children: [
-                        ksizedBoxTextFieldRow,
-                        Text(
-                          '₱ ',
-                          style: TextStyle(
-                            color: Color(0xFF1C39BB),
-                          ),
-                        ),
-                        ksizedBoxTextFieldRow,
-                        ksizedBoxTextFieldRow,
-                        Text(
-                          '3,500.00',
-                          style: TextStyle(
-                            color: Color(0xFF1C39BB),
-                          ),
-                        ),
-                      ],
-                    ),
+                    ],
                   ),
-                ],
-              ),
-            ],
-          ),
-          ksizedBoxTextFieldCol,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  Text('Monthly'),
-                  Container(
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Color(0xFF808080)),
-                      borderRadius: BorderRadius.circular(5),
-                      color: const Color(0xFFF1F1F1),
-                    ),
-                    child: Row(
-                      children: [
-                        ksizedBoxTextFieldRow,
-                        Text(
-                          '₱ ',
-                          style: TextStyle(color: Colors.yellow[800]),
+                  Column(
+                    children: [
+                      Text(
+                        'Transaction Fee',
+                        style: TextStyle(
+                          color: Color(0xFF1C39BB),
                         ),
-                        ksizedBoxTextFieldRow,
-                        ksizedBoxTextFieldRow,
-                        Text('15,000.00'),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  Text(
-                    'Transaction Fee',
-                    style: TextStyle(
-                      color: Color(0xFF1C39BB),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                        color: Color(0xFF1C39BB),
                       ),
-                      borderRadius: BorderRadius.circular(5),
-                      color: const Color(0xFFF1F1F1),
-                    ),
-                    child: Row(
-                      children: [
-                        ksizedBoxTextFieldRow,
-                        Text(
-                          '₱ ',
-                          style: TextStyle(
+                      Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1,
                             color: Color(0xFF1C39BB),
                           ),
+                          borderRadius: BorderRadius.circular(5),
+                          color: const Color(0xFFF1F1F1),
                         ),
-                        ksizedBoxTextFieldRow,
-                        ksizedBoxTextFieldRow,
-                        Text(
-                          '1,500.00',
-                          style: TextStyle(
+                        child: Row(
+                          children: [
+                            ksizedBoxTextFieldRow,
+                            Text(
+                              '₱ ',
+                              style: TextStyle(
+                                color: Color(0xFF1C39BB),
+                              ),
+                            ),
+                            ksizedBoxTextFieldRow,
+                            ksizedBoxTextFieldRow,
+                            Text(
+                              '3,500.00',
+                              style: TextStyle(
+                                color: Color(0xFF1C39BB),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              ksizedBoxTextFieldCol,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      Text('Monthly'),
+                      Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border: Border.all(width: 1, color: Color(0xFF808080)),
+                          borderRadius: BorderRadius.circular(5),
+                          color: const Color(0xFFF1F1F1),
+                        ),
+                        child: Row(
+                          children: [
+                            ksizedBoxTextFieldRow,
+                            Text(
+                              '₱ ',
+                              style: TextStyle(color: Colors.yellow[800]),
+                            ),
+                            ksizedBoxTextFieldRow,
+                            ksizedBoxTextFieldRow,
+                            Text('15,000.00'),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        'Transaction Fee',
+                        style: TextStyle(
+                          color: Color(0xFF1C39BB),
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1,
                             color: Color(0xFF1C39BB),
                           ),
+                          borderRadius: BorderRadius.circular(5),
+                          color: const Color(0xFFF1F1F1),
                         ),
-                      ],
-                    ),
+                        child: Row(
+                          children: [
+                            ksizedBoxTextFieldRow,
+                            Text(
+                              '₱ ',
+                              style: TextStyle(
+                                color: Color(0xFF1C39BB),
+                              ),
+                            ),
+                            ksizedBoxTextFieldRow,
+                            ksizedBoxTextFieldRow,
+                            Text(
+                              '1,500.00',
+                              style: TextStyle(
+                                color: Color(0xFF1C39BB),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
