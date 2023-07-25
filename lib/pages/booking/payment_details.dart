@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
+
+enum paymentType { PaybyInstallment, Payinfull, Gcash, Paypal }
+
+enum paymentMethod { CreditCard, OnlinePayment }
 
 class PaymentDetails extends StatefulWidget {
   const PaymentDetails({Key? key}) : super(key: key);
@@ -11,19 +14,15 @@ class PaymentDetails extends StatefulWidget {
 }
 
 class _PaymentDetailsState extends State<PaymentDetails> {
-  String? _selected;
-  List<Map> _onlinePayment = [
-    {
-      'id': '1',
-      'image': 'assets/svg/paypal.svg',
-      'label': 'Paypal',
-    },
-    {
-      'id': '2',
-      'image': 'assets/svg/gcash.svg',
-      'label': 'Gcash',
-    },
-  ];
+  paymentType? _pType = paymentType.PaybyInstallment;
+  paymentMethod? _pMethod = paymentMethod.CreditCard;
+
+  IconData firstIcon = Icons.control_point_rounded;
+  IconData secondIcon = Icons.control_point_rounded;
+
+  bool isActive = true;
+  bool isCCVisible = false;
+  bool isPCVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -82,91 +81,132 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                 ),
                 ksizedBoxTextFieldCol,
                 Container(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.symmetric(vertical: 2),
                   decoration: boxDecoration(),
                   child: Column(
                     children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                color: Color(0xFF242731),
+                      GestureDetector(
+                        child: paymentTypeSelection(
+                          label: 'Credit Card',
+                          isFirst: true,
+                        ),
+                        onTap: () => setState(() {
+                          isCCVisible = !isCCVisible;
+                          if (isActive == true) {
+                            firstIcon = Icons.remove_circle_outline_outlined;
+                            isActive = false;
+                          } else {
+                            firstIcon = Icons.control_point_rounded;
+                            isActive = true;
+                          }
+                        }),
+                      ),
+                      Visibility(
+                        visible: isCCVisible,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 5,
+                              ),
+                              child: divider,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                paymentSelection(
+                                    label: 'Pay by Installment',
+                                    paymentOption: 1),
+                                paymentSelection(
+                                    label: 'Pay in Full', paymentOption: 2),
+                              ],
+                            ),
+                            Container(
+                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              child: Column(
+                                children: [
+                                  textFieldWithHintText(
+                                      label: 'Card Number', hint: '0000-####'),
+                                  ksizedBoxTextFieldCol,
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        flex: 3,
+                                        child: textFieldWithHintText(
+                                            label: 'Expiry Date',
+                                            hint: 'MM/YY'),
+                                      ),
+                                      ksizedBoxTextFieldRow,
+                                      Expanded(
+                                        flex: 2,
+                                        child: textFieldWithHintText(
+                                            label: 'CVV', hint: 'Enter CVV'),
+                                      ),
+                                    ],
+                                  ),
+                                  ksizedBoxTextFieldCol,
+                                  textFieldWithHintText(
+                                      label: 'Name on Card',
+                                      hint: 'Enter the name on card'),
+                                  ksizedBoxTextFieldCol,
+                                ],
                               ),
                             ),
-                          ),
-                          ksizedBoxTextFieldRow,
-                          Expanded(
-                            flex: 5,
-                            child: Text(
-                              'CREDIT CARD',
-                              style: textStyleContent(
-                                  size: 16, color: const Color(0xFF242426)),
-                            ),
-                          ),
-                          Expanded(
-                            child: iconStyle(
-                                icon: Icons.control_point_rounded,
-                                color: const Color(0xFF242426),
-                                size: 24),
-                          ),
-                        ],
-                      )
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
-                ksizedBoxTextFieldCol,
+                kSizedBox,
                 Container(
-                  padding: const EdgeInsets.all(5),
+                  padding: const EdgeInsets.symmetric(vertical: 2),
                   decoration: boxDecoration(),
-                  child: DropdownButtonHideUnderline(
-                    child: ButtonTheme(
-                      alignedDropdown: true,
-                      child: DropdownButton(
-                        hint: Text(
-                          'Payment Center / E-Wallet',
-                          style: textStyleContent(
-                            size: 16,
-                            color: Color(0xFF242426),
-                          ),
+                  child: Column(
+                    children: <Widget>[
+                      GestureDetector(
+                        child: paymentTypeSelection(
+                          label: 'Payment Center / E-Wallet',
+                          isFirst: false,
                         ),
-                        icon: iconStyle(
-                          icon: Icons.control_point_rounded,
-                          color: Color(0xFF242426),
-                          size: 24,
-                        ),
-                        value: _selected,
-                        items: _onlinePayment.map((opItem) {
-                          return DropdownMenuItem(
-                            value: opItem['id'].toString(),
-                            child: Row(
+                        onTap: () => setState(() {
+                          isPCVisible = !isPCVisible;
+                          if (isActive == true) {
+                            secondIcon = Icons.remove_circle_outline_outlined;
+                            isActive = false;
+                          } else {
+                            secondIcon = Icons.control_point_rounded;
+                            isActive = true;
+                          }
+                        }),
+                      ),
+                      Visibility(
+                        visible: isPCVisible,
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 5,
+                              ),
+                              child: divider,
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                SvgPicture.asset(
-                                  opItem['image'],
-                                  height: 24,
-                                  width: 24,
-                                ),
-                                ksizedBoxTextFieldRow,
-                                Text(
-                                  opItem['label'],
-                                  style: textStyleContent(
-                                    size: 14,
-                                    color: Color(0xFF242426),
-                                  ),
+                                paymentSelection(
+                                    label: 'Gcash', paymentOption: 3),
+                                paymentSelection(
+                                  label: 'Paypal',
+                                  paymentOption: 4,
                                 ),
                               ],
                             ),
-                          );
-                        }).toList(),
-                        onChanged: (newValue) {
-                          setState(() {
-                            _selected = newValue;
-                          });
-                        },
+                          ],
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
                 ksizedBoxTFB,
@@ -198,6 +238,80 @@ class _PaymentDetailsState extends State<PaymentDetails> {
               ]),
         ),
       ),
+    );
+  }
+
+  Row paymentTypeSelection({
+    required String label,
+    required bool isFirst,
+  }) {
+    return Row(
+      children: <Widget>[
+        Radio<paymentMethod>(
+          value: isFirst == true
+              ? paymentMethod.CreditCard
+              : paymentMethod.OnlinePayment,
+          groupValue: _pMethod,
+          onChanged: (paymentMethod? value) {
+            setState(() {
+              _pMethod = value;
+            });
+          },
+          focusColor: Color(0xFF242426),
+          activeColor: Color(0xFF242426),
+        ),
+        Expanded(
+          flex: 5,
+          child: Container(
+            padding: EdgeInsets.only(left: 20),
+            child: Text(
+              label,
+              style: textStyleContent(size: 16, color: const Color(0xFF242426)),
+            ),
+          ),
+        ),
+        Expanded(
+          child: isFirst == true
+              ? iconStyle(
+                  icon: firstIcon, color: const Color(0xFF242426), size: 24)
+              : iconStyle(
+                  icon: secondIcon, color: const Color(0xFF242426), size: 24),
+        ),
+      ],
+    );
+  }
+
+  // paymentOption: 1 = Pay by Installment, 2 = Pay in Full, 3 = Gcash, 4 = Paypal
+  Row paymentSelection({required String label, required int paymentOption}) {
+    return Row(
+      children: [
+        Radio<paymentType>(
+          value: (paymentOption == 1)
+              ? paymentType.PaybyInstallment
+              : (paymentOption == 2)
+                  ? paymentType.Payinfull
+                  : (paymentOption == 3)
+                      ? paymentType.Gcash
+                      : (paymentOption == 4)
+                          ? paymentType.Paypal
+                          : null!,
+          groupValue: _pType,
+          onChanged: (paymentType? value) {
+            setState(() {
+              _pType = value;
+            });
+          },
+          focusColor: Color(0xFF242426),
+          activeColor: Color(0xFF242426),
+        ),
+        Text(
+          label,
+          style: textStyleContent(
+            size: 14,
+            color: Color(0xFF242426),
+          ),
+        ),
+      ],
     );
   }
 
