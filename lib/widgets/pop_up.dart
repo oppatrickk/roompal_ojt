@@ -483,8 +483,8 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.normal,
-                      fontSize: 16,
-                      color: Colors.black,
+                      fontSize: 14,
+                      color: Color(0xFF242426),
                     ),
                   ),
                 ),
@@ -503,8 +503,8 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.normal,
-                      fontSize: 16,
-                      color: Colors.black,
+                      fontSize: 14,
+                      color: Color(0xFF242426),
                     ),
                   ),
                 ),
@@ -535,12 +535,16 @@ class BookingWidget extends StatelessWidget {
           const Text(
             'Room No: 001',
             textAlign: TextAlign.center,
+            style: textStyleContent(size: 14, color: Color(0xFF242426)),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ksizedBoxTextFieldCol,
-              const Text('Start Date'),
+              Text(
+                'Start Date',
+                style: textStyleContent(size: 14, color: Color(0xFF242426)),
+              ),
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
@@ -557,20 +561,29 @@ class BookingWidget extends StatelessWidget {
                     ),
                     ksizedBoxTextFieldRow,
                     ksizedBoxTextFieldRow,
-                    const Text('07'),
-                    const VerticalDivider(
+                    Text(
+                      '07',
+                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                    ),
+                    VerticalDivider(
                       thickness: 2,
                       color: Colors.black,
                       width: 10,
                     ),
-                    const Text('03'),
-                    const VerticalDivider(
+                    Text(
+                      '03',
+                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                    ),
+                    VerticalDivider(
                       thickness: 2,
                       color: Colors.black,
                       width: 10,
                     ),
-                    const Text('2023'),
-                    const VerticalDivider(
+                    Text(
+                      '2023',
+                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                    ),
+                    VerticalDivider(
                       thickness: 2,
                       color: Colors.black,
                     ),
@@ -578,7 +591,10 @@ class BookingWidget extends StatelessWidget {
                 ),
               ),
               ksizedBoxTextFieldCol,
-              const Text('End Date'),
+              Text(
+                'End Date',
+                style: textStyleContent(size: 14, color: Color(0xFF242426)),
+              ),
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
@@ -595,20 +611,29 @@ class BookingWidget extends StatelessWidget {
                     ),
                     ksizedBoxTextFieldRow,
                     ksizedBoxTextFieldRow,
-                    const Text('07'),
-                    const VerticalDivider(
+                    Text(
+                      '07',
+                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                    ),
+                    VerticalDivider(
                       thickness: 2,
                       color: Colors.black,
                       width: 10,
                     ),
-                    const Text('06'),
-                    const VerticalDivider(
+                    Text(
+                      '06',
+                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                    ),
+                    VerticalDivider(
                       thickness: 2,
                       color: Colors.black,
                       width: 10,
                     ),
-                    const Text('2023'),
-                    const VerticalDivider(
+                    Text(
+                      '2023',
+                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                    ),
+                    VerticalDivider(
                       thickness: 2,
                       color: Colors.black,
                     ),
@@ -616,7 +641,10 @@ class BookingWidget extends StatelessWidget {
                 ),
               ),
               ksizedBoxTextFieldCol,
-              const Text('Number of Tenant'),
+              Text(
+                'Number of Tenant',
+                style: textStyleContent(size: 14, color: Color(0xFF242426)),
+              ),
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
@@ -628,17 +656,23 @@ class BookingWidget extends StatelessWidget {
                   children: [
                     ksizedBoxTextFieldRow,
                     Icon(
-                      Icons.person_outline,
+                      Icons.group,
                       color: Colors.yellow[800],
                     ),
                     ksizedBoxTextFieldRow,
                     ksizedBoxTextFieldRow,
-                    const Text('1'),
+                    Text(
+                      '1',
+                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                    ),
                   ],
                 ),
               ),
               ksizedBoxTextFieldCol,
-              const Text('Bill To'),
+              Text(
+                'Bill To',
+                style: textStyleContent(size: 14, color: Color(0xFF242426)),
+              ),
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
@@ -655,7 +689,10 @@ class BookingWidget extends StatelessWidget {
                     ),
                     ksizedBoxTextFieldRow,
                     ksizedBoxTextFieldRow,
-                    const Text('Pipay My Loves'),
+                    Text(
+                      'Pipay My Loves',
+                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                    ),
                   ],
                 ),
               ),
@@ -663,141 +700,158 @@ class BookingWidget extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    children: [
-                      const Text('Transient'),
-                      Container(
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: Color(0xFF808080)),
-                          borderRadius: BorderRadius.circular(5),
-                          color: const Color(0xFFF1F1F1),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Transient',
+                          style: textStyleContent(size: 14, color: Color(0xFF242426)),
                         ),
-                        child: Row(
-                          children: [
-                            ksizedBoxTextFieldRow,
-                            Text(
-                              '₱ ',
-                              style: TextStyle(color: Colors.yellow[800]),
-                            ),
-                            ksizedBoxTextFieldRow,
-                            ksizedBoxTextFieldRow,
-                            const Text('3500.00'),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      const Text(
-                        'Transaction Fee',
-                        style: TextStyle(
-                          color: Color(0xFF1C39BB),
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 1,
-                            color: const Color(0xFF1C39BB),
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1, color: Color(0xFF808080)),
+                            borderRadius: BorderRadius.circular(5),
+                            color: const Color(0xFFF1F1F1),
                           ),
-                          borderRadius: BorderRadius.circular(5),
-                          color: const Color(0xFFF1F1F1),
-                        ),
-                        child: const Row(
-                          children: [
-                            ksizedBoxTextFieldRow,
-                            Text(
-                              '₱ ',
-                              style: TextStyle(
-                                color: Color(0xFF1C39BB),
+                          child: Row(
+                            children: [
+                              ksizedBoxTextFieldRow,
+                              Text(
+                                '₱ ',
+                                style: TextStyle(color: Colors.yellow[800]),
                               ),
-                            ),
-                            ksizedBoxTextFieldRow,
-                            ksizedBoxTextFieldRow,
-                            Text(
-                              '3,500.00',
-                              style: TextStyle(
-                                color: Color(0xFF1C39BB),
+                              ksizedBoxTextFieldRow,
+                              ksizedBoxTextFieldRow,
+                              Text(
+                                '3500.00',
+                                style: textStyleContent(size: 14, color: Color(0xFF242426)),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
+                  ),
+                  ksizedBoxTextFieldRow,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Transaction Fee',
+                          style: textStyleContent(size: 14, color: Color(0xFF1C39BB)),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 1,
+                              color: Color(0xFF1C39BB),
+                            ),
+                            borderRadius: BorderRadius.circular(5),
+                            color: const Color(0xFFF1F1F1),
+                          ),
+                          child: Row(
+                            children: [
+                              ksizedBoxTextFieldRow,
+                              Text(
+                                '₱ ',
+                                style: TextStyle(
+                                  color: Color(0xFF1C39BB),
+                                ),
+                              ),
+                              ksizedBoxTextFieldRow,
+                              ksizedBoxTextFieldRow,
+                              Text(
+                                '350.00',
+                                style: textStyleContent(size: 14, color: Color(0xFF1C39BB)),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
               ksizedBoxTextFieldCol,
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    children: [
-                      const Text('Monthly'),
-                      Container(
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: Color(0xFF808080)),
-                          borderRadius: BorderRadius.circular(5),
-                          color: const Color(0xFFF1F1F1),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Monthly',
+                          style: textStyleContent(size: 14, color: Color(0xFF242426)),
                         ),
-                        child: Row(
-                          children: [
-                            ksizedBoxTextFieldRow,
-                            Text(
-                              '₱ ',
-                              style: TextStyle(color: Colors.yellow[800]),
-                            ),
-                            ksizedBoxTextFieldRow,
-                            ksizedBoxTextFieldRow,
-                            const Text('15,000.00'),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      const Text(
-                        'Transaction Fee',
-                        style: TextStyle(
-                          color: Color(0xFF1C39BB),
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 1,
-                            color: const Color(0xFF1C39BB),
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            border: Border.all(width: 1, color: Color(0xFF808080)),
+                            borderRadius: BorderRadius.circular(5),
+                            color: const Color(0xFFF1F1F1),
                           ),
-                          borderRadius: BorderRadius.circular(5),
-                          color: const Color(0xFFF1F1F1),
-                        ),
-                        child: const Row(
-                          children: [
-                            ksizedBoxTextFieldRow,
-                            Text(
-                              '₱ ',
-                              style: TextStyle(
-                                color: Color(0xFF1C39BB),
+                          child: Row(
+                            children: [
+                              ksizedBoxTextFieldRow,
+                              Text(
+                                '₱ ',
+                                style: TextStyle(color: Colors.yellow[800]),
                               ),
-                            ),
-                            ksizedBoxTextFieldRow,
-                            ksizedBoxTextFieldRow,
-                            Text(
-                              '1,500.00',
-                              style: TextStyle(
-                                color: Color(0xFF1C39BB),
+                              ksizedBoxTextFieldRow,
+                              ksizedBoxTextFieldRow,
+                              Text(
+                                '15,000.00',
+                                style: textStyleContent(size: 14, color: Color(0xFF242426)),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
+                  ),
+                  ksizedBoxTextFieldRow,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Transaction Fee',
+                          style: textStyleContent(size: 14, color: Color(0xFF1C39BB)),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              width: 1,
+                              color: Color(0xFF1C39BB),
+                            ),
+                            borderRadius: BorderRadius.circular(5),
+                            color: const Color(0xFFF1F1F1),
+                          ),
+                          child: Row(
+                            children: [
+                              ksizedBoxTextFieldRow,
+                              Text(
+                                '₱ ',
+                                style: TextStyle(
+                                  color: Color(0xFF1C39BB),
+                                ),
+                              ),
+                              ksizedBoxTextFieldRow,
+                              ksizedBoxTextFieldRow,
+                              Text(
+                                '1,500.00',
+                                style: textStyleContent(size: 14, color: Color(0xFF1C39BB)),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -812,14 +866,105 @@ class BookingWidget extends StatelessWidget {
 class TenantWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Tenant Information',
-        style: TextStyle(
-          fontWeight: FontWeight.normal,
-          fontSize: 16,
-          color: Colors.black,
-        ),
+    return Container(
+      padding: EdgeInsets.only(left: 30, right: 30),
+      child: Column(
+        children: [
+          Text(
+            'Room No: 001',
+            textAlign: TextAlign.center,
+            style: textStyleContent(size: 14, color: Color(0xFF242426)),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ksizedBoxTextFieldCol,
+              Text(
+                'Full Name',
+                style: textStyleContent(size: 14, color: Color(0xFF242426)),
+              ),
+              Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  borderRadius: BorderRadius.circular(5),
+                  color: const Color(0xFFF1F1F1),
+                ),
+                child: Row(
+                  children: [
+                    ksizedBoxTextFieldRow,
+                    Icon(
+                      Icons.person,
+                      color: Colors.yellow[800],
+                    ),
+                    ksizedBoxTextFieldRow,
+                    ksizedBoxTextFieldRow,
+                    Text(
+                      'Pipay My Loves',
+                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                    ),
+                  ],
+                ),
+              ),
+              ksizedBoxTextFieldCol,
+              Text(
+                'Email',
+                style: textStyleContent(size: 14, color: Color(0xFF242426)),
+              ),
+              Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  borderRadius: BorderRadius.circular(5),
+                  color: const Color(0xFFF1F1F1),
+                ),
+                child: Row(
+                  children: [
+                    ksizedBoxTextFieldRow,
+                    Icon(
+                      Icons.email,
+                      color: Colors.yellow[800],
+                    ),
+                    ksizedBoxTextFieldRow,
+                    ksizedBoxTextFieldRow,
+                    Text(
+                      'Pipay My Loves',
+                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                    ),
+                  ],
+                ),
+              ),
+              ksizedBoxTextFieldCol,
+              Text(
+                'Phone Number',
+                style: textStyleContent(size: 14, color: Color(0xFF242426)),
+              ),
+              Container(
+                padding: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  borderRadius: BorderRadius.circular(5),
+                  color: const Color(0xFFF1F1F1),
+                ),
+                child: Row(
+                  children: [
+                    ksizedBoxTextFieldRow,
+                    Icon(
+                      Icons.phone,
+                      color: Colors.yellow[800],
+                    ),
+                    ksizedBoxTextFieldRow,
+                    ksizedBoxTextFieldRow,
+                    Text(
+                      '(+639) | 942 3183 681',
+                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
