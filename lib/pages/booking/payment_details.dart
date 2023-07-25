@@ -99,6 +99,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                             firstIcon = Icons.control_point_rounded;
                             isActive = true;
                           }
+                          _pMethod = paymentMethod.CreditCard;
                         }),
                       ),
                       Visibility(
@@ -179,6 +180,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                             secondIcon = Icons.control_point_rounded;
                             isActive = true;
                           }
+                          _pMethod = paymentMethod.OnlinePayment;
                         }),
                       ),
                       Visibility(
@@ -196,7 +198,9 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 paymentSelection(
-                                    label: 'Gcash', paymentOption: 3),
+                                  label: 'Gcash',
+                                  paymentOption: 3,
+                                ),
                                 paymentSelection(
                                   label: 'Paypal',
                                   paymentOption: 4,

@@ -62,7 +62,8 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return const CustomDialogButton2('Thank You for Trusting Roompal!');
+                    return const CustomDialogButton2(
+                        'Thank You for Trusting Roompal!');
                   },
                 );
               },
@@ -75,7 +76,8 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return const CustomDialogButton3('Thank You for Trusting Roompal!');
+                    return const CustomDialogButton3(
+                        'Thank You for Trusting Roompal!');
                   },
                 );
               },
@@ -92,6 +94,17 @@ class PopUpTemporary extends StatelessWidget {
                 );
               },
               child: Text('Sample 3'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return PendingRequestPrompt();
+                  },
+                );
+              },
+              child: Text('Pending Request'),
             ),
           ],
         ),
@@ -423,94 +436,93 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4),
       ),
-      child: SizedBox(
-        height: 550,
-        child: Column(
-          children: <Widget>[
-            Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(4),
-                  topLeft: Radius.circular(4),
-                ),
-                color: Color(0xFF1C39BB),
+      child: Column(
+        children: <Widget>[
+          Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(4),
+                topLeft: Radius.circular(4),
               ),
-              padding: const EdgeInsets.all(12),
-              height: 50,
-              child: const SizedBox.expand(
-                child: const Text(
-                  'Details',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.white,
-                  ),
+              color: Color(0xFF1C39BB),
+            ),
+            padding: const EdgeInsets.all(12),
+            height: 50,
+            child: const SizedBox.expand(
+              child: const Text(
+                'Details',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white,
                 ),
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Color(0xFF96A9CC),
-              ),
-              padding: const EdgeInsets.all(12),
-              height: 50,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  TextButton(
-                    onPressed: () {
-                      setState(() {
-                        selectedButton = 'Booking';
-                      });
-                    },
-                    style: TextButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: const Text(
-                      'Booking',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 16,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      setState(() {
-                        selectedButton = 'Tenant';
-                      });
-                    },
-                    style: TextButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: const Text(
-                      'Tenant',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 16,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Color(0xFF96A9CC),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(
-                  child: selectedButton == 'Booking' ? BookingWidget() : TenantWidget(),
+            padding: const EdgeInsets.all(12),
+            height: 50,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedButton = 'Booking';
+                    });
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    padding: EdgeInsets.zero,
+                  ),
+                  child: const Text(
+                    'Booking',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      selectedButton = 'Tenant';
+                    });
+                  },
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.black,
+                    padding: EdgeInsets.zero,
+                  ),
+                  child: const Text(
+                    'Tenant',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Center(
+                child: selectedButton == 'Booking'
+                    ? BookingWidget()
+                    : TenantWidget(),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -660,7 +672,8 @@ class BookingWidget extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: Color(0xFF808080)),
+                          border:
+                              Border.all(width: 1, color: Color(0xFF808080)),
                           borderRadius: BorderRadius.circular(5),
                           color: const Color(0xFFF1F1F1),
                         ),
@@ -731,7 +744,8 @@ class BookingWidget extends StatelessWidget {
                       Container(
                         padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: Color(0xFF808080)),
+                          border:
+                              Border.all(width: 1, color: Color(0xFF808080)),
                           borderRadius: BorderRadius.circular(5),
                           color: const Color(0xFFF1F1F1),
                         ),
@@ -811,6 +825,82 @@ class TenantWidget extends StatelessWidget {
           fontSize: 16,
           color: Colors.black,
         ),
+      ),
+    );
+  }
+}
+
+class PendingRequestPrompt extends StatefulWidget {
+  const PendingRequestPrompt({Key? key}) : super(key: key);
+
+  @override
+  State<PendingRequestPrompt> createState() => _PendingRequestPromptState();
+}
+
+class _PendingRequestPromptState extends State<PendingRequestPrompt> {
+  bool? isVisible;
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      surfaceTintColor: Colors.white,
+      child: SizedBox(
+        child:
+            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(4),
+                topLeft: Radius.circular(4),
+              ),
+              color: Color(0xFF1C39BB),
+            ),
+            padding: const EdgeInsets.all(12),
+            height: 50,
+            child: const SizedBox.expand(
+              child: const Text(
+                'Pending Request',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(12),
+            child: Column(
+              children: [
+                pendingRequestContent(tenantName: 'Cardo Dalisay'),
+                ksizedBoxTextFieldCol,
+                pendingRequestContent(tenantName: 'Alden Ritsards'),
+              ],
+            ),
+          )
+        ]),
+      ),
+    );
+  }
+
+  Container pendingRequestContent({required String tenantName}) {
+    return Container(
+      child: Column(
+        children: [
+          Container(),
+          ListTile(
+            title: Text(
+              tenantName,
+              style: textStyleContent(size: 18, color: Colors.black),
+            ),
+            trailing: iconStyle(
+              icon: Icons.keyboard_arrow_down_rounded,
+              color: Colors.yellow[800]!,
+              size: 24,
+            ),
+          ),
+          divider,
+        ],
       ),
     );
   }
