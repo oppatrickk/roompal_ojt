@@ -838,42 +838,40 @@ class _PendingRequestPromptState extends State<PendingRequestPrompt> {
   Widget build(BuildContext context) {
     return Dialog(
       surfaceTintColor: Colors.white,
-      child: SizedBox(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-          Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(4),
-                topLeft: Radius.circular(4),
-              ),
-              color: Color(0xFF1C39BB),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
+        Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(4),
+              topLeft: Radius.circular(4),
             ),
-            padding: const EdgeInsets.all(12),
-            height: 50,
-            child: const SizedBox.expand(
-              child: const Text(
-                'Pending Request',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
+            color: Color(0xFF1C39BB),
+          ),
+          padding: const EdgeInsets.all(12),
+          height: 50,
+          child: const SizedBox.expand(
+            child: const Text(
+              'Pending Request',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.white,
               ),
             ),
           ),
-          Container(
-            padding: EdgeInsets.all(12),
-            child: Column(
-              children: [
-                pendingRequestContent(tenantName: 'Cardo Dalisay'),
-                ksizedBoxTextFieldCol,
-                pendingRequestContent(tenantName: 'Alden Ritsards'),
-              ],
-            ),
-          )
-        ]),
-      ),
+        ),
+        Container(
+          padding: EdgeInsets.all(12),
+          child: Column(
+            children: [
+              pendingRequestContent(tenantName: 'Cardo Dalisay'),
+              ksizedBoxTextFieldCol,
+              pendingRequestContent(tenantName: 'Alden Ritsards'),
+            ],
+          ),
+        )
+      ]),
     );
   }
 
