@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class PopUpTemporary extends StatelessWidget {
   const PopUpTemporary({super.key});
@@ -10,58 +12,28 @@ class PopUpTemporary extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            DialogSample(),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Container(
-                        padding: EdgeInsets.all(16),
-                        height: 90,
-                        decoration: BoxDecoration(
-                          color: Color(0xFF1C39BB),
-                          borderRadius: BorderRadius.all(Radius.circular(20)),
-                        ),
-                        child: const Row(
-                          children: <Widget>[
-                            SizedBox(
-                              width: 48,
-                            ),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Text>[
-                                  Text(
-                                    'Success!',
-                                    style: TextStyle(
-                                      fontSize: 19,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  Text(
-                                    'Your Listing has been added!',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.white,
-                                    ),
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      behavior: SnackBarBehavior.floating,
-                      backgroundColor: Colors.transparent,
-                      elevation: 0,
-                    ),
-                  );
-                },
-                child: const Text('trial'),
-              ),
+            ElevatedButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return DialogButton();
+                  },
+                );
+              },
+              child: Text('Sample 1'),
+            ),
+            ksizedBoxTextFieldCol,
+            ElevatedButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return CustomDialogButton();
+                  },
+                );
+              },
+              child: Text('Sample 2'),
             ),
           ],
         ),
@@ -70,41 +42,79 @@ class PopUpTemporary extends StatelessWidget {
   }
 }
 
-class DialogSample extends StatelessWidget {
-  const DialogSample({super.key});
+class DialogButton extends StatelessWidget {
+  const DialogButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: () => showDialog<String>(
-        context: context,
-        builder: (BuildContext context) => AlertDialog(
-          backgroundColor: Color(0xFF1C39BB),
-          elevation: 0,
-          icon: Icon(
-            Icons.check_circle_rounded,
-            size: 120,
-            color: Colors.greenAccent,
-          ),
-          title: Container(
-            padding: EdgeInsets.all(16),
-            height: 90,
-            color: Colors.white,
-            child: const Text(
-              'Your Listing has been Added!',
+    return AlertDialog(
+      title: Text('Alert'),
+      content: Text('something something'),
+      actions: <Widget>[
+        TextButton(onPressed: () {}, child: Text('Okay')),
+        TextButton(onPressed: () {}, child: Text('Cancel')),
+      ],
+    );
+  }
+}
+
+class CustomDialogButton extends StatelessWidget {
+  const CustomDialogButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      surfaceTintColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Container(
+        height: 200,
+        child: Column(
+          children: <Widget>[
+            Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(4),
+                  topLeft: Radius.circular(4),
+                ),
+                color: Color(0xFF1C39BB),
+              ),
+              padding: const EdgeInsets.all(12),
+              height: 50,
+              child: const SizedBox.expand(
+                child: const Text(
+                  'Property Listing',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () => Navigator.pop(context, 'OK'),
-              child: const Text('OK'),
+            ksizedBoxTextFieldCol,
+            Container(
+              padding: EdgeInsets.all(20),
+              child: const Text(
+                'Submit your Listing?',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.black,
+                ),
+              ),
+            ),
+            ksizedBoxTextFieldCol,
+            const Divider(
+              indent: 20,
+              endIndent: 20,
+              thickness: 1,
+              color: Color(0xFFF1F1F1),
             ),
           ],
         ),
-      ),
-      child: const Text(
-        'Success',
-        style: TextStyle(color: Colors.black),
       ),
     );
   }
