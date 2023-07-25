@@ -246,11 +246,6 @@ class CustomDialogButton2 extends StatelessWidget {
               ),
               padding: const EdgeInsets.all(12),
               height: 50,
-              child: Column(
-                children: [
-                  //sparkle icons/ photo
-                ],
-              ),
             ),
             Container(
               padding: const EdgeInsets.only(
