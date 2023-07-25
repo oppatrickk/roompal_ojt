@@ -17,11 +17,11 @@ class PopUpTemporary extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return DialogButton();
+                    return const DialogButton();
                   },
                 );
               },
-              child: Text('Sample 1'),
+              child: const Text('Sample 1'),
             ),
             ksizedBoxTextFieldCol,
             ElevatedButton(
@@ -30,14 +30,14 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return CustomDialogButton1(
+                    return const CustomDialogButton1(
                       'Property Listing',
                       'Submit your Listing?',
                     );
                   },
                 );
               },
-              child: Text('Listing'),
+              child: const Text('Listing'),
             ),
             ksizedBoxTextFieldCol,
             ElevatedButton(
@@ -46,14 +46,14 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return CustomDialogButton1(
+                    return const CustomDialogButton1(
                       'Payment',
                       'Confirm your Payment?',
                     );
                   },
                 );
               },
-              child: Text('Payment'),
+              child: const Text('Payment'),
             ),
             ksizedBoxTextFieldCol,
             ElevatedButton(
@@ -62,12 +62,11 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return const CustomDialogButton2(
-                        'Thank You for Trusting Roompal!');
+                    return const CustomDialogButton2('Thank You for Trusting Roompal!');
                   },
                 );
               },
-              child: Text('Thank You'),
+              child: const Text('Thank You'),
             ),
             ksizedBoxTextFieldCol,
             ElevatedButton(
@@ -76,12 +75,11 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return const CustomDialogButton3(
-                        'Thank You for Trusting Roompal!');
+                    return const CustomDialogButton3('Thank You for Trusting Roompal!');
                   },
                 );
               },
-              child: Text('Success'),
+              child: const Text('Success'),
             ),
             ksizedBoxTextFieldCol,
             ElevatedButton(
@@ -93,7 +91,7 @@ class PopUpTemporary extends StatelessWidget {
                   },
                 );
               },
-              child: Text('Sample 3'),
+              child: const Text('Sample 3'),
             ),
             ElevatedButton(
               onPressed: () {
@@ -119,15 +117,15 @@ class DialogButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Alert'),
-      content: Text('something something'),
+      title: const Text('Alert'),
+      content: const Text('something something'),
       actions: <Widget>[
-        TextButton(onPressed: () {}, child: Text('Okay')),
+        TextButton(onPressed: () {}, child: const Text('Okay')),
         TextButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            child: Text('Cancel')),
+            child: const Text('Cancel')),
       ],
     );
   }
@@ -163,7 +161,7 @@ class CustomDialogButton3 extends StatelessWidget {
                   ),
                   padding: const EdgeInsets.all(12),
                   height: 50,
-                  child: Column(
+                  child: const Column(
                     children: [
                       //sparkle icons/ photo
                     ],
@@ -179,7 +177,7 @@ class CustomDialogButton3 extends StatelessWidget {
                   child: Text(
                     content,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 17,
                       color: Colors.black,
@@ -215,10 +213,11 @@ class CustomDialogButton3 extends StatelessWidget {
               ],
             ),
             Container(
-              padding: EdgeInsets.all(10),
-              child: CircleAvatar(
+              decoration: const BoxDecoration(),
+              padding: const EdgeInsets.all(10),
+              child: const CircleAvatar(
                 backgroundColor: Color(0xFF6CE679),
-                radius: 30,
+                radius: 33,
                 child: Icon(
                   Icons.check,
                   size: 50,
@@ -270,7 +269,7 @@ class CustomDialogButton2 extends StatelessWidget {
               child: Text(
                 content,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 17,
                   color: Colors.black,
@@ -340,7 +339,7 @@ class CustomDialogButton1 extends StatelessWidget {
                 child: Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                     color: Colors.white,
@@ -358,7 +357,7 @@ class CustomDialogButton1 extends StatelessWidget {
               child: Text(
                 content,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   color: Colors.black,
                 ),
@@ -516,9 +515,7 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Center(
-                child: selectedButton == 'Booking'
-                    ? BookingWidget()
-                    : TenantWidget(),
+                child: selectedButton == 'Booking' ? BookingWidget() : TenantWidget(),
               ),
             ),
           ),
@@ -532,10 +529,10 @@ class BookingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 30, right: 30),
+      padding: const EdgeInsets.only(left: 30, right: 30),
       child: Column(
         children: [
-          Text(
+          const Text(
             'Room No: 001',
             textAlign: TextAlign.center,
           ),
@@ -543,11 +540,11 @@ class BookingWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ksizedBoxTextFieldCol,
-              Text('Start Date'),
+              const Text('Start Date'),
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  border: Border.all(width: 1, color: const Color(0xFF808080)),
                   borderRadius: BorderRadius.circular(5),
                   color: const Color(0xFFF1F1F1),
                 ),
@@ -560,20 +557,20 @@ class BookingWidget extends StatelessWidget {
                     ),
                     ksizedBoxTextFieldRow,
                     ksizedBoxTextFieldRow,
-                    Text('07'),
-                    VerticalDivider(
+                    const Text('07'),
+                    const VerticalDivider(
                       thickness: 2,
                       color: Colors.black,
                       width: 10,
                     ),
-                    Text('03'),
-                    VerticalDivider(
+                    const Text('03'),
+                    const VerticalDivider(
                       thickness: 2,
                       color: Colors.black,
                       width: 10,
                     ),
-                    Text('2023'),
-                    VerticalDivider(
+                    const Text('2023'),
+                    const VerticalDivider(
                       thickness: 2,
                       color: Colors.black,
                     ),
@@ -581,11 +578,11 @@ class BookingWidget extends StatelessWidget {
                 ),
               ),
               ksizedBoxTextFieldCol,
-              Text('End Date'),
+              const Text('End Date'),
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  border: Border.all(width: 1, color: const Color(0xFF808080)),
                   borderRadius: BorderRadius.circular(5),
                   color: const Color(0xFFF1F1F1),
                 ),
@@ -598,20 +595,20 @@ class BookingWidget extends StatelessWidget {
                     ),
                     ksizedBoxTextFieldRow,
                     ksizedBoxTextFieldRow,
-                    Text('07'),
-                    VerticalDivider(
+                    const Text('07'),
+                    const VerticalDivider(
                       thickness: 2,
                       color: Colors.black,
                       width: 10,
                     ),
-                    Text('06'),
-                    VerticalDivider(
+                    const Text('06'),
+                    const VerticalDivider(
                       thickness: 2,
                       color: Colors.black,
                       width: 10,
                     ),
-                    Text('2023'),
-                    VerticalDivider(
+                    const Text('2023'),
+                    const VerticalDivider(
                       thickness: 2,
                       color: Colors.black,
                     ),
@@ -619,11 +616,11 @@ class BookingWidget extends StatelessWidget {
                 ),
               ),
               ksizedBoxTextFieldCol,
-              Text('Number of Tenant'),
+              const Text('Number of Tenant'),
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  border: Border.all(width: 1, color: const Color(0xFF808080)),
                   borderRadius: BorderRadius.circular(5),
                   color: const Color(0xFFF1F1F1),
                 ),
@@ -636,16 +633,16 @@ class BookingWidget extends StatelessWidget {
                     ),
                     ksizedBoxTextFieldRow,
                     ksizedBoxTextFieldRow,
-                    Text('1'),
+                    const Text('1'),
                   ],
                 ),
               ),
               ksizedBoxTextFieldCol,
-              Text('Bill To'),
+              const Text('Bill To'),
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Color(0xFF808080)),
+                  border: Border.all(width: 1, color: const Color(0xFF808080)),
                   borderRadius: BorderRadius.circular(5),
                   color: const Color(0xFFF1F1F1),
                 ),
@@ -658,7 +655,7 @@ class BookingWidget extends StatelessWidget {
                     ),
                     ksizedBoxTextFieldRow,
                     ksizedBoxTextFieldRow,
-                    Text('Pipay My Loves'),
+                    const Text('Pipay My Loves'),
                   ],
                 ),
               ),
@@ -668,12 +665,11 @@ class BookingWidget extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Text('Transient'),
+                      const Text('Transient'),
                       Container(
                         padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          border:
-                              Border.all(width: 1, color: Color(0xFF808080)),
+                          border: Border.all(width: 1, color: Color(0xFF808080)),
                           borderRadius: BorderRadius.circular(5),
                           color: const Color(0xFFF1F1F1),
                         ),
@@ -686,7 +682,7 @@ class BookingWidget extends StatelessWidget {
                             ),
                             ksizedBoxTextFieldRow,
                             ksizedBoxTextFieldRow,
-                            Text('3500.00'),
+                            const Text('3500.00'),
                           ],
                         ),
                       ),
@@ -694,7 +690,7 @@ class BookingWidget extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         'Transaction Fee',
                         style: TextStyle(
                           color: Color(0xFF1C39BB),
@@ -705,12 +701,12 @@ class BookingWidget extends StatelessWidget {
                         decoration: BoxDecoration(
                           border: Border.all(
                             width: 1,
-                            color: Color(0xFF1C39BB),
+                            color: const Color(0xFF1C39BB),
                           ),
                           borderRadius: BorderRadius.circular(5),
                           color: const Color(0xFFF1F1F1),
                         ),
-                        child: Row(
+                        child: const Row(
                           children: [
                             ksizedBoxTextFieldRow,
                             Text(
@@ -740,12 +736,11 @@ class BookingWidget extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Text('Monthly'),
+                      const Text('Monthly'),
                       Container(
                         padding: const EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                          border:
-                              Border.all(width: 1, color: Color(0xFF808080)),
+                          border: Border.all(width: 1, color: Color(0xFF808080)),
                           borderRadius: BorderRadius.circular(5),
                           color: const Color(0xFFF1F1F1),
                         ),
@@ -758,7 +753,7 @@ class BookingWidget extends StatelessWidget {
                             ),
                             ksizedBoxTextFieldRow,
                             ksizedBoxTextFieldRow,
-                            Text('15,000.00'),
+                            const Text('15,000.00'),
                           ],
                         ),
                       ),
@@ -766,7 +761,7 @@ class BookingWidget extends StatelessWidget {
                   ),
                   Column(
                     children: [
-                      Text(
+                      const Text(
                         'Transaction Fee',
                         style: TextStyle(
                           color: Color(0xFF1C39BB),
@@ -777,12 +772,12 @@ class BookingWidget extends StatelessWidget {
                         decoration: BoxDecoration(
                           border: Border.all(
                             width: 1,
-                            color: Color(0xFF1C39BB),
+                            color: const Color(0xFF1C39BB),
                           ),
                           borderRadius: BorderRadius.circular(5),
                           color: const Color(0xFFF1F1F1),
                         ),
-                        child: Row(
+                        child: const Row(
                           children: [
                             ksizedBoxTextFieldRow,
                             Text(
@@ -817,7 +812,7 @@ class BookingWidget extends StatelessWidget {
 class TenantWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text(
         'Tenant Information',
         style: TextStyle(
@@ -844,8 +839,7 @@ class _PendingRequestPromptState extends State<PendingRequestPrompt> {
     return Dialog(
       surfaceTintColor: Colors.white,
       child: SizedBox(
-        child:
-            Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
           Container(
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
