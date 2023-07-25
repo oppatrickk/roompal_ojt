@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
-import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class PopUpTemporary extends StatelessWidget {
   const PopUpTemporary({super.key});
@@ -68,8 +67,8 @@ class CustomDialogButton extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4),
       ),
-      child: Container(
-        height: 200,
+      child: SizedBox(
+        height: 180,
         child: Column(
           children: <Widget>[
             Container(
@@ -83,7 +82,7 @@ class CustomDialogButton extends StatelessWidget {
               padding: const EdgeInsets.all(12),
               height: 50,
               child: const SizedBox.expand(
-                child: const Text(
+                child: Text(
                   'Property Listing',
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -94,9 +93,13 @@ class CustomDialogButton extends StatelessWidget {
                 ),
               ),
             ),
-            ksizedBoxTextFieldCol,
             Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.only(
+                left: 10,
+                right: 10,
+                top: 20,
+                bottom: 2,
+              ),
               child: const Text(
                 'Submit your Listing?',
                 textAlign: TextAlign.center,
@@ -112,6 +115,45 @@ class CustomDialogButton extends StatelessWidget {
               endIndent: 20,
               thickness: 1,
               color: Color(0xFFF1F1F1),
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    surfaceTintColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(
+                        color: Color(0xFFFEB618),
+                      ),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                  child: const Text(
+                    'No',
+                    style: TextStyle(color: Color(0xFFFEB618)),
+                  ),
+                ),
+                ksizedBoxTextFieldRow,
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    surfaceTintColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      side: const BorderSide(
+                        color: Color(0xFFFEB618),
+                      ),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                  child: const Text(
+                    'Yes',
+                    style: TextStyle(color: Color(0xFFFEB618)),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
