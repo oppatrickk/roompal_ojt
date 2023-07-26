@@ -224,30 +224,26 @@ class _BookingState extends State<Booking> {
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: boxDecoration(),
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: boxDecoration(),
-                  child: Column(
-                    children: [
-                      textField(label: 'Number of Guest'),
-                      ksizedBoxTextFieldCol,
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Maximum of 2 guests',
-                                style: kRedText,
-                              ),
-                              addButton(), // Add icon to the right side of the text
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                child: Column(
+                  children: [
+                    textField(label: 'Number of Guest'),
+                    ksizedBoxTextFieldCol,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Maximum of 2 guests',
+                              style: kRedText,
+                            ),
+                            addButton(), // Add icon to the right side of the text
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
 

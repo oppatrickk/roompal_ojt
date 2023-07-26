@@ -532,7 +532,7 @@ class BookingWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 30, right: 30),
       child: Column(
         children: [
-          const Text(
+          Text(
             'Room No: 001',
             textAlign: TextAlign.center,
             style: textStyleContent(size: 14, color: Color(0xFF242426)),
