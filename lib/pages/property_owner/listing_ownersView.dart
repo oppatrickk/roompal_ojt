@@ -111,6 +111,7 @@ class _ListingOwnerState extends State<ListingOwner> {
   }
 }
 
+//Main Owner View
 class OwnerView extends StatefulWidget {
   const OwnerView({super.key});
 
@@ -140,14 +141,13 @@ class _OwnerViewState extends State<OwnerView> {
             },
           ),
         ),
-        iconValue == 0
-            ? const OwnerViewGridView()
-            : const OwnerViewTableFormat(),
+        iconValue == 0 ? const OwnerViewGridView() : const OwnerViewTableFormat()
       ],
     );
   }
 }
 
+//grid view of owner listing
 class OwnerViewGridView extends StatelessWidget {
   const OwnerViewGridView({
     super.key,
@@ -190,6 +190,7 @@ class OwnerViewGridView extends StatelessWidget {
   }
 }
 
+//Renter's view
 class RenterView extends StatelessWidget {
   const RenterView({super.key});
 
@@ -230,6 +231,7 @@ class RenterView extends StatelessWidget {
   }
 }
 
+//table view of ownwer listing
 class OwnerViewTableFormat extends StatelessWidget {
   const OwnerViewTableFormat({super.key});
 
