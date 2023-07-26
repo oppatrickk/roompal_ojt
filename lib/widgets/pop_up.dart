@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/popup_widgets.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class PopUpTemporary extends StatelessWidget {
@@ -30,10 +31,7 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return const CustomDialogButton1(
-                      'Property Listing',
-                      'Submit your Listing?',
-                    );
+                    return const CustomDialogButton1();
                   },
                 );
               },
@@ -46,10 +44,7 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return const CustomDialogButton1(
-                      'Payment',
-                      'Confirm your Payment?',
-                    );
+                    return const CustomDialogButton4();
                   },
                 );
               },
@@ -62,7 +57,8 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return const CustomDialogButton2('Thank You for Trusting Roompal!');
+                    return const CustomDialogButton2(
+                        'Thank You for Trusting Roompal!');
                   },
                 );
               },
@@ -75,7 +71,8 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return const CustomDialogButton3('Thank You for Trusting Roompal!');
+                    return const CustomDialogButton3(
+                        'Thank You for Trusting Roompal!');
                   },
                 );
               },
@@ -103,6 +100,17 @@ class PopUpTemporary extends StatelessWidget {
                 );
               },
               child: Text('Pending Request'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return RoomAssignment();
+                  },
+                );
+              },
+              child: Text('Room Assignment'),
             ),
           ],
         ),
@@ -140,22 +148,22 @@ class CustomDialogButton3 extends StatelessWidget {
     return Dialog(
       surfaceTintColor: Colors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(25),
       ),
       child: SizedBox(
-        height: 180,
+        height: 240,
         child: Stack(
           clipBehavior: Clip.none,
           alignment: AlignmentDirectional.topCenter,
           children: [
             Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 Container(
-                  width: 300,
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(4),
-                      topLeft: Radius.circular(4),
+                      topRight: Radius.circular(25),
+                      topLeft: Radius.circular(25),
                     ),
                     color: Color(0xFF1C39BB),
                   ),
@@ -167,49 +175,42 @@ class CustomDialogButton3 extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  padding: const EdgeInsets.only(
-                    left: 20,
-                    right: 20,
-                    top: 25,
-                    bottom: 5,
-                  ),
-                  child: Text(
-                    content,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
-                const Divider(
-                  indent: 20,
-                  endIndent: 20,
-                  thickness: 1,
-                  color: Color(0xFFF1F1F1),
-                ),
-                SizedBox(
-                  height: 20,
-                  width: 70,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      elevation: 0,
-                      surfaceTintColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 40),
+                      child: Text(
+                        content,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
-                    child: const Text(
-                      'Ok',
-                      style: TextStyle(color: Color(0xFFFEB618)),
+                    ksizedBoxTFB,
+                    Container(
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        child: divider),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        surfaceTintColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                      ),
+                      child: const Text(
+                        'Ok',
+                        style: TextStyle(color: Color(0xFFFEB618)),
+                      ),
                     ),
-                  ),
-                ),
+                  ],
+                )
               ],
             ),
             Container(
@@ -310,111 +311,109 @@ class CustomDialogButton2 extends StatelessWidget {
 }
 
 class CustomDialogButton1 extends StatelessWidget {
-  const CustomDialogButton1(this.title, this.content, {super.key});
-  final String title;
-  final String content;
+  const CustomDialogButton1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Dialog(
       surfaceTintColor: Colors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(25),
       ),
-      child: SizedBox(
-        height: 180,
-        child: Column(
-          children: <Widget>[
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            titleDesign(label: 'Property Listing'),
             Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(4),
-                  topLeft: Radius.circular(4),
-                ),
-                color: Color(0xFF1C39BB),
-              ),
-              padding: const EdgeInsets.all(12),
-              height: 50,
-              child: SizedBox.expand(
-                child: Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.only(
-                left: 10,
-                right: 10,
-                top: 20,
-                bottom: 2,
-              ),
-              child: Text(
-                content,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.black,
-                ),
-              ),
-            ),
-            ksizedBoxTextFieldCol,
-            const Divider(
-              indent: 20,
-              endIndent: 20,
-              thickness: 1,
-              color: Color(0xFFF1F1F1),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(horizontal: 35),
-                    surfaceTintColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                        color: Color(0xFFFEB618),
-                      ),
-                      borderRadius: BorderRadius.circular(10.0),
+              padding: EdgeInsets.symmetric(horizontal: 22),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  kSizedBox,
+                  Text(
+                    'Submit your listing?',
+                    style: textStyleContent(
+                      size: 16,
+                      color: Color(0xFF242426),
                     ),
                   ),
-                  child: const Text(
-                    'No',
-                    style: TextStyle(color: Color(0xFFFEB618)),
-                  ),
-                ),
-                ksizedBoxTextFieldRow,
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(horizontal: 35),
-                    surfaceTintColor: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                        color: Color(0xFFFEB618),
+                  ksizedBoxTFB,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      puButton(
+                        onPressed: () => Navigator.pop(context),
+                        color: Colors.red,
+                        label: 'No',
                       ),
-                      borderRadius: BorderRadius.circular(10.0),
+                      ksizedBoxTextFieldRow,
+                      puButton(
+                        onPressed: null,
+                        color: Colors.green,
+                        label: 'Yes',
+                      ),
+                    ],
+                  ),
+                  kSizedBox,
+                ],
+              ),
+            ),
+          ]),
+    );
+  }
+}
+
+class CustomDialogButton4 extends StatelessWidget {
+  const CustomDialogButton4({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      surfaceTintColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            titleDesign(label: 'Payment'),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 22),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  kSizedBox,
+                  Text(
+                    'Confirm your payment?',
+                    style: textStyleContent(
+                      size: 16,
+                      color: Color(0xFF242426),
                     ),
                   ),
-                  child: const Text(
-                    'Yes',
-                    style: TextStyle(color: Color(0xFFFEB618)),
+                  ksizedBoxTFB,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      puButton(
+                        onPressed: () => Navigator.pop(context),
+                        color: Colors.red,
+                        label: 'No',
+                      ),
+                      ksizedBoxTextFieldRow,
+                      puButton(
+                        onPressed: null,
+                        color: Colors.green,
+                        label: 'Yes',
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                  kSizedBox,
+                ],
+              ),
             ),
-          ],
-        ),
-      ),
+          ]),
     );
   }
 }
@@ -433,32 +432,13 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
   Widget build(BuildContext context) {
     return Dialog(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(4),
+        borderRadius: BorderRadius.circular(25),
       ),
+      surfaceTintColor: Colors.white,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(4),
-                topLeft: Radius.circular(4),
-              ),
-              color: Color(0xFF1C39BB),
-            ),
-            padding: const EdgeInsets.all(12),
-            height: 50,
-            child: const SizedBox.expand(
-              child: const Text(
-                'Details',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
+          titleDesign(label: 'Details'),
           Container(
             decoration: BoxDecoration(
               color: Color(0xFF96A9CC),
@@ -515,7 +495,9 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Center(
-                child: selectedButton == 'Booking' ? BookingWidget() : TenantWidget(),
+                child: selectedButton == 'Booking'
+                    ? BookingWidget()
+                    : TenantWidget(),
               ),
             ),
           ),
@@ -529,331 +511,74 @@ class BookingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 30, right: 30),
-      child: Column(
+      padding: const EdgeInsets.only(left: 22, right: 22),
+      child: ListView(
         children: [
           Text(
             'Room No: 001',
             textAlign: TextAlign.center,
+            style: textStyleContent(size: 14, color: Color(0xFF242426)),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ksizedBoxTextFieldCol,
-              Text(
-                'Start Date',
-                style: textStyleContent(size: 14, color: Color(0xFF242426)),
-              ),
-              Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: const Color(0xFF808080)),
-                  borderRadius: BorderRadius.circular(5),
-                  color: const Color(0xFFF1F1F1),
-                ),
-                child: Row(
-                  children: [
-                    ksizedBoxTextFieldRow,
-                    Icon(
-                      Icons.calendar_today_outlined,
-                      color: Colors.yellow[800],
-                    ),
-                    ksizedBoxTextFieldRow,
-                    ksizedBoxTextFieldRow,
-                    Text(
-                      '07',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                    ),
-                    VerticalDivider(
-                      thickness: 2,
-                      color: Colors.black,
-                      width: 10,
-                    ),
-                    Text(
-                      '03',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                    ),
-                    VerticalDivider(
-                      thickness: 2,
-                      color: Colors.black,
-                      width: 10,
-                    ),
-                    Text(
-                      '2023',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                    ),
-                    VerticalDivider(
-                      thickness: 2,
-                      color: Colors.black,
-                    ),
-                  ],
-                ),
+              popupTextFieldContent(
+                label: 'Start Date',
+                icon: Icons.calendar_month_outlined,
+                content: '07 | 03 | 2023',
               ),
               ksizedBoxTextFieldCol,
-              Text(
-                'End Date',
-                style: textStyleContent(size: 14, color: Color(0xFF242426)),
-              ),
-              Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: const Color(0xFF808080)),
-                  borderRadius: BorderRadius.circular(5),
-                  color: const Color(0xFFF1F1F1),
-                ),
-                child: Row(
-                  children: [
-                    ksizedBoxTextFieldRow,
-                    Icon(
-                      Icons.calendar_today_outlined,
-                      color: Colors.yellow[800],
-                    ),
-                    ksizedBoxTextFieldRow,
-                    ksizedBoxTextFieldRow,
-                    Text(
-                      '07',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                    ),
-                    VerticalDivider(
-                      thickness: 2,
-                      color: Colors.black,
-                      width: 10,
-                    ),
-                    Text(
-                      '06',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                    ),
-                    VerticalDivider(
-                      thickness: 2,
-                      color: Colors.black,
-                      width: 10,
-                    ),
-                    Text(
-                      '2023',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                    ),
-                    VerticalDivider(
-                      thickness: 2,
-                      color: Colors.black,
-                    ),
-                  ],
-                ),
+              popupTextFieldContent(
+                label: 'End Date',
+                icon: Icons.calendar_month_outlined,
+                content: '07 | 06 | 2023',
               ),
               ksizedBoxTextFieldCol,
-              Text(
-                'Number of Tenant',
-                style: textStyleContent(size: 14, color: Color(0xFF242426)),
-              ),
-              Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: const Color(0xFF808080)),
-                  borderRadius: BorderRadius.circular(5),
-                  color: const Color(0xFFF1F1F1),
-                ),
-                child: Row(
-                  children: [
-                    ksizedBoxTextFieldRow,
-                    Icon(
-                      Icons.group,
-                      color: Colors.yellow[800],
-                    ),
-                    ksizedBoxTextFieldRow,
-                    ksizedBoxTextFieldRow,
-                    Text(
-                      '1',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                    ),
-                  ],
-                ),
+              popupTextFieldContent(
+                label: 'Number of Tenant',
+                icon: Icons.group,
+                content: '1',
               ),
               ksizedBoxTextFieldCol,
-              Text(
-                'Bill To',
-                style: textStyleContent(size: 14, color: Color(0xFF242426)),
-              ),
-              Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: const Color(0xFF808080)),
-                  borderRadius: BorderRadius.circular(5),
-                  color: const Color(0xFFF1F1F1),
-                ),
-                child: Row(
-                  children: [
-                    ksizedBoxTextFieldRow,
-                    Icon(
-                      Icons.payment_outlined,
-                      color: Colors.yellow[800],
-                    ),
-                    ksizedBoxTextFieldRow,
-                    ksizedBoxTextFieldRow,
-                    Text(
-                      'Pipay My Loves',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                    ),
-                  ],
-                ),
+              popupTextFieldContent(
+                label: 'Bill To',
+                icon: Icons.payment_outlined,
+                content: 'Pipay My Loves',
               ),
               ksizedBoxTextFieldCol,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Transient',
-                          style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Color(0xFF808080)),
-                            borderRadius: BorderRadius.circular(5),
-                            color: const Color(0xFFF1F1F1),
-                          ),
-                          child: Row(
-                            children: [
-                              ksizedBoxTextFieldRow,
-                              Text(
-                                '₱ ',
-                                style: TextStyle(color: Colors.yellow[800]),
-                              ),
-                              ksizedBoxTextFieldRow,
-                              ksizedBoxTextFieldRow,
-                              Text(
-                                '3500.00',
-                                style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  ksizedBoxTextFieldRow,
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Transaction Fee',
-                          style: textStyleContent(size: 14, color: Color(0xFF1C39BB)),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              width: 1,
-                              color: Color(0xFF1C39BB),
-                            ),
-                            borderRadius: BorderRadius.circular(5),
-                            color: const Color(0xFFF1F1F1),
-                          ),
-                          child: Row(
-                            children: [
-                              ksizedBoxTextFieldRow,
-                              Text(
-                                '₱ ',
-                                style: TextStyle(
-                                  color: Color(0xFF1C39BB),
-                                ),
-                              ),
-                              ksizedBoxTextFieldRow,
-                              ksizedBoxTextFieldRow,
-                              Text(
-                                '350.00',
-                                style: textStyleContent(size: 14, color: Color(0xFF1C39BB)),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+              priceTextField(
+                label: 'Transient',
+                value: 3500.00,
+                textColor: Color(0xFF242426),
+                leadingColor: Color(0xFFFEB618),
+                borderColor: Color(0xFF808080),
               ),
               ksizedBoxTextFieldCol,
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Monthly',
-                          style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Color(0xFF808080)),
-                            borderRadius: BorderRadius.circular(5),
-                            color: const Color(0xFFF1F1F1),
-                          ),
-                          child: Row(
-                            children: [
-                              ksizedBoxTextFieldRow,
-                              Text(
-                                '₱ ',
-                                style: TextStyle(color: Colors.yellow[800]),
-                              ),
-                              ksizedBoxTextFieldRow,
-                              ksizedBoxTextFieldRow,
-                              Text(
-                                '15,000.00',
-                                style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  ksizedBoxTextFieldRow,
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Transaction Fee',
-                          style: textStyleContent(size: 14, color: Color(0xFF1C39BB)),
-                        ),
-                        Container(
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              width: 1,
-                              color: Color(0xFF1C39BB),
-                            ),
-                            borderRadius: BorderRadius.circular(5),
-                            color: const Color(0xFFF1F1F1),
-                          ),
-                          child: Row(
-                            children: [
-                              ksizedBoxTextFieldRow,
-                              Text(
-                                '₱ ',
-                                style: TextStyle(
-                                  color: Color(0xFF1C39BB),
-                                ),
-                              ),
-                              ksizedBoxTextFieldRow,
-                              ksizedBoxTextFieldRow,
-                              Text(
-                                '1,500.00',
-                                style: textStyleContent(size: 14, color: Color(0xFF1C39BB)),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+              priceTextField(
+                label: 'Transaction Fee',
+                value: 350.00,
+                textColor: Color(0xFF1C39BB),
+                leadingColor: Color(0xFF1C39BB),
+                borderColor: Color(0xFF1C39BB),
               ),
+              ksizedBoxTextFieldCol,
+              priceTextField(
+                label: 'Monthly',
+                value: 15000.00,
+                textColor: Color(0xFF242426),
+                leadingColor: Color(0xFFFEB618),
+                borderColor: Color(0xFF808080),
+              ),
+              ksizedBoxTextFieldCol,
+              priceTextField(
+                label: 'Transaction Fee',
+                value: 1500.00,
+                textColor: Color(0xFF1C39BB),
+                leadingColor: Color(0xFF1C39BB),
+                borderColor: Color(0xFF1C39BB),
+              ),
+              ksizedBoxTextFieldCol,
             ],
           ),
         ],
@@ -866,7 +591,7 @@ class TenantWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 30, right: 30),
+      padding: EdgeInsets.only(left: 22, right: 22),
       child: Column(
         children: [
           Text(
@@ -878,88 +603,22 @@ class TenantWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ksizedBoxTextFieldCol,
-              Text(
-                'Full Name',
-                style: textStyleContent(size: 14, color: Color(0xFF242426)),
-              ),
-              Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Color(0xFF808080)),
-                  borderRadius: BorderRadius.circular(5),
-                  color: const Color(0xFFF1F1F1),
-                ),
-                child: Row(
-                  children: [
-                    ksizedBoxTextFieldRow,
-                    Icon(
-                      Icons.person,
-                      color: Colors.yellow[800],
-                    ),
-                    ksizedBoxTextFieldRow,
-                    ksizedBoxTextFieldRow,
-                    Text(
-                      'Pipay My Loves',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                    ),
-                  ],
-                ),
+              popupTextFieldContent(
+                label: 'Full Name',
+                icon: Icons.person,
+                content: 'Pipay My Loves',
               ),
               ksizedBoxTextFieldCol,
-              Text(
-                'Email',
-                style: textStyleContent(size: 14, color: Color(0xFF242426)),
-              ),
-              Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Color(0xFF808080)),
-                  borderRadius: BorderRadius.circular(5),
-                  color: const Color(0xFFF1F1F1),
-                ),
-                child: Row(
-                  children: [
-                    ksizedBoxTextFieldRow,
-                    Icon(
-                      Icons.email,
-                      color: Colors.yellow[800],
-                    ),
-                    ksizedBoxTextFieldRow,
-                    ksizedBoxTextFieldRow,
-                    Text(
-                      'Pipay My Loves',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                    ),
-                  ],
-                ),
+              popupTextFieldContent(
+                label: 'Email',
+                icon: Icons.email,
+                content: 'pipay@gmail.com',
               ),
               ksizedBoxTextFieldCol,
-              Text(
-                'Phone Number',
-                style: textStyleContent(size: 14, color: Color(0xFF242426)),
-              ),
-              Container(
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  border: Border.all(width: 1, color: Color(0xFF808080)),
-                  borderRadius: BorderRadius.circular(5),
-                  color: const Color(0xFFF1F1F1),
-                ),
-                child: Row(
-                  children: [
-                    ksizedBoxTextFieldRow,
-                    Icon(
-                      Icons.phone,
-                      color: Colors.yellow[800],
-                    ),
-                    ksizedBoxTextFieldRow,
-                    ksizedBoxTextFieldRow,
-                    Text(
-                      '(+639) | 942 3183 681',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                    ),
-                  ],
-                ),
+              popupTextFieldContent(
+                label: 'Phone Number',
+                icon: Icons.phone,
+                content: '(+63) | 942 3183 681',
               ),
             ],
           ),
@@ -977,67 +636,187 @@ class PendingRequestPrompt extends StatefulWidget {
 }
 
 class _PendingRequestPromptState extends State<PendingRequestPrompt> {
-  bool? isVisible;
+  bool isCDVisible = false;
+  bool isARVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
       surfaceTintColor: Colors.white,
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-        Container(
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(4),
-              topLeft: Radius.circular(4),
-            ),
-            color: Color(0xFF1C39BB),
-          ),
-          padding: const EdgeInsets.all(12),
-          height: 50,
-          child: const SizedBox.expand(
-            child: const Text(
-              'Pending Request',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.white,
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            titleDesign(label: 'Pending Request'),
+            SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                children: [
+                  GestureDetector(
+                    child: pendingRequestContent(tenantName: 'Cardo Dalisay'),
+                    onTap: () => setState(() {
+                      isCDVisible = !isCDVisible;
+                    }),
+                  ),
+                  ksizedBoxTextFieldCol,
+                  Visibility(
+                    visible: isCDVisible,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: Column(
+                        children: [
+                          popupTextFieldContent(
+                            label: 'Room Number',
+                            icon: Icons.meeting_room,
+                            content: '002',
+                          ),
+                          ksizedBoxTextFieldCol,
+                          popupTextFieldContent(
+                            label: 'Start Date',
+                            icon: Icons.calendar_month_outlined,
+                            content: '07 | 03 | 2023',
+                          ),
+                          ksizedBoxTextFieldCol,
+                          popupTextFieldContent(
+                            label: 'End Date',
+                            icon: Icons.calendar_month_outlined,
+                            content: '07 | 06 | 2023',
+                          ),
+                          ksizedBoxTextFieldCol,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              puButton(
+                                onPressed: null,
+                                color: Colors.red,
+                                label: 'Decline',
+                              ),
+                              ksizedBoxTextFieldRow,
+                              puButton(
+                                onPressed: null,
+                                color: Colors.green,
+                                label: 'Assign',
+                              ),
+                            ],
+                          ),
+                          kSizedBox,
+                        ],
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    child: pendingRequestContent(tenantName: 'Alden Ritsards'),
+                    onTap: () => setState(() {
+                      isARVisible = !isARVisible;
+                    }),
+                  ),
+                  ksizedBoxTextFieldCol,
+                  Visibility(
+                    visible: isARVisible,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: Column(
+                        children: [
+                          popupTextFieldContent(
+                            label: 'Room Number',
+                            icon: Icons.meeting_room,
+                            content: '002',
+                          ),
+                          ksizedBoxTextFieldCol,
+                          popupTextFieldContent(
+                            label: 'Start Date',
+                            icon: Icons.calendar_month_outlined,
+                            content: '07 | 03 | 2023',
+                          ),
+                          ksizedBoxTextFieldCol,
+                          popupTextFieldContent(
+                            label: 'End Date',
+                            icon: Icons.calendar_month_outlined,
+                            content: '07 | 06 | 2023',
+                          ),
+                          ksizedBoxTextFieldCol,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              puButton(
+                                onPressed: null,
+                                color: Colors.red,
+                                label: 'Decline',
+                              ),
+                              ksizedBoxTextFieldRow,
+                              puButton(
+                                onPressed: null,
+                                color: Colors.green,
+                                label: 'Assign',
+                              ),
+                            ],
+                          ),
+                          kSizedBox,
+                        ],
+                      ),
+                    ),
+                  ),
+                  ksizedBoxTextFieldCol,
+                ],
               ),
             ),
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.all(12),
-          child: Column(
-            children: [
-              pendingRequestContent(tenantName: 'Cardo Dalisay'),
-              ksizedBoxTextFieldCol,
-              pendingRequestContent(tenantName: 'Alden Ritsards'),
-            ],
-          ),
-        )
-      ]),
+          ]),
     );
   }
+}
 
-  Container pendingRequestContent({required String tenantName}) {
-    return Container(
+class RoomAssignment extends StatefulWidget {
+  const RoomAssignment({Key? key}) : super(key: key);
+
+  @override
+  State<RoomAssignment> createState() => _RoomAssignmentState();
+}
+
+class _RoomAssignmentState extends State<RoomAssignment> {
+  @override
+  Widget build(BuildContext context) {
+    return Dialog(
+      surfaceTintColor: Colors.white,
       child: Column(
-        children: [
-          Container(),
-          ListTile(
-            title: Text(
-              tenantName,
-              style: textStyleContent(size: 18, color: Colors.black),
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            titleDesign(label: 'Room Assignment'),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 22),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  kSizedBox,
+                  Text(
+                    'Assign to Room #002?',
+                    style: textStyleContent(
+                      size: 16,
+                      color: Color(0xFF242426),
+                    ),
+                  ),
+                  ksizedBoxTFB,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      puButton(
+                        onPressed: () => Navigator.pop(context),
+                        color: Colors.red,
+                        label: 'Cancel',
+                      ),
+                      ksizedBoxTextFieldRow,
+                      puButton(
+                        onPressed: null,
+                        color: Colors.green,
+                        label: 'Assign',
+                      ),
+                    ],
+                  ),
+                  kSizedBox,
+                ],
+              ),
             ),
-            trailing: iconStyle(
-              icon: Icons.keyboard_arrow_down_rounded,
-              color: Colors.yellow[800]!,
-              size: 24,
-            ),
-          ),
-          divider,
-        ],
-      ),
+          ]),
     );
   }
 }
