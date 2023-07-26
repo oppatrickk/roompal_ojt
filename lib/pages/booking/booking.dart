@@ -150,28 +150,47 @@ class _BookingState extends State<Booking> {
                         ),
                       ],
                     ),
-
-                    //Days
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(2.0, 5.0, 4.0, 5.0),
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(
-                              color: Color(0xFF242426),
-                              width: 1.0,
-                            ),
+                    ksizedBoxTextFieldCol,
+                    SizedBox(
+                      width: 50,
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                '14 days',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Color(0xFF242426),
+                                ),
+                              ),
+                              Container(
+                                height: 1,
+                                width: 100,
+                                color: Color(0xFF242426),
+                              ),
+                            ],
                           ),
-                        ),
-                        child: Text(
-                          '14 days',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Color(0xFF242426),
-                          ),
-                        ),
+                        ],
                       ),
                     ),
+                    ksizedBoxTextFieldCol,
+
+                    //Days
+                    // Padding(
+                    //   padding: EdgeInsets.fromLTRB(2.0, 5.0, 4.0, 5.0),
+                    //   child: DecoratedBox(
+                    //     decoration: BoxDecoration(
+                    //       border: Border(
+                    //         bottom: BorderSide(
+                    //           color: Color(0xFF242426),
+                    //           width: 1.0,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //     child:
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -232,30 +251,27 @@ class _BookingState extends State<Booking> {
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: boxDecoration(),
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: boxDecoration(),
-                  child: Column(
-                    children: [
-                      textField(label: 'Number of Guest'),
-                      ksizedBoxTextFieldCol,
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Maximum of 2 guests',
-                                style: kRedText,
-                              ),
-                              addButton(), // Add icon to the right side of the text
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                child: Column(
+                  children: [
+                    textField(label: 'Number of Guest'),
+                    ksizedBoxTextFieldCol,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Maximum of 2 guests',
+                              style: kRedText,
+                            ),
+                            addButton(), // Add icon to the right side of the text
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
 
