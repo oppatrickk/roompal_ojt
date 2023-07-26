@@ -2,6 +2,25 @@ import 'package:flutter/material.dart';
 import 'const_elements.dart';
 
 //COMPONENTS
+
+//AppBar
+AppBar appBar() {
+  return AppBar(
+    leadingWidth: 200,
+    leading: Container(
+      padding: EdgeInsets.only(left: 10),
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/img/wmB.png'),
+        ),
+      ),
+      height: 70,
+      width: 200,
+    ),
+    automaticallyImplyLeading: false,
+  );
+}
+
 // SideBar
 NavigationDrawer buildSideBar(BuildContext context) {
   return NavigationDrawer(
@@ -689,9 +708,10 @@ GestureDetector buttonLP(
     required Color color,
     required String label,
     required Color textColor,
-    required double size}) {
+    required double size,
+    required void Function()? onTap}) {
   return GestureDetector(
-    onTap: null,
+    onTap: onTap,
     child: Container(
       height: height,
       decoration: BoxDecoration(
