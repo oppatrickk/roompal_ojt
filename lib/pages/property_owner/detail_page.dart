@@ -34,9 +34,7 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset('assets/img/wmB.png'),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Container(
@@ -152,8 +150,16 @@ class _DetailPageState extends State<DetailPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  navigationButton(onPressed: null, icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
-                  navigationButton(onPressed: null, label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
+                  navigationButton(
+                      onPressed: null,
+                      icon: Icons.arrow_back,
+                      label: 'Go back',
+                      isGoBack: true),
+                  navigationButton(
+                      onPressed: null,
+                      label: 'Go next',
+                      icon: Icons.arrow_forward,
+                      isGoBack: false)
                 ],
               ),
             ],
@@ -164,7 +170,11 @@ class _DetailPageState extends State<DetailPage> {
   }
 
 //Dropdown Button for Amenity and Inclusion
-  Container detailFields({required String label, required bool? isAmenity, required String hintText2, required String labelDesc}) {
+  Container detailFields(
+      {required String label,
+      required bool? isAmenity,
+      required String hintText2,
+      required String labelDesc}) {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: boxDecoration(),
@@ -199,7 +209,9 @@ class _DetailPageState extends State<DetailPage> {
                   onChanged: (Icon? value) {
                     setState(
                       () {
-                        isAmenity == true ? ddValAL = value! : ddValIL == value!;
+                        isAmenity == true
+                            ? ddValAL = value!
+                            : ddValIL == value!;
                       },
                     );
                   },

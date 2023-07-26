@@ -12,11 +12,7 @@ class _RenterPageState extends State<RenterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80.0,
-        backgroundColor: Colors.white,
-        title: Image.asset('assets/img/wmB.png'),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(20.0, 70.0, 20.0, 20.0),
@@ -53,7 +49,8 @@ class _RenterPageState extends State<RenterPage> {
             TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: const Color(0xFF1C39BB),
-                padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 80.0),
+                padding: const EdgeInsets.symmetric(
+                    vertical: 15.0, horizontal: 80.0),
               ),
               onPressed: null,
               child: const Text(

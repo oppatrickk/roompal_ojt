@@ -14,7 +14,8 @@ class ContactOverview extends StatefulWidget {
 class _ContactOverviewState extends State<ContactOverview> {
 // BottoNavigationBar
   int selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> widgetOptions = <Widget>[
     Text(
       'Index 0: Create Listing',
@@ -43,9 +44,7 @@ class _ContactOverviewState extends State<ContactOverview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset('assets/img/wmB.png'),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Container(
@@ -136,7 +135,8 @@ class _ContactOverviewState extends State<ContactOverview> {
                                       color: Color(0xFF242426),
                                     ),
                                   ),
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
+                                  contentPadding:
+                                      EdgeInsets.symmetric(horizontal: 30),
                                   labelText: '+63',
                                 ),
                                 style: textStyleHeader(
@@ -177,9 +177,17 @@ class _ContactOverviewState extends State<ContactOverview> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  navigationButton(onPressed: null, icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                   navigationButton(
-                      onPressed: () => Navigator.pushNamed(context, PaymentDetails.id), label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
+                      onPressed: null,
+                      icon: Icons.arrow_back,
+                      label: 'Go back',
+                      isGoBack: true),
+                  navigationButton(
+                      onPressed: () =>
+                          Navigator.pushNamed(context, PaymentDetails.id),
+                      label: 'Go next',
+                      icon: Icons.arrow_forward,
+                      isGoBack: false)
                 ],
               ),
             ],

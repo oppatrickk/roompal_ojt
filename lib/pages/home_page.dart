@@ -7,7 +7,6 @@ import 'package:roompal_ojt/pages/booking/payment_success.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
 import 'package:roompal_ojt/pages/property_owner/detail_page.dart';
-import 'package:roompal_ojt/pages/property_owner/listing_owner_tableview.dart';
 import 'package:roompal_ojt/pages/property_owner/listing_ownersView.dart';
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
@@ -155,12 +154,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, ListingOwner.id);
                 },
                 child: const Text('Listing Owner'),
-              ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, ListingOwnerTV.id);
-                },
-                child: const Text("Listing Owner' TV"),
               ),
               TextButton(
                 onPressed: () {
