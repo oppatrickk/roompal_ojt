@@ -62,7 +62,8 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return const CustomDialogButton2('Thank You for Trusting Roompal!');
+                    return const CustomDialogButton2(
+                        'Thank You for Trusting Roompal!');
                   },
                 );
               },
@@ -75,7 +76,8 @@ class PopUpTemporary extends StatelessWidget {
                   barrierDismissible: false,
                   context: context,
                   builder: (BuildContext context) {
-                    return const CustomDialogButton3('Thank You for Trusting Roompal!');
+                    return const CustomDialogButton3(
+                        'Thank You for Trusting Roompal!');
                   },
                 );
               },
@@ -515,7 +517,9 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Center(
-                child: selectedButton == 'Booking' ? BookingWidget() : TenantWidget(),
+                child: selectedButton == 'Booking'
+                    ? BookingWidget()
+                    : TenantWidget(),
               ),
             ),
           ),
@@ -532,7 +536,7 @@ class BookingWidget extends StatelessWidget {
       padding: const EdgeInsets.only(left: 30, right: 30),
       child: Column(
         children: [
-          const Text(
+          Text(
             'Room No: 001',
             textAlign: TextAlign.center,
             style: textStyleContent(size: 14, color: Color(0xFF242426)),
@@ -563,7 +567,8 @@ class BookingWidget extends StatelessWidget {
                     ksizedBoxTextFieldRow,
                     Text(
                       '07',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                      style:
+                          textStyleContent(size: 14, color: Color(0xFF242426)),
                     ),
                     VerticalDivider(
                       thickness: 2,
@@ -572,7 +577,8 @@ class BookingWidget extends StatelessWidget {
                     ),
                     Text(
                       '03',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                      style:
+                          textStyleContent(size: 14, color: Color(0xFF242426)),
                     ),
                     VerticalDivider(
                       thickness: 2,
@@ -581,7 +587,8 @@ class BookingWidget extends StatelessWidget {
                     ),
                     Text(
                       '2023',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                      style:
+                          textStyleContent(size: 14, color: Color(0xFF242426)),
                     ),
                     VerticalDivider(
                       thickness: 2,
@@ -613,7 +620,8 @@ class BookingWidget extends StatelessWidget {
                     ksizedBoxTextFieldRow,
                     Text(
                       '07',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                      style:
+                          textStyleContent(size: 14, color: Color(0xFF242426)),
                     ),
                     VerticalDivider(
                       thickness: 2,
@@ -622,7 +630,8 @@ class BookingWidget extends StatelessWidget {
                     ),
                     Text(
                       '06',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                      style:
+                          textStyleContent(size: 14, color: Color(0xFF242426)),
                     ),
                     VerticalDivider(
                       thickness: 2,
@@ -631,7 +640,8 @@ class BookingWidget extends StatelessWidget {
                     ),
                     Text(
                       '2023',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                      style:
+                          textStyleContent(size: 14, color: Color(0xFF242426)),
                     ),
                     VerticalDivider(
                       thickness: 2,
@@ -663,7 +673,8 @@ class BookingWidget extends StatelessWidget {
                     ksizedBoxTextFieldRow,
                     Text(
                       '1',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                      style:
+                          textStyleContent(size: 14, color: Color(0xFF242426)),
                     ),
                   ],
                 ),
@@ -691,7 +702,8 @@ class BookingWidget extends StatelessWidget {
                     ksizedBoxTextFieldRow,
                     Text(
                       'Pipay My Loves',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                      style:
+                          textStyleContent(size: 14, color: Color(0xFF242426)),
                     ),
                   ],
                 ),
@@ -706,12 +718,14 @@ class BookingWidget extends StatelessWidget {
                       children: [
                         Text(
                           'Transient',
-                          style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                          style: textStyleContent(
+                              size: 14, color: Color(0xFF242426)),
                         ),
                         Container(
                           padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Color(0xFF808080)),
+                            border:
+                                Border.all(width: 1, color: Color(0xFF808080)),
                             borderRadius: BorderRadius.circular(5),
                             color: const Color(0xFFF1F1F1),
                           ),
@@ -726,7 +740,8 @@ class BookingWidget extends StatelessWidget {
                               ksizedBoxTextFieldRow,
                               Text(
                                 '3500.00',
-                                style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                                style: textStyleContent(
+                                    size: 14, color: Color(0xFF242426)),
                               ),
                             ],
                           ),
@@ -741,7 +756,8 @@ class BookingWidget extends StatelessWidget {
                       children: [
                         Text(
                           'Transaction Fee',
-                          style: textStyleContent(size: 14, color: Color(0xFF1C39BB)),
+                          style: textStyleContent(
+                              size: 14, color: Color(0xFF1C39BB)),
                         ),
                         Container(
                           padding: const EdgeInsets.all(5),
@@ -766,7 +782,8 @@ class BookingWidget extends StatelessWidget {
                               ksizedBoxTextFieldRow,
                               Text(
                                 '350.00',
-                                style: textStyleContent(size: 14, color: Color(0xFF1C39BB)),
+                                style: textStyleContent(
+                                    size: 14, color: Color(0xFF1C39BB)),
                               ),
                             ],
                           ),
@@ -785,12 +802,14 @@ class BookingWidget extends StatelessWidget {
                       children: [
                         Text(
                           'Monthly',
-                          style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                          style: textStyleContent(
+                              size: 14, color: Color(0xFF242426)),
                         ),
                         Container(
                           padding: const EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            border: Border.all(width: 1, color: Color(0xFF808080)),
+                            border:
+                                Border.all(width: 1, color: Color(0xFF808080)),
                             borderRadius: BorderRadius.circular(5),
                             color: const Color(0xFFF1F1F1),
                           ),
@@ -805,7 +824,8 @@ class BookingWidget extends StatelessWidget {
                               ksizedBoxTextFieldRow,
                               Text(
                                 '15,000.00',
-                                style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                                style: textStyleContent(
+                                    size: 14, color: Color(0xFF242426)),
                               ),
                             ],
                           ),
@@ -820,7 +840,8 @@ class BookingWidget extends StatelessWidget {
                       children: [
                         Text(
                           'Transaction Fee',
-                          style: textStyleContent(size: 14, color: Color(0xFF1C39BB)),
+                          style: textStyleContent(
+                              size: 14, color: Color(0xFF1C39BB)),
                         ),
                         Container(
                           padding: const EdgeInsets.all(5),
@@ -845,7 +866,8 @@ class BookingWidget extends StatelessWidget {
                               ksizedBoxTextFieldRow,
                               Text(
                                 '1,500.00',
-                                style: textStyleContent(size: 14, color: Color(0xFF1C39BB)),
+                                style: textStyleContent(
+                                    size: 14, color: Color(0xFF1C39BB)),
                               ),
                             ],
                           ),
@@ -901,7 +923,8 @@ class TenantWidget extends StatelessWidget {
                     ksizedBoxTextFieldRow,
                     Text(
                       'Pipay My Loves',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                      style:
+                          textStyleContent(size: 14, color: Color(0xFF242426)),
                     ),
                   ],
                 ),
@@ -929,7 +952,8 @@ class TenantWidget extends StatelessWidget {
                     ksizedBoxTextFieldRow,
                     Text(
                       'Pipay My Loves',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                      style:
+                          textStyleContent(size: 14, color: Color(0xFF242426)),
                     ),
                   ],
                 ),
@@ -957,7 +981,8 @@ class TenantWidget extends StatelessWidget {
                     ksizedBoxTextFieldRow,
                     Text(
                       '(+639) | 942 3183 681',
-                      style: textStyleContent(size: 14, color: Color(0xFF242426)),
+                      style:
+                          textStyleContent(size: 14, color: Color(0xFF242426)),
                     ),
                   ],
                 ),
@@ -978,67 +1003,172 @@ class PendingRequestPrompt extends StatefulWidget {
 }
 
 class _PendingRequestPromptState extends State<PendingRequestPrompt> {
-  bool? isVisible;
+  bool isCDVisible = false;
+  bool isARVisible = false;
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
       surfaceTintColor: Colors.white,
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-        Container(
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topRight: Radius.circular(4),
-              topLeft: Radius.circular(4),
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(25),
+                  topLeft: Radius.circular(25),
+                ),
+                color: Color(0xFF1C39BB),
+              ),
+              padding: const EdgeInsets.all(12),
+              height: 50,
+              child: const SizedBox.expand(
+                child: Text(
+                  'Pending Request',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ),
-            color: Color(0xFF1C39BB),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                children: [
+                  GestureDetector(
+                    child: pendingRequestContent(tenantName: 'Cardo Dalisay'),
+                    onTap: () => setState(() {
+                      isCDVisible = !isCDVisible;
+                    }),
+                  ),
+                  ksizedBoxTextFieldCol,
+                  Visibility(
+                    visible: isCDVisible,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: Column(
+                        children: [
+                          popupTextFieldContent(
+                            label: 'Room Number',
+                            icon: Icons.meeting_room,
+                            content: '002',
+                          ),
+                          ksizedBoxTextFieldCol,
+                          popupTextFieldContent(
+                            label: 'Start Date',
+                            icon: Icons.calendar_month_outlined,
+                            content: '07 | 03 | 2023',
+                          ),
+                          ksizedBoxTextFieldCol,
+                          popupTextFieldContent(
+                            label: 'End Date',
+                            icon: Icons.calendar_month_outlined,
+                            content: '07 | 06 | 2023',
+                          ),
+                          kSizedBox,
+                        ],
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    child: pendingRequestContent(tenantName: 'Alden Ritsards'),
+                    onTap: () => setState(() {
+                      isARVisible = !isARVisible;
+                    }),
+                  ),
+                  ksizedBoxTextFieldCol,
+                  Visibility(
+                    visible: isARVisible,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: Column(
+                        children: [
+                          popupTextFieldContent(
+                            label: 'Room Number',
+                            icon: Icons.meeting_room,
+                            content: '002',
+                          ),
+                          ksizedBoxTextFieldCol,
+                          popupTextFieldContent(
+                            label: 'Start Date',
+                            icon: Icons.calendar_month_outlined,
+                            content: '07 | 03 | 2023',
+                          ),
+                          ksizedBoxTextFieldCol,
+                          popupTextFieldContent(
+                            label: 'End Date',
+                            icon: Icons.calendar_month_outlined,
+                            content: '07 | 06 | 2023',
+                          ),
+                          kSizedBox,
+                        ],
+                      ),
+                    ),
+                  ),
+                  ksizedBoxTextFieldCol,
+                ],
+              ),
+            ),
+          ]),
+    );
+  }
+
+  Column popupTextFieldContent({
+    required String label,
+    required IconData icon,
+    required String content,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: textStyleContent(size: 14, color: const Color(0xFF242426)),
+        ),
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(width: 1, color: const Color(0xFF808080)),
+            borderRadius: BorderRadius.circular(5),
+            color: const Color(0xFFF1F1F1),
           ),
-          padding: const EdgeInsets.all(12),
-          height: 50,
-          child: const SizedBox.expand(
-            child: const Text(
-              'Pending Request',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: Colors.white,
+          child: ListTile(
+            visualDensity: const VisualDensity(horizontal: 4, vertical: -4),
+            leading: iconStyle(icon: icon, color: Color(0xFFFEB618), size: 24),
+            title: Text(
+              content,
+              style: textStyleContent(
+                size: 18,
+                color: const Color(0xFF242731),
               ),
             ),
           ),
         ),
-        Container(
-          padding: EdgeInsets.all(12),
-          child: Column(
-            children: [
-              pendingRequestContent(tenantName: 'Cardo Dalisay'),
-              ksizedBoxTextFieldCol,
-              pendingRequestContent(tenantName: 'Alden Ritsards'),
-            ],
-          ),
-        )
-      ]),
+      ],
     );
   }
 
-  Container pendingRequestContent({required String tenantName}) {
-    return Container(
-      child: Column(
-        children: [
-          Container(),
-          ListTile(
-            title: Text(
-              tenantName,
-              style: textStyleContent(size: 18, color: Colors.black),
-            ),
-            trailing: iconStyle(
-              icon: Icons.keyboard_arrow_down_rounded,
-              color: Colors.yellow[800]!,
-              size: 24,
-            ),
+  Column pendingRequestContent({required String tenantName}) {
+    return Column(
+      children: [
+        Container(),
+        ListTile(
+          title: Text(
+            tenantName,
+            style: textStyleContent(size: 18, color: Colors.black),
           ),
-          divider,
-        ],
-      ),
+          trailing: iconStyle(
+            icon: Icons.keyboard_arrow_down_rounded,
+            color: Colors.yellow[800]!,
+            size: 24,
+          ),
+        ),
+        divider,
+      ],
     );
   }
 }
