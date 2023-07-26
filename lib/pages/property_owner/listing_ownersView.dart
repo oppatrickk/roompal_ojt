@@ -19,9 +19,7 @@ class _ListingOwnerState extends State<ListingOwner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset('assets/img/wmB.png'),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,

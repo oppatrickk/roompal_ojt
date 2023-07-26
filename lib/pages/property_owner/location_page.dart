@@ -24,11 +24,7 @@ class _LocationPageState extends State<LocationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80.0,
-        backgroundColor: Colors.white,
-        title: Image.asset('assets/img/wmB.png'),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Container(
@@ -177,7 +173,8 @@ class _LocationPageState extends State<LocationPage> {
                                 value: dropdownValue,
                                 icon: const Icon(Icons.arrow_drop_down),
                                 elevation: 16,
-                                style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
+                                style: textStyleContent(
+                                    size: 16, color: Color(0xFF575F6E)),
                                 decoration: InputDecoration(
                                   contentPadding: EdgeInsets.all(0),
                                 ),
@@ -188,7 +185,8 @@ class _LocationPageState extends State<LocationPage> {
                                     },
                                   );
                                 },
-                                items: list.map<DropdownMenuItem<Icon>>((Icon value) {
+                                items: list
+                                    .map<DropdownMenuItem<Icon>>((Icon value) {
                                   return DropdownMenuItem<Icon>(
                                     value: value,
                                     child: value,
@@ -219,13 +217,15 @@ class _LocationPageState extends State<LocationPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   navigationButton(
-                    onPressed: () => Navigator.pushNamed(context, ContactOverview.id),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, ContactOverview.id),
                     icon: Icons.arrow_back,
                     label: 'Go back',
                     isGoBack: true,
                   ),
                   navigationButton(
-                    onPressed: () => Navigator.pushNamed(context, DetailPage.id),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, DetailPage.id),
                     label: 'Go next',
                     icon: Icons.arrow_forward,
                     isGoBack: false,

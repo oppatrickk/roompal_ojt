@@ -9,11 +9,7 @@ class BookedDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80.0,
-        backgroundColor: Colors.white,
-        title: Image.asset('assets/img/wmB.png'),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Padding(
@@ -146,7 +142,8 @@ class BookedDetails extends StatelessWidget {
                       PriceDetails('Booking Fee', 'P ####.00'),
                       divider,
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 8.0),
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 5.0, vertical: 8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[

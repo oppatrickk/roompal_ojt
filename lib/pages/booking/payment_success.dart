@@ -14,9 +14,7 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset("assets/img/wmB.png"),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: Center(
         child: SingleChildScrollView(
@@ -53,7 +51,8 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
                       child: Center(
                         child: Text(
                           'View Details',
-                          style: textStyleHeader(color: Color(0xFF1C39BB), size: 16),
+                          style: textStyleHeader(
+                              color: Color(0xFF1C39BB), size: 16),
                         ),
                       ),
                     ),

@@ -3,6 +3,8 @@ import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 
+import 'booking/booking.dart';
+
 class RoomDetails extends StatelessWidget {
   const RoomDetails({super.key});
 
@@ -20,7 +22,7 @@ class RoomDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               //Header of the page
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   Text(
@@ -57,7 +59,8 @@ class RoomDetails extends StatelessWidget {
                     ],
                   ),
                   kSizedBox,
-                  BlueTextButton(null, 'Book This Property'),
+                  BlueTextButton(() => Navigator.pushNamed(context, Booking.id),
+                      'Book This Property'),
                 ],
               ),
               kSizedBox,
@@ -133,7 +136,7 @@ class RoomDetails extends StatelessWidget {
               divider,
               kSizedBox,
               //Room Details, Price Details
-              const Column(
+              Column(
                 children: <Widget>[
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -180,7 +183,8 @@ class RoomDetails extends StatelessWidget {
                       ),
                     ),
                   ),
-                  BlueTextButton(null, 'BOOK NOW'),
+                  BlueTextButton(() => Navigator.pushNamed(context, Booking.id),
+                      'BOOK NOW'),
                 ],
               ),
               kSizedBox,

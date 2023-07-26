@@ -31,9 +31,7 @@ class _BookingState extends State<Booking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset("assets/img/wmB.png"),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Container(
@@ -144,28 +142,47 @@ class _BookingState extends State<Booking> {
                         ),
                       ],
                     ),
-
-                    //Days
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(2.0, 5.0, 4.0, 5.0),
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(
-                              color: Color(0xFF242426),
-                              width: 1.0,
-                            ),
+                    ksizedBoxTextFieldCol,
+                    SizedBox(
+                      width: 50,
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                '14 days',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Color(0xFF242426),
+                                ),
+                              ),
+                              Container(
+                                height: 1,
+                                width: 100,
+                                color: Color(0xFF242426),
+                              ),
+                            ],
                           ),
-                        ),
-                        child: Text(
-                          '14 days',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Color(0xFF242426),
-                          ),
-                        ),
+                        ],
                       ),
                     ),
+                    ksizedBoxTextFieldCol,
+
+                    //Days
+                    // Padding(
+                    //   padding: EdgeInsets.fromLTRB(2.0, 5.0, 4.0, 5.0),
+                    //   child: DecoratedBox(
+                    //     decoration: BoxDecoration(
+                    //       border: Border(
+                    //         bottom: BorderSide(
+                    //           color: Color(0xFF242426),
+                    //           width: 1.0,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //     child:
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -233,6 +250,7 @@ class _BookingState extends State<Booking> {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               'Maximum of 2 guests',

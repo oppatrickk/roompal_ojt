@@ -15,9 +15,7 @@ class _StayViewState extends State<StayView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset('assets/img/wmB.png'),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -68,7 +66,8 @@ class _StayViewState extends State<StayView> {
                       children: [
                         Text(
                           'Stay View',
-                          style: textStyleHeader(color: Color(0xFF242731), size: 32),
+                          style: textStyleHeader(
+                              color: Color(0xFF242731), size: 32),
                         ),
                         Row(
                           children: [
@@ -117,7 +116,8 @@ class _StayViewState extends State<StayView> {
                         3: FlexColumnWidth(1),
                         4: FlexColumnWidth(1),
                       },
-                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                      defaultVerticalAlignment:
+                          TableCellVerticalAlignment.middle,
                       children: [
                         TableRow(children: [
                           tableHeader(label: 'Room'),
@@ -143,7 +143,8 @@ class _StayViewState extends State<StayView> {
                         0: FlexColumnWidth(2),
                         1: FlexColumnWidth(4),
                       },
-                      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                      defaultVerticalAlignment:
+                          TableCellVerticalAlignment.middle,
                       children: [
                         TableRow(children: [
                           tableHeader(label: '#001'),
@@ -228,7 +229,10 @@ class _StayViewState extends State<StayView> {
     );
   }
 
-  GestureDetector guestTracker({required Color trackerColor, required String guestName, required EdgeInsets margin}) {
+  GestureDetector guestTracker(
+      {required Color trackerColor,
+      required String guestName,
+      required EdgeInsets margin}) {
     return GestureDetector(
       child: Container(
         margin: margin,
