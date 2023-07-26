@@ -5,17 +5,13 @@ import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 
 class RoomDetails extends StatelessWidget {
   const RoomDetails({super.key});
+
   static const String id = 'RoomDetails';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80.0,
-        backgroundColor: Colors.white,
-        title: Image.asset('assets/img/wmB.png'),
-        elevation: 0,
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Padding(
@@ -71,7 +67,8 @@ class RoomDetails extends StatelessWidget {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      IconWithTextDisplay(Icons.favorite_border_outlined, 'Save', Colors.grey),
+                      IconWithTextDisplay(
+                          Icons.favorite_border_outlined, 'Save', Colors.grey),
                       ksizedBoxTextFieldRow,
                       IconWithTextDisplay(Icons.share, 'Share', Colors.grey),
                     ],
@@ -166,7 +163,8 @@ class RoomDetails extends StatelessWidget {
                   Card(
                     margin: EdgeInsets.symmetric(vertical: 10.0),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 10.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 100.0, vertical: 10.0),
                       child: Column(
                         //crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
@@ -210,7 +208,8 @@ class RoomDetails extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           AmenitiesCard('Airconditioner', Icons.air_outlined),
-                          AmenitiesCard('Washing Area', Icons.dry_cleaning_outlined),
+                          AmenitiesCard(
+                              'Washing Area', Icons.dry_cleaning_outlined),
                         ],
                       ),
                     ],
@@ -456,7 +455,8 @@ class AmenitiesCard extends StatelessWidget {
           border: Border.all(),
         ),
         child: ListTile(
-          contentPadding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
           horizontalTitleGap: 0.0,
           leading: Icon(
             icon,
