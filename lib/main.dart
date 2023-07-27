@@ -18,7 +18,7 @@ import 'package:roompal_ojt/pages/property_owner/photo_page.dart';
 import 'package:roompal_ojt/pages/property_owner/price_page.dart';
 import 'package:roompal_ojt/pages/property_owner/reviews_page.dart';
 import 'package:roompal_ojt/pages/property_owner/stay_view.dart';
-import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
+import 'package:roompal_ojt/pages/renter/main_renter_page.dart';
 import 'package:roompal_ojt/pages/user_registration/as_Renter.dart';
 import 'package:roompal_ojt/pages/user_registration/as_property_owner.dart';
 import 'package:roompal_ojt/pages/user_registration/chooserole_page.dart';
@@ -27,8 +27,6 @@ import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/pages/user_registration/reset_password.dart';
 import 'package:roompal_ojt/pages/user_registration/verification.dart';
 import 'package:roompal_ojt/widgets/pop_up.dart';
-import 'pages/renter/renter_page(1).dart';
-import 'pages/renter/renter_page(0).dart';
 import 'pages/room_details.dart';
 
 void main() => runApp(RoompalOJT());
@@ -47,7 +45,8 @@ class RoompalOJT extends StatelessWidget {
       initialRoute: MyHomePage.id,
       //add other screens here
       routes: {
-        MyHomePage.id: (BuildContext context) => const MyHomePage(title: 'Roompal OJT'),
+        MyHomePage.id: (BuildContext context) =>
+            const MyHomePage(title: 'Roompal OJT'),
         RenterPage.id: (BuildContext context) => RenterPage(),
         LandingPage.id: (BuildContext context) => const LandingPage(),
         RoomDetails.id: (BuildContext context) => const RoomDetails(),
@@ -66,7 +65,8 @@ class RoompalOJT extends StatelessWidget {
         OwnerReviewPage.id: (BuildContext context) => const OwnerReviewPage(),
         PersonalDetailsV.id: (BuildContext context) => const PersonalDetailsV(),
         StayView.id: (BuildContext context) => const StayView(),
-        PersonalDetailsNV.id: (BuildContext context) => const PersonalDetailsNV(),
+        PersonalDetailsNV.id: (BuildContext context) =>
+            const PersonalDetailsNV(),
         LoginPage.id: (BuildContext context) => const LoginPage(),
         ChooseRole.id: (BuildContext context) => const ChooseRole(),
         AsPropertyOwner.id: (BuildContext context) => const AsPropertyOwner(),
