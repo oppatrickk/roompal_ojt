@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/user_registration/as_Renter.dart';
+import 'package:roompal_ojt/pages/user_registration/as_property_owner.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
@@ -39,7 +41,7 @@ class _ChooseRoleState extends State<ChooseRole> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       noButtonIcons(
-                        onPressed: null,
+                        onPressed: () => Navigator.pushNamed(context, AsPropertyOwner.id),
                         label: 'Property Owner',
                         isBorderRequired: false,
                         buttonColor: Color(0xFF1C39BB),
@@ -54,7 +56,7 @@ class _ChooseRoleState extends State<ChooseRole> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       noButtonIcons(
-                        onPressed: null,
+                        onPressed: () => Navigator.pushNamed(context, AsRenter.id),
                         label: 'Renter',
                         isBorderRequired: false,
                         buttonColor: Color(0xFF1C39BB),
@@ -75,7 +77,7 @@ class _ChooseRoleState extends State<ChooseRole> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       navigationButton(
-                        onPressed: null,
+                        onPressed: () => Navigator.pop(context),
                         label: 'Go back',
                         icon: Icons.arrow_back,
                         isGoBack: true,

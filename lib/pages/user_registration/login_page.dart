@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/user_registration/chooserole_page.dart';
+import 'package:roompal_ojt/pages/user_registration/forgot_password.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
@@ -78,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: kRoomNumber,
                       ),
                       TextButton(
-                        onPressed: null,
+                        onPressed: () => Navigator.pushNamed(context, ForgotPassword.id),
                         child: Text(
                           'Click here',
                           style: blueText,
@@ -161,7 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: kRoomNumber,
                       ),
                       TextButton(
-                        onPressed: null,
+                        onPressed: () => Navigator.pushNamed(context, ChooseRole.id),
                         child: Text(
                           'Sign up',
                           style: blueText,

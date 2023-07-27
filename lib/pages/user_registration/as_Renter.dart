@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
@@ -93,8 +94,7 @@ class _AsRenter extends State<AsRenter> {
                                           color: Color(0xFF242426),
                                         ),
                                       ),
-                                      contentPadding:
-                                          EdgeInsets.symmetric(horizontal: 30),
+                                      contentPadding: EdgeInsets.symmetric(horizontal: 30),
                                       labelText: '+63',
                                     ),
                                     style: textStyleHeader(
@@ -180,13 +180,13 @@ class _AsRenter extends State<AsRenter> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       navigationButton(
-                        onPressed: null,
+                        onPressed: () => Navigator.pop(context),
                         icon: Icons.arrow_back,
                         label: 'Go back',
                         isGoBack: true,
                       ),
                       noButtonIcons(
-                        onPressed: () => null,
+                        onPressed: () => Navigator.pushNamed(context, LandingPage.id),
                         label: 'Create Account',
                         isBorderRequired: false,
                         buttonColor: Color(0xFF1C39BB),
