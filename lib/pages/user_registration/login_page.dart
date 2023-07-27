@@ -4,6 +4,8 @@ import 'package:roompal_ojt/pages/user_registration/forgot_password.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
+import '../../widgets/textfield_widget.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
   static const String id = 'loginPage';
@@ -31,32 +33,9 @@ class _LoginPageState extends State<LoginPage> {
                     textAlign: TextAlign.center,
                   ),
                   kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        textField(label: 'Email'),
-                        ksizedBoxTextFieldCol,
-                      ],
-                    ),
-                  ),
+                  textField1(label: 'Email', hint: ''),
                   kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            textField(label: 'Password'),
-                            ksizedBoxTextFieldCol,
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  textField1(label: 'Password', hint: ''),
                   ksizedBoxTFB,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -100,8 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Text(
                         'or',
-                        style: textStyleHeader(
-                            color: const Color(0xFF242731), size: 16),
+                        style: textStyleHeader(color: const Color(0xFF242731), size: 16),
                       ),
                       const SizedBox(
                         width: 150,
@@ -140,10 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               Text(
                                 'Continue with Google',
-                                style: TextStyle(
-                                    color: Color(0xFF242426),
-                                    fontSize: 14.0,
-                                    fontFamily: 'ProximaNovaBold'),
+                                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
                               ),
                             ],
                           ),
@@ -223,10 +198,7 @@ TextButton signUpButton({
           ksizedBoxTextFieldRow,
           Text(
             label,
-            style: TextStyle(
-                color: Color(0xFF242426),
-                fontSize: 14.0,
-                fontFamily: 'ProximaNovaBold'),
+            style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
           )
         ],
       ));

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class ResetPassword extends StatefulWidget {
@@ -24,53 +25,11 @@ class _ResetPasswordState extends State<ResetPassword> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Reset Password',
-                        style: kRoomName,
-                      ),
-                    ],
-                  ),
-                  ksizedBoxTextFieldCol,
-                  Text(
-                    'Create new password.',
-                    style: kRoomNumber,
-                    textAlign: TextAlign.center,
-                  ),
+                  headerSub(pageTitle: 'Reset Password', subContent: 'Create new password.'),
                   kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            textField(label: 'Password'),
-                            ksizedBoxTextFieldCol,
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  textField1(label: 'Password', hint: ''),
                   kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            textField(label: 'Confirm Password'),
-                            ksizedBoxTextFieldCol,
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  textField1(label: 'Confirm Password', hint: ''),
                   ksizedBoxTFB,
                   //Go back and Go next button
                   Row(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/user_registration/reset_password.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class Verification extends StatefulWidget {
@@ -24,37 +25,9 @@ class _Verification extends State<Verification> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Verification',
-                        style: kRoomName,
-                      ),
-                    ],
-                  ),
-                  ksizedBoxTextFieldCol,
-                  Text(
-                    'Enter the verification code sent in your email.',
-                    style: kRoomNumber,
-                    textAlign: TextAlign.center,
-                  ),
+                  headerSub(pageTitle: 'Verification', subContent: 'Enter the verification code sent in your email.'),
                   kSizedBox,
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            textField(label: 'Verification Code'),
-                            ksizedBoxTextFieldCol,
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  textField1(label: 'Verification Code', hint: ''),
                   ksizedBoxTFB,
                   //Go back and Go next button
                   Row(
