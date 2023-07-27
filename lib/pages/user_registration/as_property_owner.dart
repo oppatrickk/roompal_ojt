@@ -23,7 +23,7 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Column(
+                  const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -179,7 +179,7 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       navigationButton(
-                        onPressed: null,
+                        onPressed: () => Navigator.pop(context),
                         icon: Icons.arrow_back,
                         label: 'Go back',
                         isGoBack: true,
