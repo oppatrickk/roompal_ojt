@@ -262,6 +262,7 @@ class StatusContainers extends StatelessWidget {
   }
 }
 
+//(3) build new page
 class BuildBookedRoomDetails extends StatelessWidget {
   const BuildBookedRoomDetails({
     required this.name,
