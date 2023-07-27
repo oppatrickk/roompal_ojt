@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 
-//if there is no data available
+//(0) class initialization
+class BookedRoomDetails {
+  BookedRoomDetails(this.date, this.name, this.price, this.status);
+  String date;
+  String name;
+  String price;
+  String status;
+}
+
+//(1) if there is no data available
 class NoBookingData extends StatelessWidget {
   const NoBookingData({
     super.key,
@@ -58,16 +67,7 @@ class NoBookingData extends StatelessWidget {
   }
 }
 
-//class initialization
-class BookedRoomDetails {
-  BookedRoomDetails(this.date, this.name, this.price, this.status);
-  String date;
-  String name;
-  String price;
-  String status;
-}
-
-//if there is data available
+//(2) if there is data available
 class BookingManagement extends StatelessWidget {
   const BookingManagement({
     required this.items,
@@ -106,7 +106,7 @@ class BookingManagement extends StatelessWidget {
   }
 }
 
-//builds the list of cards
+//(2.1) builds the list of cards
 class ListViewBuilder extends StatelessWidget {
   const ListViewBuilder({
     super.key,
@@ -123,9 +123,7 @@ class ListViewBuilder extends StatelessWidget {
           itemCount: items.length,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
-              onTap: () {
-                const BookedDetails();
-              },
+              onTap: () => Navigator.pushNamed(context, BookedDetails.id),
               child: Card(
                 surfaceTintColor: Colors.white,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
@@ -140,7 +138,7 @@ class ListViewBuilder extends StatelessWidget {
                         children: [
                           Text(
                             items[index].date,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 10.0,
                               color: Color(0xFF808080),
                             ),
@@ -150,10 +148,10 @@ class ListViewBuilder extends StatelessWidget {
                         ],
                       ),
                       ListTile(
-                        leading: Icon(Icons.other_houses_rounded),
+                        leading: const Icon(Icons.other_houses_rounded),
                         title: Text(
                           items[index].name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontFamily: 'ProximaNovaLight',
                             fontSize: 18.0,
                           ),
@@ -166,7 +164,7 @@ class ListViewBuilder extends StatelessWidget {
                       ),
                       Text(
                         items[index].price,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 18.0,
                           fontFamily: 'ProximaNovaBold',
                         ),
@@ -198,21 +196,21 @@ class StatusContainers extends StatelessWidget {
     Color textColor;
 
     if (status == "Booked") {
-      containerColor = Color(0xFFD7FAE0);
+      containerColor = const Color(0xFFD7FAE0);
       statusText = "Successfully Booked";
-      textColor = Color(0xFF007D3A);
+      textColor = const Color(0xFF007D3A);
     } else if (status == "Processing") {
       containerColor = const Color(0xFFFFF5C7);
       statusText = "Processing";
-      textColor = Color(0xFFCC8100);
+      textColor = const Color(0xFFCC8100);
     } else if (status == "Failed") {
-      containerColor = Color(0xFFFFF0F1);
+      containerColor = const Color(0xFFFFF0F1);
       statusText = "Failed";
-      textColor = Color(0xFFFF424F);
+      textColor = const Color(0xFFFF424F);
     } else if (status == "Cancelled") {
-      containerColor = Color(0xFFEBEBF0);
+      containerColor = const Color(0xFFEBEBF0);
       statusText = "Cancelled";
-      textColor = Color(0xFF808089);
+      textColor = const Color(0xFF808089);
     } else {
       // Default case if the status doesn't match any of the above conditions
       containerColor = Colors.white;

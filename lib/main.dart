@@ -27,8 +27,7 @@ import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/pages/user_registration/reset_password.dart';
 import 'package:roompal_ojt/pages/user_registration/verification.dart';
 import 'package:roompal_ojt/widgets/pop_up.dart';
-import 'pages/renter/renter_page(1).dart';
-import 'pages/renter/renter_page(0).dart';
+import 'pages/renter/main_renter_page.dart';
 import 'pages/room_details.dart';
 
 void main() => runApp(RoompalOJT());
@@ -76,6 +75,7 @@ class RoompalOJT extends StatelessWidget {
         Verification.id: (BuildContext context) => const Verification(),
         PaymentDetails.id: (BuildContext context) => const PaymentDetails(),
         PopUpTemporary.id: (BuildContext context) => const PopUpTemporary(),
+        BookedDetails.id: (BuildContext context) => const BookedDetails(),
       },
     );
   }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/renter/renter_page(1).dart';
-import 'package:roompal_ojt/pages/renter/renter_page(2).dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
@@ -19,11 +18,21 @@ class RenterPage extends StatelessWidget {
     return Scaffold(
       appBar: appBar(),
       endDrawer: buildSideBar(context),
-      body: buildRenterPage(),
+      body: BuildRenterPage(items: items),
     );
   }
+}
 
-  Widget buildRenterPage() {
+class BuildRenterPage extends StatelessWidget {
+  const BuildRenterPage({
+    super.key,
+    required this.items,
+  });
+
+  final List<BookedRoomDetails> items;
+
+  @override
+  Widget build(BuildContext context) {
     if (items.isEmpty) {
       // If the list is empty, display this widget
       return const NoBookingData();
