@@ -7,10 +7,10 @@ class RenterPage extends StatelessWidget {
   RenterPage({super.key});
   static const String id = 'RenterPage';
   final List<BookedRoomDetails> items = <BookedRoomDetails>[
-    BookedRoomDetails('July 3, 2023', 'Kwarto De Luna', 'P ####.00', 'Processing'),
-    BookedRoomDetails('July 3, 2023', 'Kwarto De Luna', 'P ####.00', 'Booked'),
-    BookedRoomDetails('July 3, 2023', 'Kwarto De Luna', 'P ####.00', 'Failed'),
-    BookedRoomDetails('July 3, 2023', 'Kwarto De Luna', 'P ####.00', 'Cancelled'),
+    BookedRoomDetails('July 3, 2023', 'Kwarto De Luna', 'P 1000.00', 'Processing'),
+    BookedRoomDetails('July 3, 2023', 'Kwarto De Moon', 'P 2500.00', 'Booked'),
+    BookedRoomDetails('July 3, 2023', 'Kwarto De Wala Lungs', 'P ####.00', 'Failed'),
+    BookedRoomDetails('July 3, 2023', 'Kwarto De Kimi', 'P ####.00', 'Cancelled'),
   ];
 
   @override
