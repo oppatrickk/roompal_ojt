@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/user_registration/verification.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -25,36 +26,12 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  //title
-                  const Text(
-                    'Forgot Password',
-                    style: kRoomName,
-                    textAlign: TextAlign.center,
-                  ),
-                  ksizedBoxTextFieldCol,
-                  //instructions
-                  const Text(
-                    "Enter your account's email address. A verification code will be sent in your email.",
-                    style: kRoomNumber,
-                    textAlign: TextAlign.center,
-                  ),
+                  headerSub(
+                      pageTitle: 'Forgot Password',
+                      subContent: "Enter your account's email address. A verification code will be sent in your email."),
                   kSizedBox,
                   //email
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: boxDecoration(),
-                    child: Column(
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: <Widget>[
-                            textField(label: 'Email'),
-                            ksizedBoxTextFieldCol,
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  textField1(label: 'Email', hint: ''),
                   ksizedBoxTextFieldCol,
                   //instructions
                   const Text(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/user_registration/as_Renter.dart';
 import 'package:roompal_ojt/pages/user_registration/as_property_owner.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class ChooseRole extends StatefulWidget {
@@ -25,17 +26,9 @@ class _ChooseRoleState extends State<ChooseRole> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text(
-                    'Sign up',
-                    style: kRoomName,
-                    textAlign: TextAlign.center,
-                  ),
-                  ksizedBoxTextFieldCol,
-                  Text(
-                    'Ready to get started? Please choose whether you want to sign up as a property owner or a renter.',
-                    style: kRoomNumber,
-                    textAlign: TextAlign.center,
-                  ),
+                  headerSub(
+                      pageTitle: 'Sign up',
+                      subContent: 'Ready to get started? Please choose whether you want to sign up as a property owner or a renter.'),
                   ksizedBoxTFB,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

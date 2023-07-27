@@ -27,6 +27,10 @@ import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/pages/user_registration/reset_password.dart';
 import 'package:roompal_ojt/pages/user_registration/verification.dart';
 import 'package:roompal_ojt/widgets/pop_up.dart';
+<<<<<<< HEAD
+import 'pages/renter/renter_page(1).dart';
+=======
+>>>>>>> 55fd1e7c793cf6addee247339680e58224f10414
 import 'pages/room_details.dart';
 
 void main() => runApp(RoompalOJT());
