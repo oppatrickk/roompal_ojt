@@ -878,13 +878,38 @@ Expanded displayDetails({
   );
 }
 
+// Display Details for a field
+Column displayDetails1({
+  required String label,
+  required String details,
+}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      Text(
+        label,
+        style: textStyleContent(
+          size: 14,
+          color: const Color(0xFF242426),
+        ),
+      ),
+      ksizedBoxTextFieldCol,
+      confirmationDetails(details: details),
+      ksizedBoxTextFieldCol,
+      divider,
+      ksizedBoxTextFieldCol,
+    ],
+  );
+}
+
 //Style for displaying details
 Container confirmationDetails({required String details}) {
   return Container(
     padding: const EdgeInsets.symmetric(horizontal: 10),
     child: Text(
       details,
-      style: textStyleHeader(color: const Color(0xFF242426), size: 18),
+      style: textStyleContent(color: const Color(0xFF242426), size: 18),
+      textAlign: TextAlign.justify,
     ),
   );
 }

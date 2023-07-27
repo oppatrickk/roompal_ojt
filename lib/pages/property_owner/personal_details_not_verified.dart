@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
+import 'package:roompal_ojt/widgets/textfield_widget.dart';
 
 class PersonalDetailsNV extends StatefulWidget {
   const PersonalDetailsNV({Key? key}) : super(key: key);
@@ -42,51 +43,60 @@ class _PersonalDetailsNVState extends State<PersonalDetailsNV> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            'Coratson B. Cena Una',
-                            style: kPersonName,
+                          Expanded(
+                            flex: 10,
+                            child: Text(
+                              'Coratson B. Cena Una',
+                              style: kPersonName,
+                            ),
+                          ),
+                          Expanded(
+                            child: iconStyle(
+                                icon: Icons.verified_rounded,
+                                color: Color(0xFF1C39BB),
+                                size: 24),
                           ),
                         ],
                       ),
-                      Text('Manage your personal details.'),
+                      Text(
+                        'Manage your personal details.',
+                        style: textStyleContent(
+                            size: 14, color: Color(0xFF242426)),
+                      ),
                       ksizedBoxTextFieldCol,
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          SizedBox(
-                            height: 31,
-                            child: FloatingActionButton.extended(
-                              isExtended: true,
-                              elevation: 0,
-                              onPressed: () {},
-                              label: const Text('Verify Account'),
-                              shape: RoundedRectangleBorder(
-                                side: const BorderSide(
-                                  color: Color(0xFF808080),
-                                ),
-                                borderRadius: BorderRadius.circular(5.0),
+                          TextButton(
+                            onPressed: () {},
+                            style: ButtonStyle(
+                              padding: MaterialStatePropertyAll(
+                                EdgeInsets.symmetric(
+                                    horizontal: 15, vertical: 7),
                               ),
-                              backgroundColor: Colors.white,
+                              side: MaterialStatePropertyAll(
+                                BorderSide(color: Colors.grey),
+                              ),
+                              shape: MaterialStatePropertyAll(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5))),
                             ),
-                          ),
-                          SizedBox(
-                            height: 31,
-                            child: FloatingActionButton.extended(
-                              isExtended: true,
-                              elevation: 0,
-                              onPressed: () {},
-                              label: const Text('Edit'),
-                              icon: const Icon(
-                                Icons.edit_square,
-                                size: 15,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                side: const BorderSide(
-                                  color: Color(0xFF808080),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Edit',
+                                  style: textStyleHeader(
+                                      size: 14, color: Color(0xFF242426)),
                                 ),
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              backgroundColor: Colors.white,
+                                ksizedBoxTextFieldRow,
+                                Icon(
+                                  Icons.edit_square,
+                                  size: 15,
+                                  color: Color(0xFF242426),
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -95,170 +105,29 @@ class _PersonalDetailsNVState extends State<PersonalDetailsNV> {
                   ),
                 ),
               ),
-              kSizedBox,
               Text(
                 'Personal Information',
                 style: kHeaderTextStyle,
               ),
               kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    textField(label: 'Last Name'),
-                    ksizedBoxTextFieldCol,
-                    textField(label: 'First Name'),
-                    ksizedBoxTextFieldCol,
-                    textField(label: 'Middle Name'),
-                    ksizedBoxTextFieldCol,
-                  ],
-                ),
-              ),
+              displayUserNameData(),
               kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    textField(label: 'Address'),
-                    ksizedBoxTextFieldCol,
-                  ],
-                ),
-              ),
+              displayContent(
+                  label: 'Address',
+                  details: 'Purok 4, Bagumbayan, Daraga, Albay'),
               kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Text(
-                          'Phone Number',
-                          style: textStyleContent(
-                            size: 14,
-                            color: const Color(0xFF242426),
-                          ),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Expanded(
-                              flex: 1,
-                              child: TextField(
-                                decoration: const InputDecoration(
-                                  border: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFBBBFC1),
-                                    ),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFF242426),
-                                    ),
-                                  ),
-                                  contentPadding:
-                                      EdgeInsets.symmetric(horizontal: 30),
-                                  labelText: '+63',
-                                ),
-                                style: textStyleHeader(
-                                  size: 18,
-                                  color: const Color(0xFF242426),
-                                ),
-                              ),
-                            ),
-                            ksizedBoxTextFieldRow,
-                            Expanded(
-                              flex: 2,
-                              child: textFieldDecoration(),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              displayPhoneNumber(),
               kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        textField(label: 'Email'),
-                        ksizedBoxTextFieldCol,
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              displayContent(label: 'Email', details: 'coratsoncu@gmail.com'),
               kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        textField(label: 'Sex'),
-                        ksizedBoxTextFieldCol,
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              displayContent(label: 'Sex', details: 'Female'),
               kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    Text(
-                      'Date of Birth',
-                      style: textStyleContent(
-                        size: 14,
-                        color: Color(0xFF575F6E),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        TextButton(
-                          onPressed: _showDatePicker,
-                          child: Icon(
-                            Icons.calendar_today_outlined,
-                            color: Color(0xFF242426),
-                          ),
-                        ),
-                      ],
-                    ),
-                    divider,
-                    ksizedBoxTextFieldCol,
-                  ],
-                ),
-              ),
+              displayContent(label: 'Date of Birth', details: '11 | 02 | 1786'),
               kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        textField(label: 'Description'),
-                        ksizedBoxTextFieldCol,
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              displayContent(
+                  label: 'Description',
+                  details:
+                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'),
               ksizedBoxTFB,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -276,9 +145,42 @@ class _PersonalDetailsNVState extends State<PersonalDetailsNV> {
       ),
     );
   }
+
+  Container birthDatePicker() {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: boxDecoration(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Text(
+            'Date of Birth',
+            style: textStyleContent(
+              size: 14,
+              color: Color(0xFF575F6E),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              TextButton(
+                onPressed: _showDatePicker,
+                child: Icon(
+                  Icons.calendar_month_rounded,
+                  color: Color(0xFF242426),
+                ),
+              ),
+            ],
+          ),
+          divider,
+          ksizedBoxTextFieldCol,
+        ],
+      ),
+    );
+  }
 }
 
 const TextStyle kPersonName = TextStyle(
-  fontSize: 30.0,
+  fontSize: 28.0,
   fontFamily: 'ProximaNovaAltBold',
 );
