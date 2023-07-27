@@ -81,11 +81,7 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: null,
                         child: Text(
                           'Click here',
-                          style: TextStyle(
-                            fontFamily: 'ProximaNovaRegular',
-                            fontSize: 16,
-                            color: Color(0xFF1C39BB),
-                          ),
+                          style: blueText,
                         ),
                       ),
                     ],
@@ -114,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   kSizedBox,
                   Padding(
-                    padding: const EdgeInsets.only(left: 50, right: 50),
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -168,11 +164,7 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: null,
                         child: Text(
                           'Sign up',
-                          style: TextStyle(
-                            fontFamily: 'ProximaNovaRegular',
-                            fontSize: 16,
-                            color: Color(0xFF1C39BB),
-                          ),
+                          style: blueText,
                         ),
                       ),
                     ],
@@ -187,7 +179,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-//Button for go back and go next
+//click here and sign up blueText style
+const TextStyle blueText = TextStyle(
+  color: Color(0xFF1C39BB),
+  fontSize: 15,
+  fontWeight: FontWeight.normal,
+);
+
+//other authentication
 TextButton signUpButton({
   required void Function()? onPressed,
   required IconData icon,
