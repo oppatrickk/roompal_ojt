@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/user_registration/reset_password.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
@@ -23,7 +24,7 @@ class _Verification extends State<Verification> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Column(
+                  const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
@@ -60,13 +61,13 @@ class _Verification extends State<Verification> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       navigationButton(
-                        onPressed: null,
+                        onPressed: () => Navigator.pop(context),
                         icon: Icons.arrow_back,
                         label: 'Go back',
                         isGoBack: true,
                       ),
                       noButtonIcons(
-                        onPressed: () => null,
+                        onPressed: () => Navigator.pushNamed(context, ResetPassword.id),
                         label: 'Continue',
                         isBorderRequired: false,
                         buttonColor: Color(0xFF1C39BB),

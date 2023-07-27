@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/user_registration/chooserole_page.dart';
+import 'package:roompal_ojt/pages/user_registration/forgot_password.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
@@ -78,14 +80,10 @@ class _LoginPageState extends State<LoginPage> {
                         style: kRoomNumber,
                       ),
                       TextButton(
-                        onPressed: null,
+                        onPressed: () => Navigator.pushNamed(context, ForgotPassword.id),
                         child: Text(
                           'Click here',
-                          style: TextStyle(
-                            fontFamily: 'ProximaNovaRegular',
-                            fontSize: 16,
-                            color: Color(0xFF1C39BB),
-                          ),
+                          style: blueText,
                         ),
                       ),
                     ],
@@ -169,14 +167,10 @@ class _LoginPageState extends State<LoginPage> {
                         style: kRoomNumber,
                       ),
                       TextButton(
-                        onPressed: null,
+                        onPressed: () => Navigator.pushNamed(context, ChooseRole.id),
                         child: Text(
                           'Sign up',
-                          style: TextStyle(
-                            fontFamily: 'ProximaNovaRegular',
-                            fontSize: 16,
-                            color: Color(0xFF1C39BB),
-                          ),
+                          style: blueText,
                         ),
                       ),
                     ],
@@ -191,7 +185,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-//Button for go back and go next
+//click here and sign up blueText style
+const TextStyle blueText = TextStyle(
+  color: Color(0xFF1C39BB),
+  fontSize: 15,
+  fontWeight: FontWeight.normal,
+);
+
+//other authentication
 TextButton signUpButton({
   required void Function()? onPressed,
   required IconData icon,

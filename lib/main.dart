@@ -47,13 +47,11 @@ class RoompalOJT extends StatelessWidget {
       initialRoute: MyHomePage.id,
       //add other screens here
       routes: {
-        MyHomePage.id: (BuildContext context) =>
-            const MyHomePage(title: 'Roompal OJT'),
-        RenterPage.id: (BuildContext context) => const RenterPage(),
+        MyHomePage.id: (BuildContext context) => const MyHomePage(title: 'Roompal OJT'),
+        RenterPage.id: (BuildContext context) => RenterPage(),
         LandingPage.id: (BuildContext context) => const LandingPage(),
         RoomDetails.id: (BuildContext context) => const RoomDetails(),
         RenterPage1.id: (BuildContext context) => const RenterPage1(),
-        BookedDetails.id: (BuildContext context) => const BookedDetails(),
         ContactDetails.id: (BuildContext context) => const ContactDetails(),
         Booking.id: (BuildContext context) => const Booking(),
         BookingSummary.id: (BuildContext context) => const BookingSummary(),
@@ -69,8 +67,7 @@ class RoompalOJT extends StatelessWidget {
         OwnerReviewPage.id: (BuildContext context) => const OwnerReviewPage(),
         PersonalDetailsV.id: (BuildContext context) => const PersonalDetailsV(),
         StayView.id: (BuildContext context) => const StayView(),
-        PersonalDetailsNV.id: (BuildContext context) =>
-            const PersonalDetailsNV(),
+        PersonalDetailsNV.id: (BuildContext context) => const PersonalDetailsNV(),
         LoginPage.id: (BuildContext context) => const LoginPage(),
         ChooseRole.id: (BuildContext context) => const ChooseRole(),
         AsPropertyOwner.id: (BuildContext context) => const AsPropertyOwner(),

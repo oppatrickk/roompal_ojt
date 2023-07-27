@@ -142,8 +142,7 @@ class BookedDetails extends StatelessWidget {
                       PriceDetails('Booking Fee', 'P ####.00'),
                       divider,
                       Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 5.0, vertical: 8.0),
+                        padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 8.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[

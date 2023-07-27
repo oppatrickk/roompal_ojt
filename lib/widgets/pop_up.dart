@@ -438,16 +438,12 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                TextButton(
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     setState(() {
                       selectedButton = 'Booking';
                     });
                   },
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.black,
-                    padding: EdgeInsets.zero,
-                  ),
                   child: selectedButton == 'Booking'
                       ? const Text(
                           'Booking',
@@ -468,16 +464,12 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
                           ),
                         ),
                 ),
-                TextButton(
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     setState(() {
                       selectedButton = 'Tenant';
                     });
                   },
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.black,
-                    padding: EdgeInsets.zero,
-                  ),
                   child: selectedButton == 'Tenant'
                       ? const Text(
                           'Tenant',
