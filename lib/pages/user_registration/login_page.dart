@@ -102,7 +102,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       Text(
                         'or',
-                        style: textStyleHeader(color: const Color(0xFF242731), size: 16),
+                        style: textStyleHeader(
+                            color: const Color(0xFF242731), size: 16),
                       ),
                       const SizedBox(
                         width: 150,
@@ -114,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   kSizedBox,
                   Padding(
-                    padding: const EdgeInsets.only(left: 50, right: 50),
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -141,7 +142,10 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                               Text(
                                 'Continue with Google',
-                                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+                                style: TextStyle(
+                                    color: Color(0xFF242426),
+                                    fontSize: 14.0,
+                                    fontFamily: 'ProximaNovaBold'),
                               ),
                             ],
                           ),
@@ -218,7 +222,10 @@ TextButton signUpButton({
           ksizedBoxTextFieldRow,
           Text(
             label,
-            style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+            style: TextStyle(
+                color: Color(0xFF242426),
+                fontSize: 14.0,
+                fontFamily: 'ProximaNovaBold'),
           )
         ],
       ));

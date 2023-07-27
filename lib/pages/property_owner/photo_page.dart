@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/booking/payment_details.dart';
+import 'package:roompal_ojt/pages/property_owner/price_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
+import 'package:roompal_ojt/widgets/textfield_widget.dart';
+import 'detail_page.dart';
 
 class PhotoPage extends StatefulWidget {
   const PhotoPage({Key? key}) : super(key: key);
@@ -72,22 +74,10 @@ class _PhotoPageState extends State<PhotoPage> {
                 ],
               ),
               kSizedBox,
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      'Photos',
-                      style: kRoomName,
-                    ),
-                    Text(
-                      'Upload property photos. It will take a couple of minutes. ',
-                      style: kRoomNumber,
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
-                ),
-              ),
+              headerSub(
+                  pageTitle: 'Photos',
+                  subContent:
+                      'Upload property photos. It will take a couple of minutes.'),
               kSizedBox,
               Container(
                 padding: const EdgeInsets.all(10),
@@ -118,18 +108,20 @@ class _PhotoPageState extends State<PhotoPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   navigationButton(
-                      onPressed: null,
+                      onPressed: () =>
+                          Navigator.pushNamed(context, DetailPage.id),
                       icon: Icons.arrow_back,
                       label: 'Go back',
                       isGoBack: true),
                   navigationButton(
                       onPressed: () =>
-                          Navigator.pushNamed(context, PaymentDetails.id),
+                          Navigator.pushNamed(context, PricePage.id),
                       label: 'Go next',
                       icon: Icons.arrow_forward,
                       isGoBack: false)
                 ],
               ),
+              ksizedBoxTFB,
             ],
           ),
         ),

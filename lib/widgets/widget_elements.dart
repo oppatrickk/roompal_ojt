@@ -447,6 +447,48 @@ Container detailFields(
   );
 }
 
+//+63
+Row numberPrefix() {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.baseline,
+    textBaseline: TextBaseline.ideographic,
+    children: <Widget>[
+      Expanded(
+        flex: 1,
+        child: Column(
+          children: [
+            Text(
+              '+63',
+              style: textStyleContent(
+                size: 18,
+                color: Color(0xFF242426),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 3),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    height: 1,
+                    color: Color(0xFF646060),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      ksizedBoxTextFieldRow,
+      Expanded(
+        flex: 2,
+        child: textFieldDecoration(),
+      ),
+    ],
+  );
+}
+
 //Button for go back and go next
 TextButton navigationButton({
   required void Function()? onPressed,
@@ -802,7 +844,7 @@ TextField textFieldwithHintTextDecoration(String hintText) {
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 10),
     ),
-    style: textStyleHeader(
+    style: textStyleContent(
       size: 18,
       color: const Color(0xFF242426),
     ),

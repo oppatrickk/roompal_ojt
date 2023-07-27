@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../widgets/const_elements.dart';
-import '../../widgets/widget_elements.dart';
+import 'package:roompal_ojt/pages/property_owner/location_page.dart';
+import 'package:roompal_ojt/pages/property_owner/photo_page.dart';
+import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/widget_elements.dart';
+import 'package:roompal_ojt/widgets/textfield_widget.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
@@ -11,6 +14,35 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailPageState extends State<DetailPage> {
+  // BottoNavigationBar
+  int selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> widgetOptions = <Widget>[
+    Text(
+      'Index 0: Create Listing',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Manage Listing',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: Stay View',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Review',
+      style: optionStyle,
+    ),
+  ];
+
+  void onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
   //DropDown for Amenities
   static const List<Icon> amenityList = <Icon>[
     Icon(Icons.wifi),
@@ -65,45 +97,28 @@ class _DetailPageState extends State<DetailPage> {
                 ],
               ),
               kSizedBox,
-              Text(
-                'Details',
-                style: textStyleHeader(color: Color(0xFF242731), size: 32),
-                textAlign: TextAlign.center,
-              ),
-              ksizedBoxTextFieldCol,
-              Text(
-                'Fill in the property details. It will take a couple of minutes. ',
-                style: textStyleContent(
-                  size: 16,
-                  color: Color(0xFF575F6E),
-                ),
-                textAlign: TextAlign.center,
-              ),
+              headerSub(
+                  pageTitle: 'Details',
+                  subContent:
+                      'Fill in the property details. It will take a couple of minutes.'),
               kSizedBox,
               detailFields(
-                label: 'Enter Room Amenities',
-                hintText2: 'Amenity Modal',
-                labelDesc: 'Amenity description',
+                label: 'Room Amenities',
+                hintText2: 'Enter Amenity Modal',
+                labelDesc: 'Enter Amenity description',
                 isAmenity: true,
               ),
               kSizedBox,
               detailFields(
-                label: 'Enter Room Inclusion',
-                hintText2: 'Inclusion Modal',
-                labelDesc: 'Inclusion description',
+                label: 'Room Inclusion',
+                hintText2: 'Enter Inclusion Modal',
+                labelDesc: 'Enter Inclusion description',
                 isAmenity: false,
               ),
               kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    textField(label: 'Enter Number of Guest to Accomodate'),
-                    ksizedBoxTextFieldCol,
-                  ],
-                ),
-              ),
+              textField1(
+                  label: 'Number of Guest to Accomodate',
+                  hint: 'Enter Number of Guest to Accomodate'),
               kSizedBox,
               Container(
                 padding: const EdgeInsets.all(10),
@@ -115,7 +130,7 @@ class _DetailPageState extends State<DetailPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          'Enter House Rules',
+                          'House Rules',
                           style: textStyleContent(
                             size: 14,
                             color: Color(0xFF575F6E),
@@ -123,23 +138,9 @@ class _DetailPageState extends State<DetailPage> {
                         ),
                       ],
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Flexible(
-                          flex: 1,
-                          child: textFieldWithHintTextButNoLabel(
-                            hint: '1',
-                          ),
-                        ),
-                        ksizedBoxTextFieldRow,
-                        Flexible(
-                          flex: 4,
-                          child: textFieldWithHintTextButNoLabel(
-                            hint: 'Bawal an may jowa',
-                          ),
-                        ),
-                      ],
+                    ksizedBoxTextFieldRow,
+                    textFieldWithHintTextButNoLabel(
+                      hint: 'Enter House Rule',
                     ),
                     ksizedBoxTextFieldCol,
                     addButton(),
@@ -151,20 +152,50 @@ class _DetailPageState extends State<DetailPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   navigationButton(
-                      onPressed: null,
+                      onPressed: () =>
+                          Navigator.pushNamed(context, LocationPage.id),
                       icon: Icons.arrow_back,
                       label: 'Go back',
                       isGoBack: true),
                   navigationButton(
-                      onPressed: null,
+                      onPressed: () =>
+                          Navigator.pushNamed(context, PhotoPage.id),
                       label: 'Go next',
                       icon: Icons.arrow_forward,
                       isGoBack: false)
                 ],
               ),
+              ksizedBoxTFB,
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list_alt_rounded),
+            label: 'Create Listing',
+            backgroundColor: Color(0xFF1C39BB),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.edit_note_rounded),
+            label: 'Manage Listing',
+            backgroundColor: Color(0xFF1C39BB),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_month_rounded),
+            label: 'Stay View',
+            backgroundColor: Color(0xFF1C39BB),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.grade_outlined),
+            label: 'Review',
+            backgroundColor: Color(0xFF1C39BB),
+          ),
+        ],
+        currentIndex: selectedIndex,
+        selectedItemColor: Colors.white,
+        onTap: onItemTapped,
       ),
     );
   }

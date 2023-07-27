@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../widgets/const_elements.dart';
-import '../../widgets/widget_elements.dart';
+import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
+import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/textfield_widget.dart';
+import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class OverviewPage extends StatefulWidget {
   const OverviewPage({Key? key}) : super(key: key);
@@ -77,42 +79,15 @@ class _OverviewPageState extends State<OverviewPage> {
               ],
             ),
             kSizedBox,
-            Text(
-              'Overview',
-              style: textStyleHeader(color: Color(0xFF242731), size: 32),
-              textAlign: TextAlign.center,
-            ),
-            ksizedBoxTextFieldCol,
-            Text(
-              'Fill in the property overview data. It will take a couple of minutes. ',
-              style: textStyleContent(
-                size: 16,
-                color: Color(0xFF575F6E),
-              ),
-              textAlign: TextAlign.center,
-            ),
+            headerSub(
+                pageTitle: 'Overview',
+                subContent:
+                    'Fill in the property overview data. It will take a couple of minutes.'),
             kSizedBox,
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: boxDecoration(),
-              child: Column(
-                children: <Widget>[
-                  textField(label: 'Enter Room Title'),
-                  ksizedBoxTextFieldCol,
-                ],
-              ),
-            ),
+            textField1(label: 'Room Title', hint: 'Enter Room Title'),
             kSizedBox,
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: boxDecoration(),
-              child: Column(
-                children: <Widget>[
-                  textField(label: 'Enter Room Description'),
-                  ksizedBoxTextFieldCol,
-                ],
-              ),
-            ),
+            textField1(
+                label: 'Room Description', hint: 'Enter Room Description'),
             kSizedBox,
             Container(
               padding: const EdgeInsets.all(10),
@@ -131,8 +106,10 @@ class _OverviewPageState extends State<OverviewPage> {
                     isExpanded: true,
                     value: dropdownValue,
                     icon: const Icon(Icons.arrow_drop_down),
-                    elevation: 16,
-                    style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
+                    style: textStyleContent(
+                      size: 16,
+                      color: Color(0xFF575F6E),
+                    ),
                     underline: Container(
                       height: 1,
                       color: Color(0xFF575F6E),
@@ -158,13 +135,15 @@ class _OverviewPageState extends State<OverviewPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 navigationButton(
-                  onPressed: null,
+                  onPressed: () =>
+                      Navigator.pushNamed(context, ContactOverview.id),
                   label: 'Go next',
                   icon: Icons.arrow_forward,
                   isGoBack: false,
                 ),
               ],
             ),
+            ksizedBoxTFB,
           ]),
         ),
       ),

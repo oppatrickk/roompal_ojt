@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
 import 'package:roompal_ojt/pages/property_owner/detail_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
+import 'package:roompal_ojt/widgets/textfield_widget.dart';
 
 class LocationPage extends StatefulWidget {
   LocationPage({super.key});
@@ -13,6 +15,35 @@ class LocationPage extends StatefulWidget {
 }
 
 class _LocationPageState extends State<LocationPage> {
+  // BottoNavigationBar
+  int selectedIndex = 0;
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> widgetOptions = <Widget>[
+    Text(
+      'Index 0: Create Listing',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Manage Listing',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: Stay View',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Review',
+      style: optionStyle,
+    ),
+  ];
+
+  void onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
   //DropDown
   static const List<Icon> list = <Icon>[
     Icon(Icons.house),
@@ -55,22 +86,10 @@ class _LocationPageState extends State<LocationPage> {
                 ],
               ),
               ksizedBoxTextFieldCol,
-              //Title and subtitle
-              const Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      'Location',
-                      style: kRoomName,
-                    ),
-                    Text(
-                      'Fill in the property location data. It will take a couple of minutes. ',
-                      style: kRoomNumber,
-                    ),
-                  ],
-                ),
-              ),
+              headerSub(
+                  pageTitle: 'Location',
+                  subContent:
+                      'Fill in the property location data. It will take a couple of minutes.'),
               ksizedBoxTextFieldCol,
               //region and province
               Container(
@@ -129,23 +148,16 @@ class _LocationPageState extends State<LocationPage> {
                 decoration: boxDecoration(),
                 child: Column(
                   children: <Widget>[
-                    textField(label: 'Enter Postal Code'),
+                    textField(label: 'Postal Code'),
                     ksizedBoxTextFieldCol,
                   ],
                 ),
               ),
               ksizedBoxTextFieldCol,
               //address
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    textField(label: 'Enter Street Name, Building, House No.'),
-                    ksizedBoxTextFieldCol,
-                  ],
-                ),
-              ),
+              textField1(
+                  label: 'Street Name, Building, House No.',
+                  hint: 'Enter Residence'),
               ksizedBoxTextFieldCol,
               //Icon dropdown and landmark
               Container(
@@ -200,8 +212,8 @@ class _LocationPageState extends State<LocationPage> {
                         Flexible(
                           flex: 3,
                           child: textFieldWithHintText(
-                            label: 'Enter Landmark/s',
-                            hint: 'Parks nearby',
+                            label: 'Landmarks',
+                            hint: 'Enter nearby landmark',
                           ),
                         ),
                       ],
@@ -232,20 +244,37 @@ class _LocationPageState extends State<LocationPage> {
                   )
                 ],
               ),
-              ksizedBoxTextFieldCol,
-              //cancel button
-              noButtonIcons(
-                onPressed: () => null,
-                label: 'Cancel',
-                isBorderRequired: true,
-                buttonColor: Colors.white,
-                textColor: const Color(0xFF242426),
-                horizontalPadding: 27,
-                verticalPadding: 15,
-              ),
+              ksizedBoxTFB,
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list_alt_rounded),
+            label: 'Create Listing',
+            backgroundColor: Color(0xFF1C39BB),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.edit_note_rounded),
+            label: 'Manage Listing',
+            backgroundColor: Color(0xFF1C39BB),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_month_rounded),
+            label: 'Stay View',
+            backgroundColor: Color(0xFF1C39BB),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.grade_outlined),
+            label: 'Review',
+            backgroundColor: Color(0xFF1C39BB),
+          ),
+        ],
+        currentIndex: selectedIndex,
+        selectedItemColor: Colors.white,
+        onTap: onItemTapped,
       ),
     );
   }
