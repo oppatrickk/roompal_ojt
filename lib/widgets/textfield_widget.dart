@@ -125,3 +125,90 @@ Expanded priceField({
     ),
   );
 }
+
+//Display User Data
+Container displayUserNameData() {
+  return Container(
+    padding: const EdgeInsets.all(10),
+    decoration: boxDecoration(),
+    child: Column(
+      children: <Widget>[
+        displayDetails1(label: 'Last Name', details: 'Cena Una'),
+        ksizedBoxTextFieldCol,
+        displayDetails1(label: 'First Name', details: 'Coratson'),
+        ksizedBoxTextFieldCol,
+        displayDetails1(label: 'Middle Name', details: 'Bueno'),
+        ksizedBoxTextFieldCol,
+      ],
+    ),
+  );
+}
+
+//Display Content
+Container displayContent({required String label, required String details}) {
+  return Container(
+    padding: const EdgeInsets.all(10),
+    decoration: boxDecoration(),
+    child: displayDetails1(label: label, details: details),
+  );
+}
+
+// Display User's Phone Number
+Container displayPhoneNumber() {
+  return Container(
+    padding: const EdgeInsets.all(10),
+    decoration: boxDecoration(),
+    child: Column(
+      children: <Widget>[
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Text(
+              'Phone Number',
+              style: textStyleContent(
+                size: 14,
+                color: const Color(0xFF242426),
+              ),
+            ),
+            ksizedBoxTextFieldCol,
+            Row(
+              children: [
+                Expanded(flex: 1, child: dNumberPrefix(label: '+63')),
+                ksizedBoxTextFieldRow,
+                Expanded(flex: 2, child: dNumberPrefix(label: '912 7689 991')),
+              ],
+            ),
+            ksizedBoxTextFieldCol,
+          ],
+        ),
+      ],
+    ),
+  );
+}
+
+Column dNumberPrefix({required String label}) {
+  return Column(
+    children: [
+      Text(
+        label,
+        style: textStyleContent(
+          size: 18,
+          color: Color(0xFF242426),
+        ),
+        textAlign: TextAlign.center,
+      ),
+      Padding(
+        padding: const EdgeInsets.only(top: 3),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              height: 1,
+              color: Color(0xFF646060),
+            ),
+          ],
+        ),
+      ),
+    ],
+  );
+}
