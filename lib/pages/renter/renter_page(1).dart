@@ -31,7 +31,6 @@ class BookingManagement extends StatelessWidget {
     BookedRoomDetails('July 3, 2023', 'Kwarto De Luna', 'P ####.00', 'Booked'),
     BookedRoomDetails('July 3, 2023', 'Kwarto De Luna', 'P ####.00', 'Failed'),
     BookedRoomDetails('July 3, 2023', 'Kwarto De Luna', 'P ####.00', 'Canceled'),
-    BookedRoomDetails('July 3, 2023', 'Kwarto De Luna', 'P ####.00', 'Canceled'),
   ];
 
   @override
@@ -83,7 +82,7 @@ class ListViewBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.9,
+      height: MediaQuery.of(context).size.height * 0.7,
       child: ListView.builder(
           itemCount: items.length,
           itemBuilder: (BuildContext context, int index) {
@@ -107,7 +106,6 @@ class ListViewBuilder extends StatelessWidget {
                           ),
                         ),
                         //status boxes
-                        //data.status == 'Booked' ? kBooked : kProcessing,
                       ],
                     ),
                     ListTile(
