@@ -73,12 +73,6 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               TextButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, RenterPage1.id);
-                },
-                child: const Text('renter page 1'),
-              ),
-              TextButton(
-                onPressed: () {
                   Navigator.pushNamed(context, ContactDetails.id);
                 },
                 child: const Text('Contact Details'),
