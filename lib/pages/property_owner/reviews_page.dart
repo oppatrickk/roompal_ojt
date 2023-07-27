@@ -31,9 +31,7 @@ class _OwnerReviewPageState extends State<OwnerReviewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset('assets/img/wmB.png'),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -135,7 +133,8 @@ class _OwnerReviewPageState extends State<OwnerReviewPage> {
                     //average rating
                     Container(
                       width: 145,
-                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 10),
                       child: Column(
                         children: <Widget>[
                           const Text(
@@ -157,11 +156,16 @@ class _OwnerReviewPageState extends State<OwnerReviewPage> {
                           ),
                           Row(
                             children: <Widget>[
-                              starRating(color: const Color(0xFFFEB618), size: 25),
-                              starRating(color: const Color(0xFFFEB618), size: 25),
-                              starRating(color: const Color(0xFFFEB618), size: 25),
-                              starRating(color: const Color(0xFFFEB618), size: 25),
-                              starRating(color: const Color(0xFFDEDEDE), size: 25),
+                              starRating(
+                                  color: const Color(0xFFFEB618), size: 25),
+                              starRating(
+                                  color: const Color(0xFFFEB618), size: 25),
+                              starRating(
+                                  color: const Color(0xFFFEB618), size: 25),
+                              starRating(
+                                  color: const Color(0xFFFEB618), size: 25),
+                              starRating(
+                                  color: const Color(0xFFDEDEDE), size: 25),
                             ],
                           ),
                           const Text(
@@ -179,7 +183,8 @@ class _OwnerReviewPageState extends State<OwnerReviewPage> {
                       child: SfCartesianChart(
                         series: <ChartSeries>[
                           BarSeries<ReviewData, String>(
-                            pointColorMapper: (ReviewData data, _) => data.color,
+                            pointColorMapper: (ReviewData data, _) =>
+                                data.color,
                             dataSource: chartData,
                             xValueMapper: (ReviewData data, _) => data.label,
                             yValueMapper: (ReviewData data, _) => data.value,

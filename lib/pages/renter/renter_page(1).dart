@@ -9,11 +9,7 @@ class RenterPage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80.0,
-        backgroundColor: Colors.white,
-        title: Image.asset('assets/img/wmB.png'),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: const SingleChildScrollView(
         child: Padding(
@@ -35,7 +31,8 @@ class RenterPage1 extends StatelessWidget {
                 thickness: 1.0,
               ),
               BookDetails(Color(0xFFFFF5C7), 'Processing', Color(0xFFCC8100)),
-              BookDetails(Color(0xFFD7FAE0), 'Successfully booked', Color(0xFF007D3A)),
+              BookDetails(
+                  Color(0xFFD7FAE0), 'Successfully booked', Color(0xFF007D3A)),
               BookDetails(Color(0xFFFFF0F1), 'Failed', Color(0xFFFF424F)),
               BookDetails(Color(0xFFEBEBF0), 'Cancelled', Color(0xFF808089)),
             ],

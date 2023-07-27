@@ -23,9 +23,7 @@ class _PersonalDetailsNVState extends State<PersonalDetailsNV> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset('assets/img/wmB.png'),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Container(
@@ -160,7 +158,8 @@ class _PersonalDetailsNVState extends State<PersonalDetailsNV> {
                                       color: Color(0xFF242426),
                                     ),
                                   ),
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
+                                  contentPadding:
+                                      EdgeInsets.symmetric(horizontal: 30),
                                   labelText: '+63',
                                 ),
                                 style: textStyleHeader(
@@ -264,7 +263,11 @@ class _PersonalDetailsNVState extends State<PersonalDetailsNV> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  navigationButton(onPressed: null, icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
+                  navigationButton(
+                      onPressed: null,
+                      icon: Icons.arrow_back,
+                      label: 'Go back',
+                      isGoBack: true),
                 ],
               ),
             ],

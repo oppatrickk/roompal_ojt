@@ -31,9 +31,7 @@ class _BookingState extends State<Booking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset("assets/img/wmB.png"),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Container(
@@ -135,37 +133,64 @@ class _BookingState extends State<Booking> {
                         Expanded(child: calendarIcon()),
                         Expanded(
                           flex: 2,
-                          child: dateDisplay(label: 'Check-In', month: 07, day: 03, year: 2023),
+                          child: dateDisplay(
+                              label: 'Check-In',
+                              month: 07,
+                              day: 03,
+                              year: 2023),
                         ),
                         ksizedBoxTextFieldRow,
                         Expanded(
                           flex: 2,
-                          child: dateDisplay(label: 'Check-Out', month: 07, day: 17, year: 2023),
+                          child: dateDisplay(
+                              label: 'Check-Out',
+                              month: 07,
+                              day: 17,
+                              year: 2023),
                         ),
                       ],
                     ),
-
-                    //Days
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(2.0, 5.0, 4.0, 5.0),
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(
-                              color: Color(0xFF242426),
-                              width: 1.0,
-                            ),
+                    ksizedBoxTextFieldCol,
+                    SizedBox(
+                      width: 50,
+                      child: Row(
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                '14 days',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Color(0xFF242426),
+                                ),
+                              ),
+                              Container(
+                                height: 1,
+                                width: 100,
+                                color: Color(0xFF242426),
+                              ),
+                            ],
                           ),
-                        ),
-                        child: Text(
-                          '14 days',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Color(0xFF242426),
-                          ),
-                        ),
+                        ],
                       ),
                     ),
+                    ksizedBoxTextFieldCol,
+
+                    //Days
+                    // Padding(
+                    //   padding: EdgeInsets.fromLTRB(2.0, 5.0, 4.0, 5.0),
+                    //   child: DecoratedBox(
+                    //     decoration: BoxDecoration(
+                    //       border: Border(
+                    //         bottom: BorderSide(
+                    //           color: Color(0xFF242426),
+                    //           width: 1.0,
+                    //         ),
+                    //       ),
+                    //     ),
+                    //     child:
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -190,7 +215,8 @@ class _BookingState extends State<Booking> {
                       value: dropdownValue,
                       icon: const Icon(Icons.arrow_drop_down),
                       elevation: 16,
-                      style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
+                      style:
+                          textStyleContent(size: 16, color: Color(0xFF575F6E)),
                       underline: Container(
                         height: 1,
                         color: Color(0xFF575F6E),
@@ -210,7 +236,8 @@ class _BookingState extends State<Booking> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('Requires 2 months advance payments', style: kRedText),
+                        Text('Requires 2 months advance payments',
+                            style: kRedText),
                       ],
                     ),
                     ksizedBoxTextFieldCol,
@@ -224,30 +251,27 @@ class _BookingState extends State<Booking> {
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: boxDecoration(),
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  decoration: boxDecoration(),
-                  child: Column(
-                    children: [
-                      textField(label: 'Number of Guest'),
-                      ksizedBoxTextFieldCol,
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Maximum of 2 guests',
-                                style: kRedText,
-                              ),
-                              addButton(), // Add icon to the right side of the text
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                child: Column(
+                  children: [
+                    textField(label: 'Number of Guest'),
+                    ksizedBoxTextFieldCol,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Maximum of 2 guests',
+                              style: kRedText,
+                            ),
+                            addButton(), // Add icon to the right side of the text
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
 
@@ -257,7 +281,8 @@ class _BookingState extends State<Booking> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   noButtonIcons(
-                    onPressed: () => Navigator.pushNamed(context, RoomDetails.id),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, RoomDetails.id),
                     label: 'Cancel',
                     isBorderRequired: true,
                     buttonColor: Colors.white,
@@ -266,7 +291,11 @@ class _BookingState extends State<Booking> {
                     verticalPadding: 15,
                   ),
                   navigationButton(
-                      onPressed: () => Navigator.pushNamed(context, ContactDetails.id), label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
+                      onPressed: () =>
+                          Navigator.pushNamed(context, ContactDetails.id),
+                      label: 'Go next',
+                      icon: Icons.arrow_forward,
+                      isGoBack: false)
                 ],
               ),
             ],
@@ -276,7 +305,11 @@ class _BookingState extends State<Booking> {
     );
   }
 
-  Column dateDisplay({required String label, required int month, required int day, required int year}) {
+  Column dateDisplay(
+      {required String label,
+      required int month,
+      required int day,
+      required int year}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

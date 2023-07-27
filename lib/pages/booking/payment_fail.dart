@@ -14,9 +14,7 @@ class _PaymentFailState extends State<PaymentFail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset("assets/img/wmB.png"),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: Center(
         child: SingleChildScrollView(

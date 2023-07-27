@@ -27,9 +27,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset('assets/img/wmB.png'),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Container(

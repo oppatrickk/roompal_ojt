@@ -14,9 +14,7 @@ class _BookingSummaryState extends State<BookingSummary> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset("assets/img/wmB.png"),
-      ),
+      appBar: appBar(),
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         child: Container(
@@ -233,7 +231,8 @@ class _BookingSummaryState extends State<BookingSummary> {
                   child: Center(
                     child: Text(
                       'Finish Payment',
-                      style: textStyleHeader(color: Color(0xFF242426), size: 16),
+                      style:
+                          textStyleHeader(color: Color(0xFF242426), size: 16),
                     ),
                   ),
                 ),
@@ -248,7 +247,9 @@ class _BookingSummaryState extends State<BookingSummary> {
 }
 
 class dashLineSeparator extends StatelessWidget {
-  const dashLineSeparator({Key? key, this.height = 1, this.color = Colors.black}) : super(key: key);
+  const dashLineSeparator(
+      {Key? key, this.height = 1, this.color = Colors.black})
+      : super(key: key);
   final double height;
   final Color color;
 
