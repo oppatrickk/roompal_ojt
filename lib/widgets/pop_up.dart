@@ -448,15 +448,25 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
                     foregroundColor: Colors.black,
                     padding: EdgeInsets.zero,
                   ),
-                  child: const Text(
-                    'Booking',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 14,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
+                  child: selectedButton == 'Booking'
+                      ? const Text(
+                          'Booking',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                            color: Color(0xFF242426),
+                          ),
+                        )
+                      : const Text(
+                          'Booking',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            fontSize: 14,
+                            color: Color(0xFF242426),
+                          ),
+                        ),
                 ),
                 TextButton(
                   onPressed: () {
@@ -468,15 +478,25 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
                     foregroundColor: Colors.black,
                     padding: EdgeInsets.zero,
                   ),
-                  child: const Text(
-                    'Tenant',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 14,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
+                  child: selectedButton == 'Tenant'
+                      ? const Text(
+                          'Tenant',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 17,
+                            color: Color(0xFF242426),
+                          ),
+                        )
+                      : const Text(
+                          'Tenant',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                            fontSize: 14,
+                            color: Color(0xFF242426),
+                          ),
+                        ),
                 ),
               ],
             ),
