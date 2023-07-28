@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/formvalidation/logic.dart';
 import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
@@ -129,13 +130,6 @@ class _OverviewFormState extends State<OverviewForm> {
   // and allows validation of the form.
   final _overviewFormKey = GlobalKey<FormState>();
 
-  String? requiredValidator(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'This field is required.';
-    }
-    return null;
-  }
-
   //DropDown
   static const List<String> list = <String>['Apartment', 'Studio', 'Bedspace'];
 
@@ -204,10 +198,11 @@ class _OverviewFormState extends State<OverviewForm> {
             children: [
               navigationButton(
                 onPressed: () {
+                  Navigator.pushNamed(context, ContactOverview.id);
                   // Validate returns true if the form is valid, or false otherwise.
-                  if (_overviewFormKey.currentState!.validate()) {
-                    Navigator.pushNamed(context, ContactOverview.id);
-                  }
+                  // if (_overviewFormKey.currentState!.validate()) {
+                  //   Navigator.pushNamed(context, ContactOverview.id);
+                  // }
                 },
                 label: 'Go next',
                 icon: Icons.arrow_forward,
