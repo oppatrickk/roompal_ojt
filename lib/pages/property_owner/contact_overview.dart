@@ -16,35 +16,6 @@ class ContactOverview extends StatefulWidget {
 }
 
 class _ContactOverviewState extends State<ContactOverview> {
-// BottoNavigationBar
-  int selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> widgetOptions = <Widget>[
-    Text(
-      'Index 0: Create Listing',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Manage Listing',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Stay View',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Review',
-      style: optionStyle,
-    ),
-  ];
-
-  void onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -86,33 +57,6 @@ class _ContactOverviewState extends State<ContactOverview> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt_rounded),
-            label: 'Create Listing',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.edit_note_rounded),
-            label: 'Manage Listing',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_month_rounded),
-            label: 'Stay View',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grade_outlined),
-            label: 'Review',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-        ],
-        currentIndex: selectedIndex,
-        selectedItemColor: Colors.white,
-        onTap: onItemTapped,
       ),
     );
   }

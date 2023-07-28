@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/property_owner/bottom_navigation.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 import '../widgets/widget_elements.dart';
 
@@ -46,11 +47,13 @@ class _LandingPageState extends State<LandingPage> {
                           color: Colors.white,
                         ),
                         child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
                           child: Column(
                             children: <Widget>[
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
                                   Text(
                                     'Filters',
@@ -80,23 +83,31 @@ class _LandingPageState extends State<LandingPage> {
                                   const SizedBox(height: 20),
                                   Column(
                                     children: <Widget>[
-                                      filterContents(label: 'Show Occupied Rooms'),
-                                      filterContents(label: 'Show Vacant Rooms'),
+                                      filterContents(
+                                          label: 'Show Occupied Rooms'),
+                                      filterContents(
+                                          label: 'Show Vacant Rooms'),
                                     ],
                                   ),
                                   const SizedBox(height: 20),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: <Widget>[
                                       Text(
                                         'Type of Room',
-                                        style: textStyleHeader(color: const Color(0xFF242731), size: 20),
+                                        style: textStyleHeader(
+                                            color: const Color(0xFF242731),
+                                            size: 20),
                                       ),
                                       Container(
-                                        padding: const EdgeInsets.only(left: 20),
+                                        padding:
+                                            const EdgeInsets.only(left: 20),
                                         child: Column(children: <Widget>[
-                                          filterContents(label: 'Boarding House'),
+                                          filterContents(
+                                              label: 'Boarding House'),
                                           filterContents(label: 'Bedspace'),
                                           filterContents(label: 'Apartment'),
                                           filterContents(label: 'Studio'),
@@ -108,7 +119,12 @@ class _LandingPageState extends State<LandingPage> {
                               ),
                               const SizedBox(height: 80),
                               buttonLP(
-                                  height: 40, color: const Color(0xFF1C39BB), label: 'Apply Filter', textColor: Colors.white, size: 16, onTap: () {}),
+                                  height: 40,
+                                  color: const Color(0xFF1C39BB),
+                                  label: 'Apply Filter',
+                                  textColor: Colors.white,
+                                  size: 16,
+                                  onTap: () {}),
                             ],
                           ),
                         ),
@@ -126,7 +142,9 @@ class _LandingPageState extends State<LandingPage> {
                   Container(
                     width: 335,
                     padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(color: const Color(0xFF1C39BB), borderRadius: BorderRadius.circular(16)),
+                    decoration: BoxDecoration(
+                        color: const Color(0xFF1C39BB),
+                        borderRadius: BorderRadius.circular(16)),
                     child: Column(children: <Widget>[
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -142,11 +160,13 @@ class _LandingPageState extends State<LandingPage> {
                             children: <Widget>[
                               Text(
                                 'ROOM FOR',
-                                style: textStyleHeader(color: Colors.white, size: 20),
+                                style: textStyleHeader(
+                                    color: Colors.white, size: 20),
                               ),
                               Text(
                                 'RENT?',
-                                style: textStyleHeader(color: Colors.white, size: 50),
+                                style: textStyleHeader(
+                                    color: Colors.white, size: 50),
                               )
                             ],
                           ),
@@ -159,7 +179,8 @@ class _LandingPageState extends State<LandingPage> {
                           label: 'List your property with us',
                           textColor: Colors.black,
                           size: 16,
-                          onTap: () {}),
+                          onTap: () => Navigator.pushNamed(
+                              context, BottomNavigation.id)),
                       const SizedBox(height: 10),
                       Text(
                         'With our extensive network of potential tenants and a wide range of features, we strive to make the rental process as effortless as possible.',
@@ -184,7 +205,8 @@ class _LandingPageState extends State<LandingPage> {
                           flex: 6,
                           child: Text(
                             'Promotional Stuff',
-                            style: textStyleHeader(color: Colors.white, size: 28),
+                            style:
+                                textStyleHeader(color: Colors.white, size: 28),
                           ),
                         ),
                         const Expanded(
@@ -214,7 +236,8 @@ class _LandingPageState extends State<LandingPage> {
                 ),
                 Text(
                   'HELPING YOU FIND A PLACE TO CALL HOME',
-                  style: textStyleHeader(color: const Color(0xFF242731), size: 12),
+                  style:
+                      textStyleHeader(color: const Color(0xFF242731), size: 12),
                 ),
                 const SizedBox(
                   width: 35,

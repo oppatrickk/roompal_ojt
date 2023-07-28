@@ -16,37 +16,6 @@ class ListingOwner extends StatefulWidget {
 }
 
 class _ListingOwnerState extends State<ListingOwner> {
-  int? viewValue = 0; //part of view changer option
-  int? iconValue = 0;
-  // Bottom NavigationBar
-  int selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> widgetOptions = <Widget>[
-    Text(
-      'Index 0: Create Listing',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Manage Listing',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Stay View',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Review',
-      style: optionStyle,
-    ),
-  ];
-
-  void onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,117 +23,106 @@ class _ListingOwnerState extends State<ListingOwner> {
       endDrawer: buildSideBar(context),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-          child: Column(
+        child: OwnersViewSection(),
+      ),
+    );
+  }
+}
+
+class OwnersViewSection extends StatefulWidget {
+  const OwnersViewSection({super.key});
+
+  @override
+  State<OwnersViewSection> createState() => _OwnersViewSectionState();
+}
+
+class _OwnersViewSectionState extends State<OwnersViewSection> {
+  int? viewValue = 0; //part of view changer option
+  int? iconValue = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+      child: Column(
+        children: <Widget>[
+          //search bar and filter box
+          Row(
             children: <Widget>[
-              //search bar and filter box
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    flex: 4,
-                    child: searchBar(),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Expanded(
-                    child: GestureDetector(
-                      onTap: null,
-                      child: const FilterBox(),
-                    ),
-                  ),
-                ],
+              Expanded(
+                flex: 4,
+                child: searchBar(),
               ),
-              ksizedBoxTextFieldCol,
-              //Property Count
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Flexible(
-                    child: PropertyCount('Total Property', '25'),
-                  ),
-                  Flexible(
-                    child: PropertyCount('Total Views', '109'),
-                  ),
-                ],
+              const SizedBox(
+                width: 10,
               ),
-              ksizedBoxTextFieldCol,
-              //buttons
-              Row(
-                children: <Widget>[
-                  Container(
-                    alignment: Alignment.topLeft,
-                    child: CupertinoSegmentedControl<int>(
-                      padding: const EdgeInsets.all(4),
-                      groupValue: viewValue,
-                      selectedColor: const Color(0xFF1C39BB),
-                      borderColor: const Color(0xFF808080),
-                      children: const <int, Widget>{
-                        0: BuildSegment("Owner's View"),
-                        1: BuildSegment("Renter's View"),
-                      },
-                      //viewValue == 0 ? const OwnerView() : const RenterView();
-                      onValueChanged: (int? groupValue) {
-                        setState(() => viewValue = groupValue);
-                      },
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                  ),
-                  //Add Button
-                  SizedBox(
-                    height: 31,
-                    child: FloatingActionButton.extended(
-                      isExtended: true,
-                      elevation: 0,
-                      onPressed: () =>
-                          Navigator.pushNamed(context, OverviewPage.id),
-                      label: const Text('Add New'),
-                      icon: const Icon(Icons.add),
-                      shape: RoundedRectangleBorder(
-                        side: const BorderSide(
-                          color: Color(0xFF808080),
-                        ),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      backgroundColor: Colors.white,
-                    ),
-                  ),
-                ],
+              Expanded(
+                child: GestureDetector(
+                  onTap: null,
+                  child: const FilterBox(),
+                ),
               ),
-              viewValue == 0 ? const OwnerView() : const RenterView(),
             ],
           ),
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt_rounded),
-            label: 'Create Listing',
-            backgroundColor: Color(0xFF1C39BB),
+          ksizedBoxTextFieldCol,
+          //Property Count
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Flexible(
+                child: PropertyCount('Total Property', '25'),
+              ),
+              Flexible(
+                child: PropertyCount('Total Views', '109'),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.edit_note_rounded),
-            label: 'Manage Listing',
-            backgroundColor: Color(0xFF1C39BB),
+          ksizedBoxTextFieldCol,
+          //buttons
+          Row(
+            children: <Widget>[
+              Container(
+                alignment: Alignment.topLeft,
+                child: CupertinoSegmentedControl<int>(
+                  padding: const EdgeInsets.all(4),
+                  groupValue: viewValue,
+                  selectedColor: const Color(0xFF1C39BB),
+                  borderColor: const Color(0xFF808080),
+                  children: const <int, Widget>{
+                    0: BuildSegment("Owner's View"),
+                    1: BuildSegment("Renter's View"),
+                  },
+                  //viewValue == 0 ? const OwnerView() : const RenterView();
+                  onValueChanged: (int? groupValue) {
+                    setState(() => viewValue = groupValue);
+                  },
+                ),
+              ),
+              const SizedBox(
+                width: 30,
+              ),
+              //Add Button
+              SizedBox(
+                height: 31,
+                child: FloatingActionButton.extended(
+                  isExtended: true,
+                  elevation: 0,
+                  onPressed: () =>
+                      Navigator.pushNamed(context, OverviewPage.id),
+                  label: const Text('Add New'),
+                  icon: const Icon(Icons.add),
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(
+                      color: Color(0xFF808080),
+                    ),
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  backgroundColor: Colors.white,
+                ),
+              ),
+            ],
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_month_rounded),
-            label: 'Stay View',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grade_outlined),
-            label: 'Review',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
+          viewValue == 0 ? const OwnerView() : const RenterView(),
         ],
-        currentIndex: selectedIndex,
-        selectedItemColor: Colors.white,
-        onTap: onItemTapped,
       ),
     );
   }
