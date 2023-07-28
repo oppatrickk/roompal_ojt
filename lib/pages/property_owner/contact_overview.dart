@@ -16,7 +16,8 @@ class ContactOverview extends StatefulWidget {
 class _ContactOverviewState extends State<ContactOverview> {
 // BottoNavigationBar
   int selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> widgetOptions = <Widget>[
     Text(
       'Index 0: Create Listing',
@@ -73,11 +74,14 @@ class _ContactOverviewState extends State<ContactOverview> {
                 ],
               ),
               kSizedBox,
-              headerSub(pageTitle: 'Contact', subContent: 'Fill in your contact data. It will take a couple of minutes.'),
+              headerSub(
+                  pageTitle: 'Contact',
+                  subContent:
+                      'Fill in your contact data. It will take a couple of minutes.'),
               kSizedBox,
               userName(),
               kSizedBox,
-              phoneNumber(),
+              textField1(label: 'Phone Number', hint: 'Enter Phone Number'),
               kSizedBox,
               textField1(label: 'Email', hint: 'Enter Email'),
               ksizedBoxTFB,
@@ -85,9 +89,17 @@ class _ContactOverviewState extends State<ContactOverview> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   navigationButton(
-                      onPressed: () => Navigator.pushNamed(context, OverviewPage.id), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
+                      onPressed: () =>
+                          Navigator.pushNamed(context, OverviewPage.id),
+                      icon: Icons.arrow_back,
+                      label: 'Go back',
+                      isGoBack: true),
                   navigationButton(
-                      onPressed: () => Navigator.pushNamed(context, LocationPage.id), label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
+                      onPressed: () =>
+                          Navigator.pushNamed(context, LocationPage.id),
+                      label: 'Go next',
+                      icon: Icons.arrow_forward,
+                      isGoBack: false)
                 ],
               ),
               ksizedBoxTFB,

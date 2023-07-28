@@ -51,7 +51,7 @@ class _AsRenter extends State<AsRenter> {
                   kSizedBox,
                   userName(),
                   kSizedBox,
-                  phoneNumber(),
+                  textField1(label: 'Phone Number', hint: 'Enter Phone Number'),
                   kSizedBox,
                   textField1(label: 'Email', hint: ''),
                   kSizedBox,
@@ -72,7 +72,8 @@ class _AsRenter extends State<AsRenter> {
                         isGoBack: true,
                       ),
                       noButtonIcons(
-                        onPressed: () => Navigator.pushNamed(context, LandingPage.id),
+                        onPressed: () =>
+                            Navigator.pushNamed(context, LandingPage.id),
                         label: 'Create Account',
                         isBorderRequired: false,
                         buttonColor: Color(0xFF1C39BB),
