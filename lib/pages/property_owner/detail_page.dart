@@ -39,7 +39,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(
+      endDrawer: SideBar(
         isLoggedIn: true,
         isRenter: false,
       ),

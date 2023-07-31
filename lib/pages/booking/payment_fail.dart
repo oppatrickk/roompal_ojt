@@ -17,7 +17,7 @@ class _PaymentFailState extends State<PaymentFail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(
+      endDrawer: SideBar(
         isLoggedIn: true,
         isRenter: true,
       ),

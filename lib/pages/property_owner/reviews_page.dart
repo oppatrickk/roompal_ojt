@@ -26,7 +26,10 @@ class _OwnerReviewPageState extends State<OwnerReviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(isLoggedIn: true, isRenter: false,),
+      endDrawer: SideBar(
+        isLoggedIn: true,
+        isRenter: false,
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: ReviewsSection(),

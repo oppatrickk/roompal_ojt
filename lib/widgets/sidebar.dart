@@ -7,9 +7,9 @@ import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class SideBar extends StatefulWidget {
-  const SideBar({super.key, required this.isRenter, required this.isLoggedIn});
+  SideBar({super.key, required this.isRenter, required this.isLoggedIn});
   final bool? isLoggedIn;
-  final bool? isRenter;
+  bool? isRenter;
 
   @override
   State<SideBar> createState() => _SideBarState();
@@ -59,8 +59,17 @@ class _SideBarState extends State<SideBar> {
                           leadingIcon: const Icon(Icons.person),
                           label: 'Switch to Renter',
                           trailingIcon: const Icon(Icons.arrow_right),
-                          onTap: () => Navigator.pushNamed(context, LandingPage.id),
-                        )
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) => const LandingPage(
+                                  isLoggedInStatus: true,
+                                  isRenterStatus: true,
+                                ),
+                              ),
+                            );
+                          })
                       : buildListTile(
                           leadingIcon: const Icon(Icons.person),
                           label: 'Log in',
@@ -74,7 +83,7 @@ class _SideBarState extends State<SideBar> {
                         leadingIcon: const Icon(Icons.book),
                         label: 'Booking Managment',
                         trailingIcon: const Icon(Icons.arrow_right),
-                        onTap: () => Navigator.pushNamed(context, LandingPage.id),
+                        onTap: () => Navigator.pushNamed(context, LandingPage.id), //Pass Values
                       ),
                     )
                   : widget.isLoggedIn == true && widget.isRenter == false
@@ -84,7 +93,7 @@ class _SideBarState extends State<SideBar> {
                             leadingIcon: const Icon(Icons.book),
                             label: 'Booking Managment',
                             trailingIcon: const Icon(Icons.arrow_right),
-                            onTap: () => Navigator.pushNamed(context, LandingPage.id),
+                            onTap: () => Navigator.pushNamed(context, LandingPage.id), //Pass Values
                           ),
                         )
                       : Visibility(
@@ -93,7 +102,7 @@ class _SideBarState extends State<SideBar> {
                             leadingIcon: const Icon(Icons.book),
                             label: 'Booking Managment',
                             trailingIcon: const Icon(Icons.arrow_right),
-                            onTap: () => Navigator.pushNamed(context, LandingPage.id),
+                            onTap: () => Navigator.pushNamed(context, LandingPage.id), //Pass Values
                           ),
                         ),
               const Divider(

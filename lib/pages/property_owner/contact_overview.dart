@@ -21,7 +21,7 @@ class _ContactOverviewState extends State<ContactOverview> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(
+      endDrawer: SideBar(
         isLoggedIn: true,
         isRenter: false,
       ),

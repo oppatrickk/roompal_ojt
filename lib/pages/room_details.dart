@@ -15,7 +15,7 @@ class RoomDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(
+      endDrawer: SideBar(
         isLoggedIn: false,
         isRenter: false,
       ),

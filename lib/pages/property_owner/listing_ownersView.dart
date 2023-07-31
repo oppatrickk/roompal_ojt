@@ -24,7 +24,7 @@ class _ListingOwnerState extends State<ListingOwner> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(
+      endDrawer: SideBar(
         isLoggedIn: true,
         isRenter: false,
       ),

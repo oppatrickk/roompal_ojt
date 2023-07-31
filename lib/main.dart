@@ -49,7 +49,10 @@ class RoompalOJT extends StatelessWidget {
       routes: {
         MyHomePage.id: (BuildContext context) => const MyHomePage(title: 'Roompal OJT'),
         RenterPage.id: (BuildContext context) => RenterPage(),
-        LandingPage.id: (BuildContext context) => const LandingPage(),
+        LandingPage.id: (BuildContext context) => LandingPage(
+              isRenterStatus: false,
+              isLoggedInStatus: false,
+            ),
         RoomDetails.id: (BuildContext context) => const RoomDetails(),
         ContactDetails.id: (BuildContext context) => const ContactDetails(),
         Booking.id: (BuildContext context) => const Booking(),

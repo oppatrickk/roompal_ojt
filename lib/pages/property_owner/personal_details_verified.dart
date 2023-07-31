@@ -27,7 +27,7 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(
+      endDrawer: SideBar(
         isLoggedIn: true,
         isRenter: false,
       ),

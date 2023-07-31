@@ -5,22 +5,18 @@ import 'package:roompal_ojt/widgets/propertylistingsgridview.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
-class LandingPage extends StatefulWidget {
-  const LandingPage({Key? key}) : super(key: key);
+class LandingPage extends StatelessWidget {
+  const LandingPage({required this.isRenterStatus, Key? key, required this.isLoggedInStatus}) : super(key: key);
   static const String id = 'LandingPage';
-
-  @override
-  State<LandingPage> createState() => _LandingPageState();
-}
-
-class _LandingPageState extends State<LandingPage> {
+  final bool isLoggedInStatus;
+  final bool isRenterStatus;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(
-        isLoggedIn: false,
-        isRenter: false,
+      endDrawer: SideBar(
+        isLoggedIn: isLoggedInStatus,
+        isRenter: isRenterStatus,
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
