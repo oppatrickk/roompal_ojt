@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'Login',
                     style: kRoomName,
                     textAlign: TextAlign.center,
@@ -54,13 +54,13 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'Forgot Password?',
                         style: kRoomNumber,
                       ),
                       TextButton(
                         onPressed: () => Navigator.pushNamed(context, ForgotPassword.id),
-                        child: Text(
+                        child: const Text(
                           'Click here',
                           style: blueText,
                         ),
@@ -109,14 +109,14 @@ class _LoginPageState extends State<LoginPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SizedBox(
-                                child: Image.asset('assets/img/google.png'),
                                 height: 25,
                                 width: 25,
+                                child: Image.asset('assets/img/google.png'),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 7,
                               ),
-                              Text(
+                              const Text(
                                 'Continue with Google',
                                 style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
                               ),
@@ -137,13 +137,13 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Don't have an account?",
                         style: kRoomNumber,
                       ),
                       TextButton(
                         onPressed: () => Navigator.pushNamed(context, ChooseRole.id),
-                        child: Text(
+                        child: const Text(
                           'Sign up',
                           style: blueText,
                         ),
@@ -198,7 +198,7 @@ TextButton signUpButton({
           ksizedBoxTextFieldRow,
           Text(
             label,
-            style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+            style: const TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
           )
         ],
       ));

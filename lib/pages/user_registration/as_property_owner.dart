@@ -42,7 +42,7 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
                     ],
                   ),
                   ksizedBoxTextFieldCol,
-                  Text(
+                  const Text(
                     'Fill in the data require to sign up. It will take a couple of minutes.',
                     style: kRoomNumber,
                     textAlign: TextAlign.center,
