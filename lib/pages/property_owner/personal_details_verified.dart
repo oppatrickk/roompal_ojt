@@ -3,6 +3,7 @@ import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
+import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 
 class PersonalDetailsV extends StatefulWidget {
   const PersonalDetailsV({Key? key}) : super(key: key);
@@ -64,34 +65,7 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          TextButton(
-                            onPressed: () {},
-                            style: ButtonStyle(
-                              padding: MaterialStatePropertyAll(
-                                EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                              ),
-                              side: MaterialStatePropertyAll(
-                                BorderSide(color: Colors.grey),
-                              ),
-                              shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
-                            ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Edit',
-                                  style: textStyleHeader(size: 14, color: Color(0xFF242426)),
-                                ),
-                                ksizedBoxTextFieldRow,
-                                Icon(
-                                  Icons.edit_square,
-                                  size: 15,
-                                  color: Color(0xFF242426),
-                                ),
-                              ],
-                            ),
-                          ),
+                          ActionButtons(Color(0xFF242426), Icons.edit_square, 'Edit', () {}),
                         ],
                       ),
                     ],

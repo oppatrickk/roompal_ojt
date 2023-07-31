@@ -23,7 +23,6 @@ class _PropertyListingsTableViewState extends State<PropertyListingsTableView> {
           return Table(
               border: TableBorder.all(
                 color: Colors.grey,
-                borderRadius: BorderRadius.all(Radius.circular(16)),
               ),
               columnWidths: {
                 0: FlexColumnWidth(1.5),
@@ -84,7 +83,7 @@ class _PropertyListingsTableViewState extends State<PropertyListingsTableView> {
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(5),
                                 ),
-                                color: list.propertyStatus == 'Available' ? Color(0xFF5C8BE1) : Colors.green,
+                                color: list.propertyStatus == 'Available' ? Colors.green : Color(0xFF5C8BE1),
                               ),
                               child: Center(
                                 child: Text(

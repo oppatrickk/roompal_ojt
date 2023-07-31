@@ -174,7 +174,7 @@ class _LocationPageState extends State<LocationPage> {
                         ),
                         ksizedBoxTextFieldRow,
                         Flexible(
-                          flex: 3,
+                          flex: 4,
                           child: textFieldWithHintText(
                             label: 'Landmarks',
                             hint: 'Enter nearby landmark',
