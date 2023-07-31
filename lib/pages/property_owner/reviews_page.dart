@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/filter.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -24,7 +26,7 @@ class _OwnerReviewPageState extends State<OwnerReviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: ReviewsSection(),
@@ -66,10 +68,7 @@ class _ReviewsSectionState extends State<ReviewsSection> {
                 width: 10,
               ),
               Expanded(
-                child: GestureDetector(
-                  onTap: null,
-                  child: const FilterBox(),
-                ),
+                child: Filter(),
               ),
             ],
           ),
@@ -148,8 +147,7 @@ class _ReviewsSectionState extends State<ReviewsSection> {
                 //average rating
                 Container(
                   width: 145,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
                   child: Column(
                     children: <Widget>[
                       const Text(

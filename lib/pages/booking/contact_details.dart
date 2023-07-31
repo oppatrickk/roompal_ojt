@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/booking/booking.dart';
 import 'package:roompal_ojt/pages/booking/payment_details.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
@@ -19,7 +19,7 @@ class _ContactDetailsState extends State<ContactDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20),
@@ -78,6 +78,7 @@ class _ContactDetailsState extends State<ContactDetails> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
+                  navigationButton(onPressed: null, icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                   navigationButton(
                       onPressed: () => Navigator.pushNamed(context, Booking.id), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                   navigationButton(

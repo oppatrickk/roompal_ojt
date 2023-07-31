@@ -21,97 +21,6 @@ AppBar appBar() {
   );
 }
 
-// SideBar
-NavigationDrawer buildSideBar(BuildContext context) {
-  return NavigationDrawer(
-    children: <Widget>[
-      Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: <Widget>[
-            ListTile(
-              title: const Text('Welcome User!'),
-              titleTextStyle:
-                  textStyleHeader(color: const Color(0xFF1C39BB), size: 28),
-              trailing: const Icon(Icons.close),
-              onTap: () => Navigator.pop(context),
-            ),
-            const Divider(
-              color: Color(0xFFB9B9C3),
-            ),
-            buildListTile(
-              leadingIcon: const Icon(Icons.person),
-              label: 'Sign up',
-              trailingIcon: const Icon(Icons.arrow_right),
-              onTap: null,
-            ),
-            buildListTile(
-              leadingIcon: const Icon(Icons.person),
-              label: 'Log in',
-              trailingIcon: const Icon(Icons.arrow_right),
-              onTap: null,
-            ),
-            const Divider(
-              color: Color(0xFFB9B9C3),
-            ),
-            buildListTile(
-              leadingIcon: const Icon(Icons.info),
-              label: 'About Us',
-              trailingIcon: const Icon(Icons.arrow_right),
-              onTap: null,
-            ),
-            buildListTile(
-              leadingIcon: const Icon(Icons.policy),
-              label: 'Privacy Policy',
-              trailingIcon: const Icon(Icons.arrow_right),
-              onTap: null,
-            ),
-            buildListTile(
-              leadingIcon: const Icon(Icons.phone),
-              label: 'Contact Us',
-              trailingIcon: const Icon(Icons.arrow_right),
-              onTap: null,
-            ),
-            buildListTile(
-              leadingIcon: const Icon(Icons.info),
-              label: 'Social Media',
-              trailingIcon: const Icon(Icons.arrow_right),
-              onTap: null,
-            ),
-            buildListTile(
-              leadingIcon: const Icon(Icons.info),
-              label: 'Terms and Condition',
-              trailingIcon: const Icon(Icons.arrow_right),
-              onTap: null,
-            ),
-            buildListTile(
-              leadingIcon: const Icon(Icons.info),
-              label: 'FAQs',
-              trailingIcon: const Icon(Icons.arrow_right),
-              onTap: null,
-            ),
-          ],
-        ),
-      ),
-    ],
-  );
-}
-
-// Content in SideBar
-ListTile buildListTile(
-    {required Icon leadingIcon,
-    required String label,
-    required Icon trailingIcon,
-    required Function? onTap}) {
-  return ListTile(
-    leading: leadingIcon,
-    title: Text(label),
-    titleTextStyle: textStyleContent(size: 20, color: const Color(0xFF242731)),
-    trailing: trailingIcon,
-    onTap: () => onTap,
-  );
-}
-
 //SearchBar
 TextField searchBar() {
   return TextField(
@@ -137,31 +46,6 @@ TextField searchBar() {
   );
 }
 
-//filterBox
-class FilterBox extends StatelessWidget {
-  const FilterBox({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(7),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: const Color(0xFF242731),
-        ),
-        borderRadius: BorderRadius.circular(5),
-      ),
-      child: const Icon(
-        Icons.filter_list_rounded,
-        size: 30,
-        color: Color(0xFF242731),
-      ),
-    );
-  }
-}
-
 // Filter content Show Rooms depending on its Status
 Text filterRoomStatus({required String label}) {
   return Text(label,
@@ -175,155 +59,6 @@ Text filterRoomStatus({required String label}) {
       //   color: Color(0xFF242731),
       // ),
       );
-}
-
-//Card View of Listing
-Container propertyCardView({
-  required String propertyImage,
-  required String propertyStatus,
-  required String propertyName,
-  required int propertyNumber,
-  required double propertyPrice,
-  required String propertyCity,
-  required String propertyProvince,
-  required IconData propertyIcon,
-  required String propertyType,
-  required String propertyAccommodation,
-  required Color propertyStatusColor,
-}) {
-  return Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(16),
-      border: Border.all(
-        color: const Color(0xFFBBBFC1),
-      ),
-    ),
-    child: Column(
-      children: <Widget>[
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.only(
-              topRight: Radius.circular(16),
-              topLeft: Radius.circular(16),
-            ),
-            image: DecorationImage(
-              fit: BoxFit.fitWidth,
-              image: AssetImage('assets/img/$propertyImage'),
-            ),
-          ),
-          height: 160,
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-          child: Column(
-            children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: propertyStatusColor,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  const SizedBox(width: 5),
-                  Text(
-                    propertyStatus,
-                    style:
-                        textStyleHeader(color: propertyStatusColor, size: 12),
-                  )
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    propertyName,
-                    style: textStyleHeader(
-                        color: const Color(0xFF242731), size: 20),
-                  ),
-                  Text(
-                    'Starting at',
-                    style: textStyleContent(
-                        color: const Color(0xFF242731), size: 14),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    'Room #00$propertyNumber',
-                    style: textStyleContent(
-                        color: const Color(0xFF242731), size: 20),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Text(
-                        '\$ ',
-                        style: textStyleHeader(
-                            color: const Color(0xFF1C39BB), size: 20),
-                      ),
-                      Text(
-                        '$propertyPrice',
-                        style: textStyleHeader(
-                            color: const Color(0xFF242731), size: 20),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    '$propertyCity, $propertyProvince',
-                    style: textStyleHeader(
-                        color: const Color(0xFF242731), size: 12),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      Icon(
-                        propertyIcon,
-                        color: const Color(0xFF1C39BB),
-                      ),
-                      Text(
-                        ' $propertyType',
-                        style: textStyleHeader(
-                            color: const Color(0xFF242731), size: 12),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      starRating(color: const Color(0xFFFEB618), size: 25),
-                      starRating(color: const Color(0xFFFEB618), size: 25),
-                      starRating(color: const Color(0xFFFEB618), size: 25),
-                      starRating(color: const Color(0xFFFEB618), size: 25),
-                      starRating(color: const Color(0xFFDEDEDE), size: 25),
-                    ],
-                  ),
-                  Text(
-                    propertyAccommodation,
-                    style: textStyleContent(
-                        color: const Color(0xFF242731), size: 12),
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
-      ],
-    ),
-  );
 }
 
 //Navigation pane
@@ -397,11 +132,7 @@ Column textFieldWithHintTextButNoLabel({required String hint}) {
 }
 
 //Field Style in Details Page
-Container detailFields(
-    {required String label,
-    required String hintText1,
-    required String hintText2,
-    required String labelDesc}) {
+Container detailFields({required String label, required String hintText1, required String hintText2, required String labelDesc}) {
   return Container(
     padding: const EdgeInsets.all(10),
     decoration: boxDecoration(),
@@ -478,10 +209,7 @@ TextButton navigationButton({
               ksizedBoxTextFieldRow,
               Text(
                 label,
-                style: TextStyle(
-                    color: Color(0xFF242426),
-                    fontSize: 14.0,
-                    fontFamily: 'ProximaNovaBold'),
+                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
               )
             ],
           )
@@ -489,10 +217,7 @@ TextButton navigationButton({
             children: <Widget>[
               Text(
                 label,
-                style: TextStyle(
-                    color: Color(0xFF242426),
-                    fontSize: 14.0,
-                    fontFamily: 'ProximaNovaBold'),
+                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
               ),
               ksizedBoxTextFieldRow,
               iconStyle(icon: icon, color: Color(0xFF242426), size: 20),
@@ -515,8 +240,7 @@ TextButton noButtonIcons({
     onPressed: onPressed,
     style: ButtonStyle(
       padding: MaterialStateProperty.all(
-        EdgeInsetsDirectional.symmetric(
-            horizontal: horizontalPadding, vertical: verticalPadding),
+        EdgeInsetsDirectional.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
       ),
       side: isBorderRequired == true
           ? MaterialStateProperty.all(
@@ -535,16 +259,14 @@ TextButton noButtonIcons({
     child: Center(
       child: Text(
         label,
-        style: TextStyle(
-            color: textColor, fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+        style: TextStyle(color: textColor, fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
       ),
     ),
   );
 }
 
 // Circle indicator in Property Owner Create listing page
-Container circleIcon(
-    {required bool? isFillRequired, required bool? isBorderRequired}) {
+Container circleIcon({required bool? isFillRequired, required bool? isBorderRequired}) {
   return Container(
     padding: EdgeInsets.all(8),
     decoration: BoxDecoration(
@@ -607,8 +329,7 @@ Container branding() {
         ),
         Text(
           'roompal',
-          style: TextStyle(
-              color: Colors.white, fontFamily: 'ProximaNovaBold', fontSize: 50),
+          style: TextStyle(color: Colors.white, fontFamily: 'ProximaNovaBold', fontSize: 50),
         )
       ]),
     ),
@@ -721,7 +442,7 @@ GestureDetector buttonLP(
       child: Center(
         child: Text(
           label,
-          style: textStyleHeader(color: textColor, size: size),
+          style: TextStyle(color: textColor, fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
         ),
       ),
     ),
@@ -739,9 +460,7 @@ Container dotSeparator() {
   );
 }
 
-Icon iconStyle(
-        {required IconData icon, required Color color, required double size}) =>
-    Icon(
+Icon iconStyle({required IconData icon, required Color color, required double size}) => Icon(
       icon,
       color: color,
       size: size,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class BookingSummary extends StatefulWidget {
@@ -15,7 +16,7 @@ class _BookingSummaryState extends State<BookingSummary> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(20),
