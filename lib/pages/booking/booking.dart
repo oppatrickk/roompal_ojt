@@ -74,25 +74,11 @@ class _BookingState extends State<Booking> {
                 ],
               ),
 
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Room Name",
-                    textAlign: TextAlign.start,
-                    style: kRoomName,
-                  ),
-                  Text(
-                    "Room #0000",
-                    textAlign: TextAlign.start,
-                    style: kRoomNumber,
-                  ),
-                ],
-              ),
+              headerTextStyle(label: 'Room Name', style: kRoomName),
+              headerTextStyle(label: 'Room #0000', style: kRoomNumber),
               kSizedBox,
-              Text(
-                "Choose your booking details",
-                textAlign: TextAlign.start,
+              headerTextStyle(
+                label: 'Choose your booking details',
                 style: textStyleContent(
                   size: 16,
                   color: const Color(0xFF575F6E),
@@ -167,28 +153,13 @@ class _BookingState extends State<Booking> {
                       ),
                     ),
                     ksizedBoxTextFieldCol,
-
-                    //Days
-                    // Padding(
-                    //   padding: EdgeInsets.fromLTRB(2.0, 5.0, 4.0, 5.0),
-                    //   child: DecoratedBox(
-                    //     decoration: BoxDecoration(
-                    //       border: Border(
-                    //         bottom: BorderSide(
-                    //           color: Color(0xFF242426),
-                    //           width: 1.0,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     child:
-                    //   ),
-                    // ),
                   ],
                 ),
               ),
 
               kSizedBox,
 
+              //Choose option: transient / monthly
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
@@ -224,7 +195,7 @@ class _BookingState extends State<Booking> {
                         );
                       }).toList(),
                     ),
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Requires 2 months advance payments', style: kRedText),
@@ -239,7 +210,7 @@ class _BookingState extends State<Booking> {
 
               //Number of Guest
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
                   children: [
@@ -287,6 +258,14 @@ class _BookingState extends State<Booking> {
           ),
         ),
       ),
+    );
+  }
+
+  Text headerTextStyle({required String label, required TextStyle style}) {
+    return Text(
+      label,
+      textAlign: TextAlign.start,
+      style: style,
     );
   }
 
