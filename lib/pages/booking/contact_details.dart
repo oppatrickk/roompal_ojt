@@ -19,7 +19,10 @@ class _ContactDetailsState extends State<ContactDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(),
+      endDrawer: const SideBar(
+        isLoggedIn: true,
+        isRenter: true,
+      ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20),

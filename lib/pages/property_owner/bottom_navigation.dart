@@ -18,7 +18,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
   // BottomNavigationBar
   int selectedIndex = 0;
   static const List<Widget> widgetOptions = <Widget>[
-    OverviewSection(),
     OwnersViewSection(),
     StayViewSection(),
     ReviewsSection(),
@@ -34,17 +33,15 @@ class _BottomNavigationState extends State<BottomNavigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(),
+      endDrawer: const SideBar(
+        isLoggedIn: true,
+        isRenter: false,
+      ),
       body: SingleChildScrollView(
         child: widgetOptions.elementAt(selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt_rounded),
-            label: 'Create Listing',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.edit_note_rounded),
             label: 'Manage Listing',

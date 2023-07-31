@@ -19,7 +19,10 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(),
+      endDrawer: const SideBar(
+        isLoggedIn: true,
+        isRenter: true,
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Center(

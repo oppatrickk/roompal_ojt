@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/landing_page.dart';
+import 'package:roompal_ojt/pages/property_owner/bottom_navigation.dart';
+import 'package:roompal_ojt/pages/property_owner/personal_details_verified.dart';
 import 'package:roompal_ojt/pages/user_registration/chooserole_page.dart';
 import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class SideBar extends StatefulWidget {
-  const SideBar({super.key});
+  const SideBar({super.key, required this.isRenter, required this.isLoggedIn});
+  final bool? isLoggedIn;
+  final bool? isRenter;
 
   @override
   State<SideBar> createState() => _SideBarState();
 }
 
 class _SideBarState extends State<SideBar> {
+  bool? isVisible = true;
   @override
   Widget build(BuildContext context) {
     return NavigationDrawer(
@@ -28,18 +34,68 @@ class _SideBarState extends State<SideBar> {
               const Divider(
                 color: Color(0xFFB9B9C3),
               ),
-              buildListTile(
-                leadingIcon: const Icon(Icons.person),
-                label: 'Sign up',
-                trailingIcon: const Icon(Icons.arrow_right),
-                onTap: () => Navigator.pushNamed(context, ChooseRole.id),
-              ),
-              buildListTile(
-                leadingIcon: const Icon(Icons.person),
-                label: 'Log in',
-                trailingIcon: const Icon(Icons.arrow_right),
-                onTap: () => Navigator.pushNamed(context, LoginPage.id),
-              ),
+              widget.isLoggedIn == true
+                  ? buildListTile(
+                      leadingIcon: const Icon(Icons.person),
+                      label: 'Personal Detail',
+                      trailingIcon: const Icon(Icons.arrow_right),
+                      onTap: () => Navigator.pushNamed(context, PersonalDetailsV.id),
+                    )
+                  : buildListTile(
+                      leadingIcon: const Icon(Icons.person),
+                      label: 'Sign up',
+                      trailingIcon: const Icon(Icons.arrow_right),
+                      onTap: () => Navigator.pushNamed(context, ChooseRole.id),
+                    ),
+              widget.isLoggedIn == true && widget.isRenter == true
+                  ? buildListTile(
+                      leadingIcon: const Icon(Icons.person),
+                      label: 'Switch to Property Owner',
+                      trailingIcon: const Icon(Icons.arrow_right),
+                      onTap: () => Navigator.pushNamed(context, BottomNavigation.id),
+                    )
+                  : widget.isLoggedIn == true && widget.isRenter == false
+                      ? buildListTile(
+                          leadingIcon: const Icon(Icons.person),
+                          label: 'Switch to Renter',
+                          trailingIcon: const Icon(Icons.arrow_right),
+                          onTap: () => Navigator.pushNamed(context, LandingPage.id),
+                        )
+                      : buildListTile(
+                          leadingIcon: const Icon(Icons.person),
+                          label: 'Log in',
+                          trailingIcon: const Icon(Icons.arrow_right),
+                          onTap: () => Navigator.pushNamed(context, LoginPage.id),
+                        ),
+              widget.isLoggedIn == true && widget.isRenter == true
+                  ? Visibility(
+                      visible: isVisible!,
+                      child: buildListTile(
+                        leadingIcon: const Icon(Icons.book),
+                        label: 'Booking Managment',
+                        trailingIcon: const Icon(Icons.arrow_right),
+                        onTap: () => Navigator.pushNamed(context, LandingPage.id),
+                      ),
+                    )
+                  : widget.isLoggedIn == true && widget.isRenter == false
+                      ? Visibility(
+                          visible: !isVisible!,
+                          child: buildListTile(
+                            leadingIcon: const Icon(Icons.book),
+                            label: 'Booking Managment',
+                            trailingIcon: const Icon(Icons.arrow_right),
+                            onTap: () => Navigator.pushNamed(context, LandingPage.id),
+                          ),
+                        )
+                      : Visibility(
+                          visible: !isVisible!,
+                          child: buildListTile(
+                            leadingIcon: const Icon(Icons.book),
+                            label: 'Booking Managment',
+                            trailingIcon: const Icon(Icons.arrow_right),
+                            onTap: () => Navigator.pushNamed(context, LandingPage.id),
+                          ),
+                        ),
               const Divider(
                 color: Color(0xFFB9B9C3),
               ),

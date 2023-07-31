@@ -18,7 +18,10 @@ class RenterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(),
+      endDrawer: const SideBar(
+        isLoggedIn: true,
+        isRenter: true,
+      ),
       body: BuildRenterPage(items: items),
     );
   }

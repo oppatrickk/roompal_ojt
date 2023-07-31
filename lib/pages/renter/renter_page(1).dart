@@ -281,7 +281,10 @@ class BuildBookedRoomDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(),
+      endDrawer: const SideBar(
+        isLoggedIn: true,
+        isRenter: true,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: kPagePadding,
@@ -289,9 +292,7 @@ class BuildBookedRoomDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               StatusContainers(status: status),
-              //Room Details
               Card(
-                surfaceTintColor: Colors.white,
                 shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Column(
@@ -342,9 +343,7 @@ class BuildBookedRoomDetails extends StatelessWidget {
                   ],
                 ),
               ),
-              //Guest Information
               Card(
-                surfaceTintColor: Colors.white,
                 shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: const Column(
@@ -365,9 +364,7 @@ class BuildBookedRoomDetails extends StatelessWidget {
                   ],
                 ),
               ),
-              //Contact information
               Card(
-                surfaceTintColor: Colors.white,
                 shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: const Padding(
@@ -388,9 +385,7 @@ class BuildBookedRoomDetails extends StatelessWidget {
                   ),
                 ),
               ),
-              //Price Details
               Card(
-                surfaceTintColor: Colors.white,
                 shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Padding(

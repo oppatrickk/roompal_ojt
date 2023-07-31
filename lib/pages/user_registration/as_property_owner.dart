@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/property_owner/bottom_navigation.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/pop_up.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
@@ -71,7 +73,18 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
                         isGoBack: true,
                       ),
                       navigationButton(
-                        onPressed: null,
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return CustomDialogButton3(
+                                  content: 'You\'ve successfully created an account!',
+                                  onPressed: () {
+                                    Navigator.pushNamed(context, BottomNavigation.id);
+                                  },
+                                );
+                              });
+                        },
                         label: 'Go next',
                         icon: Icons.arrow_forward,
                         isGoBack: false,

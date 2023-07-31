@@ -15,7 +15,10 @@ class RoomDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: const SideBar(),
+      endDrawer: const SideBar(
+        isLoggedIn: false,
+        isRenter: false,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: kPagePadding,
