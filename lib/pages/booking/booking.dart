@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/booking/contact_details.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import '../../../widgets/widget_elements.dart';
 
 class Booking extends StatefulWidget {
@@ -87,16 +88,7 @@ class _BookingState extends State<Booking> {
               ksizedBoxTextFieldCol,
 
               //Room Category
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: [
-                    textField(label: 'Room Category'),
-                    ksizedBoxTextFieldCol,
-                  ],
-                ),
-              ),
+              textField1(label: 'Room Category', hint: ''),
               kSizedBox,
 
               //Choose Date

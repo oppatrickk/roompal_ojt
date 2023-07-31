@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/booking/booking.dart';
 import 'package:roompal_ojt/pages/booking/booking_summary.dart';
+import 'package:roompal_ojt/pages/booking/confirmation.dart';
 import 'package:roompal_ojt/pages/booking/contact_details.dart';
 import 'package:roompal_ojt/pages/booking/payment_fail.dart';
 import 'package:roompal_ojt/pages/booking/payment_success.dart';
@@ -218,6 +219,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   Navigator.pushNamed(context, PopUpTemporary.id);
                 },
                 child: const Text('PopUp Temporary'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ConfirmationPage.id);
+                },
+                child: const Text('Confirmation Page'),
               ),
             ],
           ),

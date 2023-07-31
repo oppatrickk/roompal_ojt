@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/booking/booking.dart';
 import 'package:roompal_ojt/pages/booking/booking_summary.dart';
+import 'package:roompal_ojt/pages/booking/confirmation.dart';
 import 'package:roompal_ojt/pages/booking/contact_details.dart';
 import 'package:roompal_ojt/pages/booking/payment_details.dart';
 import 'package:roompal_ojt/pages/booking/payment_fail.dart';
@@ -76,6 +77,7 @@ class RoompalOJT extends StatelessWidget {
         PaymentDetails.id: (BuildContext context) => const PaymentDetails(),
         PopUpTemporary.id: (BuildContext context) => const PopUpTemporary(),
         BottomNavigation.id: (BuildContext context) => const BottomNavigation(),
+        ConfirmationPage.id: (BuildContext context) => const ConfirmationPage(),
       },
     );
   }
