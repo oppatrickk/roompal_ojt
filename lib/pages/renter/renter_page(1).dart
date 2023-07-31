@@ -130,7 +130,7 @@ class LVBuilder extends StatelessWidget {
   }
 }
 
-//card template
+//(2.2) card template
 class CardBuild extends StatelessWidget {
   const CardBuild({
     super.key,
@@ -207,7 +207,7 @@ class CardBuild extends StatelessWidget {
   }
 }
 
-//build status boxes
+//(2.2.1) build status boxes
 class StatusContainers extends StatelessWidget {
   const StatusContainers({
     super.key,
