@@ -150,8 +150,8 @@ class _OwnerViewState extends State<OwnerView> {
             selectedColor: const Color(0xFF1C39BB),
             borderColor: const Color(0xFF808080),
             children: const <int, Widget>{
-              0: BuildSegment1(Icons.list),
-              1: BuildSegment1(Icons.window_outlined),
+              0: BuildSegment1(Icons.window_outlined),
+              1: BuildSegment1(Icons.list),
             },
             onValueChanged: (int groupValue) {
               setState(() => iconValue = groupValue);
@@ -204,7 +204,6 @@ class OwnerViewTableFormat extends StatelessWidget {
         Table(
           border: TableBorder.all(
             color: Colors.grey,
-            borderRadius: BorderRadius.all(Radius.circular(16)),
           ),
           columnWidths: {
             0: FlexColumnWidth(1.5),
@@ -215,148 +214,19 @@ class OwnerViewTableFormat extends StatelessWidget {
           children: [
             TableRow(
                 decoration: BoxDecoration(
-                    color: Color(0xFF1C39BB), borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16))),
+                  color: Color(0xFF1C39BB),
+                ),
                 children: [
                   tableContent(content: 'Room#', color: Colors.white),
                   tableContent(content: 'Property Details', color: Colors.white),
                   tableContent(content: 'Actions', color: Colors.white),
                 ]),
-            // tableRowContents(
-            //   roomNumber: '001',
-            //   imageAsset: AssetImage('assets/img/rental.jpg'),
-            //   roomName: 'Kwarto De Luna',
-            //   roomCity: 'Legazpi City',
-            //   roomProvince: 'Albay',
-            //   roomPrice: 1000,
-            //   roomType: 'Studio',
-            //   roomStatus: 'Occupied',
-            //   colorBasedOnRoomStatus: Color(0xFF5C8BE1),
-            // ),
-            // tableRowContents(
-            //   roomNumber: '002',
-            //   imageAsset: AssetImage('assets/img/rental.jpg'),
-            //   roomName: 'Kwarto De Luna',
-            //   roomCity: 'Legazpi City',
-            //   roomProvince: 'Albay',
-            //   roomPrice: 1000,
-            //   roomType: 'Apartment',
-            //   roomStatus: 'Occupied',
-            //   colorBasedOnRoomStatus: Color(0xFF5C8BE1),
-            // ),
-            // tableRowContents(
-            //   roomNumber: '003',
-            //   imageAsset: AssetImage('assets/img/rental.jpg'),
-            //   roomName: 'Kwarto De Luna',
-            //   roomCity: 'Legazpi City',
-            //   roomProvince: 'Albay',
-            //   roomPrice: 1000,
-            //   roomType: 'Bedspace',
-            //   roomStatus: 'Available',
-            //   colorBasedOnRoomStatus: Colors.green[500]!,
-            // ),
           ],
         ),
         PropertyListingsTableView(),
       ],
     );
   }
-}
-
-// Table Contents
-TableRow tableRowContents({
-  required String roomNumber,
-  required ImageProvider imageAsset,
-  required String roomName,
-  required String roomCity,
-  required String roomProvince,
-  required double roomPrice,
-  required String roomType,
-  required String roomStatus,
-  required Color colorBasedOnRoomStatus,
-}) {
-  return TableRow(children: [
-    tableContent(content: roomNumber, color: Color(0xFF242731)),
-    Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            height: 100,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(8),
-              ),
-              image: DecorationImage(
-                fit: BoxFit.fitWidth,
-                image: imageAsset,
-              ),
-            ),
-          ),
-          Text(
-            roomName,
-            style: textStyleHeader(color: Color(0xFF242731), size: 16),
-          ),
-          Text(
-            '$roomCity, $roomProvince',
-            style: textStyleContent(color: Color(0xFF242731), size: 12),
-          ),
-          Text(
-            'Starting at P $roomPrice',
-            style: textStyleContent(color: Color(0xFF242731), size: 12),
-          ),
-          ksizedBoxTextFieldCol,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              label(buttonColor: Color(0xFFFEB618), label: roomType, textColor: Colors.black),
-              ksizedBoxTextFieldRow,
-              label(buttonColor: colorBasedOnRoomStatus, label: roomStatus, textColor: Colors.white),
-            ],
-          ),
-        ],
-      ),
-    ),
-    Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Column(
-        children: [
-          ActionButtons(
-            Colors.green,
-            Icons.edit_square,
-            'Edit',
-            () {},
-          ),
-          ksizedBoxTextFieldCol,
-          ActionButtons(
-            Colors.red,
-            Icons.delete_outline,
-            'Delete',
-            () {},
-          ),
-        ],
-      ),
-    ),
-  ]);
-}
-
-// Room Type & Room Status
-Container label({required String label, required Color textColor, required Color buttonColor}) {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.all(
-        Radius.circular(5),
-      ),
-      color: buttonColor,
-    ),
-    child: Center(
-      child: Text(
-        label,
-        style: textStyleContent(size: 12, color: textColor),
-      ),
-    ),
-  );
 }
 
 // Table title and Room# Content

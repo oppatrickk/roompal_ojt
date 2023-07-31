@@ -7,14 +7,12 @@ import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 
 // Listings View - Property Owner and Renter
 class PropertyListingsGridView extends StatefulWidget {
-  const PropertyListingsGridView(
-      {super.key, required this.isRenter, required this.needEditDeleteButton});
+  const PropertyListingsGridView({super.key, required this.isRenter, required this.needEditDeleteButton});
   final bool? isRenter;
   final bool? needEditDeleteButton;
 
   @override
-  State<PropertyListingsGridView> createState() =>
-      _PropertyListingsGridViewState();
+  State<PropertyListingsGridView> createState() => _PropertyListingsGridViewState();
 }
 
 class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
@@ -52,8 +50,7 @@ class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
                       height: 200,
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       child: Column(
                         children: <Widget>[
                           Row(
@@ -62,20 +59,14 @@ class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
                               Container(
                                 padding: const EdgeInsets.all(7),
                                 decoration: BoxDecoration(
-                                  color: list.propertyStatus == 'Available'
-                                      ? Colors.green
-                                      : Colors.red,
+                                  color: list.propertyStatus == 'Available' ? Colors.green : Color(0xFF5C8BE1),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
                               const SizedBox(width: 5),
                               Text(
                                 list.propertyStatus!.toUpperCase(),
-                                style: textStyleHeader(
-                                    color: list.propertyStatus == 'Available'
-                                        ? Colors.green
-                                        : Colors.red,
-                                    size: 12),
+                                style: textStyleHeader(color: list.propertyStatus == 'Available' ? Colors.green : Color(0xFF5C8BE1), size: 12),
                               )
                             ],
                           ),
@@ -84,13 +75,11 @@ class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
                             children: <Widget>[
                               Text(
                                 list.propertyName!,
-                                style: textStyleHeader(
-                                    color: const Color(0xFF242731), size: 20),
+                                style: textStyleHeader(color: const Color(0xFF242731), size: 20),
                               ),
                               Text(
                                 'Starting at',
-                                style: textStyleContent(
-                                    color: const Color(0xFF242731), size: 14),
+                                style: textStyleContent(color: const Color(0xFF242731), size: 14),
                               ),
                             ],
                           ),
@@ -99,23 +88,17 @@ class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
                             children: <Widget>[
                               Text(
                                 'Room #${list.propertyNumber.toString().padLeft(3, '0')}',
-                                style: textStyleContent(
-                                    color: const Color(0xFF242731), size: 18),
+                                style: textStyleContent(color: const Color(0xFF242731), size: 18),
                               ),
                               Row(
                                 children: <Widget>[
                                   const Text(
                                     '\₱ ',
-                                    style: TextStyle(
-                                        color: Color(0xFF1C39BB),
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold),
+                                    style: TextStyle(color: Color(0xFF1C39BB), fontSize: 20, fontWeight: FontWeight.bold),
                                   ),
                                   Text(
                                     list.propertyPrice!.toStringAsFixed(2),
-                                    style: textStyleHeader(
-                                        color: const Color(0xFF242731),
-                                        size: 20),
+                                    style: textStyleHeader(color: const Color(0xFF242731), size: 20),
                                   ),
                                 ],
                               ),
@@ -126,8 +109,7 @@ class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
                             children: <Widget>[
                               Text(
                                 '${list.propertyCity}, ${list.propertyProvince}',
-                                style: textStyleHeader(
-                                    color: const Color(0xFF242731), size: 12),
+                                style: textStyleHeader(color: const Color(0xFF242731), size: 12),
                               ),
                               Row(
                                 children: <Widget>[
@@ -137,9 +119,7 @@ class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
                                   ),
                                   Text(
                                     list.propertyType.toString(),
-                                    style: textStyleHeader(
-                                        color: const Color(0xFF242731),
-                                        size: 12),
+                                    style: textStyleHeader(color: const Color(0xFF242731), size: 12),
                                   ),
                                 ],
                               ),
@@ -150,8 +130,7 @@ class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
                           ),
                           widget.needEditDeleteButton == true
                               ? Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     Row(
                                       children: <Widget>[
@@ -172,40 +151,25 @@ class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
                                     ),
                                     Text(
                                       list.propertyAccommodation!,
-                                      style: textStyleContent(
-                                          color: const Color(0xFF242731),
-                                          size: 12),
+                                      style: textStyleContent(color: const Color(0xFF242731), size: 12),
                                     ),
                                   ],
                                 )
                               : Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
                                     Row(
                                       children: <Widget>[
-                                        starRating(
-                                            color: const Color(0xFFFEB618),
-                                            size: 25),
-                                        starRating(
-                                            color: const Color(0xFFFEB618),
-                                            size: 25),
-                                        starRating(
-                                            color: const Color(0xFFFEB618),
-                                            size: 25),
-                                        starRating(
-                                            color: const Color(0xFFFEB618),
-                                            size: 25),
-                                        starRating(
-                                            color: const Color(0xFFDEDEDE),
-                                            size: 25),
+                                        starRating(color: const Color(0xFFFEB618), size: 25),
+                                        starRating(color: const Color(0xFFFEB618), size: 25),
+                                        starRating(color: const Color(0xFFFEB618), size: 25),
+                                        starRating(color: const Color(0xFFFEB618), size: 25),
+                                        starRating(color: const Color(0xFFDEDEDE), size: 25),
                                       ],
                                     ),
                                     Text(
                                       list.propertyAccommodation!,
-                                      style: textStyleContent(
-                                          color: const Color(0xFF242731),
-                                          size: 12),
+                                      style: textStyleContent(color: const Color(0xFF242731), size: 12),
                                     ),
                                   ],
                                 )
@@ -214,9 +178,7 @@ class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
                     ),
                   ],
                 ),
-                onTap: () => widget.isRenter == true
-                    ? Navigator.pushNamed(context, RoomDetails.id)
-                    : null,
+                onTap: () => widget.isRenter == true ? Navigator.pushNamed(context, RoomDetails.id) : null,
               ),
             ),
           );

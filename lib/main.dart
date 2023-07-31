@@ -44,7 +44,7 @@ class RoompalOJT extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      initialRoute: MyHomePage.id,
+      initialRoute: LandingPage.id,
       //add other screens here
       routes: {
         MyHomePage.id: (BuildContext context) => const MyHomePage(title: 'Roompal OJT'),
