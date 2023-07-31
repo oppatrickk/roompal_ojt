@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/booking/payment_details.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
+import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class ContactDetails extends StatefulWidget {
@@ -17,7 +19,7 @@ class _ContactDetailsState extends State<ContactDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20),
@@ -67,105 +69,20 @@ class _ContactDetailsState extends State<ContactDetails> {
                 ),
               ),
               kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    textField(label: 'Enter Last Name'),
-                    ksizedBoxTextFieldCol,
-                    textField(label: 'Enter First Name'),
-                    ksizedBoxTextFieldCol,
-                    textField(label: 'Enter Middle Name'),
-                    ksizedBoxTextFieldCol,
-                  ],
-                ),
-              ),
+              userName(),
               kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        Text(
-                          'Enter Phone Number',
-                          style: textStyleContent(
-                            size: 14,
-                            color: const Color(0xFF242426),
-                          ),
-                        ),
-                        Row(
-                          children: <Widget>[
-                            Expanded(
-                              flex: 1,
-                              child: TextField(
-                                decoration: const InputDecoration(
-                                  border: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFFBBBFC1),
-                                    ),
-                                  ),
-                                  focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0xFF242426),
-                                    ),
-                                  ),
-                                  contentPadding:
-                                      EdgeInsets.symmetric(horizontal: 30),
-                                  labelText: '+63',
-                                ),
-                                style: textStyleHeader(
-                                  size: 18,
-                                  color: const Color(0xFF242426),
-                                ),
-                              ),
-                            ),
-                            ksizedBoxTextFieldRow,
-                            Expanded(
-                              flex: 2,
-                              child: textFieldDecoration(),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              textField1(label: 'Phone Number', hint: ''),
               kSizedBox,
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: boxDecoration(),
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: <Widget>[
-                        textField(label: 'Enter Email'),
-                        ksizedBoxTextFieldCol,
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              textField1(label: 'Email', hint: ''),
               ksizedBoxTFB,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
+                  navigationButton(onPressed: null, icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                   navigationButton(
-                      onPressed: null,
-                      icon: Icons.arrow_back,
-                      label: 'Go back',
-                      isGoBack: true),
+                      onPressed: () => Navigator.pushNamed(context, Booking.id), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                   navigationButton(
-                      onPressed: () =>
-                          Navigator.pushNamed(context, PaymentDetails.id),
-                      label: 'Go next',
-                      icon: Icons.arrow_forward,
-                      isGoBack: false)
+                      onPressed: () => Navigator.pushNamed(context, PaymentDetails.id), label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
                 ],
               ),
               ksizedBoxTextFieldCol,

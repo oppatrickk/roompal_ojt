@@ -42,7 +42,7 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
                     ],
                   ),
                   ksizedBoxTextFieldCol,
-                  Text(
+                  const Text(
                     'Fill in the data require to sign up. It will take a couple of minutes.',
                     style: kRoomNumber,
                     textAlign: TextAlign.center,
@@ -52,9 +52,9 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
                   kSizedBox,
                   textField1(label: 'Phone Number', hint: 'Enter Phone Number'),
                   kSizedBox,
-                  textField1(label: 'Email', hint: ''),
+                  textField1(label: 'Email', hint: 'Enter Email'),
                   kSizedBox,
-                  textField1(label: 'Complete Address', hint: ''),
+                  textField1(label: 'Complete Address', hint: 'Enter Complete Address'),
                   kSizedBox,
                   textField1(label: 'Password', hint: ''),
                   kSizedBox,

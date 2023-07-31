@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/formvalidation/logic.dart';
+import 'package:roompal_ojt/formvalidation/auth.dart';
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/textfield_with_validation_widget.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
@@ -20,7 +21,7 @@ class _ContactOverviewState extends State<ContactOverview> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20),
@@ -47,10 +48,7 @@ class _ContactOverviewState extends State<ContactOverview> {
                 ],
               ),
               kSizedBox,
-              headerSub(
-                  pageTitle: 'Contact',
-                  subContent:
-                      'Fill in your contact data. It will take a couple of minutes.'),
+              headerSub(pageTitle: 'Contact', subContent: 'Fill in your contact data. It will take a couple of minutes.'),
               kSizedBox,
               ContactForm(),
               ksizedBoxTFB,
@@ -88,14 +86,11 @@ class _ContactFormState extends State<ContactForm> {
             decoration: boxDecoration(),
             child: Column(
               children: [
-                textFieldWithValidationStyle(
-                    'Last Name', 'Enter Last Name', requiredValidator),
+                textFieldWithValidationStyle('Last Name', 'Enter Last Name', requiredValidator),
                 ksizedBoxTextFieldCol,
-                textFieldWithValidationStyle(
-                    'First Name', 'Enter First Name', requiredValidator),
+                textFieldWithValidationStyle('First Name', 'Enter First Name', requiredValidator),
                 ksizedBoxTextFieldCol,
-                textFieldWithValidationStyle(
-                    'Middle Name', 'Enter Middle Name', requiredValidator),
+                textFieldWithValidationStyle('Middle Name', 'Enter Middle Name', requiredValidator),
               ],
             ),
           ),

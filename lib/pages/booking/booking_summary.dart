@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class BookingSummary extends StatefulWidget {
@@ -15,110 +16,37 @@ class _BookingSummaryState extends State<BookingSummary> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                'Booking Summary',
-                style: textStyleHeader(
-                  size: 24,
-                  color: Color(0xFF242426),
-                ),
-              ),
+              headerBS(label: 'Booking Summary', size: 32),
+              ksizedBoxTextFieldCol,
               divider,
-              Text(
-                'Room #000',
-                style: textStyleHeader(
-                  size: 20,
-                  color: Color(0xFF242426),
-                ),
-              ),
-              Text(
-                'Studio Type',
-                style: textStyleHeader(
-                  size: 15,
-                  color: Color(0xFF242426),
-                ),
-              ),
+              ksizedBoxTextFieldCol,
+              headerBS(label: 'Room #0000', size: 16),
+              headerBS(label: 'Studio Type', size: 15),
               ksizedBoxTextFieldCol,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Check in date',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
-                  Text(
-                    'July 14, 2023',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
-                ],
+                children: [contentBS(label: 'Check in date'), contentBS(label: 'July 14, 2023')],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [contentBS(label: 'Check out date'), contentBS(label: 'July 27, 2023')],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [contentBS(label: 'Total days'), contentBS(label: '14 days (2 weeks)')],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Check out date',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
-                  Text(
-                    'July 27, 2023',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Total days',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
-                  Text(
-                    '14 days (2 weeks)',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Number of Guest',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
-                  Text(
-                    '2',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
+                  contentBS(label: 'Number of Guest'),
+                  contentBS(label: '2'),
                 ],
               ),
               ksizedBoxTextFieldCol,
@@ -127,77 +55,49 @@ class _BookingSummaryState extends State<BookingSummary> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Subtotal',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
-                  Text(
-                    'Php. ####.00',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
+                  contentBS(label: 'Subtotal'),
+                  Row(
+                    children: [
+                      pesoSign(),
+                      contentBS(label: '####.00'),
+                    ],
                   ),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Discount',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
-                  Text(
-                    'Php. ###.00',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
+                  contentBS(label: 'Discount'),
+                  Row(
+                    children: [
+                      pesoSign(),
+                      contentBS(label: '###.00'),
+                    ],
+                  )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Serving Fee',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
-                  Text(
-                    'Php. ####.00',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
+                  contentBS(label: 'Serving Fee'),
+                  Row(
+                    children: [
+                      pesoSign(),
+                      contentBS(label: '####.00'),
+                    ],
+                  )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Booking Fee',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
-                  Text(
-                    'Php. ####.00',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
+                  contentBS(label: 'Booking Fee'),
+                  Row(
+                    children: [
+                      pesoSign(),
+                      contentBS(label: '####.00'),
+                    ],
+                  )
                 ],
               ),
               ksizedBoxTextFieldCol,
@@ -207,49 +107,62 @@ class _BookingSummaryState extends State<BookingSummary> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Total',
-                    style: textStyleContent(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
-                  Text(
-                    'Php. ####.00',
-                    style: textStyleHeader(
-                      size: 18,
-                      color: Color(0xFF242426),
-                    ),
-                  ),
+                  contentBS(label: "Total"),
+                  Row(
+                    children: [
+                      pesoSign(),
+                      contentBS(label: '####.00'),
+                    ],
+                  )
                 ],
               ),
               kSizedBox,
-              GestureDetector(
-                child: Container(
-                  decoration: boxDecoration(),
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  child: Center(
-                    child: Text(
-                      'Finish Payment',
-                      style:
-                          textStyleHeader(color: Color(0xFF242426), size: 16),
-                    ),
-                  ),
-                ),
-                onTap: null,
-              )
+              noButtonIcons(
+                onPressed: null,
+                label: 'Finish Payment',
+                isBorderRequired: true,
+                buttonColor: Colors.white,
+                textColor: const Color(0xFF242426),
+                horizontalPadding: 27,
+                verticalPadding: 15,
+              ),
             ],
           ),
         ),
       ),
     );
   }
+
+  Text pesoSign() {
+    return const Text(
+      '₱ ',
+      style: TextStyle(fontSize: 18),
+    );
+  }
+
+  Text contentBS({required String label}) {
+    return Text(
+      label,
+      style: textStyleContent(
+        size: 18,
+        color: Color(0xFF242426),
+      ),
+    );
+  }
+
+  Text headerBS({required String label, required double size}) {
+    return Text(
+      label,
+      style: textStyleHeader(
+        size: size,
+        color: Color(0xFF242426),
+      ),
+    );
+  }
 }
 
 class dashLineSeparator extends StatelessWidget {
-  const dashLineSeparator(
-      {Key? key, this.height = 1, this.color = Colors.black})
-      : super(key: key);
+  const dashLineSeparator({Key? key, this.height = 1, this.color = Colors.black}) : super(key: key);
   final double height;
   final Color color;
 

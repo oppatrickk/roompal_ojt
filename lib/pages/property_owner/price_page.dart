@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/booking/booking.dart';
-import 'package:roompal_ojt/pages/property_owner/listing_ownersView.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/popup_widgets.dart';
@@ -21,7 +21,7 @@ class _PricePageState extends State<PricePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20),
@@ -49,10 +49,7 @@ class _PricePageState extends State<PricePage> {
                 ],
               ),
               kSizedBox,
-              headerSub(
-                  pageTitle: 'Price',
-                  subContent:
-                      'Fill the property price for transient and monthly. It will take a couple of minutes.'),
+              headerSub(pageTitle: 'Price', subContent: 'Fill the property price for transient and monthly. It will take a couple of minutes.'),
               kSizedBox,
               //Transient Price and Transaction Fee
               Container(
@@ -93,11 +90,7 @@ class _PricePageState extends State<PricePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  navigationButton(
-                      onPressed: null,
-                      icon: Icons.arrow_back,
-                      label: 'Go back',
-                      isGoBack: true),
+                  navigationButton(onPressed: null, icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                   navigationButton(
                       onPressed: () => showDialog(
                             barrierDismissible: false,
@@ -130,52 +123,49 @@ class Confirmation extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(25),
       ),
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            titleDesign(label: 'Property Listing'),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 22),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
+        titleDesign(label: 'Property Listing'),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 22),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              kSizedBox,
+              Text(
+                'Submit your listing?',
+                style: textStyleContent(
+                  size: 16,
+                  color: Color(0xFF242426),
+                ),
+              ),
+              ksizedBoxTFB,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  kSizedBox,
-                  Text(
-                    'Submit your listing?',
-                    style: textStyleContent(
-                      size: 16,
-                      color: Color(0xFF242426),
+                  puButton(
+                    onPressed: () => Navigator.pop(context),
+                    color: Colors.red,
+                    label: 'No',
+                  ),
+                  ksizedBoxTextFieldRow,
+                  puButton(
+                    onPressed: () => showDialog(
+                      barrierDismissible: false,
+                      context: context,
+                      builder: (BuildContext context) {
+                        return const Message();
+                      },
                     ),
+                    color: Colors.green,
+                    label: 'Yes',
                   ),
-                  ksizedBoxTFB,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      puButton(
-                        onPressed: () => Navigator.pop(context),
-                        color: Colors.red,
-                        label: 'No',
-                      ),
-                      ksizedBoxTextFieldRow,
-                      puButton(
-                        onPressed: () => showDialog(
-                          barrierDismissible: false,
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const Message();
-                          },
-                        ),
-                        color: Colors.green,
-                        label: 'Yes',
-                      ),
-                    ],
-                  ),
-                  kSizedBox,
                 ],
               ),
-            ),
-          ]),
+              kSizedBox,
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }
@@ -226,9 +216,7 @@ class Message extends StatelessWidget {
                       ),
                     ),
                     ksizedBoxTFB,
-                    Container(
-                        padding: EdgeInsets.symmetric(horizontal: 15),
-                        child: divider),
+                    Container(padding: EdgeInsets.symmetric(horizontal: 15), child: divider),
                     ElevatedButton(
                       onPressed: () {
                         // Navigator.pushNamed(context, ListingOwner.id)

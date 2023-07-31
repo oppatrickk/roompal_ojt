@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/filter.dart';
+import 'package:roompal_ojt/widgets/propertylistingsgridview.dart';
+import 'package:roompal_ojt/widgets/propertylistingstableview.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 
@@ -20,7 +24,7 @@ class _ListingOwnerState extends State<ListingOwner> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: OwnersViewSection(),
@@ -55,11 +59,8 @@ class _OwnersViewSectionState extends State<OwnersViewSection> {
               const SizedBox(
                 width: 10,
               ),
-              Expanded(
-                child: GestureDetector(
-                  onTap: null,
-                  child: const FilterBox(),
-                ),
+              const Expanded(
+                child: Filter(),
               ),
             ],
           ),
@@ -106,8 +107,7 @@ class _OwnersViewSectionState extends State<OwnersViewSection> {
                 child: FloatingActionButton.extended(
                   isExtended: true,
                   elevation: 0,
-                  onPressed: () =>
-                      Navigator.pushNamed(context, OverviewPage.id),
+                  onPressed: () => Navigator.pushNamed(context, OverviewPage.id),
                   label: const Text('Add New'),
                   icon: const Icon(Icons.add),
                   shape: RoundedRectangleBorder(
@@ -158,9 +158,7 @@ class _OwnerViewState extends State<OwnerView> {
             },
           ),
         ),
-        iconValue == 0
-            ? const OwnerViewGridView()
-            : const OwnerViewTableFormat()
+        iconValue == 0 ? const OwnerViewGridView() : const OwnerViewTableFormat()
       ],
     );
   }
@@ -174,37 +172,9 @@ class OwnerViewGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        ksizedBoxTextFieldCol,
-        propertyCardOwnerView(
-          propertyImage: 'rental.jpg',
-          propertyStatus: 'AVAILABLE',
-          propertyName: 'ROOM NAME',
-          propertyNumber: 1,
-          propertyPrice: 0000.00,
-          propertyCity: 'Legazpi City',
-          propertyProvince: 'Albay',
-          propertyIcon: Icons.hotel,
-          propertyType: 'Bedspace',
-          propertyAccommodation: '4-18 people',
-          propertyStatusColor: const Color(0xFF00B400),
-        ),
-        ksizedBoxTextFieldCol,
-        propertyCardOwnerView(
-          propertyImage: 'rental.jpg',
-          propertyStatus: 'AVAILABLE',
-          propertyName: 'ROOM NAME',
-          propertyNumber: 1,
-          propertyPrice: 0000.00,
-          propertyCity: 'Legazpi City',
-          propertyProvince: 'Albay',
-          propertyIcon: Icons.hotel,
-          propertyType: 'Bedspace',
-          propertyAccommodation: '4-18 people',
-          propertyStatusColor: const Color(0xFF00B400),
-        ),
-      ],
+    return PropertyListingsGridView(
+      isRenter: false,
+      needEditDeleteButton: true,
     );
   }
 }
@@ -215,37 +185,9 @@ class RenterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        ksizedBoxTextFieldCol,
-        propertyCardView(
-          propertyImage: 'rental.jpg',
-          propertyStatus: 'AVAILABLE',
-          propertyName: 'ROOM NAME',
-          propertyNumber: 1,
-          propertyPrice: 0000.00,
-          propertyCity: 'Legazpi City',
-          propertyProvince: 'Albay',
-          propertyIcon: Icons.hotel,
-          propertyType: 'Bedspace',
-          propertyAccommodation: '4-18 people',
-          propertyStatusColor: const Color(0xFF00B400),
-        ),
-        ksizedBoxTextFieldCol,
-        propertyCardView(
-          propertyImage: 'rental.jpg',
-          propertyStatus: 'AVAILABLE',
-          propertyName: 'ROOM NAME',
-          propertyNumber: 1,
-          propertyPrice: 0000.00,
-          propertyCity: 'Legazpi City',
-          propertyProvince: 'Albay',
-          propertyIcon: Icons.hotel,
-          propertyType: 'Bedspace',
-          propertyAccommodation: '4-18 people',
-          propertyStatusColor: const Color(0xFF00B400),
-        ),
-      ],
+    return PropertyListingsGridView(
+      isRenter: false,
+      needEditDeleteButton: false,
     );
   }
 }
@@ -273,51 +215,48 @@ class OwnerViewTableFormat extends StatelessWidget {
           children: [
             TableRow(
                 decoration: BoxDecoration(
-                    color: Color(0xFF1C39BB),
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(16),
-                        topRight: Radius.circular(16))),
+                    color: Color(0xFF1C39BB), borderRadius: BorderRadius.only(topLeft: Radius.circular(16), topRight: Radius.circular(16))),
                 children: [
                   tableContent(content: 'Room#', color: Colors.white),
-                  tableContent(
-                      content: 'Property Details', color: Colors.white),
+                  tableContent(content: 'Property Details', color: Colors.white),
                   tableContent(content: 'Actions', color: Colors.white),
                 ]),
-            tableRowContents(
-              roomNumber: '001',
-              imageAsset: AssetImage('assets/img/rental.jpg'),
-              roomName: 'Kwarto De Luna',
-              roomCity: 'Legazpi City',
-              roomProvince: 'Albay',
-              roomPrice: 1000,
-              roomType: 'Studio',
-              roomStatus: 'Occupied',
-              colorBasedOnRoomStatus: Color(0xFF5C8BE1),
-            ),
-            tableRowContents(
-              roomNumber: '002',
-              imageAsset: AssetImage('assets/img/rental.jpg'),
-              roomName: 'Kwarto De Luna',
-              roomCity: 'Legazpi City',
-              roomProvince: 'Albay',
-              roomPrice: 1000,
-              roomType: 'Apartment',
-              roomStatus: 'Occupied',
-              colorBasedOnRoomStatus: Color(0xFF5C8BE1),
-            ),
-            tableRowContents(
-              roomNumber: '003',
-              imageAsset: AssetImage('assets/img/rental.jpg'),
-              roomName: 'Kwarto De Luna',
-              roomCity: 'Legazpi City',
-              roomProvince: 'Albay',
-              roomPrice: 1000,
-              roomType: 'Bedspace',
-              roomStatus: 'Available',
-              colorBasedOnRoomStatus: Colors.green[500]!,
-            ),
+            // tableRowContents(
+            //   roomNumber: '001',
+            //   imageAsset: AssetImage('assets/img/rental.jpg'),
+            //   roomName: 'Kwarto De Luna',
+            //   roomCity: 'Legazpi City',
+            //   roomProvince: 'Albay',
+            //   roomPrice: 1000,
+            //   roomType: 'Studio',
+            //   roomStatus: 'Occupied',
+            //   colorBasedOnRoomStatus: Color(0xFF5C8BE1),
+            // ),
+            // tableRowContents(
+            //   roomNumber: '002',
+            //   imageAsset: AssetImage('assets/img/rental.jpg'),
+            //   roomName: 'Kwarto De Luna',
+            //   roomCity: 'Legazpi City',
+            //   roomProvince: 'Albay',
+            //   roomPrice: 1000,
+            //   roomType: 'Apartment',
+            //   roomStatus: 'Occupied',
+            //   colorBasedOnRoomStatus: Color(0xFF5C8BE1),
+            // ),
+            // tableRowContents(
+            //   roomNumber: '003',
+            //   imageAsset: AssetImage('assets/img/rental.jpg'),
+            //   roomName: 'Kwarto De Luna',
+            //   roomCity: 'Legazpi City',
+            //   roomProvince: 'Albay',
+            //   roomPrice: 1000,
+            //   roomType: 'Bedspace',
+            //   roomStatus: 'Available',
+            //   colorBasedOnRoomStatus: Colors.green[500]!,
+            // ),
           ],
         ),
+        PropertyListingsTableView(),
       ],
     );
   }
@@ -370,15 +309,9 @@ TableRow tableRowContents({
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              label(
-                  buttonColor: Color(0xFFFEB618),
-                  label: roomType,
-                  textColor: Colors.black),
+              label(buttonColor: Color(0xFFFEB618), label: roomType, textColor: Colors.black),
               ksizedBoxTextFieldRow,
-              label(
-                  buttonColor: colorBasedOnRoomStatus,
-                  label: roomStatus,
-                  textColor: Colors.white),
+              label(buttonColor: colorBasedOnRoomStatus, label: roomStatus, textColor: Colors.white),
             ],
           ),
         ],
@@ -408,10 +341,7 @@ TableRow tableRowContents({
 }
 
 // Room Type & Room Status
-Container label(
-    {required String label,
-    required Color textColor,
-    required Color buttonColor}) {
+Container label({required String label, required Color textColor, required Color buttonColor}) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
     decoration: BoxDecoration(

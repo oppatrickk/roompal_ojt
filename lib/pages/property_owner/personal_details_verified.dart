@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
 
@@ -25,7 +26,7 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20),
@@ -51,17 +52,13 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
                             ),
                           ),
                           Expanded(
-                            child: iconStyle(
-                                icon: Icons.verified_rounded,
-                                color: Color(0xFF1C39BB),
-                                size: 24),
+                            child: iconStyle(icon: Icons.verified_rounded, color: Color(0xFF1C39BB), size: 24),
                           ),
                         ],
                       ),
                       Text(
                         'Manage your personal details.',
-                        style: textStyleContent(
-                            size: 14, color: Color(0xFF242426)),
+                        style: textStyleContent(size: 14, color: Color(0xFF242426)),
                       ),
                       ksizedBoxTextFieldCol,
                       Row(
@@ -71,15 +68,12 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
                             onPressed: () {},
                             style: ButtonStyle(
                               padding: MaterialStatePropertyAll(
-                                EdgeInsets.symmetric(
-                                    horizontal: 15, vertical: 7),
+                                EdgeInsets.symmetric(horizontal: 15, vertical: 7),
                               ),
                               side: MaterialStatePropertyAll(
                                 BorderSide(color: Colors.grey),
                               ),
-                              shape: MaterialStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5))),
+                              shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
                             ),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,8 +81,7 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
                               children: [
                                 Text(
                                   'Edit',
-                                  style: textStyleHeader(
-                                      size: 14, color: Color(0xFF242426)),
+                                  style: textStyleHeader(size: 14, color: Color(0xFF242426)),
                                 ),
                                 ksizedBoxTextFieldRow,
                                 Icon(
@@ -112,9 +105,7 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
               kSizedBox,
               displayUserNameData(),
               kSizedBox,
-              displayContent(
-                  label: 'Address',
-                  details: 'Purok 4, Bagumbayan, Daraga, Albay'),
+              displayContent(label: 'Address', details: 'Purok 4, Bagumbayan, Daraga, Albay'),
               kSizedBox,
               displayPhoneNumber(),
               kSizedBox,
@@ -132,11 +123,7 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  navigationButton(
-                      onPressed: null,
-                      icon: Icons.arrow_back,
-                      label: 'Go back',
-                      isGoBack: true),
+                  navigationButton(onPressed: null, icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                 ],
               ),
             ],
