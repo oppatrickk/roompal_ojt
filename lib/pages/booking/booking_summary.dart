@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/booking/payment_success.dart';
 import 'package:roompal_ojt/pages/renter/main_renter_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
