@@ -152,9 +152,9 @@ class _BookingSummaryState extends State<BookingSummary> {
   Text headerBS({required String label, required double size}) {
     return Text(
       label,
-      style: textStyleHeader(
-        size: size,
-        color: Color(0xFF242426),
+      style: TextStyle(
+        fontSize: size,
+        fontFamily: 'ProximaNovaAltBold',
       ),
     );
   }
