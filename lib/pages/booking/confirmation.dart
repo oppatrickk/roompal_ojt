@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/booking/payment_details.dart';
+import 'package:roompal_ojt/pages/booking/payment_success.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
+import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class ConfirmationPage extends StatefulWidget {
@@ -105,124 +106,37 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
             ),
             ksizedBoxTextFieldCol,
             Container(
+              height: 160,
               padding: const EdgeInsets.all(10),
               decoration: boxDecoration(),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Name',
-                    style: textStyleContent(
-                      size: 14,
-                      color: const Color(0xFF242426),
-                    ),
-                  ),
-                  ksizedBoxTextFieldCol,
-                  confirmationDetails(details: 'Cena Una Cortson Bueno'),
-                  ksizedBoxTextFieldCol,
-                  divider,
-                  ksizedBoxTextFieldCol,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  displayDetails(label: 'Name', details: 'Cena Una Coratson Bueno', flex: 1),
                   Row(
-                    children: <Widget>[
-                      displayDetails(
-                        label: 'Guest',
-                        details: '1',
-                        flex: 1,
-                      ),
+                    children: [
+                      displayDetails(label: 'Guest/s', details: '1', flex: 1),
                       ksizedBoxTextFieldRow,
-                      displayDetails(
-                        label: 'Payment Method',
-                        details: 'Credit Card',
-                        flex: 3,
-                      ),
+                      displayDetails(label: 'Payment Method', details: 'Credit Card', flex: 3),
                     ],
-                  ),
+                  )
                 ],
               ),
             ),
             kSizedBox,
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: boxDecoration(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Phone Number',
-                    style: textStyleContent(
-                      size: 14,
-                      color: const Color(0xFF242426),
-                    ),
-                  ),
-                  Row(
-                    children: <Widget>[
-                      displayDetails(
-                        label: '',
-                        details: '+63',
-                        flex: 1,
-                      ),
-                      ksizedBoxTextFieldRow,
-                      displayDetails(
-                        label: '',
-                        details: '912 7689 991',
-                        flex: 3,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            displayContent(label: 'Phone Number', details: '09123456789'),
             kSizedBox,
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: boxDecoration(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Check in & Check out Date',
-                    style: textStyleContent(
-                      size: 14,
-                      color: const Color(0xFF242426),
-                    ),
-                  ),
-                  ksizedBoxTextFieldCol,
-                  confirmationDetails(details: 'July 03-17 (14 days)'),
-                  ksizedBoxTextFieldCol,
-                  divider,
-                  ksizedBoxTextFieldCol,
-                ],
-              ),
-            ),
+            displayContent(label: 'Check in & Check out Date', details: 'July 03-17 (14 days)'),
             kSizedBox,
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: boxDecoration(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Email',
-                    style: textStyleContent(
-                      size: 14,
-                      color: const Color(0xFF242426),
-                    ),
-                  ),
-                  ksizedBoxTextFieldCol,
-                  confirmationDetails(details: 'coratsoncu@gmail.com'),
-                  ksizedBoxTextFieldCol,
-                  divider,
-                  ksizedBoxTextFieldCol,
-                ],
-              ),
-            ),
+            displayContent(label: 'Email', details: 'coratsoncu@gmail.com'),
             ksizedBoxTFB,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
+                navigationButton(onPressed: () => Navigator.pop(context), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                 navigationButton(
-                    onPressed: () => Navigator.pushNamed(context, PaymentDetails.id), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
-                navigationButton(onPressed: null, label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
+                    onPressed: () => Navigator.pushNamed(context, PaymentSuccess.id), label: 'Finish', icon: Icons.arrow_forward, isGoBack: false)
               ],
             ),
             ksizedBoxTextFieldCol,

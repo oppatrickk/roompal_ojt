@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/renter/main_renter_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
@@ -118,8 +119,8 @@ class _BookingSummaryState extends State<BookingSummary> {
               ),
               kSizedBox,
               noButtonIcons(
-                onPressed: null,
-                label: 'Finish Payment',
+                onPressed: () => Navigator.pushNamed(context, RenterPage.id),
+                label: 'Proceed to Booking Management',
                 isBorderRequired: true,
                 buttonColor: Colors.white,
                 textColor: const Color(0xFF242426),

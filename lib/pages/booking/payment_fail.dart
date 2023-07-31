@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/booking/booking.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
@@ -44,19 +45,14 @@ class _PaymentFailState extends State<PaymentFail> {
                   ),
                 ),
                 kSizedBox,
-                GestureDetector(
-                  child: Container(
-                    decoration: fillBoxDecoration(),
-                    padding: EdgeInsets.symmetric(vertical: 15),
-                    child: Center(
-                      child: Text(
-                        'Try Again',
-                        style: textStyleHeader(color: Colors.white, size: 16),
-                      ),
-                    ),
-                  ),
-                  onTap: null,
-                ),
+                noButtonIcons(
+                    onPressed: () => Navigator.pushNamed(context, Booking.id),
+                    label: 'Try Again',
+                    isBorderRequired: true,
+                    buttonColor: Color(0xFF1C39BB),
+                    textColor: Colors.white,
+                    horizontalPadding: 27,
+                    verticalPadding: 15),
               ]),
             ),
           ),

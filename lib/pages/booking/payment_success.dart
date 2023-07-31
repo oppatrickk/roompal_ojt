@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/booking/booking_summary.dart';
+import 'package:roompal_ojt/pages/landing_page.dart';
+import 'package:roompal_ojt/pages/renter/main_renter_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
@@ -45,33 +48,24 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
                     ),
                   ),
                   kSizedBox,
-                  GestureDetector(
-                    child: Container(
-                      decoration: outlineBoxDecoration(),
-                      padding: EdgeInsets.symmetric(vertical: 15),
-                      child: Center(
-                        child: Text(
-                          'View Details',
-                          style: textStyleHeader(color: Color(0xFF1C39BB), size: 16),
-                        ),
-                      ),
-                    ),
-                    onTap: null,
-                  ),
+                  customButton(
+                      onPressed: () => Navigator.pushNamed(context, BookingSummary.id),
+                      label: 'View Details',
+                      isBorderRequired: true,
+                      buttonColor: Colors.white,
+                      textColor: Color(0xFF1C39BB),
+                      horizontalPadding: 27,
+                      verticalPadding: 15,
+                      colorBorder: Color(0xFF1C39BB)),
                   ksizedBoxTextFieldCol,
-                  GestureDetector(
-                    child: Container(
-                      decoration: fillBoxDecoration(),
-                      padding: EdgeInsets.symmetric(vertical: 15),
-                      child: Center(
-                        child: Text(
-                          'Home',
-                          style: textStyleHeader(color: Colors.white, size: 16),
-                        ),
-                      ),
-                    ),
-                    onTap: null,
-                  ),
+                  noButtonIcons(
+                      onPressed: () => Navigator.pushNamed(context, LandingPage.id),
+                      label: 'Home',
+                      isBorderRequired: true,
+                      buttonColor: Color(0xFF1C39BB),
+                      textColor: Colors.white,
+                      horizontalPadding: 27,
+                      verticalPadding: 15),
                 ]),
               ),
             ),
@@ -80,6 +74,45 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
       ),
     );
   }
+}
+
+TextButton customButton({
+  required void Function()? onPressed,
+  required String label,
+  required bool? isBorderRequired,
+  required Color buttonColor,
+  required Color textColor,
+  required double horizontalPadding,
+  required double verticalPadding,
+  required Color colorBorder,
+}) {
+  return TextButton(
+    onPressed: onPressed,
+    style: ButtonStyle(
+      padding: MaterialStateProperty.all(
+        EdgeInsetsDirectional.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
+      ),
+      side: isBorderRequired == true
+          ? MaterialStateProperty.all(
+              BorderSide(
+                color: colorBorder,
+              ),
+            )
+          : null,
+      shape: MaterialStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+      backgroundColor: MaterialStatePropertyAll(buttonColor),
+    ),
+    child: Center(
+      child: Text(
+        label,
+        style: TextStyle(color: textColor, fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+      ),
+    ),
+  );
 }
 
 BoxDecoration outlineBoxDecoration() {
