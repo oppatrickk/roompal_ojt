@@ -3,6 +3,7 @@ import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
+import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 
 class PersonalDetailsNV extends StatefulWidget {
   const PersonalDetailsNV({Key? key}) : super(key: key);
@@ -41,20 +42,9 @@ class _PersonalDetailsNVState extends State<PersonalDetailsNV> {
                         radius: 50,
                         backgroundImage: AssetImage('assets/img/r.png'),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            flex: 10,
-                            child: Text(
-                              'Coratson B. Cena Una',
-                              style: kPersonName,
-                            ),
-                          ),
-                          Expanded(
-                            child: iconStyle(icon: Icons.verified_rounded, color: Color(0xFF1C39BB), size: 24),
-                          ),
-                        ],
+                      Text(
+                        'Coratson B. Cena Una',
+                        style: kPersonName,
                       ),
                       Text(
                         'Manage your personal details.',
@@ -62,36 +52,29 @@ class _PersonalDetailsNVState extends State<PersonalDetailsNV> {
                       ),
                       ksizedBoxTextFieldCol,
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           TextButton(
-                            onPressed: () {},
+                            onPressed: null,
                             style: ButtonStyle(
-                              padding: MaterialStatePropertyAll(
-                                EdgeInsets.symmetric(horizontal: 15, vertical: 7),
+                              padding: MaterialStateProperty.all(
+                                EdgeInsetsDirectional.symmetric(horizontal: 10, vertical: 3.5),
                               ),
-                              side: MaterialStatePropertyAll(
-                                BorderSide(color: Colors.grey),
+                              side: MaterialStateProperty.all(
+                                BorderSide(
+                                  color: Color(0xFF242426),
+                                ),
                               ),
                               shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
                             ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Edit',
-                                  style: textStyleHeader(size: 14, color: Color(0xFF242426)),
-                                ),
-                                ksizedBoxTextFieldRow,
-                                Icon(
-                                  Icons.edit_square,
-                                  size: 15,
-                                  color: Color(0xFF242426),
-                                ),
-                              ],
+                            child: Center(
+                              child: Text(
+                                'Verify Account',
+                                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+                              ),
                             ),
                           ),
+                          ActionButtons(Color(0xFF242426), Icons.edit_square, 'Edit', () {}),
                         ],
                       ),
                     ],

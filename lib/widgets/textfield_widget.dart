@@ -166,9 +166,11 @@ Column dNumberPrefix({required String label}) {
     children: [
       Text(
         label,
-        style: textStyleContent(
-          size: 18,
+        style: TextStyle(
           color: Color(0xFF242426),
+          fontSize: 18,
+          fontFamily: 'ProximaNovaRegular',
+          fontWeight: FontWeight.w600,
         ),
         textAlign: TextAlign.center,
       ),

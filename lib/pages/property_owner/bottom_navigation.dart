@@ -15,7 +15,7 @@ class BottomNavigation extends StatefulWidget {
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
-  // BottoNavigationBar
+  // BottomNavigationBar
   int selectedIndex = 0;
   static const List<Widget> widgetOptions = <Widget>[
     OverviewSection(),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/user_registration/chooserole_page.dart';
+import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class SideBar extends StatefulWidget {
@@ -30,13 +32,13 @@ class _SideBarState extends State<SideBar> {
                 leadingIcon: const Icon(Icons.person),
                 label: 'Sign up',
                 trailingIcon: const Icon(Icons.arrow_right),
-                onTap: null,
+                onTap: () => Navigator.pushNamed(context, ChooseRole.id),
               ),
               buildListTile(
                 leadingIcon: const Icon(Icons.person),
                 label: 'Log in',
                 trailingIcon: const Icon(Icons.arrow_right),
-                onTap: null,
+                onTap: () => Navigator.pushNamed(context, LoginPage.id),
               ),
               const Divider(
                 color: Color(0xFFB9B9C3),
@@ -85,13 +87,13 @@ class _SideBarState extends State<SideBar> {
   }
 
   // Content in SideBar
-  ListTile buildListTile({required Icon leadingIcon, required String label, required Icon trailingIcon, required Function? onTap}) {
+  ListTile buildListTile({required Icon leadingIcon, required String label, required Icon trailingIcon, required void Function()? onTap}) {
     return ListTile(
       leading: leadingIcon,
       title: Text(label),
       titleTextStyle: textStyleContent(size: 20, color: const Color(0xFF242731)),
       trailing: trailingIcon,
-      onTap: () => onTap,
+      onTap: onTap,
     );
   }
 }

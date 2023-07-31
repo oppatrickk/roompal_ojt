@@ -146,7 +146,7 @@ class CardBuild extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => BuildBookedRoomDetails(name: items[index].name, status: items[index].status, price: items[index].price),
+        builder: (context) => BuildBookedRoomDetails(items[index].name, items[index].status, items[index].price),
       ),
     );
   }
@@ -265,15 +265,17 @@ class StatusContainers extends StatelessWidget {
 
 //(3) build new page
 class BuildBookedRoomDetails extends StatelessWidget {
-  const BuildBookedRoomDetails({
-    required this.name,
-    required this.status,
-    required this.price,
+  const BuildBookedRoomDetails(
+    this.name,
+    this.status,
+    this.price, {
     super.key,
   });
   final String status;
   final String name;
   final String price;
+
+  static const String id = 'BuildBookedRoomDetails';
 
   @override
   Widget build(BuildContext context) {
