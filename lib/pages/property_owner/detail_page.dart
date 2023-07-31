@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/property_owner/photo_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
 
@@ -38,7 +39,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20),
@@ -68,10 +69,7 @@ class _DetailPageState extends State<DetailPage> {
                 ],
               ),
               kSizedBox,
-              headerSub(
-                  pageTitle: 'Details',
-                  subContent:
-                      'Fill in the property details. It will take a couple of minutes.'),
+              headerSub(pageTitle: 'Details', subContent: 'Fill in the property details. It will take a couple of minutes.'),
               kSizedBox,
               detailFields(
                 label: 'Room Amenities',
@@ -87,9 +85,7 @@ class _DetailPageState extends State<DetailPage> {
                 isAmenity: false,
               ),
               kSizedBox,
-              textField1(
-                  label: 'Number of Guest to Accomodate',
-                  hint: 'Enter Number of Guest to Accomodate'),
+              textField1(label: 'Number of Guest to Accomodate', hint: 'Enter Number of Guest to Accomodate'),
               kSizedBox,
               Container(
                 padding: const EdgeInsets.all(10),
@@ -123,17 +119,9 @@ class _DetailPageState extends State<DetailPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   navigationButton(
-                      onPressed: () =>
-                          Navigator.pushNamed(context, LocationPage.id),
-                      icon: Icons.arrow_back,
-                      label: 'Go back',
-                      isGoBack: true),
+                      onPressed: () => Navigator.pushNamed(context, LocationPage.id), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                   navigationButton(
-                      onPressed: () =>
-                          Navigator.pushNamed(context, PhotoPage.id),
-                      label: 'Go next',
-                      icon: Icons.arrow_forward,
-                      isGoBack: false)
+                      onPressed: () => Navigator.pushNamed(context, PhotoPage.id), label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
                 ],
               ),
               ksizedBoxTFB,
@@ -145,11 +133,7 @@ class _DetailPageState extends State<DetailPage> {
   }
 
 //Dropdown Button for Amenity and Inclusion
-  Container detailFields(
-      {required String label,
-      required bool? isAmenity,
-      required String hintText2,
-      required String labelDesc}) {
+  Container detailFields({required String label, required bool? isAmenity, required String hintText2, required String labelDesc}) {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: boxDecoration(),
@@ -184,9 +168,7 @@ class _DetailPageState extends State<DetailPage> {
                   onChanged: (Icon? value) {
                     setState(
                       () {
-                        isAmenity == true
-                            ? ddValAL = value!
-                            : ddValIL == value!;
+                        isAmenity == true ? ddValAL = value! : ddValIL == value!;
                       },
                     );
                   },

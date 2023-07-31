@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class PaymentSuccess extends StatefulWidget {
@@ -15,7 +16,7 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: Center(
         child: SingleChildScrollView(
           child: Center(
@@ -51,8 +52,7 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
                       child: Center(
                         child: Text(
                           'View Details',
-                          style: textStyleHeader(
-                              color: Color(0xFF1C39BB), size: 16),
+                          style: textStyleHeader(color: Color(0xFF1C39BB), size: 16),
                         ),
                       ),
                     ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 
@@ -14,7 +15,7 @@ class RoomDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: kPagePadding,
@@ -59,8 +60,7 @@ class RoomDetails extends StatelessWidget {
                     ],
                   ),
                   kSizedBox,
-                  BlueTextButton(() => Navigator.pushNamed(context, Booking.id),
-                      'Book This Property'),
+                  BlueTextButton(() => Navigator.pushNamed(context, Booking.id), 'Book This Property'),
                 ],
               ),
               kSizedBox,
@@ -70,8 +70,7 @@ class RoomDetails extends StatelessWidget {
                   const Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      IconWithTextDisplay(
-                          Icons.favorite_border_outlined, 'Save', Colors.grey),
+                      IconWithTextDisplay(Icons.favorite_border_outlined, 'Save', Colors.grey),
                       ksizedBoxTextFieldRow,
                       IconWithTextDisplay(Icons.share, 'Share', Colors.grey),
                     ],
@@ -166,8 +165,7 @@ class RoomDetails extends StatelessWidget {
                   Card(
                     margin: EdgeInsets.symmetric(vertical: 10.0),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 100.0, vertical: 10.0),
+                      padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 10.0),
                       child: Column(
                         //crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
@@ -183,8 +181,7 @@ class RoomDetails extends StatelessWidget {
                       ),
                     ),
                   ),
-                  BlueTextButton(() => Navigator.pushNamed(context, Booking.id),
-                      'BOOK NOW'),
+                  BlueTextButton(() => Navigator.pushNamed(context, Booking.id), 'BOOK NOW'),
                 ],
               ),
               kSizedBox,
@@ -212,8 +209,7 @@ class RoomDetails extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           AmenitiesCard('Airconditioner', Icons.air_outlined),
-                          AmenitiesCard(
-                              'Washing Area', Icons.dry_cleaning_outlined),
+                          AmenitiesCard('Washing Area', Icons.dry_cleaning_outlined),
                         ],
                       ),
                     ],
@@ -459,8 +455,7 @@ class AmenitiesCard extends StatelessWidget {
           border: Border.all(),
         ),
         child: ListTile(
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
           horizontalTitleGap: 0.0,
           leading: Icon(
             icon,

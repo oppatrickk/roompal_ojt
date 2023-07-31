@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:roompal_ojt/formvalidation/auth.dart';
 import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/textfield_with_validation_widget.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
@@ -19,7 +20,7 @@ class _OverviewPageState extends State<OverviewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: OverviewSection(),
       ),

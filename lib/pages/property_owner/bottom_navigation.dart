@@ -3,6 +3,7 @@ import 'package:roompal_ojt/pages/property_owner/listing_ownersView.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/property_owner/reviews_page.dart';
 import 'package:roompal_ojt/pages/property_owner/stay_view.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -33,7 +34,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: widgetOptions.elementAt(selectedIndex),
       ),

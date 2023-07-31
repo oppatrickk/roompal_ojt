@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/property_owner/bottom_navigation.dart';
-import 'package:roompal_ojt/pages/room_details.dart';
-import '../widgets/widget_elements.dart';
+import 'package:roompal_ojt/widgets/filter.dart';
+import 'package:roompal_ojt/widgets/propertylistingsgridview.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
+import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -12,12 +14,11 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  bool? actionStatus = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
@@ -32,106 +33,7 @@ class _LandingPageState extends State<LandingPage> {
                 width: 10,
               ),
               Expanded(
-                child: GestureDetector(
-                  child: FilterBox(),
-                  onTap: () => showModalBottomSheet(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return Container(
-                        height: 700,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(16),
-                            topLeft: Radius.circular(16),
-                          ),
-                          color: Colors.white,
-                        ),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 20),
-                          child: Column(
-                            children: <Widget>[
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Text(
-                                    'Filters',
-                                    style: textStyleHeader(
-                                      color: const Color(0xFF1C39BB),
-                                      size: 24,
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.bottomRight,
-                                    child: Text(
-                                      'Reset',
-                                      style: textStyleHeader(
-                                        color: Colors.red,
-                                        size: 16,
-                                      ),
-                                      textAlign: TextAlign.end,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const Divider(
-                                color: Color(0xFFB9B9C3),
-                              ),
-                              Column(
-                                children: <Widget>[
-                                  const SizedBox(height: 20),
-                                  Column(
-                                    children: <Widget>[
-                                      filterContents(
-                                          label: 'Show Occupied Rooms'),
-                                      filterContents(
-                                          label: 'Show Vacant Rooms'),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 20),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: <Widget>[
-                                      Text(
-                                        'Type of Room',
-                                        style: textStyleHeader(
-                                            color: const Color(0xFF242731),
-                                            size: 20),
-                                      ),
-                                      Container(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
-                                        child: Column(children: <Widget>[
-                                          filterContents(
-                                              label: 'Boarding House'),
-                                          filterContents(label: 'Bedspace'),
-                                          filterContents(label: 'Apartment'),
-                                          filterContents(label: 'Studio'),
-                                        ]),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 80),
-                              buttonLP(
-                                  height: 40,
-                                  color: const Color(0xFF1C39BB),
-                                  label: 'Apply Filter',
-                                  textColor: Colors.white,
-                                  size: 16,
-                                  onTap: () {}),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                child: Filter(),
               ),
             ]),
             const SizedBox(height: 20),
@@ -247,106 +149,14 @@ class _LandingPageState extends State<LandingPage> {
                 ),
               ],
             ),
-            const SizedBox(height: 20),
-            GestureDetector(
-              child: propertyCardView(
-                propertyImage: 'rental.jpg',
-                propertyStatus: 'AVAILABLE',
-                propertyName: 'ROOM NAME',
-                propertyNumber: 1,
-                propertyPrice: 0000.00,
-                propertyCity: 'Legazpi City',
-                propertyProvince: 'Albay',
-                propertyIcon: Icons.hotel,
-                propertyType: 'Bedspace',
-                propertyAccommodation: '4-18 people',
-                propertyStatusColor: const Color(0xFF00B400),
-              ),
-              onTap: () => Navigator.pushNamed(context, RoomDetails.id),
-            ),
-            const SizedBox(height: 20),
-            propertyCardView(
-              propertyImage: 'rental.jpg',
-              propertyStatus: 'AVAILABLE',
-              propertyName: 'ROOM NAME',
-              propertyNumber: 1,
-              propertyPrice: 0000.00,
-              propertyCity: 'Legazpi City',
-              propertyProvince: 'Albay',
-              propertyIcon: Icons.hotel,
-              propertyType: 'Bedspace',
-              propertyAccommodation: '4-18 people',
-              propertyStatusColor: const Color(0xFF00B400),
-            ),
-            const SizedBox(height: 20),
-            propertyCardView(
-              propertyImage: 'rental.jpg',
-              propertyStatus: 'AVAILABLE',
-              propertyName: 'ROOM NAME',
-              propertyNumber: 1,
-              propertyPrice: 0000.00,
-              propertyCity: 'Legazpi City',
-              propertyProvince: 'Albay',
-              propertyIcon: Icons.hotel,
-              propertyType: 'Bedspace',
-              propertyAccommodation: '4-18 people',
-              propertyStatusColor: const Color(0xFF00B400),
-            ),
-            const SizedBox(height: 20),
-            propertyCardView(
-              propertyImage: 'rental.jpg',
-              propertyStatus: 'AVAILABLE',
-              propertyName: 'ROOM NAME',
-              propertyNumber: 1,
-              propertyPrice: 0000.00,
-              propertyCity: 'Legazpi City',
-              propertyProvince: 'Albay',
-              propertyIcon: Icons.hotel,
-              propertyType: 'Bedspace',
-              propertyAccommodation: '4-18 people',
-              propertyStatusColor: const Color(0xFF00B400),
-            ),
-            const SizedBox(height: 20),
-            propertyCardView(
-              propertyImage: 'rental.jpg',
-              propertyStatus: 'AVAILABLE',
-              propertyName: 'ROOM NAME',
-              propertyNumber: 1,
-              propertyPrice: 0000.00,
-              propertyCity: 'Legazpi City',
-              propertyProvince: 'Albay',
-              propertyIcon: Icons.hotel,
-              propertyType: 'Bedspace',
-              propertyAccommodation: '4-18 people',
-              propertyStatusColor: const Color(0xFF00B400),
+            const SizedBox(height: 10),
+            PropertyListingsGridView(
+              isRenter: true,
+              needEditDeleteButton: false,
             ),
           ]),
         ),
       ),
-    );
-  }
-
-  // Filter
-  Row filterContents({required String label}) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: <Widget>[
-        SizedBox(
-          height: 24,
-          width: 24,
-          child: Checkbox(
-              value: actionStatus,
-              onChanged: (bool? value) {
-                setState(() {
-                  actionStatus = value;
-                });
-                if (actionStatus!) {
-                } else {}
-              }),
-        ),
-        const SizedBox(width: 10),
-        filterRoomStatus(label: label)
-      ],
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class BookingSummary extends StatefulWidget {
@@ -15,7 +16,7 @@ class _BookingSummaryState extends State<BookingSummary> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.all(20),
@@ -231,8 +232,7 @@ class _BookingSummaryState extends State<BookingSummary> {
                   child: Center(
                     child: Text(
                       'Finish Payment',
-                      style:
-                          textStyleHeader(color: Color(0xFF242426), size: 16),
+                      style: textStyleHeader(color: Color(0xFF242426), size: 16),
                     ),
                   ),
                 ),
@@ -247,9 +247,7 @@ class _BookingSummaryState extends State<BookingSummary> {
 }
 
 class dashLineSeparator extends StatelessWidget {
-  const dashLineSeparator(
-      {Key? key, this.height = 1, this.color = Colors.black})
-      : super(key: key);
+  const dashLineSeparator({Key? key, this.height = 1, this.color = Colors.black}) : super(key: key);
   final double height;
   final Color color;
 

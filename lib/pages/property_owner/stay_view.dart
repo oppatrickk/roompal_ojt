@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/filter.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 import 'package:roompal_ojt/widgets/popup_widgets.dart';
@@ -17,7 +19,7 @@ class _StayViewState extends State<StayView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: StayViewSection(),
@@ -52,10 +54,7 @@ class _StayViewSectionState extends State<StayViewSection> {
                 width: 10,
               ),
               Expanded(
-                child: GestureDetector(
-                  onTap: null,
-                  child: const FilterBox(),
-                ),
+                child: Filter(),
               ),
             ],
           ),
@@ -83,8 +82,7 @@ class _StayViewSectionState extends State<StayViewSection> {
                   children: [
                     Text(
                       'Stay View',
-                      style:
-                          textStyleHeader(color: Color(0xFF242731), size: 32),
+                      style: textStyleHeader(color: Color(0xFF242731), size: 32),
                     ),
                     Row(
                       children: [
@@ -262,10 +260,7 @@ class _StayViewSectionState extends State<StayViewSection> {
   }
 
   GestureDetector guestTracker(
-      {required Color trackerColor,
-      required String guestName,
-      required EdgeInsets margin,
-      required void Function()? onPressed}) {
+      {required Color trackerColor, required String guestName, required EdgeInsets margin, required void Function()? onPressed}) {
     return GestureDetector(
       child: Container(
         margin: margin,
@@ -293,8 +288,7 @@ class _StayViewSectionState extends State<StayViewSection> {
     );
   }
 
-  GestureDetector pendingRequest(
-      {required int totalRequest, required void Function()? onTap}) {
+  GestureDetector pendingRequest({required int totalRequest, required void Function()? onTap}) {
     return GestureDetector(
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 14, vertical: 5),
@@ -463,9 +457,7 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Center(
-                child: selectedButton == 'Booking'
-                    ? BookingWidget()
-                    : TenantWidget(),
+                child: selectedButton == 'Booking' ? BookingWidget() : TenantWidget(),
               ),
             ),
           ),
@@ -611,136 +603,133 @@ class _PendingRequestPromptState extends State<PendingRequestPrompt> {
   Widget build(BuildContext context) {
     return Dialog(
       surfaceTintColor: Colors.white,
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            titleDesign(label: 'Pending Request'),
-            SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                children: [
-                  GestureDetector(
-                    child: pendingRequestContent(tenantName: 'Cardo Dalisay'),
-                    onTap: () => setState(() {
-                      isCDVisible = !isCDVisible;
-                    }),
-                  ),
-                  ksizedBoxTextFieldCol,
-                  Visibility(
-                    visible: isCDVisible,
-                    child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 15),
-                      child: Column(
-                        children: [
-                          popupTextFieldContent(
-                            label: 'Room Number',
-                            icon: Icons.meeting_room,
-                            content: '002',
-                          ),
-                          ksizedBoxTextFieldCol,
-                          popupTextFieldContent(
-                            label: 'Start Date',
-                            icon: Icons.calendar_month_outlined,
-                            content: '07 | 03 | 2023',
-                          ),
-                          ksizedBoxTextFieldCol,
-                          popupTextFieldContent(
-                            label: 'End Date',
-                            icon: Icons.calendar_month_outlined,
-                            content: '07 | 06 | 2023',
-                          ),
-                          ksizedBoxTextFieldCol,
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              puButton(
-                                onPressed: () => Navigator.canPop(context),
-                                color: Colors.red,
-                                label: 'Decline',
-                              ),
-                              ksizedBoxTextFieldRow,
-                              puButton(
-                                onPressed: () => showDialog(
-                                  barrierDismissible: false,
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return RoomAssignment();
-                                  },
-                                ),
-                                color: Colors.green,
-                                label: 'Assign',
-                              ),
-                            ],
-                          ),
-                          kSizedBox,
-                        ],
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    child: pendingRequestContent(tenantName: 'Alden Ritsards'),
-                    onTap: () => setState(() {
-                      isARVisible = !isARVisible;
-                    }),
-                  ),
-                  ksizedBoxTextFieldCol,
-                  Visibility(
-                    visible: isARVisible,
-                    child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 15),
-                      child: Column(
-                        children: [
-                          popupTextFieldContent(
-                            label: 'Room Number',
-                            icon: Icons.meeting_room,
-                            content: '002',
-                          ),
-                          ksizedBoxTextFieldCol,
-                          popupTextFieldContent(
-                            label: 'Start Date',
-                            icon: Icons.calendar_month_outlined,
-                            content: '07 | 03 | 2023',
-                          ),
-                          ksizedBoxTextFieldCol,
-                          popupTextFieldContent(
-                            label: 'End Date',
-                            icon: Icons.calendar_month_outlined,
-                            content: '07 | 06 | 2023',
-                          ),
-                          ksizedBoxTextFieldCol,
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              puButton(
-                                onPressed: () => Navigator.pop(context),
-                                color: Colors.red,
-                                label: 'Decline',
-                              ),
-                              ksizedBoxTextFieldRow,
-                              puButton(
-                                onPressed: () => showDialog(
-                                  barrierDismissible: false,
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return RoomAssignment();
-                                  },
-                                ),
-                                color: Colors.green,
-                                label: 'Assign',
-                              ),
-                            ],
-                          ),
-                          kSizedBox,
-                        ],
-                      ),
-                    ),
-                  ),
-                  ksizedBoxTextFieldCol,
-                ],
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
+        titleDesign(label: 'Pending Request'),
+        SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Column(
+            children: [
+              GestureDetector(
+                child: pendingRequestContent(tenantName: 'Cardo Dalisay'),
+                onTap: () => setState(() {
+                  isCDVisible = !isCDVisible;
+                }),
               ),
-            ),
-          ]),
+              ksizedBoxTextFieldCol,
+              Visibility(
+                visible: isCDVisible,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: Column(
+                    children: [
+                      popupTextFieldContent(
+                        label: 'Room Number',
+                        icon: Icons.meeting_room,
+                        content: '002',
+                      ),
+                      ksizedBoxTextFieldCol,
+                      popupTextFieldContent(
+                        label: 'Start Date',
+                        icon: Icons.calendar_month_outlined,
+                        content: '07 | 03 | 2023',
+                      ),
+                      ksizedBoxTextFieldCol,
+                      popupTextFieldContent(
+                        label: 'End Date',
+                        icon: Icons.calendar_month_outlined,
+                        content: '07 | 06 | 2023',
+                      ),
+                      ksizedBoxTextFieldCol,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          puButton(
+                            onPressed: () => Navigator.canPop(context),
+                            color: Colors.red,
+                            label: 'Decline',
+                          ),
+                          ksizedBoxTextFieldRow,
+                          puButton(
+                            onPressed: () => showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (BuildContext context) {
+                                return RoomAssignment();
+                              },
+                            ),
+                            color: Colors.green,
+                            label: 'Assign',
+                          ),
+                        ],
+                      ),
+                      kSizedBox,
+                    ],
+                  ),
+                ),
+              ),
+              GestureDetector(
+                child: pendingRequestContent(tenantName: 'Alden Ritsards'),
+                onTap: () => setState(() {
+                  isARVisible = !isARVisible;
+                }),
+              ),
+              ksizedBoxTextFieldCol,
+              Visibility(
+                visible: isARVisible,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: Column(
+                    children: [
+                      popupTextFieldContent(
+                        label: 'Room Number',
+                        icon: Icons.meeting_room,
+                        content: '002',
+                      ),
+                      ksizedBoxTextFieldCol,
+                      popupTextFieldContent(
+                        label: 'Start Date',
+                        icon: Icons.calendar_month_outlined,
+                        content: '07 | 03 | 2023',
+                      ),
+                      ksizedBoxTextFieldCol,
+                      popupTextFieldContent(
+                        label: 'End Date',
+                        icon: Icons.calendar_month_outlined,
+                        content: '07 | 06 | 2023',
+                      ),
+                      ksizedBoxTextFieldCol,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          puButton(
+                            onPressed: () => Navigator.pop(context),
+                            color: Colors.red,
+                            label: 'Decline',
+                          ),
+                          ksizedBoxTextFieldRow,
+                          puButton(
+                            onPressed: () => showDialog(
+                              barrierDismissible: false,
+                              context: context,
+                              builder: (BuildContext context) {
+                                return RoomAssignment();
+                              },
+                            ),
+                            color: Colors.green,
+                            label: 'Assign',
+                          ),
+                        ],
+                      ),
+                      kSizedBox,
+                    ],
+                  ),
+                ),
+              ),
+              ksizedBoxTextFieldCol,
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }
@@ -757,46 +746,43 @@ class _RoomAssignmentState extends State<RoomAssignment> {
   Widget build(BuildContext context) {
     return Dialog(
       surfaceTintColor: Colors.white,
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            titleDesign(label: 'Room Assignment'),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 22),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
+        titleDesign(label: 'Room Assignment'),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 22),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              kSizedBox,
+              Text(
+                'Assign to Room #002?',
+                style: textStyleContent(
+                  size: 16,
+                  color: Color(0xFF242426),
+                ),
+              ),
+              ksizedBoxTFB,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  kSizedBox,
-                  Text(
-                    'Assign to Room #002?',
-                    style: textStyleContent(
-                      size: 16,
-                      color: Color(0xFF242426),
-                    ),
+                  puButton(
+                    onPressed: () => Navigator.pop(context),
+                    color: Colors.red,
+                    label: 'Cancel',
                   ),
-                  ksizedBoxTFB,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      puButton(
-                        onPressed: () => Navigator.pop(context),
-                        color: Colors.red,
-                        label: 'Cancel',
-                      ),
-                      ksizedBoxTextFieldRow,
-                      puButton(
-                        onPressed: () => Navigator.pop(context),
-                        color: Colors.green,
-                        label: 'Assign',
-                      ),
-                    ],
+                  ksizedBoxTextFieldRow,
+                  puButton(
+                    onPressed: () => Navigator.pop(context),
+                    color: Colors.green,
+                    label: 'Assign',
                   ),
-                  kSizedBox,
                 ],
               ),
-            ),
-          ]),
+              kSizedBox,
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }

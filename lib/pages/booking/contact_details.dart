@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/booking/payment_details.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class ContactDetails extends StatefulWidget {
@@ -17,7 +18,7 @@ class _ContactDetailsState extends State<ContactDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
-      endDrawer: buildSideBar(context),
+      endDrawer: const SideBar(),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(20),
@@ -113,8 +114,7 @@ class _ContactDetailsState extends State<ContactDetails> {
                                       color: Color(0xFF242426),
                                     ),
                                   ),
-                                  contentPadding:
-                                      EdgeInsets.symmetric(horizontal: 30),
+                                  contentPadding: EdgeInsets.symmetric(horizontal: 30),
                                   labelText: '+63',
                                 ),
                                 style: textStyleHeader(
@@ -155,17 +155,9 @@ class _ContactDetailsState extends State<ContactDetails> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
+                  navigationButton(onPressed: null, icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
                   navigationButton(
-                      onPressed: null,
-                      icon: Icons.arrow_back,
-                      label: 'Go back',
-                      isGoBack: true),
-                  navigationButton(
-                      onPressed: () =>
-                          Navigator.pushNamed(context, PaymentDetails.id),
-                      label: 'Go next',
-                      icon: Icons.arrow_forward,
-                      isGoBack: false)
+                      onPressed: () => Navigator.pushNamed(context, PaymentDetails.id), label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
                 ],
               ),
               ksizedBoxTextFieldCol,
