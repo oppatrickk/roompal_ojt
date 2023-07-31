@@ -292,7 +292,9 @@ class BuildBookedRoomDetails extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               StatusContainers(status: status),
+              //room details
               Card(
+                surfaceTintColor: Colors.white,
                 shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Column(
@@ -343,7 +345,9 @@ class BuildBookedRoomDetails extends StatelessWidget {
                   ],
                 ),
               ),
+              //guest info
               Card(
+                surfaceTintColor: Colors.white,
                 shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: const Column(
@@ -364,7 +368,9 @@ class BuildBookedRoomDetails extends StatelessWidget {
                   ],
                 ),
               ),
+              //contact info
               Card(
+                surfaceTintColor: Colors.white,
                 shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: const Padding(
@@ -385,7 +391,9 @@ class BuildBookedRoomDetails extends StatelessWidget {
                   ),
                 ),
               ),
+              //price details
               Card(
+                surfaceTintColor: Colors.white,
                 shape: border,
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Padding(
