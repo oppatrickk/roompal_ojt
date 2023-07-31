@@ -55,31 +55,6 @@ Container userName() {
   );
 }
 
-//User's Phone Number
-Container phoneNumber() {
-  return Container(
-    padding: const EdgeInsets.all(10),
-    decoration: boxDecoration(),
-    child: Column(
-      children: <Widget>[
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              'Phone Number',
-              style: textStyleContent(
-                size: 14,
-                color: const Color(0xFF242426),
-              ),
-            ),
-            numberPrefix(),
-          ],
-        ),
-      ],
-    ),
-  );
-}
-
 //Price and transaction fee
 Expanded priceField({
   required String label,

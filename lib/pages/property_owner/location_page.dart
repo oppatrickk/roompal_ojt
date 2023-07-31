@@ -14,34 +14,6 @@ class LocationPage extends StatefulWidget {
 }
 
 class _LocationPageState extends State<LocationPage> {
-  // BottoNavigationBar
-  int selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> widgetOptions = <Widget>[
-    Text(
-      'Index 0: Create Listing',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Manage Listing',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Stay View',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Review',
-      style: optionStyle,
-    ),
-  ];
-
-  void onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
-
   //DropDown
   static const List<Icon> list = <Icon>[
     Icon(Icons.house),
@@ -84,7 +56,10 @@ class _LocationPageState extends State<LocationPage> {
                 ],
               ),
               ksizedBoxTextFieldCol,
-              headerSub(pageTitle: 'Location', subContent: 'Fill in the property location data. It will take a couple of minutes.'),
+              headerSub(
+                  pageTitle: 'Location',
+                  subContent:
+                      'Fill in the property location data. It will take a couple of minutes.'),
               ksizedBoxTextFieldCol,
               //region and province
               Container(
@@ -150,7 +125,9 @@ class _LocationPageState extends State<LocationPage> {
               ),
               ksizedBoxTextFieldCol,
               //address
-              textField1(label: 'Street Name, Building, House No.', hint: 'Enter Residence'),
+              textField1(
+                  label: 'Street Name, Building, House No.',
+                  hint: 'Enter Residence'),
               ksizedBoxTextFieldCol,
               //Icon dropdown and landmark
               Container(
@@ -178,7 +155,8 @@ class _LocationPageState extends State<LocationPage> {
                                 value: dropdownValue,
                                 icon: const Icon(Icons.arrow_drop_down),
                                 elevation: 16,
-                                style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
+                                style: textStyleContent(
+                                    size: 16, color: Color(0xFF575F6E)),
                                 decoration: InputDecoration(
                                   contentPadding: EdgeInsets.all(0),
                                 ),
@@ -189,7 +167,8 @@ class _LocationPageState extends State<LocationPage> {
                                     },
                                   );
                                 },
-                                items: list.map<DropdownMenuItem<Icon>>((Icon value) {
+                                items: list
+                                    .map<DropdownMenuItem<Icon>>((Icon value) {
                                   return DropdownMenuItem<Icon>(
                                     value: value,
                                     child: value,
@@ -220,13 +199,15 @@ class _LocationPageState extends State<LocationPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   navigationButton(
-                    onPressed: () => Navigator.pushNamed(context, ContactOverview.id),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, ContactOverview.id),
                     icon: Icons.arrow_back,
                     label: 'Go back',
                     isGoBack: true,
                   ),
                   navigationButton(
-                    onPressed: () => Navigator.pushNamed(context, DetailPage.id),
+                    onPressed: () =>
+                        Navigator.pushNamed(context, DetailPage.id),
                     label: 'Go next',
                     icon: Icons.arrow_forward,
                     isGoBack: false,
@@ -237,33 +218,6 @@ class _LocationPageState extends State<LocationPage> {
             ],
           ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt_rounded),
-            label: 'Create Listing',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.edit_note_rounded),
-            label: 'Manage Listing',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_month_rounded),
-            label: 'Stay View',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grade_outlined),
-            label: 'Review',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-        ],
-        currentIndex: selectedIndex,
-        selectedItemColor: Colors.white,
-        onTap: onItemTapped,
       ),
     );
   }

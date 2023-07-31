@@ -6,6 +6,8 @@ import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/popup_widgets.dart';
 
+import 'bottom_navigation.dart';
+
 class PricePage extends StatefulWidget {
   const PricePage({Key? key}) : super(key: key);
   static const String id = 'PricePage';
@@ -15,34 +17,6 @@ class PricePage extends StatefulWidget {
 }
 
 class _PricePageState extends State<PricePage> {
-// Bottom NavigationBar
-  int selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> widgetOptions = <Widget>[
-    Text(
-      'Index 0: Create Listing',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Manage Listing',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Stay View',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Review',
-      style: optionStyle,
-    ),
-  ];
-
-  void onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +49,10 @@ class _PricePageState extends State<PricePage> {
                 ],
               ),
               kSizedBox,
-              headerSub(pageTitle: 'Price', subContent: 'Fill the property price for transient and monthly. It will take a couple of minutes.'),
+              headerSub(
+                  pageTitle: 'Price',
+                  subContent:
+                      'Fill the property price for transient and monthly. It will take a couple of minutes.'),
               kSizedBox,
               //Transient Price and Transaction Fee
               Container(
@@ -116,7 +93,11 @@ class _PricePageState extends State<PricePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  navigationButton(onPressed: null, icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
+                  navigationButton(
+                      onPressed: null,
+                      icon: Icons.arrow_back,
+                      label: 'Go back',
+                      isGoBack: true),
                   navigationButton(
                       onPressed: () => showDialog(
                             barrierDismissible: false,
@@ -135,33 +116,6 @@ class _PricePageState extends State<PricePage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt_rounded),
-            label: 'Create Listing',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.edit_note_rounded),
-            label: 'Manage Listing',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_month_rounded),
-            label: 'Stay View',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grade_outlined),
-            label: 'Review',
-            backgroundColor: Color(0xFF1C39BB),
-          ),
-        ],
-        currentIndex: selectedIndex,
-        selectedItemColor: Colors.white,
-        onTap: onItemTapped,
-      ),
     );
   }
 }
@@ -176,49 +130,52 @@ class Confirmation extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(25),
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
-        titleDesign(label: 'Property Listing'),
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 22),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              kSizedBox,
-              Text(
-                'Submit your listing?',
-                style: textStyleContent(
-                  size: 16,
-                  color: Color(0xFF242426),
-                ),
-              ),
-              ksizedBoxTFB,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            titleDesign(label: 'Property Listing'),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 22),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  puButton(
-                    onPressed: () => Navigator.pop(context),
-                    color: Colors.red,
-                    label: 'No',
-                  ),
-                  ksizedBoxTextFieldRow,
-                  puButton(
-                    onPressed: () => showDialog(
-                      barrierDismissible: false,
-                      context: context,
-                      builder: (BuildContext context) {
-                        return const Message();
-                      },
+                  kSizedBox,
+                  Text(
+                    'Submit your listing?',
+                    style: textStyleContent(
+                      size: 16,
+                      color: Color(0xFF242426),
                     ),
-                    color: Colors.green,
-                    label: 'Yes',
                   ),
+                  ksizedBoxTFB,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      puButton(
+                        onPressed: () => Navigator.pop(context),
+                        color: Colors.red,
+                        label: 'No',
+                      ),
+                      ksizedBoxTextFieldRow,
+                      puButton(
+                        onPressed: () => showDialog(
+                          barrierDismissible: false,
+                          context: context,
+                          builder: (BuildContext context) {
+                            return const Message();
+                          },
+                        ),
+                        color: Colors.green,
+                        label: 'Yes',
+                      ),
+                    ],
+                  ),
+                  kSizedBox,
                 ],
               ),
-              kSizedBox,
-            ],
-          ),
-        ),
-      ]),
+            ),
+          ]),
     );
   }
 }
@@ -269,10 +226,18 @@ class Message extends StatelessWidget {
                       ),
                     ),
                     ksizedBoxTFB,
-                    Container(padding: EdgeInsets.symmetric(horizontal: 15), child: divider),
+                    Container(
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        child: divider),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, ListingOwner.id);
+                        // Navigator.pushNamed(context, ListingOwner.id)
+                        Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          BottomNavigation.id,
+                          (route) => route.isFirst,
+                          arguments: 1, //navigation bar index
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,

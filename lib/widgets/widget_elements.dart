@@ -447,48 +447,6 @@ Container detailFields(
   );
 }
 
-//+63
-Row numberPrefix() {
-  return Row(
-    crossAxisAlignment: CrossAxisAlignment.baseline,
-    textBaseline: TextBaseline.ideographic,
-    children: <Widget>[
-      Expanded(
-        flex: 1,
-        child: Column(
-          children: [
-            Text(
-              '+63',
-              style: textStyleContent(
-                size: 18,
-                color: Color(0xFF242426),
-              ),
-              textAlign: TextAlign.center,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 3),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Container(
-                    height: 1,
-                    color: Color(0xFF646060),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-      ksizedBoxTextFieldRow,
-      Expanded(
-        flex: 2,
-        child: textFieldDecoration(),
-      ),
-    ],
-  );
-}
-
 //Button for go back and go next
 TextButton navigationButton({
   required void Function()? onPressed,
@@ -831,7 +789,12 @@ TextField textFieldwithHintTextDecoration(String hintText) {
     maxLines: null,
     decoration: InputDecoration(
       hintText: hintText,
-      hintStyle: textStyleContent(color: Colors.grey, size: 18),
+      hintStyle: TextStyle(
+        color: Colors.grey,
+        fontSize: 18,
+        fontFamily: 'ProximaNovaRegular',
+        fontWeight: FontWeight.w600,
+      ),
       border: const UnderlineInputBorder(
         borderSide: BorderSide(
           color: Color(0xFFBBBFC1),
@@ -842,11 +805,12 @@ TextField textFieldwithHintTextDecoration(String hintText) {
           color: Color(0xFF242426),
         ),
       ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 10),
     ),
-    style: textStyleContent(
-      size: 18,
-      color: const Color(0xFF242426),
+    style: TextStyle(
+      color: Color(0xFF242426),
+      fontSize: 18,
+      fontFamily: 'ProximaNovaRegular',
+      fontWeight: FontWeight.w600,
     ),
   );
 }
@@ -908,7 +872,12 @@ Container confirmationDetails({required String details}) {
     padding: const EdgeInsets.symmetric(horizontal: 10),
     child: Text(
       details,
-      style: textStyleContent(color: const Color(0xFF242426), size: 18),
+      style: TextStyle(
+        color: Color(0xFF242426),
+        fontSize: 18,
+        fontFamily: 'ProximaNovaRegular',
+        fontWeight: FontWeight.w600,
+      ),
       textAlign: TextAlign.justify,
     ),
   );

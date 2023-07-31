@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/formvalidation/auth.dart';
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/textfield_with_validation_widget.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
 
@@ -14,34 +16,6 @@ class ContactOverview extends StatefulWidget {
 }
 
 class _ContactOverviewState extends State<ContactOverview> {
-// BottoNavigationBar
-  int selectedIndex = 0;
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> widgetOptions = <Widget>[
-    Text(
-      'Index 0: Create Listing',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Manage Listing',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: Stay View',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 3: Review',
-      style: optionStyle,
-    ),
-  ];
-
-  void onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,52 +49,92 @@ class _ContactOverviewState extends State<ContactOverview> {
               kSizedBox,
               headerSub(pageTitle: 'Contact', subContent: 'Fill in your contact data. It will take a couple of minutes.'),
               kSizedBox,
-              userName(),
-              kSizedBox,
-              phoneNumber(),
-              kSizedBox,
-              textField1(label: 'Email', hint: 'Enter Email'),
-              ksizedBoxTFB,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  navigationButton(
-                      onPressed: () => Navigator.pushNamed(context, OverviewPage.id), icon: Icons.arrow_back, label: 'Go back', isGoBack: true),
-                  navigationButton(
-                      onPressed: () => Navigator.pushNamed(context, LocationPage.id), label: 'Go next', icon: Icons.arrow_forward, isGoBack: false)
-                ],
-              ),
+              ContactForm(),
               ksizedBoxTFB,
             ],
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt_rounded),
-            label: 'Create Listing',
-            backgroundColor: Color(0xFF1C39BB),
+    );
+  }
+}
+
+// Form for Contact Page
+class ContactForm extends StatefulWidget {
+  const ContactForm({Key? key}) : super(key: key);
+
+  @override
+  State<ContactForm> createState() => _ContactFormState();
+}
+
+class _ContactFormState extends State<ContactForm> {
+  // A global key that uniquely identifies the Form widget
+  // and allows validation of the form.
+  final _contactFormKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context) {
+    // Build a Form widget using the _formKey created above.
+    return Form(
+      key: _contactFormKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(10),
+            decoration: boxDecoration(),
+            child: Column(
+              children: [
+                textFieldWithValidationStyle('Last Name', 'Enter Last Name', requiredValidator),
+                ksizedBoxTextFieldCol,
+                textFieldWithValidationStyle('First Name', 'Enter First Name', requiredValidator),
+                ksizedBoxTextFieldCol,
+                textFieldWithValidationStyle('Middle Name', 'Enter Middle Name', requiredValidator),
+              ],
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.edit_note_rounded),
-            label: 'Manage Listing',
-            backgroundColor: Color(0xFF1C39BB),
+          kSizedBox,
+          textFieldWithValidation(
+            labelText: 'Phone Number',
+            hintText: 'Enter Phone Number',
+            validatorLogic: validateMobile,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_month_rounded),
-            label: 'Stay View',
-            backgroundColor: Color(0xFF1C39BB),
+          kSizedBox,
+          textFieldWithValidation(
+            labelText: 'Email',
+            hintText: 'Enter Email',
+            validatorLogic: validateEmail,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.grade_outlined),
-            label: 'Review',
-            backgroundColor: Color(0xFF1C39BB),
+          kSizedBox,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              navigationButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, OverviewPage.id);
+                    // Validate returns true if the form is valid, or false otherwise.
+                    // if (_contactFormKey.currentState!.validate()) {
+                    //   Navigator.pushNamed(context, OverviewPage.id);
+                    // }
+                  },
+                  icon: Icons.arrow_back,
+                  label: 'Go back',
+                  isGoBack: true),
+              navigationButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, LocationPage.id);
+                    // Validate returns true if the form is valid, or false otherwise.
+                    // if (_contactFormKey.currentState!.validate()) {
+                    //   Navigator.pushNamed(context, LocationPage.id);
+                    // }
+                  },
+                  label: 'Go next',
+                  icon: Icons.arrow_forward,
+                  isGoBack: false)
+            ],
           ),
+          ksizedBoxTFB,
         ],
-        currentIndex: selectedIndex,
-        selectedItemColor: Colors.white,
-        onTap: onItemTapped,
       ),
     );
   }

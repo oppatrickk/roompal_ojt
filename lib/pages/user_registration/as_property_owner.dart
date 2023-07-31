@@ -50,7 +50,7 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
                   kSizedBox,
                   userName(),
                   kSizedBox,
-                  phoneNumber(),
+                  textField1(label: 'Phone Number', hint: 'Enter Phone Number'),
                   kSizedBox,
                   textField1(label: 'Email', hint: ''),
                   kSizedBox,
