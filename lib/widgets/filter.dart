@@ -28,10 +28,11 @@ class _FilterState extends State<Filter> {
         ),
       ),
       onTap: () => showModalBottomSheet(
+        isScrollControlled: true,
         context: context,
         builder: (BuildContext context) {
           return Container(
-            height: 700,
+            height: MediaQuery.of(context).size.height * 0.65,
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(16),
