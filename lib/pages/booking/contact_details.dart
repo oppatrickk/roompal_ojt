@@ -74,9 +74,9 @@ class _ContactDetailsState extends State<ContactDetails> {
               kSizedBox,
               userName(),
               kSizedBox,
-              textField1(label: 'Phone Number', hint: ''),
+              textField1(label: 'Phone Number', hint: 'Enter Phone Number'),
               kSizedBox,
-              textField1(label: 'Email', hint: ''),
+              textField1(label: 'Email', hint: 'Enter Email'),
               ksizedBoxTFB,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

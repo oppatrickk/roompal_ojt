@@ -92,7 +92,7 @@ class _BookingState extends State<Booking> {
               ksizedBoxTextFieldCol,
 
               //Room Category
-              textField1(label: 'Room Category', hint: ''),
+              textField1(label: 'Room Category', hint: 'Enter Room Category'),
               kSizedBox,
 
               //Choose Date
@@ -174,7 +174,12 @@ class _BookingState extends State<Booking> {
                       value: dropdownValue,
                       icon: const Icon(Icons.arrow_drop_down),
                       elevation: 16,
-                      style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
+                      style: TextStyle(
+                        color: Color(0xFF242426),
+                        fontSize: 18,
+                        fontFamily: 'ProximaNovaRegular',
+                        fontWeight: FontWeight.w600,
+                      ),
                       underline: Container(
                         height: 1,
                         color: Color(0xFF575F6E),
@@ -210,7 +215,7 @@ class _BookingState extends State<Booking> {
                 decoration: boxDecoration(),
                 child: Column(
                   children: [
-                    textField(label: 'Number of Guest'),
+                    textFieldWithHintText(label: 'Number of Guest', hint: 'Enter the number of guest'),
                     ksizedBoxTextFieldCol,
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
