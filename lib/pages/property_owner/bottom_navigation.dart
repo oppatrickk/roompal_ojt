@@ -44,22 +44,20 @@ class _BottomNavigationState extends State<BottomNavigation> {
           BottomNavigationBarItem(
             icon: Icon(Icons.edit_note_rounded),
             label: 'Manage Listing',
-            backgroundColor: Color(0xFF1C39BB),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_month_rounded),
             label: 'Stay View',
-            backgroundColor: Color(0xFF1C39BB),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.grade_outlined),
             label: 'Review',
-            backgroundColor: Color(0xFF1C39BB),
           ),
         ],
         currentIndex: selectedIndex,
         selectedItemColor: Colors.white,
         onTap: onItemTapped,
+        backgroundColor: Color(0xFF1C39BB),
       ),
     );
   }

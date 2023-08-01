@@ -47,7 +47,6 @@ class _FilterState extends State<Filter> {
                 right: 20,
                 top: 20,
               ),
-              // EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Column(
                 children: <Widget>[
                   Row(
