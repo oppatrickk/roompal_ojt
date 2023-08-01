@@ -7,25 +7,20 @@ import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 
 import 'booking/booking.dart';
 
-class RoomDetails extends StatefulWidget {
-  RoomDetails({super.key, required this.isRenterStatus, required this.isLoggedInStatus});
+class RoomDetails extends StatelessWidget {
+  const RoomDetails({super.key, required this.isRenterStatus, required this.isLoggedInStatus});
 
   static const String id = 'RoomDetails';
-  bool isLoggedInStatus;
-  bool isRenterStatus;
+  final bool isLoggedInStatus;
+  final bool isRenterStatus;
 
-  @override
-  State<RoomDetails> createState() => _RoomDetailsState();
-}
-
-class _RoomDetailsState extends State<RoomDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: widget.isLoggedInStatus,
-        isRenter: widget.isRenterStatus,
+        isLoggedIn: false,
+        isRenter: false,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -72,15 +67,7 @@ class _RoomDetailsState extends State<RoomDetails> {
                   ),
                   kSizedBox,
                   BlueTextButton(
-                      widget.isLoggedInStatus == true && widget.isRenterStatus == true
-                          ? () {
-                              Navigator.pushNamed(context, Booking.id);
-                              setState(() {
-                                widget.isLoggedInStatus = true;
-                                widget.isRenterStatus = true;
-                              });
-                            }
-                          : () => Navigator.pushNamed(context, LoginPage.id),
+                      isLoggedInStatus == true ? () => Navigator.pushNamed(context, Booking.id) : () => Navigator.pushNamed(context, LoginPage.id),
                       'Book This Property'),
                 ],
               ),
@@ -203,15 +190,7 @@ class _RoomDetailsState extends State<RoomDetails> {
                     ),
                   ),
                   BlueTextButton(
-                      widget.isLoggedInStatus == true && widget.isRenterStatus == true
-                          ? () {
-                              Navigator.pushNamed(context, Booking.id);
-                              setState(() {
-                                widget.isLoggedInStatus = true;
-                                widget.isRenterStatus = true;
-                              });
-                            }
-                          : () => Navigator.pushNamed(context, LoginPage.id),
+                      isLoggedInStatus == true ? () => Navigator.pushNamed(context, Booking.id) : () => Navigator.pushNamed(context, LoginPage.id),
                       'BOOK NOW'),
                 ],
               ),
