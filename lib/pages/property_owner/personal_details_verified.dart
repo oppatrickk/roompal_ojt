@@ -6,8 +6,10 @@ import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 
 class PersonalDetailsV extends StatefulWidget {
-  const PersonalDetailsV({Key? key}) : super(key: key);
+  const PersonalDetailsV({Key? key, required this.isLoggedInStatus, required this.isRenterStatus}) : super(key: key);
   static const String id = 'PersonalDetailsV';
+  final bool isLoggedInStatus;
+  final bool isRenterStatus;
 
   @override
   State<PersonalDetailsV> createState() => _PersonalDetailsVState();
@@ -28,8 +30,8 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
-        isRenter: false,
+        isLoggedIn: widget.isLoggedInStatus,
+        isRenter: widget.isRenterStatus,
       ),
       body: SingleChildScrollView(
         child: Container(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/property_owner/listing_ownersView.dart';
-import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/property_owner/reviews_page.dart';
 import 'package:roompal_ojt/pages/property_owner/stay_view.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';

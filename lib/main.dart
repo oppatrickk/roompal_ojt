@@ -67,7 +67,10 @@ class RoompalOJT extends StatelessWidget {
         PricePage.id: (BuildContext context) => const PricePage(),
         ListingOwner.id: (BuildContext context) => const ListingOwner(),
         OwnerReviewPage.id: (BuildContext context) => const OwnerReviewPage(),
-        PersonalDetailsV.id: (BuildContext context) => const PersonalDetailsV(),
+        PersonalDetailsV.id: (BuildContext context) => const PersonalDetailsV(
+              isRenterStatus: false,
+              isLoggedInStatus: false,
+            ),
         StayView.id: (BuildContext context) => const StayView(),
         PersonalDetailsNV.id: (BuildContext context) => const PersonalDetailsNV(),
         LoginPage.id: (BuildContext context) => const LoginPage(),
