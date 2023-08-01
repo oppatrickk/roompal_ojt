@@ -26,7 +26,7 @@ String? validateEmail(String? value) {
   RegExp regex = RegExp(pattern);
   if (value!.isEmpty) {
     return 'Please enter email';
-  } else if (!regex.hasMatch(value!)) {
+  } else if (!regex.hasMatch(value)) {
     return 'Enter Valid Email';
   } else {
     return null;

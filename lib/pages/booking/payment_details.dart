@@ -107,9 +107,9 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                   Visibility(
                     visible: isCCVisible,
                     child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
+                      children: <Widget>[
+                        const Padding(
+                          padding: EdgeInsets.symmetric(
                             horizontal: 10,
                             vertical: 5,
                           ),

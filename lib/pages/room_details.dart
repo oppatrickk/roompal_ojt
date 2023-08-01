@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
@@ -7,9 +8,11 @@ import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 import 'booking/booking.dart';
 
 class RoomDetails extends StatelessWidget {
-  const RoomDetails({super.key});
+  const RoomDetails({super.key, required this.isRenterStatus, required this.isLoggedInStatus});
 
   static const String id = 'RoomDetails';
+  final bool isLoggedInStatus;
+  final bool isRenterStatus;
 
   @override
   Widget build(BuildContext context) {
@@ -29,16 +32,16 @@ class RoomDetails extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Text(
+                  const Text(
                     'Kwarto De Luna',
                     textAlign: TextAlign.start,
                     style: kRoomName,
                   ),
-                  Text(
+                  const Text(
                     'Room #0000',
                     style: kRoomNumber,
                   ),
-                  Row(
+                  const Row(
                     children: <Widget>[
                       RoomDetailsDisplay(Icons.star, '4.5'),
                       RoomDetailsDisplay(Icons.person, '125 reviews'),
@@ -46,7 +49,7 @@ class RoomDetails extends StatelessWidget {
                       RoomDetailsDisplay(Icons.pin_drop, 'Legazpi City, Bicol'),
                     ],
                   ),
-                  Row(
+                  const Row(
                     children: <Widget>[
                       Text(
                         'Nearby Landmarks:',
@@ -63,7 +66,9 @@ class RoomDetails extends StatelessWidget {
                     ],
                   ),
                   kSizedBox,
-                  BlueTextButton(() => Navigator.pushNamed(context, Booking.id), 'Book This Property'),
+                  BlueTextButton(
+                      isLoggedInStatus == true ? () => Navigator.pushNamed(context, Booking.id) : () => Navigator.pushNamed(context, LoginPage.id),
+                      'Book This Property'),
                 ],
               ),
               kSizedBox,
@@ -140,7 +145,7 @@ class RoomDetails extends StatelessWidget {
               //Room Details, Price Details
               Column(
                 children: <Widget>[
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
@@ -165,7 +170,7 @@ class RoomDetails extends StatelessWidget {
                       kSizedBox,
                     ],
                   ),
-                  Card(
+                  const Card(
                     margin: EdgeInsets.symmetric(vertical: 10.0),
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 100.0, vertical: 10.0),
@@ -184,7 +189,9 @@ class RoomDetails extends StatelessWidget {
                       ),
                     ),
                   ),
-                  BlueTextButton(() => Navigator.pushNamed(context, Booking.id), 'BOOK NOW'),
+                  BlueTextButton(
+                      isLoggedInStatus == true ? () => Navigator.pushNamed(context, Booking.id) : () => Navigator.pushNamed(context, LoginPage.id),
+                      'BOOK NOW'),
                 ],
               ),
               kSizedBox,

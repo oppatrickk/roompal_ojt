@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
+import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/filter.dart';
 import 'package:roompal_ojt/widgets/propertylistingsgridview.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
@@ -76,7 +77,10 @@ class LandingPage extends StatelessWidget {
                           label: 'List your property with us',
                           textColor: Colors.black,
                           size: 16,
-                          onTap: () => Navigator.pushNamed(context, OverviewPage.id)),
+                          //if logged in go to overview page if not promt log in
+                          onTap: isLoggedInStatus == true
+                              ? () => Navigator.pushNamed(context, OverviewPage.id)
+                              : () => Navigator.pushNamed(context, LoginPage.id)),
                       const SizedBox(height: 10),
                       Text(
                         'With our extensive network of potential tenants and a wide range of features, we strive to make the rental process as effortless as possible.',
