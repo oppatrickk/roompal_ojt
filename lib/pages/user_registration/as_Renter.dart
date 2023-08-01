@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
+import 'package:roompal_ojt/widgets/pop_up.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
@@ -57,9 +58,9 @@ class _AsRenter extends State<AsRenter> {
                   kSizedBox,
                   textField1(label: 'Complete Address', hint: 'Enter Complete Address'),
                   kSizedBox,
-                  passwordTextField(label: 'Password'),
+                  passwordTextField(label: 'Password', hint: 'Enter Password'),
                   kSizedBox,
-                  passwordTextField(label: 'Confirm Password'),
+                  passwordTextField(label: 'Confirm Password', hint: 'Re-enter Password'),
                   ksizedBoxTFB,
                   //Go back and Go next button
                   Row(
@@ -72,7 +73,26 @@ class _AsRenter extends State<AsRenter> {
                         isGoBack: true,
                       ),
                       noButtonIcons(
-                        onPressed: () => Navigator.pushNamed(context, LandingPage.id),
+                        onPressed: () {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return CustomDialogButton3(
+                                  content: 'You\'ve successfully created an account!',
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (BuildContext context) => const LandingPage(
+                                          isLoggedInStatus: true,
+                                          isRenterStatus: true,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              });
+                        },
                         label: 'Create Account',
                         isBorderRequired: false,
                         buttonColor: Color(0xFF1C39BB),

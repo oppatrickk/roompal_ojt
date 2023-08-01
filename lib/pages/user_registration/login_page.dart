@@ -33,9 +33,9 @@ class _LoginPageState extends State<LoginPage> {
                     textAlign: TextAlign.center,
                   ),
                   kSizedBox,
-                  textField1(label: 'Email', hint: ''),
+                  textField1(label: 'Email', hint: 'Enter Email'),
                   kSizedBox,
-                  passwordTextField(label: 'Password'),
+                  passwordTextField(label: 'Password', hint: 'Enter Password'),
                   ksizedBoxTFB,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

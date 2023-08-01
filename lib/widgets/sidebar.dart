@@ -63,16 +63,36 @@ class _SideBarState extends State<SideBar> {
                                           ),
                                         ),
                                       );
-                                    }))
-                            : Visibility(
-                                visible: !isVisible,
-                                child: buildListTile(
-                                  leadingIcon: const Icon(Icons.home_filled),
-                                  label: 'Home Page',
-                                  trailingIcon: const Icon(Icons.arrow_right),
-                                  onTap: null, //Pass Values
-                                ),
-                              ),
+                                    }),
+                              )
+                            : widget.isLoggedIn == true && widget.isRenter == false
+                                ? Visibility(
+                                    visible: isVisible,
+                                    child: buildListTile(
+                                        leadingIcon: const Icon(Icons.home_filled),
+                                        label: 'Home Page',
+                                        trailingIcon: const Icon(Icons.arrow_right),
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (BuildContext context) => const LandingPage(
+                                                isLoggedInStatus: true,
+                                                isRenterStatus: false,
+                                              ),
+                                            ),
+                                          );
+                                        }),
+                                  )
+                                : Visibility(
+                                    visible: !isVisible,
+                                    child: buildListTile(
+                                      leadingIcon: const Icon(Icons.home_filled),
+                                      label: 'Home Page',
+                                      trailingIcon: const Icon(Icons.arrow_right),
+                                      onTap: null, //Pass Values
+                                    ),
+                                  ),
                         widget.isLoggedIn == true && widget.isRenter == true
                             ? Visibility(
                                 visible: isVisible,

@@ -31,7 +31,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       subContent: "Enter your account's email address. A verification code will be sent in your email."),
                   kSizedBox,
                   //email
-                  textField1(label: 'Email', hint: ''),
+                  textField1(label: 'Email', hint: 'Enter Email'),
                   ksizedBoxTextFieldCol,
                   //instructions
                   const Text(

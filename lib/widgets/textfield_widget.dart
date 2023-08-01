@@ -39,7 +39,7 @@ Container textField1({required String label, required String hint}) {
 }
 
 //With label and an input field
-Container passwordTextField({required String label}) {
+Container passwordTextField({required String label, required String hint}) {
   return Container(
     padding: const EdgeInsets.all(10),
     decoration: boxDecoration(),
@@ -61,9 +61,14 @@ Container passwordTextField({required String label}) {
             size: 14,
             color: const Color(0xFF242426),
           ),
-          onChanged: null, //do something with the user input [(value) {password = value;}]
-          decoration: const InputDecoration(
-            hintText: 'Enter Your Password',
+          onChanged: null,
+          decoration: InputDecoration(
+            focusedBorder: const UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: Color(0xFF242426),
+              ),
+            ),
+            hintText: hint,
             hintStyle: TextStyle(
               color: Colors.grey,
               fontSize: 18,

@@ -27,9 +27,9 @@ class _ResetPasswordState extends State<ResetPassword> {
                 children: <Widget>[
                   headerSub(pageTitle: 'Reset Password', subContent: 'Create new password.'),
                   kSizedBox,
-                  textField1(label: 'Password', hint: ''),
+                  textField1(label: 'Password', hint: 'Enter Password'),
                   kSizedBox,
-                  textField1(label: 'Confirm Password', hint: ''),
+                  textField1(label: 'Confirm Password', hint: 'Re-enter Password'),
                   ksizedBoxTFB,
                   //Go back and Go next button
                   Row(

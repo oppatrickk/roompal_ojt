@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:roompal_ojt/pages/property_owner/bottom_navigation.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/widgets/filter.dart';
 import 'package:roompal_ojt/widgets/propertylistingsgridview.dart';

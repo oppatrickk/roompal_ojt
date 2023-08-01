@@ -361,7 +361,7 @@ class BuildBookedRoomDetails extends StatelessWidget {
                       ),
                     ),
                     ListData(
-                      'NGUYEN VAN AHN',
+                      'Pipay Di Pinili',
                       Icons.person_2_outlined,
                       'Guest name',
                     ),

@@ -27,7 +27,7 @@ class _Verification extends State<Verification> {
                 children: <Widget>[
                   headerSub(pageTitle: 'Verification', subContent: 'Enter the verification code sent in your email.'),
                   kSizedBox,
-                  textField1(label: 'Verification Code', hint: ''),
+                  textField1(label: 'Verification Code', hint: 'Enter Verification Code'),
                   ksizedBoxTFB,
                   //Go back and Go next button
                   Row(

@@ -58,9 +58,9 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
                   kSizedBox,
                   textField1(label: 'Complete Address', hint: 'Enter Complete Address'),
                   kSizedBox,
-                  passwordTextField(label: 'Password'),
+                  passwordTextField(label: 'Password', hint: 'Enter Password'),
                   kSizedBox,
-                  passwordTextField(label: 'Confirm Password'),
+                  passwordTextField(label: 'Confirm Password', hint: 'Re-enter Password'),
                   ksizedBoxTFB,
                   //Go back and Go next button
                   Row(
