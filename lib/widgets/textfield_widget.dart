@@ -38,6 +38,46 @@ Container textField1({required String label, required String hint}) {
   );
 }
 
+//With label and an input field
+Container passwordTextField({required String label}) {
+  return Container(
+    padding: const EdgeInsets.all(10),
+    decoration: boxDecoration(),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          label,
+          textAlign: TextAlign.start,
+          style: textStyleContent(
+            size: 14,
+            color: const Color(0xFF242426),
+          ),
+        ),
+        TextField(
+          obscureText: true,
+          textAlign: TextAlign.start,
+          style: textStyleContent(
+            size: 14,
+            color: const Color(0xFF242426),
+          ),
+          onChanged: null, //do something with the user input [(value) {password = value;}]
+          decoration: const InputDecoration(
+            hintText: 'Enter Your Password',
+            hintStyle: TextStyle(
+              color: Colors.grey,
+              fontSize: 18,
+              fontFamily: 'ProximaNovaRegular',
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+        ksizedBoxTextFieldCol,
+      ],
+    ),
+  );
+}
+
 Container userName() {
   return Container(
     padding: const EdgeInsets.all(10),
