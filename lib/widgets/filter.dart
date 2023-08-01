@@ -110,7 +110,7 @@ class _FilterState extends State<Filter> {
                     ],
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.12,
+                    height: MediaQuery.of(context).size.height * 0.11,
                   ),
                   buttonLP(height: 40, color: const Color(0xFF1C39BB), label: 'Apply Filter', textColor: Colors.white, size: 16, onTap: () {}),
                 ],
