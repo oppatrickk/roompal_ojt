@@ -5,6 +5,7 @@ import 'package:roompal_ojt/pages/property_owner/personal_details_verified.dart'
 import 'package:roompal_ojt/pages/renter/main_renter_page.dart';
 import 'package:roompal_ojt/pages/user_registration/chooserole_page.dart';
 import 'package:roompal_ojt/pages/user_registration/login_page.dart';
+import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class SideBar extends StatefulWidget {
@@ -17,7 +18,8 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> {
-  bool? isVisible = true;
+  bool isVisible = true;
+  bool isLogoutVisible = true;
   @override
   Widget build(BuildContext context) {
     return NavigationDrawer(
@@ -104,7 +106,7 @@ class _SideBarState extends State<SideBar> {
                         ),
               widget.isLoggedIn == true && widget.isRenter == true
                   ? Visibility(
-                      visible: isVisible!,
+                      visible: isVisible,
                       child: buildListTile(
                         leadingIcon: const Icon(Icons.book),
                         label: 'Booking Managment',
@@ -114,7 +116,7 @@ class _SideBarState extends State<SideBar> {
                     )
                   : widget.isLoggedIn == true && widget.isRenter == false
                       ? Visibility(
-                          visible: !isVisible!,
+                          visible: !isVisible,
                           child: buildListTile(
                             leadingIcon: const Icon(Icons.book),
                             label: 'Booking Managment',
@@ -123,7 +125,7 @@ class _SideBarState extends State<SideBar> {
                           ),
                         )
                       : Visibility(
-                          visible: !isVisible!,
+                          visible: !isVisible,
                           child: buildListTile(
                             leadingIcon: const Icon(Icons.book),
                             label: 'Booking Managment',
@@ -170,10 +172,37 @@ class _SideBarState extends State<SideBar> {
                 trailingIcon: const Icon(Icons.arrow_right),
                 onTap: null,
               ),
+              SizedBox(height: 70),
+              logoutButton(),
             ],
           ),
         ),
       ],
+    );
+  }
+
+  Padding logoutButton() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15.0),
+      child: TextButton(
+        onPressed: null,
+        style: ButtonStyle(
+            shape: MaterialStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+            ),
+            backgroundColor: MaterialStatePropertyAll(
+              Color(0xFF1C39BB),
+            ),
+            padding: MaterialStatePropertyAll(EdgeInsetsDirectional.symmetric(vertical: 15))),
+        child: Center(
+          child: Text(
+            'Log out',
+            style: TextStyle(color: Colors.white, fontSize: 18.0, fontFamily: 'ProximaNovaBold'),
+          ),
+        ),
+      ),
     );
   }
 

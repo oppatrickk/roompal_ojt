@@ -40,7 +40,13 @@ class _FilterState extends State<Filter> {
               color: Colors.white,
             ),
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom,
+                left: 20,
+                right: 20,
+                top: 20,
+              ),
+              // EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Column(
                 children: <Widget>[
                   Row(
