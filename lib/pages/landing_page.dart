@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:roompal_ojt/Log_In_State.dart';
 import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
+import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/filter.dart';
 import 'package:roompal_ojt/widgets/pop_up.dart';
 import 'package:roompal_ojt/widgets/propertylistingsgridview.dart';
@@ -90,7 +91,9 @@ class LandingPage extends StatelessWidget {
                                       return const PropertyOwner();
                                     },
                                   )
-                              : () => Navigator.pushNamed(context, OverviewPage.id)),
+                              : isLoggedIn == true && isRenterStatus == false
+                                  ? () => Navigator.pushNamed(context, OverviewPage.id)
+                                  : () => Navigator.pushNamed(context, LoginPage.id)),
                       const SizedBox(height: 10),
                       Text(
                         'With our extensive network of potential tenants and a wide range of features, we strive to make the rental process as effortless as possible.',

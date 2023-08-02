@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:roompal_ojt/Log_In_State.dart';
 import 'package:roompal_ojt/Renter_State.dart';
+import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/pop_up.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
@@ -83,9 +84,9 @@ class _RoomDetailsState extends State<RoomDetails> {
                                   return const Renter();
                                 },
                               )
-                          : () {
-                              Navigator.pushNamed(context, Booking.id);
-                            },
+                          : isLoggedIn == true && isRenterStatus == true
+                              ? () => Navigator.pushNamed(context, Booking.id)
+                              : () => Navigator.pushNamed(context, LoginPage.id),
                       'Book This Property'),
                 ],
               ),
@@ -216,9 +217,9 @@ class _RoomDetailsState extends State<RoomDetails> {
                                   return const Renter();
                                 },
                               )
-                          : () {
-                              Navigator.pushNamed(context, Booking.id);
-                            },
+                          : isLoggedIn == true && isRenterStatus == true
+                              ? () => Navigator.pushNamed(context, Booking.id)
+                              : () => Navigator.pushNamed(context, LoginPage.id),
                       'BOOK NOW'),
                 ],
               ),
