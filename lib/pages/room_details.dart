@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:roompal_ojt/Log_In_State.dart';
 import 'package:roompal_ojt/Renter_State.dart';
-import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/pop_up.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
@@ -12,7 +11,7 @@ import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 import 'booking/booking.dart';
 
 class RoomDetails extends StatefulWidget {
-  RoomDetails({super.key});
+  const RoomDetails({super.key});
   static const String id = 'RoomDetails';
   @override
   State<RoomDetails> createState() => _RoomDetailsState();

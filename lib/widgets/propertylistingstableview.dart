@@ -74,7 +74,7 @@ class _PropertyListingsTableViewState extends State<PropertyListingsTableView> {
                         ksizedBoxTextFieldCol,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: <Widget>[
                             label(buttonColor: const Color(0xFFFEB618), label: list.propertyType!, textColor: Colors.black),
                             ksizedBoxTextFieldRow,
                             Container(
@@ -100,7 +100,7 @@ class _PropertyListingsTableViewState extends State<PropertyListingsTableView> {
                   Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Column(
-                      children: [
+                      children: <Widget>[
                         ActionButtons(
                           Colors.green,
                           Icons.edit_square,

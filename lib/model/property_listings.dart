@@ -25,7 +25,7 @@ class PropertyList {
   String? propertyType;
   String? propertyAccommodation;
 
-  static List<PropertyList> listings = [
+  static List<PropertyList> listings = <PropertyList>[
     PropertyList(
       propertyImage: 'assets/img/rental.jpg',
       propertyStatus: 'Available',
