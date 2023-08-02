@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/property_owner/bottom_navigation.dart';
+import 'package:roompal_ojt/pages/room_details.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/popup_widgets.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
@@ -1023,7 +1024,7 @@ class Renter extends StatelessWidget {
                   ksizedBoxTextFieldRow,
                   puButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, LandingPage.id);
+                      Navigator.pushNamed(context, RoomDetails.id);
                       renterState.setTrue();
                     },
                     color: Colors.green,

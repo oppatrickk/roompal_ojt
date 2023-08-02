@@ -209,11 +209,17 @@ class _RoomDetailsState extends State<RoomDetails> {
                     ),
                   ),
                   BlueTextButton(
-                      isLoggedIn == true && isRenterStatus == true
-                          ? () {
+                      isLoggedIn == true && isRenterStatus == false
+                          ? () => showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return const Renter();
+                                },
+                              )
+                          : () {
                               Navigator.pushNamed(context, Booking.id);
-                            }
-                          : () => Navigator.pushNamed(context, LoginPage.id),
+                            },
                       'BOOK NOW'),
                 ],
               ),
