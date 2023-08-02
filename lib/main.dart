@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roompal_ojt/Renter_State.dart';
+import 'package:roompal_ojt/Side_bar_State.dart';
 import 'package:roompal_ojt/pages/booking/booking.dart';
 import 'package:roompal_ojt/pages/booking/booking_summary.dart';
 import 'package:roompal_ojt/pages/booking/confirmation.dart';
@@ -45,6 +46,7 @@ class RoompalOJT extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => LogInState()),
         ChangeNotifierProvider(create: (_) => RenterState()),
+        ChangeNotifierProvider(create: (_) => SideBarState()),
       ],
       child: MaterialApp(
         title: 'Roompal OJT',
