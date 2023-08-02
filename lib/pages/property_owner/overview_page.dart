@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/formvalidation/auth.dart';
 import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
@@ -18,10 +20,11 @@ class OverviewPage extends StatefulWidget {
 class _OverviewPageState extends State<OverviewPage> {
   @override
   Widget build(BuildContext context) {
+    RenterState renterState = Provider.of<RenterState>(context);
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isRenter: false,
+        isRenter: renterState.isRenter,
       ),
       body: const SingleChildScrollView(
         child: OverviewSection(),
@@ -80,7 +83,7 @@ class OverviewForm extends StatefulWidget {
 class _OverviewFormState extends State<OverviewForm> {
   // A global key that uniquely identifies the Form widget
   // and allows validation of the form.
-  final _overviewFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _overviewFormKey = GlobalKey<FormState>();
 
   //DropDown
   static const List<String> list = <String>['Apartment', 'Studio', 'Bedspace'];
@@ -94,7 +97,7 @@ class _OverviewFormState extends State<OverviewForm> {
       key: _overviewFormKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
+        children: <Widget>[
           textFieldWithValidation(
             labelText: 'Room Title',
             hintText: 'Enter Room Title',
@@ -147,7 +150,7 @@ class _OverviewFormState extends State<OverviewForm> {
           ksizedBoxTFB,
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: [
+            children: <Widget>[
               navigationButton(
                 onPressed: () {
                   Navigator.pushNamed(context, ContactOverview.id);

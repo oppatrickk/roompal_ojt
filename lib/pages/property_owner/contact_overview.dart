@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/formvalidation/auth.dart';
 import 'package:roompal_ojt/pages/property_owner/location_page.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
@@ -19,10 +21,11 @@ class ContactOverview extends StatefulWidget {
 class _ContactOverviewState extends State<ContactOverview> {
   @override
   Widget build(BuildContext context) {
+    RenterState renterState = Provider.of<RenterState>(context);
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isRenter: false,
+        isRenter: renterState.isRenter,
       ),
       body: SingleChildScrollView(
         child: Container(

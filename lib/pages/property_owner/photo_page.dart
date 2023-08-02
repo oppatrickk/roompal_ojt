@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/property_owner/price_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
@@ -17,10 +19,11 @@ class PhotoPage extends StatefulWidget {
 class _PhotoPageState extends State<PhotoPage> {
   @override
   Widget build(BuildContext context) {
+    RenterState renterState = Provider.of<RenterState>(context);
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isRenter: false,
+        isRenter: renterState.isRenter,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -53,7 +56,7 @@ class _PhotoPageState extends State<PhotoPage> {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
-                child: Column(
+                child: const Column(
                   children: <Widget>[
                     ksizedBoxTFB,
                     Icon(

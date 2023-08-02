@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/filter.dart';
 import 'package:roompal_ojt/widgets/pop_up.dart';
@@ -17,10 +19,11 @@ class StayView extends StatefulWidget {
 class _StayViewState extends State<StayView> {
   @override
   Widget build(BuildContext context) {
+    RenterState renterState = Provider.of<RenterState>(context);
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isRenter: false,
+        isRenter: renterState.isRenter,
       ),
       body: const SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -62,7 +65,7 @@ class _StayViewSectionState extends State<StayViewSection> {
           ),
           ksizedBoxTextFieldCol,
           //Property Count
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Flexible(
@@ -186,7 +189,7 @@ class _StayViewSectionState extends State<StayViewSection> {
                               barrierDismissible: false,
                               context: context,
                               builder: (BuildContext context) {
-                                return DialogButtonDetails();
+                                return const DialogButtonDetails();
                               },
                             ),
                           ),

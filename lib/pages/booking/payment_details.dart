@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/booking/confirmation.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
@@ -29,10 +31,11 @@ class _PaymentDetailsState extends State<PaymentDetails> {
 
   @override
   Widget build(BuildContext context) {
+    RenterState renterState = Provider.of<RenterState>(context);
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isRenter: true,
+        isRenter: renterState.isRenter,
       ),
       body: SingleChildScrollView(
         child: Container(

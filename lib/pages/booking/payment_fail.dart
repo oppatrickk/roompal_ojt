@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/booking/booking.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
@@ -15,10 +17,11 @@ class PaymentFail extends StatefulWidget {
 class _PaymentFailState extends State<PaymentFail> {
   @override
   Widget build(BuildContext context) {
+    RenterState renterState = Provider.of<RenterState>(context);
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isRenter: true,
+        isRenter: renterState.isRenter,
       ),
       body: Center(
         child: SingleChildScrollView(

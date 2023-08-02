@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/property_owner/listing_ownersView.dart';
 import 'package:roompal_ojt/pages/property_owner/reviews_page.dart';
 import 'package:roompal_ojt/pages/property_owner/stay_view.dart';
@@ -30,10 +32,11 @@ class _BottomNavigationState extends State<BottomNavigation> {
 
   @override
   Widget build(BuildContext context) {
+    RenterState renterState = Provider.of<RenterState>(context);
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isRenter: false,
+        isRenter: renterState.isRenter,
       ),
       body: SingleChildScrollView(
         child: widgetOptions.elementAt(selectedIndex),
