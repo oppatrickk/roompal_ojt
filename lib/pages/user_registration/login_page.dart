@@ -46,6 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                       noButtonIcons(
                           onPressed: () {
                             logInState.setTrue();
+                            Navigator.pop(context);
                           },
                           label: 'Login',
                           isBorderRequired: true,

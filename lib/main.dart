@@ -59,7 +59,7 @@ class RoompalOJT extends StatelessWidget {
                 isRenterStatus: false,
               ),
           RoomDetails.id: (BuildContext context) => RoomDetails(
-                isRenterStatus: false,
+              //isRenterStatus: false,
               ),
           ContactDetails.id: (BuildContext context) => const ContactDetails(),
           Booking.id: (BuildContext context) => const Booking(),
