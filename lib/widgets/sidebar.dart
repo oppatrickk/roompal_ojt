@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:roompal_ojt/Log_In_State.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/property_owner/bottom_navigation.dart';
 import 'package:roompal_ojt/pages/property_owner/personal_details_verified.dart';
@@ -24,6 +25,7 @@ class _SideBarState extends State<SideBar> {
   @override
   Widget build(BuildContext context) {
     LogInState logInState = Provider.of<LogInState>(context);
+    RenterState renterState = Provider.of<RenterState>(context);
     bool isLoggedIn = logInState.isLoggedIn;
     // double screenHeight = MediaQuery.of(context).size.height;
     // double sidebarContentHeight = screenHeight * 0.8;
@@ -60,9 +62,7 @@ class _SideBarState extends State<SideBar> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (BuildContext context) => const LandingPage(
-                                            isRenterStatus: true,
-                                          ),
+                                          builder: (BuildContext context) => const LandingPage(),
                                         ),
                                       );
                                     }),
@@ -78,9 +78,7 @@ class _SideBarState extends State<SideBar> {
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                              builder: (BuildContext context) => const LandingPage(
-                                                isRenterStatus: false,
-                                              ),
+                                              builder: (BuildContext context) => const LandingPage(),
                                             ),
                                           );
                                         }),
@@ -132,10 +130,7 @@ class _SideBarState extends State<SideBar> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (BuildContext context) => const PersonalDetailsV(
-                                        isLoggedInStatus: true,
-                                        isRenterStatus: true,
-                                      ),
+                                      builder: (BuildContext context) => const PersonalDetailsV(),
                                     ),
                                   );
                                 })
@@ -148,10 +143,7 @@ class _SideBarState extends State<SideBar> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (BuildContext context) => const PersonalDetailsV(
-                                            isLoggedInStatus: true,
-                                            isRenterStatus: false,
-                                          ),
+                                          builder: (BuildContext context) => const PersonalDetailsV(),
                                         ),
                                       );
                                     })
@@ -166,7 +158,10 @@ class _SideBarState extends State<SideBar> {
                                 leadingIcon: const Icon(Icons.change_circle_rounded),
                                 label: 'Switch to Property Owner',
                                 trailingIcon: const Icon(Icons.arrow_right),
-                                onTap: () => Navigator.pushNamed(context, BottomNavigation.id),
+                                onTap: () {
+                                  renterState.setFalse();
+                                  Navigator.pushNamed(context, BottomNavigation.id);
+                                },
                               )
                             : isLoggedIn == true && widget.isRenter == false
                                 ? buildListTile(
@@ -174,14 +169,8 @@ class _SideBarState extends State<SideBar> {
                                     label: 'Switch to Renter',
                                     trailingIcon: const Icon(Icons.arrow_right),
                                     onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (BuildContext context) => LandingPage(
-                                            isRenterStatus: true,
-                                          ),
-                                        ),
-                                      );
+                                      renterState.setTrue();
+                                      Navigator.pushNamed(context, LandingPage.id);
                                     })
                                 : buildListTile(
                                     leadingIcon: const Icon(Icons.person),

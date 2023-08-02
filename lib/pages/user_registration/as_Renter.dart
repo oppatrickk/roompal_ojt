@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:roompal_ojt/Log_In_State.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/pop_up.dart';
@@ -19,6 +20,7 @@ class _AsRenter extends State<AsRenter> {
   @override
   Widget build(BuildContext context) {
     LogInState logInState = Provider.of<LogInState>(context);
+    RenterState renterState = Provider.of<RenterState>(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -84,12 +86,11 @@ class _AsRenter extends State<AsRenter> {
                                   content: 'You\'ve successfully created an account!',
                                   onPressed: () {
                                     logInState.setTrue();
+                                    renterState.setTrue();
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (BuildContext context) => LandingPage(
-                                          isRenterStatus: true,
-                                        ),
+                                        builder: (BuildContext context) => LandingPage(),
                                       ),
                                     );
                                   },

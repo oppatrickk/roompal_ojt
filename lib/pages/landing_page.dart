@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:roompal_ojt/Log_In_State.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/filter.dart';
@@ -9,13 +10,14 @@ import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class LandingPage extends StatelessWidget {
-  const LandingPage({required this.isRenterStatus, Key? key}) : super(key: key);
+  const LandingPage({Key? key}) : super(key: key);
   static const String id = 'LandingPage';
-  final bool isRenterStatus;
   @override
   Widget build(BuildContext context) {
     LogInState logInState = Provider.of<LogInState>(context);
+    RenterState renterState = Provider.of<RenterState>(context);
     bool isLoggedIn = logInState.isLoggedIn;
+    bool isRenterStatus = renterState.isRenter;
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/booking/booking.dart';
 import 'package:roompal_ojt/pages/booking/booking_summary.dart';
 import 'package:roompal_ojt/pages/booking/confirmation.dart';
@@ -42,6 +43,7 @@ class RoompalOJT extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LogInState()),
+        ChangeNotifierProvider(create: (_) => RenterState()),
       ],
       child: MaterialApp(
         title: 'Roompal OJT',
@@ -55,12 +57,8 @@ class RoompalOJT extends StatelessWidget {
         routes: {
           MyHomePage.id: (BuildContext context) => const MyHomePage(title: 'Roompal OJT'),
           RenterPage.id: (BuildContext context) => RenterPage(),
-          LandingPage.id: (BuildContext context) => const LandingPage(
-                isRenterStatus: false,
-              ),
-          RoomDetails.id: (BuildContext context) => RoomDetails(
-              //isRenterStatus: false,
-              ),
+          LandingPage.id: (BuildContext context) => const LandingPage(),
+          RoomDetails.id: (BuildContext context) => RoomDetails(),
           ContactDetails.id: (BuildContext context) => const ContactDetails(),
           Booking.id: (BuildContext context) => const Booking(),
           BookingSummary.id: (BuildContext context) => const BookingSummary(),
@@ -74,10 +72,7 @@ class RoompalOJT extends StatelessWidget {
           PricePage.id: (BuildContext context) => const PricePage(),
           ListingOwner.id: (BuildContext context) => const ListingOwner(),
           OwnerReviewPage.id: (BuildContext context) => const OwnerReviewPage(),
-          PersonalDetailsV.id: (BuildContext context) => const PersonalDetailsV(
-                isRenterStatus: false,
-                isLoggedInStatus: false,
-              ),
+          PersonalDetailsV.id: (BuildContext context) => const PersonalDetailsV(),
           StayView.id: (BuildContext context) => const StayView(),
           PersonalDetailsNV.id: (BuildContext context) => const PersonalDetailsNV(),
           LoginPage.id: (BuildContext context) => const LoginPage(),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+//import 'package:roompal_ojt/Log_In_State.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
@@ -6,10 +9,8 @@ import 'package:roompal_ojt/widgets/textfield_widget.dart';
 import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 
 class PersonalDetailsV extends StatefulWidget {
-  const PersonalDetailsV({Key? key, required this.isLoggedInStatus, required this.isRenterStatus}) : super(key: key);
+  const PersonalDetailsV({Key? key}) : super(key: key);
   static const String id = 'PersonalDetailsV';
-  final bool isLoggedInStatus;
-  final bool isRenterStatus;
 
   @override
   State<PersonalDetailsV> createState() => _PersonalDetailsVState();
@@ -27,10 +28,14 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
 
   @override
   Widget build(BuildContext context) {
+    // LogInState logInState = Provider.of<LogInState>(context);
+    RenterState renterState = Provider.of<RenterState>(context);
+    //bool isLoggedInStatus = logInState.isLoggedIn;
+    bool isRenterStatus = renterState.isRenter;
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isRenter: widget.isRenterStatus,
+        isRenter: isRenterStatus,
       ),
       body: SingleChildScrollView(
         child: Container(
