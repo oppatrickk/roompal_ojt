@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:roompal_ojt/Log_In_State.dart';
 import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
-import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/filter.dart';
+import 'package:roompal_ojt/widgets/pop_up.dart';
 import 'package:roompal_ojt/widgets/propertylistingsgridview.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
@@ -82,9 +82,15 @@ class LandingPage extends StatelessWidget {
                           textColor: Colors.black,
                           size: 16,
                           //if logged in go to overview page if not promt log in
-                          onTap: isLoggedIn == true
-                              ? () => Navigator.pushNamed(context, OverviewPage.id)
-                              : () => Navigator.pushNamed(context, LoginPage.id)),
+                          onTap: isLoggedIn == true && isRenterStatus == true
+                              ? () => showDialog(
+                                    barrierDismissible: false,
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return const PropertyOwner();
+                                    },
+                                  )
+                              : () => Navigator.pushNamed(context, OverviewPage.id)),
                       const SizedBox(height: 10),
                       Text(
                         'With our extensive network of potential tenants and a wide range of features, we strive to make the rental process as effortless as possible.',

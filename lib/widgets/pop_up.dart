@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Renter_State.dart';
+import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/property_owner/bottom_navigation.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/popup_widgets.dart';
@@ -915,6 +918,116 @@ class _RoomAssignmentState extends State<RoomAssignment> {
                     onPressed: () => Navigator.pop(context),
                     color: Colors.green,
                     label: 'Assign',
+                  ),
+                ],
+              ),
+              kSizedBox,
+            ],
+          ),
+        ),
+      ]),
+    );
+  }
+}
+
+class PropertyOwner extends StatelessWidget {
+  const PropertyOwner({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    RenterState renterState = Provider.of<RenterState>(context);
+    return Dialog(
+      surfaceTintColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
+        titleDesign(label: 'Switch Role'),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 22),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              kSizedBox,
+              Text(
+                'Switch to Property Owner?',
+                style: textStyleContent(
+                  size: 16,
+                  color: Color(0xFF242426),
+                ),
+              ),
+              ksizedBoxTFB,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  puButton(
+                    onPressed: () => Navigator.pop(context),
+                    color: Colors.red,
+                    label: 'No',
+                  ),
+                  ksizedBoxTextFieldRow,
+                  puButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, LandingPage.id);
+                      renterState.setFalse();
+                    },
+                    color: Colors.green,
+                    label: 'Yes',
+                  ),
+                ],
+              ),
+              kSizedBox,
+            ],
+          ),
+        ),
+      ]),
+    );
+  }
+}
+
+class Renter extends StatelessWidget {
+  const Renter({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    RenterState renterState = Provider.of<RenterState>(context);
+    return Dialog(
+      surfaceTintColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
+        titleDesign(label: 'Switch Role'),
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 22),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              kSizedBox,
+              Text(
+                'Switch to Renter?',
+                style: textStyleContent(
+                  size: 16,
+                  color: Color(0xFF242426),
+                ),
+              ),
+              ksizedBoxTFB,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  puButton(
+                    onPressed: () => Navigator.pop(context),
+                    color: Colors.red,
+                    label: 'No',
+                  ),
+                  ksizedBoxTextFieldRow,
+                  puButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, LandingPage.id);
+                      renterState.setTrue();
+                    },
+                    color: Colors.green,
+                    label: 'Yes',
                   ),
                 ],
               ),
