@@ -20,7 +20,6 @@ class _PricePageState extends State<PricePage> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: false,
       ),
       body: SingleChildScrollView(

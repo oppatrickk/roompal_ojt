@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Log_In_State.dart';
 import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
 import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/filter.dart';
@@ -7,16 +9,16 @@ import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class LandingPage extends StatelessWidget {
-  const LandingPage({required this.isRenterStatus, Key? key, required this.isLoggedInStatus}) : super(key: key);
+  const LandingPage({required this.isRenterStatus, Key? key}) : super(key: key);
   static const String id = 'LandingPage';
-  final bool isLoggedInStatus;
   final bool isRenterStatus;
   @override
   Widget build(BuildContext context) {
+    LogInState logInState = Provider.of<LogInState>(context);
+    bool isLoggedIn = logInState.isLoggedIn;
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: isLoggedInStatus,
         isRenter: isRenterStatus,
       ),
       body: SingleChildScrollView(
@@ -78,7 +80,7 @@ class LandingPage extends StatelessWidget {
                           textColor: Colors.black,
                           size: 16,
                           //if logged in go to overview page if not promt log in
-                          onTap: isLoggedInStatus == true
+                          onTap: isLoggedIn == true
                               ? () => Navigator.pushNamed(context, OverviewPage.id)
                               : () => Navigator.pushNamed(context, LoginPage.id)),
                       const SizedBox(height: 10),

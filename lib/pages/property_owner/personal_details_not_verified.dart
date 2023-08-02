@@ -28,7 +28,6 @@ class _PersonalDetailsNVState extends State<PersonalDetailsNV> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: false,
       ),
       body: SingleChildScrollView(

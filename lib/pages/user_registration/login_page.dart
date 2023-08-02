@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Log_In_State.dart';
 import 'package:roompal_ojt/pages/user_registration/chooserole_page.dart';
 import 'package:roompal_ojt/pages/user_registration/forgot_password.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
@@ -17,6 +19,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    LogInState logInState = Provider.of<LogInState>(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -41,7 +44,9 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       noButtonIcons(
-                          onPressed: null,
+                          onPressed: () {
+                            logInState.setTrue();
+                          },
                           label: 'Login',
                           isBorderRequired: true,
                           buttonColor: Color(0xFF1C39BB),

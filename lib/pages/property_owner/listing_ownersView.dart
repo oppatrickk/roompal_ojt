@@ -25,7 +25,6 @@ class _ListingOwnerState extends State<ListingOwner> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: false,
       ),
       body: SingleChildScrollView(

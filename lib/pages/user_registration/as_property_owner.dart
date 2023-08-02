@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Log_In_State.dart';
 import 'package:roompal_ojt/pages/property_owner/bottom_navigation.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/pop_up.dart';
@@ -16,6 +18,7 @@ class AsPropertyOwner extends StatefulWidget {
 class _AsPropertyOwnerState extends State<AsPropertyOwner> {
   @override
   Widget build(BuildContext context) {
+    LogInState logInState = Provider.of<LogInState>(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -81,6 +84,7 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
                                   content: 'You\'ve successfully created an account!',
                                   onPressed: () {
                                     Navigator.pushNamed(context, BottomNavigation.id);
+                                    logInState.setTrue();
                                   },
                                 );
                               });

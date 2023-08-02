@@ -29,7 +29,9 @@ import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/pages/user_registration/reset_password.dart';
 import 'package:roompal_ojt/pages/user_registration/verification.dart';
 import 'package:roompal_ojt/widgets/pop_up.dart';
+import 'Log_In_State.dart';
 import 'pages/room_details.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(RoompalOJT());
 
@@ -37,57 +39,60 @@ class RoompalOJT extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Roompal OJT',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => LogInState()),
+      ],
+      child: MaterialApp(
+        title: 'Roompal OJT',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+        ),
+        initialRoute: LandingPage.id,
+        //add other screens here
+        routes: {
+          MyHomePage.id: (BuildContext context) => const MyHomePage(title: 'Roompal OJT'),
+          RenterPage.id: (BuildContext context) => RenterPage(),
+          LandingPage.id: (BuildContext context) => const LandingPage(
+                isRenterStatus: false,
+              ),
+          RoomDetails.id: (BuildContext context) => RoomDetails(
+                isRenterStatus: false,
+              ),
+          ContactDetails.id: (BuildContext context) => const ContactDetails(),
+          Booking.id: (BuildContext context) => const Booking(),
+          BookingSummary.id: (BuildContext context) => const BookingSummary(),
+          PaymentSuccess.id: (BuildContext context) => const PaymentSuccess(),
+          PaymentFail.id: (BuildContext context) => const PaymentFail(),
+          ContactOverview.id: (BuildContext context) => const ContactOverview(),
+          OverviewPage.id: (BuildContext context) => const OverviewPage(),
+          LocationPage.id: (BuildContext context) => LocationPage(),
+          PhotoPage.id: (BuildContext context) => const PhotoPage(),
+          DetailPage.id: (BuildContext context) => const DetailPage(),
+          PricePage.id: (BuildContext context) => const PricePage(),
+          ListingOwner.id: (BuildContext context) => const ListingOwner(),
+          OwnerReviewPage.id: (BuildContext context) => const OwnerReviewPage(),
+          PersonalDetailsV.id: (BuildContext context) => const PersonalDetailsV(
+                isRenterStatus: false,
+                isLoggedInStatus: false,
+              ),
+          StayView.id: (BuildContext context) => const StayView(),
+          PersonalDetailsNV.id: (BuildContext context) => const PersonalDetailsNV(),
+          LoginPage.id: (BuildContext context) => const LoginPage(),
+          ChooseRole.id: (BuildContext context) => const ChooseRole(),
+          AsPropertyOwner.id: (BuildContext context) => const AsPropertyOwner(),
+          AsRenter.id: (BuildContext context) => const AsRenter(),
+          ForgotPassword.id: (BuildContext context) => const ForgotPassword(),
+          ResetPassword.id: (BuildContext context) => const ResetPassword(),
+          Verification.id: (BuildContext context) => const Verification(),
+          PaymentDetails.id: (BuildContext context) => const PaymentDetails(),
+          PopUpTemporary.id: (BuildContext context) => const PopUpTemporary(),
+          BottomNavigation.id: (BuildContext context) => const BottomNavigation(),
+          ConfirmationPage.id: (BuildContext context) => const ConfirmationPage(),
+        },
       ),
-      initialRoute: LandingPage.id,
-      //add other screens here
-      routes: {
-        MyHomePage.id: (BuildContext context) => const MyHomePage(title: 'Roompal OJT'),
-        RenterPage.id: (BuildContext context) => RenterPage(),
-        LandingPage.id: (BuildContext context) => const LandingPage(
-              isRenterStatus: false,
-              isLoggedInStatus: false,
-            ),
-        RoomDetails.id: (BuildContext context) => RoomDetails(
-              isRenterStatus: false,
-              isLoggedInStatus: false,
-            ),
-        ContactDetails.id: (BuildContext context) => const ContactDetails(),
-        Booking.id: (BuildContext context) => const Booking(),
-        BookingSummary.id: (BuildContext context) => const BookingSummary(),
-        PaymentSuccess.id: (BuildContext context) => const PaymentSuccess(),
-        PaymentFail.id: (BuildContext context) => const PaymentFail(),
-        ContactOverview.id: (BuildContext context) => const ContactOverview(),
-        OverviewPage.id: (BuildContext context) => const OverviewPage(),
-        LocationPage.id: (BuildContext context) => LocationPage(),
-        PhotoPage.id: (BuildContext context) => const PhotoPage(),
-        DetailPage.id: (BuildContext context) => const DetailPage(),
-        PricePage.id: (BuildContext context) => const PricePage(),
-        ListingOwner.id: (BuildContext context) => const ListingOwner(),
-        OwnerReviewPage.id: (BuildContext context) => const OwnerReviewPage(),
-        PersonalDetailsV.id: (BuildContext context) => const PersonalDetailsV(
-              isRenterStatus: false,
-              isLoggedInStatus: false,
-            ),
-        StayView.id: (BuildContext context) => const StayView(),
-        PersonalDetailsNV.id: (BuildContext context) => const PersonalDetailsNV(),
-        LoginPage.id: (BuildContext context) => const LoginPage(),
-        ChooseRole.id: (BuildContext context) => const ChooseRole(),
-        AsPropertyOwner.id: (BuildContext context) => const AsPropertyOwner(),
-        AsRenter.id: (BuildContext context) => const AsRenter(),
-        ForgotPassword.id: (BuildContext context) => const ForgotPassword(),
-        ResetPassword.id: (BuildContext context) => const ResetPassword(),
-        Verification.id: (BuildContext context) => const Verification(),
-        PaymentDetails.id: (BuildContext context) => const PaymentDetails(),
-        PopUpTemporary.id: (BuildContext context) => const PopUpTemporary(),
-        BottomNavigation.id: (BuildContext context) => const BottomNavigation(),
-        ConfirmationPage.id: (BuildContext context) => const ConfirmationPage(),
-      },
     );
   }
 }

@@ -21,7 +21,6 @@ class _OverviewPageState extends State<OverviewPage> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: false,
       ),
       body: SingleChildScrollView(

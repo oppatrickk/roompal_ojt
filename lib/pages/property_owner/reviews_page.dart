@@ -27,7 +27,6 @@ class _OwnerReviewPageState extends State<OwnerReviewPage> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: false,
       ),
       body: SingleChildScrollView(

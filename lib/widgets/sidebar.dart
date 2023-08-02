@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Log_In_State.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/property_owner/bottom_navigation.dart';
 import 'package:roompal_ojt/pages/property_owner/personal_details_verified.dart';
@@ -9,8 +11,7 @@ import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
 class SideBar extends StatefulWidget {
-  SideBar({super.key, required this.isRenter, required this.isLoggedIn});
-  final bool? isLoggedIn;
+  SideBar({super.key, required this.isRenter});
   bool? isRenter;
 
   @override
@@ -22,6 +23,8 @@ class _SideBarState extends State<SideBar> {
   bool isLogoutVisible = true;
   @override
   Widget build(BuildContext context) {
+    LogInState logInState = Provider.of<LogInState>(context);
+    bool isLoggedIn = logInState.isLoggedIn;
     // double screenHeight = MediaQuery.of(context).size.height;
     // double sidebarContentHeight = screenHeight * 0.8;
     return NavigationDrawer(
@@ -46,7 +49,7 @@ class _SideBarState extends State<SideBar> {
                     ListView(
                       shrinkWrap: true,
                       children: [
-                        widget.isLoggedIn == true && widget.isRenter == true
+                        isLoggedIn == true && widget.isRenter == true
                             ? Visibility(
                                 visible: isVisible,
                                 child: buildListTile(
@@ -58,14 +61,13 @@ class _SideBarState extends State<SideBar> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (BuildContext context) => const LandingPage(
-                                            isLoggedInStatus: true,
                                             isRenterStatus: true,
                                           ),
                                         ),
                                       );
                                     }),
                               )
-                            : widget.isLoggedIn == true && widget.isRenter == false
+                            : isLoggedIn == true && widget.isRenter == false
                                 ? Visibility(
                                     visible: isVisible,
                                     child: buildListTile(
@@ -77,7 +79,6 @@ class _SideBarState extends State<SideBar> {
                                             context,
                                             MaterialPageRoute(
                                               builder: (BuildContext context) => const LandingPage(
-                                                isLoggedInStatus: true,
                                                 isRenterStatus: false,
                                               ),
                                             ),
@@ -93,7 +94,7 @@ class _SideBarState extends State<SideBar> {
                                       onTap: null, //Pass Values
                                     ),
                                   ),
-                        widget.isLoggedIn == true && widget.isRenter == true
+                        isLoggedIn == true && widget.isRenter == true
                             ? Visibility(
                                 visible: isVisible,
                                 child: buildListTile(
@@ -103,7 +104,7 @@ class _SideBarState extends State<SideBar> {
                                   onTap: () => Navigator.pushNamed(context, RenterPage.id), //Pass Values
                                 ),
                               )
-                            : widget.isLoggedIn == true && widget.isRenter == false
+                            : isLoggedIn == true && widget.isRenter == false
                                 ? Visibility(
                                     visible: !isVisible,
                                     child: buildListTile(
@@ -122,7 +123,7 @@ class _SideBarState extends State<SideBar> {
                                       onTap: () => Navigator.pushNamed(context, RenterPage.id), //Pass Values
                                     ),
                                   ),
-                        widget.isLoggedIn == true && widget.isRenter == true
+                        isLoggedIn == true && widget.isRenter == true
                             ? buildListTile(
                                 leadingIcon: const Icon(Icons.person),
                                 label: 'Personal Detail',
@@ -138,7 +139,7 @@ class _SideBarState extends State<SideBar> {
                                     ),
                                   );
                                 })
-                            : widget.isLoggedIn == true && widget.isRenter == false
+                            : isLoggedIn == true && widget.isRenter == false
                                 ? buildListTile(
                                     leadingIcon: const Icon(Icons.person),
                                     label: 'Personal Detail',
@@ -160,14 +161,14 @@ class _SideBarState extends State<SideBar> {
                                     trailingIcon: const Icon(Icons.arrow_right),
                                     onTap: () => Navigator.pushNamed(context, ChooseRole.id),
                                   ),
-                        widget.isLoggedIn == true && widget.isRenter == true
+                        isLoggedIn == true && widget.isRenter == true
                             ? buildListTile(
                                 leadingIcon: const Icon(Icons.change_circle_rounded),
                                 label: 'Switch to Property Owner',
                                 trailingIcon: const Icon(Icons.arrow_right),
                                 onTap: () => Navigator.pushNamed(context, BottomNavigation.id),
                               )
-                            : widget.isLoggedIn == true && widget.isRenter == false
+                            : isLoggedIn == true && widget.isRenter == false
                                 ? buildListTile(
                                     leadingIcon: const Icon(Icons.change_circle_rounded),
                                     label: 'Switch to Renter',
@@ -176,8 +177,7 @@ class _SideBarState extends State<SideBar> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (BuildContext context) => const LandingPage(
-                                            isLoggedInStatus: true,
+                                          builder: (BuildContext context) => LandingPage(
                                             isRenterStatus: true,
                                           ),
                                         ),
@@ -233,12 +233,12 @@ class _SideBarState extends State<SideBar> {
                   ],
                 ),
                 ksizedBoxTFB,
-                widget.isLoggedIn == true && widget.isRenter == true
+                isLoggedIn == true && widget.isRenter == true
                     ? Visibility(
                         visible: isVisible,
                         child: logoutButton(),
                       )
-                    : widget.isLoggedIn == true && widget.isRenter == false
+                    : isLoggedIn == true && widget.isRenter == false
                         ? Visibility(
                             visible: isVisible,
                             child: logoutButton(),
@@ -256,10 +256,14 @@ class _SideBarState extends State<SideBar> {
   }
 
   Padding logoutButton() {
+    LogInState logInState = Provider.of<LogInState>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: TextButton(
-        onPressed: () => Navigator.pushNamed(context, LoginPage.id),
+        onPressed: () {
+          logInState.setFalse();
+          Navigator.pushNamed(context, LoginPage.id);
+        },
         style: ButtonStyle(
             shape: MaterialStateProperty.all(
               RoundedRectangleBorder(

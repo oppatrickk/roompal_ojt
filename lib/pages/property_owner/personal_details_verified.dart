@@ -30,7 +30,6 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: widget.isLoggedInStatus,
         isRenter: widget.isRenterStatus,
       ),
       body: SingleChildScrollView(

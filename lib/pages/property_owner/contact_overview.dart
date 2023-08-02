@@ -22,7 +22,6 @@ class _ContactOverviewState extends State<ContactOverview> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: false,
       ),
       body: SingleChildScrollView(

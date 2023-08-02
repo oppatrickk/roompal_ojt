@@ -20,7 +20,6 @@ class _PhotoPageState extends State<PhotoPage> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: false,
       ),
       body: SingleChildScrollView(

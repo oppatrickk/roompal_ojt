@@ -18,7 +18,6 @@ class _BookingSummaryState extends State<BookingSummary> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: true,
       ),
       body: SingleChildScrollView(

@@ -20,7 +20,6 @@ class _ContactDetailsState extends State<ContactDetails> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: true,
       ),
       body: SingleChildScrollView(

@@ -40,7 +40,6 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: false,
       ),
       body: SingleChildScrollView(

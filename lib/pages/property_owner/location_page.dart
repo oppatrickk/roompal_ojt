@@ -28,7 +28,6 @@ class _LocationPageState extends State<LocationPage> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: false,
       ),
       body: SingleChildScrollView(

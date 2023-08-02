@@ -35,7 +35,6 @@ class _BookingState extends State<Booking> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: true,
       ),
       body: SingleChildScrollView(

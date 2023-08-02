@@ -19,7 +19,6 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: true,
       ),
       body: Center(

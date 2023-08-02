@@ -32,7 +32,6 @@ class _PaymentDetailsState extends State<PaymentDetails> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: true,
       ),
       body: SingleChildScrollView(

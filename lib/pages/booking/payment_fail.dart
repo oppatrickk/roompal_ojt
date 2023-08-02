@@ -18,7 +18,6 @@ class _PaymentFailState extends State<PaymentFail> {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: true,
       ),
       body: Center(

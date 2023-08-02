@@ -282,7 +282,6 @@ class BuildBookedRoomDetails extends StatelessWidget {
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isLoggedIn: true,
         isRenter: true,
       ),
       body: SingleChildScrollView(
