@@ -22,7 +22,7 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: [
+          children: <Widget>[
             branding(),
             Container(
               padding: const EdgeInsets.all(20),
@@ -31,7 +31,7 @@ class _AsPropertyOwnerState extends State<AsPropertyOwner> {
                 children: <Widget>[
                   const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       Text(
                         'Sign up as',
                         style: kRoomName,

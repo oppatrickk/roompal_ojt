@@ -19,7 +19,7 @@ class _ChooseRoleState extends State<ChooseRole> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: [
+          children: <Widget>[
             branding(),
             Container(
               padding: const EdgeInsets.all(20),
@@ -32,12 +32,12 @@ class _ChooseRoleState extends State<ChooseRole> {
                   ksizedBoxTFB,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       noButtonIcons(
                         onPressed: () => Navigator.pushNamed(context, AsPropertyOwner.id),
                         label: 'Property Owner',
                         isBorderRequired: false,
-                        buttonColor: Color(0xFF1C39BB),
+                        buttonColor: const Color(0xFF1C39BB),
                         textColor: Colors.white,
                         horizontalPadding: 80,
                         verticalPadding: 15,
@@ -47,12 +47,12 @@ class _ChooseRoleState extends State<ChooseRole> {
                   ksizedBoxTextFieldCol,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       noButtonIcons(
                         onPressed: () => Navigator.pushNamed(context, AsRenter.id),
                         label: 'Renter',
                         isBorderRequired: false,
-                        buttonColor: Color(0xFF1C39BB),
+                        buttonColor: const Color(0xFF1C39BB),
                         textColor: Colors.white,
                         horizontalPadding: 108,
                         verticalPadding: 15,
@@ -68,7 +68,7 @@ class _ChooseRoleState extends State<ChooseRole> {
                   ksizedBoxTFB,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       navigationButton(
                         onPressed: () => Navigator.pop(context),
                         label: 'Go back',

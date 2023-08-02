@@ -18,7 +18,7 @@ class _ResetPasswordState extends State<ResetPassword> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: [
+          children: <Widget>[
             branding(),
             Container(
               padding: const EdgeInsets.all(20),
@@ -45,7 +45,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                           onPressed: () => Navigator.pushNamed(context, LoginPage.id),
                           label: 'Save',
                           isBorderRequired: false,
-                          buttonColor: Color(0xFF1C39BA),
+                          buttonColor: const Color(0xFF1C39BA),
                           textColor: Colors.white,
                           horizontalPadding: 30,
                           verticalPadding: 15)

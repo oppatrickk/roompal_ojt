@@ -145,8 +145,8 @@ class CardBuild extends StatelessWidget {
     // Navigate to the new page when the card is pressed
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => BuildBookedRoomDetails(items[index].name, items[index].status, items[index].price),
+      MaterialPageRoute<dynamic>(
+        builder: (BuildContext context) => BuildBookedRoomDetails(items[index].name, items[index].status, items[index].price),
       ),
     );
   }
@@ -163,10 +163,10 @@ class CardBuild extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
+            children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   Text(
                     items[index].date,
                     style: const TextStyle(
@@ -223,26 +223,26 @@ class StatusContainers extends StatelessWidget {
     String statusText;
     Color textColor;
 
-    if (status == "Booked") {
+    if (status == 'Booked') {
       containerColor = const Color(0xFFD7FAE0);
-      statusText = "Successfully Booked";
+      statusText = 'Successfully Booked';
       textColor = const Color(0xFF007D3A);
-    } else if (status == "Processing") {
+    } else if (status == 'Processing') {
       containerColor = const Color(0xFFFFF5C7);
-      statusText = "Processing";
+      statusText = 'Processing';
       textColor = const Color(0xFFCC8100);
-    } else if (status == "Failed") {
+    } else if (status == 'Failed') {
       containerColor = const Color(0xFFFFF0F1);
-      statusText = "Failed";
+      statusText = 'Failed';
       textColor = const Color(0xFFFF424F);
-    } else if (status == "Cancelled") {
+    } else if (status == 'Cancelled') {
       containerColor = const Color(0xFFEBEBF0);
-      statusText = "Cancelled";
+      statusText = 'Cancelled';
       textColor = const Color(0xFF808089);
     } else {
       // Default case if the status doesn't match any of the above conditions
       containerColor = Colors.white;
-      statusText = "Unknown Status";
+      statusText = 'Unknown Status';
       textColor = Colors.black;
     }
 

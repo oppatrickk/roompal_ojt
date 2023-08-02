@@ -20,7 +20,7 @@ class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: PropertyList.listings.length,
         itemBuilder: (BuildContext context, int index) {
@@ -60,14 +60,14 @@ class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
                               Container(
                                 padding: const EdgeInsets.all(7),
                                 decoration: BoxDecoration(
-                                  color: list.propertyStatus == 'Available' ? Colors.green : Color(0xFF5C8BE1),
+                                  color: list.propertyStatus == 'Available' ? Colors.green : const Color(0xFF5C8BE1),
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                               ),
                               const SizedBox(width: 5),
                               Text(
                                 list.propertyStatus!.toUpperCase(),
-                                style: textStyleHeader(color: list.propertyStatus == 'Available' ? Colors.green : Color(0xFF5C8BE1), size: 12),
+                                style: textStyleHeader(color: list.propertyStatus == 'Available' ? Colors.green : const Color(0xFF5C8BE1), size: 12),
                               )
                             ],
                           ),
@@ -94,7 +94,7 @@ class _PropertyListingsGridViewState extends State<PropertyListingsGridView> {
                               Row(
                                 children: <Widget>[
                                   const Text(
-                                    '\₱ ',
+                                    '₱ ',
                                     style: TextStyle(color: Color(0xFF1C39BB), fontSize: 20, fontWeight: FontWeight.bold),
                                   ),
                                   Text(

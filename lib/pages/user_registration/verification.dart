@@ -18,7 +18,7 @@ class _Verification extends State<Verification> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: [
+          children: <Widget>[
             branding(),
             Container(
               padding: const EdgeInsets.all(20),
@@ -43,7 +43,7 @@ class _Verification extends State<Verification> {
                         onPressed: () => Navigator.pushNamed(context, ResetPassword.id),
                         label: 'Continue',
                         isBorderRequired: false,
-                        buttonColor: Color(0xFF1C39BB),
+                        buttonColor: const Color(0xFF1C39BB),
                         textColor: Colors.white,
                         horizontalPadding: 27,
                         verticalPadding: 15,

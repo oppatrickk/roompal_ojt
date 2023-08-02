@@ -18,7 +18,7 @@ Container titleDesign({required String label}) {
       child: Text(
         label,
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: const TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 20,
           color: Colors.white,
@@ -38,7 +38,7 @@ TextButton puButton({
     onPressed: onPressed,
     style: ButtonStyle(
       padding: MaterialStateProperty.all(
-        EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 10),
+        const EdgeInsetsDirectional.symmetric(horizontal: 20, vertical: 10),
       ),
       side: MaterialStateProperty.all(
         BorderSide(
@@ -54,8 +54,7 @@ TextButton puButton({
     child: Center(
       child: Text(
         label,
-        style: TextStyle(
-            color: color, fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+        style: TextStyle(color: color, fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
       ),
     ),
   );
@@ -69,7 +68,7 @@ Column popupTextFieldContent({
 }) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
+    children: <Widget>[
       Text(
         label,
         style: textStyleContent(size: 12, color: const Color(0xFF242426)),
@@ -84,7 +83,7 @@ Column popupTextFieldContent({
           visualDensity: const VisualDensity(horizontal: 4, vertical: -4),
           leading: iconStyle(
             icon: icon,
-            color: Color(0xFFFEB618),
+            color: const Color(0xFFFEB618),
             size: 24,
           ),
           title: Text(
@@ -101,14 +100,10 @@ Column popupTextFieldContent({
 }
 
 Column priceTextField(
-    {required String label,
-    required double value,
-    required Color textColor,
-    required Color leadingColor,
-    required Color borderColor}) {
+    {required String label, required double value, required Color textColor, required Color leadingColor, required Color borderColor}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
+    children: <Widget>[
       Text(
         label,
         style: textStyleContent(size: 12, color: textColor),
@@ -144,7 +139,7 @@ Column priceTextField(
 // Content Style in Pending Request
 Column pendingRequestContent({required String tenantName}) {
   return Column(
-    children: [
+    children: <Widget>[
       Container(),
       ListTile(
         title: Text(

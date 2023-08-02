@@ -9,7 +9,7 @@ class Filter extends StatefulWidget {
 }
 
 class _FilterState extends State<Filter> {
-  Map<String, bool?> checkboxStatus = {};
+  Map<String, bool?> checkboxStatus = <String, bool?>{};
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

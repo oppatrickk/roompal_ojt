@@ -80,7 +80,7 @@ class PopUpTemporary extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return DialogButtonDetails();
+                    return const DialogButtonDetails();
                   },
                 );
               },
@@ -91,22 +91,22 @@ class PopUpTemporary extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return PendingRequestPrompt();
+                    return const PendingRequestPrompt();
                   },
                 );
               },
-              child: Text('Pending Request'),
+              child: const Text('Pending Request'),
             ),
             ElevatedButton(
               onPressed: () {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
-                    return RoomAssignment();
+                    return const RoomAssignment();
                   },
                 );
               },
-              child: Text('Room Assignment'),
+              child: const Text('Room Assignment'),
             ),
           ],
         ),
@@ -136,7 +136,7 @@ class DialogButton extends StatelessWidget {
 }
 
 class CustomDialogButton3 extends StatelessWidget {
-  CustomDialogButton3({super.key, required this.content, required this.onPressed});
+  const CustomDialogButton3({super.key, required this.content, required this.onPressed});
   final String content;
   final void Function()? onPressed;
 
@@ -152,7 +152,7 @@ class CustomDialogButton3 extends StatelessWidget {
         child: Stack(
           clipBehavior: Clip.none,
           alignment: AlignmentDirectional.topCenter,
-          children: [
+          children: <Widget>[
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
@@ -167,15 +167,15 @@ class CustomDialogButton3 extends StatelessWidget {
                   padding: const EdgeInsets.all(12),
                   height: 50,
                   child: const Column(
-                    children: [
+                    children: <Widget>[
                       //sparkle icons/ photo
                     ],
                   ),
                 ),
                 Column(
-                  children: [
+                  children: <Widget>[
                     Container(
-                      margin: EdgeInsets.only(top: 40),
+                      margin: const EdgeInsets.only(top: 40),
                       child: Text(
                         content,
                         textAlign: TextAlign.center,
@@ -187,7 +187,7 @@ class CustomDialogButton3 extends StatelessWidget {
                       ),
                     ),
                     ksizedBoxTFB,
-                    Container(padding: EdgeInsets.symmetric(horizontal: 15), child: divider),
+                    Container(padding: const EdgeInsets.symmetric(horizontal: 15), child: divider),
                     ElevatedButton(
                       onPressed: onPressed,
                       style: ElevatedButton.styleFrom(
@@ -313,25 +313,25 @@ class CustomDialogButton4 extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(25),
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: <Widget>[
         titleDesign(label: 'Payment'),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 22),
+          padding: const EdgeInsets.symmetric(horizontal: 22),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               kSizedBox,
               Text(
                 'Confirm your payment?',
                 style: textStyleContent(
                   size: 16,
-                  color: Color(0xFF242426),
+                  color: const Color(0xFF242426),
                 ),
               ),
               ksizedBoxTFB,
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+                children: <Widget>[
                   puButton(
                     onPressed: () => Navigator.pop(context),
                     color: Colors.red,
@@ -364,25 +364,25 @@ class Confirmation extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(25),
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: <Widget>[
         titleDesign(label: 'Property Listing'),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 22),
+          padding: const EdgeInsets.symmetric(horizontal: 22),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               kSizedBox,
               Text(
                 'Submit your listing?',
                 style: textStyleContent(
                   size: 16,
-                  color: Color(0xFF242426),
+                  color: const Color(0xFF242426),
                 ),
               ),
               ksizedBoxTFB,
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+                children: <Widget>[
                   puButton(
                     onPressed: () => Navigator.pop(context),
                     color: Colors.red,
@@ -428,7 +428,7 @@ class Message extends StatelessWidget {
         child: Stack(
           clipBehavior: Clip.none,
           alignment: AlignmentDirectional.topCenter,
-          children: [
+          children: <Widget>[
             Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
@@ -444,27 +444,27 @@ class Message extends StatelessWidget {
                   height: 50,
                 ),
                 Column(
-                  children: [
+                  children: <Widget>[
                     Container(
-                      margin: EdgeInsets.only(top: 40),
+                      margin: const EdgeInsets.only(top: 40),
                       child: Text(
                         'Your listing has been \n added!',
                         textAlign: TextAlign.center,
                         style: textStyleContent(
                           size: 20,
-                          color: Color(0xFF242426),
+                          color: const Color(0xFF242426),
                         ),
                       ),
                     ),
                     ksizedBoxTFB,
-                    Container(padding: EdgeInsets.symmetric(horizontal: 15), child: divider),
+                    Container(padding: const EdgeInsets.symmetric(horizontal: 15), child: divider),
                     ElevatedButton(
                       onPressed: () {
                         // Navigator.pushNamed(context, ListingOwner.id)
                         Navigator.pushNamedAndRemoveUntil(
                           context,
                           BottomNavigation.id,
-                          (route) => route.isFirst,
+                          (Route<dynamic> route) => route.isFirst,
                           arguments: 1, //navigation bar index
                         );
                       },
@@ -505,13 +505,13 @@ class Message extends StatelessWidget {
 }
 
 class DialogButtonDetails extends StatefulWidget {
-  DialogButtonDetails({Key? key}) : super(key: key);
+  const DialogButtonDetails({Key? key}) : super(key: key);
 
   @override
-  _DialogButtonDetailsState createState() => _DialogButtonDetailsState();
+  DialogButtonDetailsState createState() => DialogButtonDetailsState();
 }
 
-class _DialogButtonDetailsState extends State<DialogButtonDetails> {
+class DialogButtonDetailsState extends State<DialogButtonDetails> {
   String selectedButton = 'Booking';
 
   @override
@@ -526,14 +526,14 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
         children: <Widget>[
           titleDesign(label: 'Details'),
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xFF96A9CC),
             ),
             padding: const EdgeInsets.all(12),
             height: 50,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
+              children: <Widget>[
                 TextButton(
                   onPressed: () {
                     setState(() {
@@ -601,7 +601,7 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Center(
-                child: selectedButton == 'Booking' ? BookingWidget() : TenantWidget(),
+                child: selectedButton == 'Booking' ? const BookingWidget() : const TenantWidget(),
               ),
             ),
           ),
@@ -612,20 +612,22 @@ class _DialogButtonDetailsState extends State<DialogButtonDetails> {
 }
 
 class BookingWidget extends StatelessWidget {
+  const BookingWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 22, right: 22),
       child: ListView(
-        children: [
+        children: <Widget>[
           Text(
             'Room No: 001',
             textAlign: TextAlign.center,
-            style: textStyleContent(size: 14, color: Color(0xFF242426)),
+            style: textStyleContent(size: 14, color: const Color(0xFF242426)),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               ksizedBoxTextFieldCol,
               popupTextFieldContent(
                 label: 'Start Date',
@@ -654,33 +656,33 @@ class BookingWidget extends StatelessWidget {
               priceTextField(
                 label: 'Transient',
                 value: 3500.00,
-                textColor: Color(0xFF242426),
-                leadingColor: Color(0xFFFEB618),
-                borderColor: Color(0xFF808080),
+                textColor: const Color(0xFF242426),
+                leadingColor: const Color(0xFFFEB618),
+                borderColor: const Color(0xFF808080),
               ),
               ksizedBoxTextFieldCol,
               priceTextField(
                 label: 'Transaction Fee',
                 value: 350.00,
-                textColor: Color(0xFF1C39BB),
-                leadingColor: Color(0xFF1C39BB),
-                borderColor: Color(0xFF1C39BB),
+                textColor: const Color(0xFF1C39BB),
+                leadingColor: const Color(0xFF1C39BB),
+                borderColor: const Color(0xFF1C39BB),
               ),
               ksizedBoxTextFieldCol,
               priceTextField(
                 label: 'Monthly',
                 value: 15000.00,
-                textColor: Color(0xFF242426),
-                leadingColor: Color(0xFFFEB618),
-                borderColor: Color(0xFF808080),
+                textColor: const Color(0xFF242426),
+                leadingColor: const Color(0xFFFEB618),
+                borderColor: const Color(0xFF808080),
               ),
               ksizedBoxTextFieldCol,
               priceTextField(
                 label: 'Transaction Fee',
                 value: 1500.00,
-                textColor: Color(0xFF1C39BB),
-                leadingColor: Color(0xFF1C39BB),
-                borderColor: Color(0xFF1C39BB),
+                textColor: const Color(0xFF1C39BB),
+                leadingColor: const Color(0xFF1C39BB),
+                borderColor: const Color(0xFF1C39BB),
               ),
               ksizedBoxTextFieldCol,
             ],
@@ -692,20 +694,22 @@ class BookingWidget extends StatelessWidget {
 }
 
 class TenantWidget extends StatelessWidget {
+  const TenantWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 22, right: 22),
+      padding: const EdgeInsets.only(left: 22, right: 22),
       child: Column(
-        children: [
+        children: <Widget>[
           Text(
             'Room No: 001',
             textAlign: TextAlign.center,
-            style: textStyleContent(size: 14, color: Color(0xFF242426)),
+            style: textStyleContent(size: 14, color: const Color(0xFF242426)),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               ksizedBoxTextFieldCol,
               popupTextFieldContent(
                 label: 'Full Name',
@@ -747,12 +751,12 @@ class _PendingRequestPromptState extends State<PendingRequestPrompt> {
   Widget build(BuildContext context) {
     return Dialog(
       surfaceTintColor: Colors.white,
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: <Widget>[
         titleDesign(label: 'Pending Request'),
         SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Column(
-            children: [
+            children: <Widget>[
               GestureDetector(
                 child: pendingRequestContent(tenantName: 'Cardo Dalisay'),
                 onTap: () => setState(() {
@@ -763,9 +767,9 @@ class _PendingRequestPromptState extends State<PendingRequestPrompt> {
               Visibility(
                 visible: isCDVisible,
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       popupTextFieldContent(
                         label: 'Room Number',
                         icon: Icons.meeting_room,
@@ -786,7 +790,7 @@ class _PendingRequestPromptState extends State<PendingRequestPrompt> {
                       ksizedBoxTextFieldCol,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
+                        children: <Widget>[
                           puButton(
                             onPressed: () => Navigator.canPop(context),
                             color: Colors.red,
@@ -798,7 +802,7 @@ class _PendingRequestPromptState extends State<PendingRequestPrompt> {
                               barrierDismissible: false,
                               context: context,
                               builder: (BuildContext context) {
-                                return RoomAssignment();
+                                return const RoomAssignment();
                               },
                             ),
                             color: Colors.green,
@@ -821,9 +825,9 @@ class _PendingRequestPromptState extends State<PendingRequestPrompt> {
               Visibility(
                 visible: isARVisible,
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       popupTextFieldContent(
                         label: 'Room Number',
                         icon: Icons.meeting_room,
@@ -844,7 +848,7 @@ class _PendingRequestPromptState extends State<PendingRequestPrompt> {
                       ksizedBoxTextFieldCol,
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
+                        children: <Widget>[
                           puButton(
                             onPressed: () => Navigator.pop(context),
                             color: Colors.red,
@@ -856,7 +860,7 @@ class _PendingRequestPromptState extends State<PendingRequestPrompt> {
                               barrierDismissible: false,
                               context: context,
                               builder: (BuildContext context) {
-                                return RoomAssignment();
+                                return const RoomAssignment();
                               },
                             ),
                             color: Colors.green,
@@ -890,25 +894,25 @@ class _RoomAssignmentState extends State<RoomAssignment> {
   Widget build(BuildContext context) {
     return Dialog(
       surfaceTintColor: Colors.white,
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: <Widget>[
         titleDesign(label: 'Room Assignment'),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 22),
+          padding: const EdgeInsets.symmetric(horizontal: 22),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               kSizedBox,
               Text(
                 'Assign to Room #002?',
                 style: textStyleContent(
                   size: 16,
-                  color: Color(0xFF242426),
+                  color: const Color(0xFF242426),
                 ),
               ),
               ksizedBoxTFB,
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+                children: <Widget>[
                   puButton(
                     onPressed: () => Navigator.pop(context),
                     color: Colors.red,
@@ -942,25 +946,25 @@ class PropertyOwner extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(25),
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: <Widget>[
         titleDesign(label: 'Switch Role'),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 22),
+          padding: const EdgeInsets.symmetric(horizontal: 22),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               kSizedBox,
               Text(
                 'Switch to Property Owner?',
                 style: textStyleContent(
                   size: 16,
-                  color: Color(0xFF242426),
+                  color: const Color(0xFF242426),
                 ),
               ),
               ksizedBoxTFB,
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+                children: <Widget>[
                   puButton(
                     onPressed: () => Navigator.pop(context),
                     color: Colors.red,
@@ -997,25 +1001,25 @@ class Renter extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(25),
       ),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: [
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: <Widget>[
         titleDesign(label: 'Switch Role'),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 22),
+          padding: const EdgeInsets.symmetric(horizontal: 22),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               kSizedBox,
               Text(
                 'Switch to Renter?',
                 style: textStyleContent(
                   size: 16,
-                  color: Color(0xFF242426),
+                  color: const Color(0xFF242426),
                 ),
               ),
               ksizedBoxTFB,
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
+                children: <Widget>[
                   puButton(
                     onPressed: () => Navigator.pop(context),
                     color: Colors.red,

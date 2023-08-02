@@ -15,7 +15,7 @@ class _PropertyListingsTableViewState extends State<PropertyListingsTableView> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: PropertyList.listings.length,
         itemBuilder: (BuildContext context, int index) {
@@ -24,7 +24,7 @@ class _PropertyListingsTableViewState extends State<PropertyListingsTableView> {
               border: TableBorder.all(
                 color: Colors.grey,
               ),
-              columnWidths: {
+              columnWidths: const <int, TableColumnWidth>{
                 0: FlexColumnWidth(1.5),
                 1: FlexColumnWidth(4),
                 2: FlexColumnWidth(2),
@@ -32,7 +32,7 @@ class _PropertyListingsTableViewState extends State<PropertyListingsTableView> {
               defaultVerticalAlignment: TableCellVerticalAlignment.middle,
               children: [
                 TableRow(children: [
-                  tableContent(content: list.propertyNumber.toString().padLeft(3, '0'), color: Color(0xFF242731)),
+                  tableContent(content: list.propertyNumber.toString().padLeft(3, '0'), color: const Color(0xFF242731)),
                   Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Column(
@@ -41,7 +41,7 @@ class _PropertyListingsTableViewState extends State<PropertyListingsTableView> {
                         Container(
                           height: 100,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
+                            borderRadius: const BorderRadius.all(
                               Radius.circular(8),
                             ),
                             image: DecorationImage(
@@ -52,15 +52,15 @@ class _PropertyListingsTableViewState extends State<PropertyListingsTableView> {
                         ),
                         Text(
                           list.propertyName!,
-                          style: textStyleHeader(color: Color(0xFF242731), size: 16),
+                          style: textStyleHeader(color: const Color(0xFF242731), size: 16),
                         ),
                         Text(
                           '${list.propertyCity}, ${list.propertyProvince}',
-                          style: textStyleContent(color: Color(0xFF242731), size: 12),
+                          style: textStyleContent(color: const Color(0xFF242731), size: 12),
                         ),
                         Row(
                           children: <Widget>[
-                            Text('Starting at ', style: textStyleContent(color: Color(0xFF242731), size: 12)),
+                            Text('Starting at ', style: textStyleContent(color: const Color(0xFF242731), size: 12)),
                             const Text(
                               '₱ ',
                               style: TextStyle(
@@ -68,22 +68,22 @@ class _PropertyListingsTableViewState extends State<PropertyListingsTableView> {
                                 fontSize: 12,
                               ),
                             ),
-                            Text(list.propertyPrice!.toStringAsFixed(2), style: textStyleContent(color: Color(0xFF242731), size: 12)),
+                            Text(list.propertyPrice!.toStringAsFixed(2), style: textStyleContent(color: const Color(0xFF242731), size: 12)),
                           ],
                         ),
                         ksizedBoxTextFieldCol,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            label(buttonColor: Color(0xFFFEB618), label: list.propertyType!, textColor: Colors.black),
+                            label(buttonColor: const Color(0xFFFEB618), label: list.propertyType!, textColor: Colors.black),
                             ksizedBoxTextFieldRow,
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(
+                                borderRadius: const BorderRadius.all(
                                   Radius.circular(5),
                                 ),
-                                color: list.propertyStatus == 'Available' ? Colors.green : Color(0xFF5C8BE1),
+                                color: list.propertyStatus == 'Available' ? Colors.green : const Color(0xFF5C8BE1),
                               ),
                               child: Center(
                                 child: Text(
@@ -126,9 +126,9 @@ class _PropertyListingsTableViewState extends State<PropertyListingsTableView> {
 // Room Type & Room Status
 Container label({required String label, required Color textColor, required Color buttonColor}) {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.all(
+      borderRadius: const BorderRadius.all(
         Radius.circular(5),
       ),
       color: buttonColor,
@@ -145,7 +145,7 @@ Container label({required String label, required Color textColor, required Color
 // Table title and Room# Content
 Center tableContent({required String content, required Color color}) => Center(
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: Text(
           content,
           style: textStyleHeader(color: color, size: 14),

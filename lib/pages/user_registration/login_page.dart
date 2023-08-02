@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: [
+          children: <Widget>[
             branding(),
             Container(
               padding: const EdgeInsets.all(20),
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
                   ksizedBoxTFB,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       noButtonIcons(
                           onPressed: () {
                             logInState.setTrue();
@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                           },
                           label: 'Login',
                           isBorderRequired: true,
-                          buttonColor: Color(0xFF1C39BB),
+                          buttonColor: const Color(0xFF1C39BB),
                           textColor: Colors.white,
                           horizontalPadding: 100,
                           verticalPadding: 15),
@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                   kSizedBox,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       const Text(
                         'Forgot Password?',
                         style: kRoomNumber,
@@ -100,20 +100,20 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: <Widget>[
                         signUpButton(
                           onPressed: null,
                           label: 'Continue with Facebook',
                           icon: Icons.facebook_rounded,
-                          iconColor: Color(0xFF1C39BB),
+                          iconColor: const Color(0xFF1C39BB),
                         ),
                         ksizedBoxTextFieldCol,
                         Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           decoration: boxDecoration(),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
+                            children: <Widget>[
                               SizedBox(
                                 height: 25,
                                 width: 25,
@@ -134,7 +134,7 @@ class _LoginPageState extends State<LoginPage> {
                           onPressed: null,
                           label: 'Continue with Apple',
                           icon: Icons.apple_rounded,
-                          iconColor: Color(0xFF242426),
+                          iconColor: const Color(0xFF242426),
                         ),
                       ],
                     ),
@@ -142,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                   kSizedBox,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       const Text(
                         "Don't have an account?",
                         style: kRoomNumber,
@@ -199,7 +199,7 @@ TextButton signUpButton({
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: <Widget>[
           iconStyle(icon: icon, color: iconColor, size: 20),
           ksizedBoxTextFieldRow,
           Text(

@@ -24,7 +24,7 @@ class _AsRenter extends State<AsRenter> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: [
+          children: <Widget>[
             branding(),
             Container(
               padding: const EdgeInsets.all(20),
@@ -33,7 +33,7 @@ class _AsRenter extends State<AsRenter> {
                 children: <Widget>[
                   const Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: <Widget>[
                       Text(
                         'Sign up as',
                         style: kRoomName,
@@ -87,19 +87,14 @@ class _AsRenter extends State<AsRenter> {
                                   onPressed: () {
                                     logInState.setTrue();
                                     renterState.setTrue();
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (BuildContext context) => LandingPage(),
-                                      ),
-                                    );
+                                    Navigator.pushNamed(context, LandingPage.id);
                                   },
                                 );
                               });
                         },
                         label: 'Create Account',
                         isBorderRequired: false,
-                        buttonColor: Color(0xFF1C39BB),
+                        buttonColor: const Color(0xFF1C39BB),
                         textColor: Colors.white,
                         horizontalPadding: 30,
                         verticalPadding: 15,
