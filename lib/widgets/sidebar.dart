@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:roompal_ojt/Log_In_State.dart';
 import 'package:roompal_ojt/Renter_State.dart';
+import 'package:roompal_ojt/Side_bar_State.dart';
 import 'package:roompal_ojt/pages/landing_page.dart';
 import 'package:roompal_ojt/pages/property_owner/bottom_navigation.dart';
 import 'package:roompal_ojt/pages/property_owner/personal_details_verified.dart';
@@ -27,12 +28,33 @@ class _SideBarState extends State<SideBar> {
     LogInState logInState = Provider.of<LogInState>(context);
     RenterState renterState = Provider.of<RenterState>(context);
     bool isLoggedIn = logInState.isLoggedIn;
-    // double screenHeight = MediaQuery.of(context).size.height;
-    // double sidebarContentHeight = screenHeight * 0.8;
+    SideBarState sideBarState = Provider.of<SideBarState>(context);
+    int _selectedIndex = sideBarState.selectedIndex;
+
+    // Content in SideBar
+    ListTile buildListTile(
+        {required Icon leadingIcon, required String label, required Icon trailingIcon, required void Function()? onTap, required int index}) {
+      bool isSelected = _selectedIndex == index;
+      return ListTile(
+        leading: leadingIcon,
+        title: Text(label),
+        titleTextStyle: textStyleContent(size: 18, color: const Color(0xFF242731)),
+        trailing: trailingIcon,
+        onTap: () {
+          sideBarState.setSelectedIndex(index);
+          if (onTap != null) {
+            onTap();
+          }
+        },
+        visualDensity: VisualDensity(horizontal: 0, vertical: -2),
+        selected: isSelected,
+        selectedTileColor: Color(0xFF96A9CC),
+      );
+    }
+
     return NavigationDrawer(
       children: <Widget>[
         Container(
-          // height: sidebarContentHeight,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(
@@ -65,7 +87,8 @@ class _SideBarState extends State<SideBar> {
                                           builder: (BuildContext context) => const LandingPage(),
                                         ),
                                       );
-                                    }),
+                                    },
+                                    index: 0),
                               )
                             : isLoggedIn == true && widget.isRenter == false
                                 ? Visibility(
@@ -81,7 +104,8 @@ class _SideBarState extends State<SideBar> {
                                               builder: (BuildContext context) => const LandingPage(),
                                             ),
                                           );
-                                        }),
+                                        },
+                                        index: 0),
                                   )
                                 : Visibility(
                                     visible: !isVisible,
@@ -89,7 +113,7 @@ class _SideBarState extends State<SideBar> {
                                       leadingIcon: const Icon(Icons.home_filled),
                                       label: 'Home Page',
                                       trailingIcon: const Icon(Icons.arrow_right),
-                                      onTap: null, //Pass Values
+                                      onTap: null, index: 0, //Pass Values
                                     ),
                                   ),
                         isLoggedIn == true && widget.isRenter == true
@@ -99,7 +123,7 @@ class _SideBarState extends State<SideBar> {
                                   leadingIcon: const Icon(Icons.book),
                                   label: 'Booking Managment',
                                   trailingIcon: const Icon(Icons.arrow_right),
-                                  onTap: () => Navigator.pushNamed(context, RenterPage.id), //Pass Values
+                                  onTap: () => Navigator.pushNamed(context, RenterPage.id), index: 1, //Pass Values
                                 ),
                               )
                             : isLoggedIn == true && widget.isRenter == false
@@ -109,7 +133,7 @@ class _SideBarState extends State<SideBar> {
                                       leadingIcon: const Icon(Icons.book),
                                       label: 'Booking Managment',
                                       trailingIcon: const Icon(Icons.arrow_right),
-                                      onTap: () => Navigator.pushNamed(context, RenterPage.id), //Pass Values
+                                      onTap: () => Navigator.pushNamed(context, RenterPage.id), index: 1, //Pass Values
                                     ),
                                   )
                                 : Visibility(
@@ -118,7 +142,7 @@ class _SideBarState extends State<SideBar> {
                                       leadingIcon: const Icon(Icons.book),
                                       label: 'Booking Managment',
                                       trailingIcon: const Icon(Icons.arrow_right),
-                                      onTap: () => Navigator.pushNamed(context, RenterPage.id), //Pass Values
+                                      onTap: () => Navigator.pushNamed(context, RenterPage.id), index: 1, //Pass Values
                                     ),
                                   ),
                         isLoggedIn == true && widget.isRenter == true
@@ -133,7 +157,8 @@ class _SideBarState extends State<SideBar> {
                                       builder: (BuildContext context) => const PersonalDetailsV(),
                                     ),
                                   );
-                                })
+                                },
+                                index: 2)
                             : isLoggedIn == true && widget.isRenter == false
                                 ? buildListTile(
                                     leadingIcon: const Icon(Icons.person),
@@ -146,12 +171,14 @@ class _SideBarState extends State<SideBar> {
                                           builder: (BuildContext context) => const PersonalDetailsV(),
                                         ),
                                       );
-                                    })
+                                    },
+                                    index: 2)
                                 : buildListTile(
                                     leadingIcon: const Icon(Icons.person),
                                     label: 'Sign up',
                                     trailingIcon: const Icon(Icons.arrow_right),
                                     onTap: () => Navigator.pushNamed(context, ChooseRole.id),
+                                    index: 2,
                                   ),
                         isLoggedIn == true && widget.isRenter == true
                             ? buildListTile(
@@ -162,6 +189,7 @@ class _SideBarState extends State<SideBar> {
                                   renterState.setFalse();
                                   Navigator.pushNamed(context, BottomNavigation.id);
                                 },
+                                index: 3,
                               )
                             : isLoggedIn == true && widget.isRenter == false
                                 ? buildListTile(
@@ -171,12 +199,14 @@ class _SideBarState extends State<SideBar> {
                                     onTap: () {
                                       renterState.setTrue();
                                       Navigator.pushNamed(context, LandingPage.id);
-                                    })
+                                    },
+                                    index: 3)
                                 : buildListTile(
                                     leadingIcon: const Icon(Icons.person),
                                     label: 'Log in',
                                     trailingIcon: const Icon(Icons.arrow_right),
                                     onTap: () => Navigator.pushNamed(context, LoginPage.id),
+                                    index: 3,
                                   ),
                         const Divider(
                           color: Color(0xFFB9B9C3),
@@ -186,36 +216,42 @@ class _SideBarState extends State<SideBar> {
                           label: 'About Us',
                           trailingIcon: const Icon(Icons.arrow_right),
                           onTap: null,
+                          index: 4,
                         ),
                         buildListTile(
                           leadingIcon: const Icon(Icons.policy),
                           label: 'Privacy Policy',
                           trailingIcon: const Icon(Icons.arrow_right),
                           onTap: null,
+                          index: 5,
                         ),
                         buildListTile(
                           leadingIcon: const Icon(Icons.phone),
                           label: 'Contact Us',
                           trailingIcon: const Icon(Icons.arrow_right),
                           onTap: null,
+                          index: 6,
                         ),
                         buildListTile(
                           leadingIcon: const Icon(Icons.info),
                           label: 'Social Media',
                           trailingIcon: const Icon(Icons.arrow_right),
                           onTap: null,
+                          index: 7,
                         ),
                         buildListTile(
                           leadingIcon: const Icon(Icons.info),
                           label: 'Terms and Condition',
                           trailingIcon: const Icon(Icons.arrow_right),
                           onTap: null,
+                          index: 8,
                         ),
                         buildListTile(
                           leadingIcon: const Icon(Icons.info),
                           label: 'FAQs',
                           trailingIcon: const Icon(Icons.arrow_right),
                           onTap: null,
+                          index: 9,
                         ),
                       ],
                     ),
@@ -270,19 +306,6 @@ class _SideBarState extends State<SideBar> {
           ),
         ),
       ),
-    );
-  }
-
-  // Content in SideBar
-  ListTile buildListTile({required Icon leadingIcon, required String label, required Icon trailingIcon, required void Function()? onTap}) {
-    return ListTile(
-      leading: leadingIcon,
-      title: Text(label),
-      titleTextStyle: textStyleContent(size: 18, color: const Color(0xFF242731)),
-      trailing: trailingIcon,
-      onTap: onTap,
-      visualDensity: VisualDensity(horizontal: 0, vertical: -2),
-      hoverColor: Color(0xFF96A9CC),
     );
   }
 }
