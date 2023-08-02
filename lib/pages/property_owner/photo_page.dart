@@ -33,7 +33,7 @@ class _PhotoPageState extends State<PhotoPage> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: <Widget>[
                   circleIcon(isFillRequired: true, isBorderRequired: false),
                   lineBetweenCI(isTrue: true),
                   circleIcon(isFillRequired: true, isBorderRequired: false),

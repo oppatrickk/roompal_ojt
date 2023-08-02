@@ -23,7 +23,7 @@ class _OverviewPageState extends State<OverviewPage> {
       endDrawer: SideBar(
         isRenter: false,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: OverviewSection(),
       ),
     );
@@ -38,16 +38,14 @@ class OverviewSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        Container(
-          child: Center(
-            child: Image.asset('assets/img/cl1.png'),
-          ),
+      padding: const EdgeInsets.all(20),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: <Widget>[
+        Center(
+          child: Image.asset('assets/img/cl1.png'),
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             circleIcon(isFillRequired: true, isBorderRequired: false),
             lineBetweenCI(isTrue: false),
             circleIcon(isFillRequired: false, isBorderRequired: true),
@@ -64,7 +62,7 @@ class OverviewSection extends StatelessWidget {
         kSizedBox,
         headerSub(pageTitle: 'Overview', subContent: 'Fill in the property overview data. It will take a couple of minutes.'),
         kSizedBox,
-        OverviewForm(),
+        const OverviewForm(),
         ksizedBoxTFB,
       ]),
     );
@@ -119,17 +117,17 @@ class _OverviewFormState extends State<OverviewForm> {
                   'Select Category',
                   style: textStyleContent(
                     size: 14,
-                    color: Color(0xFF575F6E),
+                    color: const Color(0xFF575F6E),
                   ),
                 ),
                 DropdownButton<String>(
                   isExpanded: true,
                   value: dropdownValue,
                   icon: const Icon(Icons.arrow_drop_down),
-                  style: inputStyle(textColor: Color(0xFF242426)),
+                  style: inputStyle(textColor: const Color(0xFF242426)),
                   underline: Container(
                     height: 1,
-                    color: Color(0xFF575F6E),
+                    color: const Color(0xFF575F6E),
                   ),
                   onChanged: (String? value) {
                     setState(() {

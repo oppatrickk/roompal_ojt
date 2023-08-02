@@ -114,10 +114,10 @@ class _ConfirmationPageState extends State<ConfirmationPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
-                children: [
+                children: <Widget>[
                   displayDetails(label: 'Name', details: 'Cena Una Coratson Bueno', flex: 1),
                   Row(
-                    children: [
+                    children: <Widget>[
                       displayDetails(label: 'Guest/s', details: '1', flex: 1),
                       ksizedBoxTextFieldRow,
                       displayDetails(label: 'Payment Method', details: 'Credit Card', flex: 3),

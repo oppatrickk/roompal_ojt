@@ -7,8 +7,8 @@ import 'package:roompal_ojt/widgets/widget_elements.dart';
 import 'package:roompal_ojt/widgets/textfield_widget.dart';
 
 class LocationPage extends StatefulWidget {
-  LocationPage({super.key});
-  static const String id = "LocationPage";
+  const LocationPage({super.key});
+  static const String id = 'LocationPage';
 
   @override
   State<LocationPage> createState() => _LocationPageState();
@@ -32,7 +32,7 @@ class _LocationPageState extends State<LocationPage> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
@@ -44,7 +44,7 @@ class _LocationPageState extends State<LocationPage> {
               //circle bar
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: <Widget>[
                   circleIcon(isFillRequired: true, isBorderRequired: false),
                   lineBetweenCI(isTrue: true),
                   circleIcon(isFillRequired: true, isBorderRequired: false),
@@ -153,8 +153,8 @@ class _LocationPageState extends State<LocationPage> {
                                 value: dropdownValue,
                                 icon: const Icon(Icons.arrow_drop_down),
                                 elevation: 16,
-                                style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
-                                decoration: InputDecoration(
+                                style: textStyleContent(size: 16, color: const Color(0xFF575F6E)),
+                                decoration: const InputDecoration(
                                   contentPadding: EdgeInsets.all(0),
                                 ),
                                 onChanged: (Icon? value) {

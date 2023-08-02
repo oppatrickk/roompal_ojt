@@ -13,10 +13,10 @@ class Booking extends StatefulWidget {
   static const String id = 'booking_page';
 
   @override
-  _BookingState createState() => _BookingState();
+  BookingState createState() => BookingState();
 }
 
-class _BookingState extends State<Booking> {
+class BookingState extends State<Booking> {
   //DropDown
   static const List<String> list = <String>['Transient', 'Monthly'];
 
@@ -45,15 +45,15 @@ class _BookingState extends State<Booking> {
           padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
+            children: <Widget>[
               Row(
                 crossAxisAlignment: CrossAxisAlignment.baseline,
                 textBaseline: TextBaseline.ideographic,
-                children: [
+                children: <Widget>[
                   bookingSteps(
                     label: 'Booking',
-                    textColor: Color(0xFF1C39BB),
-                    lineColor: Color(0xFFFEB618),
+                    textColor: const Color(0xFF1C39BB),
+                    lineColor: const Color(0xFFFEB618),
                     textSize: 18,
                     flex: 1,
                   ),
@@ -99,11 +99,11 @@ class _BookingState extends State<Booking> {
 
               //Choose Date
               Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
+                  children: <Widget>[
                     Text(
                       'Choose your dates',
                       style: textStyleContent(
@@ -113,7 +113,7 @@ class _BookingState extends State<Booking> {
                     ),
                     ksizedBoxTextFieldCol,
                     Row(
-                      children: [
+                      children: <Widget>[
                         Expanded(child: calendarIcon()),
                         Expanded(
                           flex: 2,
@@ -130,9 +130,9 @@ class _BookingState extends State<Booking> {
                     SizedBox(
                       width: 50,
                       child: Row(
-                        children: [
+                        children: <Widget>[
                           Column(
-                            children: [
+                            children: <Widget>[
                               const Text(
                                 '14 days',
                                 style: TextStyle(
@@ -143,7 +143,7 @@ class _BookingState extends State<Booking> {
                               Container(
                                 height: 1,
                                 width: 100,
-                                color: Color(0xFF242426),
+                                color: const Color(0xFF242426),
                               ),
                             ],
                           ),
@@ -168,7 +168,7 @@ class _BookingState extends State<Booking> {
                       'Choose Option',
                       style: textStyleContent(
                         size: 14,
-                        color: Color(0xFF575F6E),
+                        color: const Color(0xFF575F6E),
                       ),
                     ),
                     DropdownButton<String>(
@@ -176,7 +176,7 @@ class _BookingState extends State<Booking> {
                       value: dropdownValue,
                       icon: const Icon(Icons.arrow_drop_down),
                       elevation: 16,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color(0xFF242426),
                         fontSize: 18,
                         fontFamily: 'ProximaNovaRegular',
@@ -184,7 +184,7 @@ class _BookingState extends State<Booking> {
                       ),
                       underline: Container(
                         height: 1,
-                        color: Color(0xFF575F6E),
+                        color: const Color(0xFF575F6E),
                       ),
                       onChanged: (String? value) {
                         setState(() {
@@ -200,7 +200,7 @@ class _BookingState extends State<Booking> {
                     ),
                     const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: <Widget>[
                         Text('Requires 2 months advance payments', style: kRedText),
                       ],
                     ),
@@ -216,17 +216,17 @@ class _BookingState extends State<Booking> {
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Column(
-                  children: [
+                  children: <Widget>[
                     textFieldWithHintText(label: 'Number of Guest', hint: 'Enter the number of guest'),
                     ksizedBoxTextFieldCol,
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: <Widget>[
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
+                          children: <Widget>[
+                            const Text(
                               'Maximum of 2 guests',
                               style: kRedText,
                             ),
@@ -275,7 +275,7 @@ class _BookingState extends State<Booking> {
   Column dateDisplay({required String label, required int month, required int day, required int year}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         Text(
           label,
           style: textStyleContent(
@@ -286,25 +286,25 @@ class _BookingState extends State<Booking> {
         Table(
           border: TableBorder.all(
             color: Colors.grey,
-            borderRadius: BorderRadius.all(
+            borderRadius: const BorderRadius.all(
               Radius.circular(8),
             ),
           ),
-          columnWidths: {
+          columnWidths: const <int, TableColumnWidth>{
             0: FlexColumnWidth(1),
             1: FlexColumnWidth(1),
             2: FlexColumnWidth(2),
           },
           defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-          children: [
-            TableRow(children: [
+          children: <TableRow>[
+            TableRow(children: <Widget>[
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: Text(
                   month.toString(),
                   style: textStyleContent(
                     size: 16,
-                    color: Color(0xFF242426),
+                    color: const Color(0xFF242426),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -315,7 +315,7 @@ class _BookingState extends State<Booking> {
                   day.toString(),
                   style: textStyleContent(
                     size: 16,
-                    color: Color(0xFF242426),
+                    color: const Color(0xFF242426),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -326,7 +326,7 @@ class _BookingState extends State<Booking> {
                   year.toString(),
                   style: textStyleContent(
                     size: 16,
-                    color: Color(0xFF242426),
+                    color: const Color(0xFF242426),
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -348,11 +348,11 @@ class _BookingState extends State<Booking> {
           height: 30,
           decoration: BoxDecoration(
             border: Border.all(
-              color: Color(0xFF242426),
+              color: const Color(0xFF242426),
             ),
             borderRadius: BorderRadius.circular(5.0),
           ),
-          child: Icon(
+          child: const Icon(
             Icons.calendar_today_outlined,
             color: Color(0xFF242426),
           ),

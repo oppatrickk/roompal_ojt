@@ -43,45 +43,43 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Container(
-                child: Center(
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 50,
-                        backgroundImage: AssetImage('assets/img/r.png'),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            flex: 10,
-                            child: Text(
-                              'Coratson B. Cena Una',
-                              style: kPersonName,
-                            ),
+              Center(
+                child: Column(
+                  children: <Widget>[
+                    const CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage('assets/img/r.png'),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        const Expanded(
+                          flex: 10,
+                          child: Text(
+                            'Coratson B. Cena Una',
+                            style: kPersonName,
                           ),
-                          Expanded(
-                            child: iconStyle(icon: Icons.verified_rounded, color: Color(0xFF1C39BB), size: 24),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'Manage your personal details.',
-                        style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                      ),
-                      ksizedBoxTextFieldCol,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          ActionButtons(Color(0xFF242426), Icons.edit_square, 'Edit', () {}),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                        Expanded(
+                          child: iconStyle(icon: Icons.verified_rounded, color: const Color(0xFF1C39BB), size: 24),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      'Manage your personal details.',
+                      style: textStyleContent(size: 14, color: const Color(0xFF242426)),
+                    ),
+                    ksizedBoxTextFieldCol,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        ActionButtons(const Color(0xFF242426), Icons.edit_square, 'Edit', () {}),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              Text(
+              const Text(
                 'Personal Information',
                 style: kHeaderTextStyle,
               ),
@@ -127,15 +125,15 @@ class _PersonalDetailsVState extends State<PersonalDetailsV> {
             'Date of Birth',
             style: textStyleContent(
               size: 14,
-              color: Color(0xFF575F6E),
+              color: const Color(0xFF575F6E),
             ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [
+            children: <Widget>[
               TextButton(
                 onPressed: _showDatePicker,
-                child: Icon(
+                child: const Icon(
                   Icons.calendar_month_rounded,
                   color: Color(0xFF242426),
                 ),

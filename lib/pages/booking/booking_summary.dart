@@ -22,10 +22,10 @@ class _BookingSummaryState extends State<BookingSummary> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
+            children: <Widget>[
               headerBS(label: 'Booking Summary', size: 32),
               ksizedBoxTextFieldCol,
               divider,
@@ -35,32 +35,32 @@ class _BookingSummaryState extends State<BookingSummary> {
               ksizedBoxTextFieldCol,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [contentBS(label: 'Check in date'), contentBS(label: 'July 14, 2023')],
+                children: <Widget>[contentBS(label: 'Check in date'), contentBS(label: 'July 14, 2023')],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [contentBS(label: 'Check out date'), contentBS(label: 'July 27, 2023')],
+                children: <Widget>[contentBS(label: 'Check out date'), contentBS(label: 'July 27, 2023')],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [contentBS(label: 'Total days'), contentBS(label: '14 days (2 weeks)')],
+                children: <Widget>[contentBS(label: 'Total days'), contentBS(label: '14 days (2 weeks)')],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   contentBS(label: 'Number of Guest'),
                   contentBS(label: '2'),
                 ],
               ),
               ksizedBoxTextFieldCol,
-              const dashLineSeparator(color: Colors.grey),
+              const DashLineSeparator(color: Colors.grey),
               ksizedBoxTextFieldCol,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   contentBS(label: 'Subtotal'),
                   Row(
-                    children: [
+                    children: <Widget>[
                       pesoSign(),
                       contentBS(label: '####.00'),
                     ],
@@ -69,10 +69,10 @@ class _BookingSummaryState extends State<BookingSummary> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   contentBS(label: 'Discount'),
                   Row(
-                    children: [
+                    children: <Widget>[
                       pesoSign(),
                       contentBS(label: '###.00'),
                     ],
@@ -81,10 +81,10 @@ class _BookingSummaryState extends State<BookingSummary> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   contentBS(label: 'Serving Fee'),
                   Row(
-                    children: [
+                    children: <Widget>[
                       pesoSign(),
                       contentBS(label: '####.00'),
                     ],
@@ -93,10 +93,10 @@ class _BookingSummaryState extends State<BookingSummary> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+                children: <Widget>[
                   contentBS(label: 'Booking Fee'),
                   Row(
-                    children: [
+                    children: <Widget>[
                       pesoSign(),
                       contentBS(label: '####.00'),
                     ],
@@ -109,10 +109,10 @@ class _BookingSummaryState extends State<BookingSummary> {
               ksizedBoxTextFieldCol,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  contentBS(label: "Total"),
+                children: <Widget>[
+                  contentBS(label: 'Total'),
                   Row(
-                    children: [
+                    children: <Widget>[
                       pesoSign(),
                       contentBS(label: '####.00'),
                     ],
@@ -148,7 +148,7 @@ class _BookingSummaryState extends State<BookingSummary> {
       label,
       style: textStyleContent(
         size: 18,
-        color: Color(0xFF242426),
+        color: const Color(0xFF242426),
       ),
     );
   }
@@ -158,14 +158,14 @@ class _BookingSummaryState extends State<BookingSummary> {
       label,
       style: textStyleHeader(
         size: size,
-        color: Color(0xFF242426),
+        color: const Color(0xFF242426),
       ),
     );
   }
 }
 
-class dashLineSeparator extends StatelessWidget {
-  const dashLineSeparator({Key? key, this.height = 1, this.color = Colors.black}) : super(key: key);
+class DashLineSeparator extends StatelessWidget {
+  const DashLineSeparator({Key? key, this.height = 1, this.color = Colors.black}) : super(key: key);
   final double height;
   final Color color;
 
@@ -173,12 +173,14 @@ class dashLineSeparator extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final boxWidth = constraints.constrainWidth();
-        const dashWidth = 10.0;
-        final dashHeight = height;
-        final dashCount = (boxWidth / (2 * dashWidth)).floor();
+        final double boxWidth = constraints.constrainWidth();
+        const double dashWidth = 10.0;
+        final double dashHeight = height;
+        final int dashCount = (boxWidth / (2 * dashWidth)).floor();
         return Flex(
-          children: List.generate(dashCount, (_) {
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          direction: Axis.horizontal,
+          children: List<Widget>.generate(dashCount, (_) {
             return SizedBox(
               width: dashWidth,
               height: dashHeight,
@@ -187,8 +189,6 @@ class dashLineSeparator extends StatelessWidget {
               ),
             );
           }),
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          direction: Axis.horizontal,
         );
       },
     );

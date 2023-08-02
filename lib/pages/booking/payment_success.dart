@@ -25,10 +25,10 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
         child: SingleChildScrollView(
           child: Center(
             child: Container(
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Center(
-                child: Column(children: [
-                  Icon(
+                child: Column(children: <Widget>[
+                  const Icon(
                     Icons.check_circle_outline_sharp,
                     color: Colors.green,
                     size: 130,
@@ -45,7 +45,7 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
                     'You have completed your payment',
                     style: textStyleContent(
                       size: 14,
-                      color: Color(0xFF575F6E),
+                      color: const Color(0xFF575F6E),
                     ),
                   ),
                   kSizedBox,
@@ -54,16 +54,16 @@ class _PaymentSuccessState extends State<PaymentSuccess> {
                       label: 'View Details',
                       isBorderRequired: true,
                       buttonColor: Colors.white,
-                      textColor: Color(0xFF1C39BB),
+                      textColor: const Color(0xFF1C39BB),
                       horizontalPadding: 27,
                       verticalPadding: 15,
-                      colorBorder: Color(0xFF1C39BB)),
+                      colorBorder: const Color(0xFF1C39BB)),
                   ksizedBoxTextFieldCol,
                   noButtonIcons(
                       onPressed: () => Navigator.pushNamed(context, LandingPage.id),
                       label: 'Home',
                       isBorderRequired: true,
-                      buttonColor: Color(0xFF1C39BB),
+                      buttonColor: const Color(0xFF1C39BB),
                       textColor: Colors.white,
                       horizontalPadding: 27,
                       verticalPadding: 15),
@@ -105,7 +105,7 @@ TextButton customButton({
           borderRadius: BorderRadius.circular(16),
         ),
       ),
-      backgroundColor: MaterialStatePropertyAll(buttonColor),
+      backgroundColor: MaterialStatePropertyAll<Color>(buttonColor),
     ),
     child: Center(
       child: Text(
@@ -120,17 +120,17 @@ BoxDecoration outlineBoxDecoration() {
   return BoxDecoration(
     borderRadius: BorderRadius.circular(16),
     border: Border.all(
-      color: Color(0xFF1C39BB),
+      color: const Color(0xFF1C39BB),
     ),
   );
 }
 
 BoxDecoration fillBoxDecoration() {
   return BoxDecoration(
-    color: Color(0xFF1C39BB),
+    color: const Color(0xFF1C39BB),
     borderRadius: BorderRadius.circular(16),
     border: Border.all(
-      color: Color(0xFF1C39BB),
+      color: const Color(0xFF1C39BB),
     ),
   );
 }

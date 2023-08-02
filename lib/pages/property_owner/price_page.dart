@@ -34,7 +34,7 @@ class _PricePageState extends State<PricePage> {
               ksizedBoxTextFieldCol,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: <Widget>[
                   circleIcon(isFillRequired: true, isBorderRequired: false),
                   lineBetweenCI(isTrue: true),
                   circleIcon(isFillRequired: true, isBorderRequired: false),
@@ -57,7 +57,7 @@ class _PricePageState extends State<PricePage> {
                 decoration: boxDecoration(),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
+                  children: <Widget>[
                     priceField(label: 'Transient Price', isTFee: false),
                     ksizedBoxTextFieldRow,
                     priceField(label: 'Transaction Fee', isTFee: true),
@@ -69,7 +69,7 @@ class _PricePageState extends State<PricePage> {
                 padding: const EdgeInsets.all(10),
                 decoration: boxDecoration(),
                 child: Row(
-                  children: [
+                  children: <Widget>[
                     priceField(label: 'Monthly Price', isTFee: false),
                     ksizedBoxTextFieldRow,
                     priceField(label: 'Transaction Fee', isTFee: true),
@@ -77,7 +77,7 @@ class _PricePageState extends State<PricePage> {
                 ),
               ),
               ksizedBoxTextFieldCol,
-              Center(
+              const Center(
                 child: Text(
                   'Important Note: A 10% deduction from the price will be applied.',
                   style: kRedText,

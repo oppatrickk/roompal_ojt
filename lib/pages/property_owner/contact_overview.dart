@@ -35,7 +35,7 @@ class _ContactOverviewState extends State<ContactOverview> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: <Widget>[
                   circleIcon(isFillRequired: true, isBorderRequired: false),
                   lineBetweenCI(isTrue: true),
                   circleIcon(isFillRequired: true, isBorderRequired: false),
@@ -52,7 +52,7 @@ class _ContactOverviewState extends State<ContactOverview> {
               kSizedBox,
               headerSub(pageTitle: 'Contact', subContent: 'Fill in your contact data. It will take a couple of minutes.'),
               kSizedBox,
-              ContactForm(),
+              const ContactForm(),
               ksizedBoxTFB,
             ],
           ),
@@ -73,7 +73,7 @@ class ContactForm extends StatefulWidget {
 class _ContactFormState extends State<ContactForm> {
   // A global key that uniquely identifies the Form widget
   // and allows validation of the form.
-  final _contactFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _contactFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -82,12 +82,12 @@ class _ContactFormState extends State<ContactForm> {
       key: _contactFormKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
+        children: <Widget>[
           Container(
             padding: const EdgeInsets.all(10),
             decoration: boxDecoration(),
             child: Column(
-              children: [
+              children: <Widget>[
                 textFieldWithValidationStyle('Last Name', 'Enter Last Name', requiredValidator),
                 ksizedBoxTextFieldCol,
                 textFieldWithValidationStyle('First Name', 'Enter First Name', requiredValidator),

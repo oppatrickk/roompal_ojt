@@ -27,7 +27,7 @@ class _ListingOwnerState extends State<ListingOwner> {
       endDrawer: SideBar(
         isRenter: false,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: OwnersViewSection(),
       ),
@@ -70,7 +70,7 @@ class _OwnersViewSectionState extends State<OwnersViewSection> {
           //Property Count
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: <Widget>[
               Flexible(
                 child: PropertyCount('Total Property', '25'),
               ),
@@ -174,7 +174,7 @@ class OwnerViewGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PropertyListingsGridView(
+    return const PropertyListingsGridView(
       isRenter: false,
       needEditDeleteButton: true,
     );
@@ -187,7 +187,7 @@ class RenterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PropertyListingsGridView(
+    return const PropertyListingsGridView(
       isRenter: false,
       needEditDeleteButton: false,
     );
@@ -201,31 +201,31 @@ class OwnerViewTableFormat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children: <Widget>[
         ksizedBoxTextFieldCol,
         Table(
           border: TableBorder.all(
             color: Colors.grey,
           ),
-          columnWidths: {
+          columnWidths: const <int, TableColumnWidth>{
             0: FlexColumnWidth(1.5),
             1: FlexColumnWidth(4),
             2: FlexColumnWidth(2),
           },
           defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-          children: [
+          children: <TableRow>[
             TableRow(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFF1C39BB),
                 ),
-                children: [
+                children: <Widget>[
                   tableContent(content: 'Room#', color: Colors.white),
                   tableContent(content: 'Property Details', color: Colors.white),
                   tableContent(content: 'Actions', color: Colors.white),
                 ]),
           ],
         ),
-        PropertyListingsTableView(),
+        const PropertyListingsTableView(),
       ],
     );
   }
@@ -234,7 +234,7 @@ class OwnerViewTableFormat extends StatelessWidget {
 // Table title and Room# Content
 Center tableContent({required String content, required Color color}) => Center(
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         child: Text(
           content,
           style: textStyleHeader(color: color, size: 14),

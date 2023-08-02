@@ -36,54 +36,52 @@ class _PersonalDetailsNVState extends State<PersonalDetailsNV> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Container(
-                child: Center(
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 50,
-                        backgroundImage: AssetImage('assets/img/r.png'),
-                      ),
-                      Text(
-                        'Coratson B. Cena Una',
-                        style: kPersonName,
-                      ),
-                      Text(
-                        'Manage your personal details.',
-                        style: textStyleContent(size: 14, color: Color(0xFF242426)),
-                      ),
-                      ksizedBoxTextFieldCol,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TextButton(
-                            onPressed: null,
-                            style: ButtonStyle(
-                              padding: MaterialStateProperty.all(
-                                EdgeInsetsDirectional.symmetric(horizontal: 10, vertical: 3.5),
-                              ),
-                              side: MaterialStateProperty.all(
-                                BorderSide(
-                                  color: Color(0xFF242426),
-                                ),
-                              ),
-                              shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+              Center(
+                child: Column(
+                  children: <Widget>[
+                    const CircleAvatar(
+                      radius: 50,
+                      backgroundImage: AssetImage('assets/img/r.png'),
+                    ),
+                    const Text(
+                      'Coratson B. Cena Una',
+                      style: kPersonName,
+                    ),
+                    Text(
+                      'Manage your personal details.',
+                      style: textStyleContent(size: 14, color: const Color(0xFF242426)),
+                    ),
+                    ksizedBoxTextFieldCol,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        TextButton(
+                          onPressed: null,
+                          style: ButtonStyle(
+                            padding: MaterialStateProperty.all(
+                              const EdgeInsetsDirectional.symmetric(horizontal: 10, vertical: 3.5),
                             ),
-                            child: Center(
-                              child: Text(
-                                'Verify Account',
-                                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+                            side: MaterialStateProperty.all(
+                              const BorderSide(
+                                color: Color(0xFF242426),
                               ),
+                            ),
+                            shape: MaterialStatePropertyAll<OutlinedBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(5))),
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'Verify Account',
+                              style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
                             ),
                           ),
-                          ActionButtons(Color(0xFF242426), Icons.edit_square, 'Edit', () {}),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                        ActionButtons(const Color(0xFF242426), Icons.edit_square, 'Edit', () {}),
+                      ],
+                    ),
+                  ],
                 ),
               ),
-              Text(
+              const Text(
                 'Personal Information',
                 style: kHeaderTextStyle,
               ),
@@ -129,15 +127,15 @@ class _PersonalDetailsNVState extends State<PersonalDetailsNV> {
             'Date of Birth',
             style: textStyleContent(
               size: 14,
-              color: Color(0xFF575F6E),
+              color: const Color(0xFF575F6E),
             ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [
+            children: <Widget>[
               TextButton(
                 onPressed: _showDatePicker,
-                child: Icon(
+                child: const Icon(
                   Icons.calendar_month_rounded,
                   color: Color(0xFF242426),
                 ),

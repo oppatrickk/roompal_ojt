@@ -24,9 +24,9 @@ class _PaymentFailState extends State<PaymentFail> {
         child: SingleChildScrollView(
           child: Center(
             child: Container(
-              padding: EdgeInsets.all(20),
-              child: Column(children: [
-                Icon(
+              padding: const EdgeInsets.all(20),
+              child: Column(children: <Widget>[
+                const Icon(
                   Icons.highlight_off_sharp,
                   color: Colors.red,
                   size: 130,
@@ -43,7 +43,7 @@ class _PaymentFailState extends State<PaymentFail> {
                   'Payment Failed',
                   style: textStyleContent(
                     size: 14,
-                    color: Color(0xFF575F6E),
+                    color: const Color(0xFF575F6E),
                   ),
                 ),
                 kSizedBox,
@@ -51,7 +51,7 @@ class _PaymentFailState extends State<PaymentFail> {
                     onPressed: () => Navigator.pushNamed(context, Booking.id),
                     label: 'Try Again',
                     isBorderRequired: true,
-                    buttonColor: Color(0xFF1C39BB),
+                    buttonColor: const Color(0xFF1C39BB),
                     textColor: Colors.white,
                     horizontalPadding: 27,
                     verticalPadding: 15),
@@ -68,17 +68,17 @@ BoxDecoration outlineBoxDecoration() {
   return BoxDecoration(
     borderRadius: BorderRadius.circular(16),
     border: Border.all(
-      color: Color(0xFF1C39BB),
+      color: const Color(0xFF1C39BB),
     ),
   );
 }
 
 BoxDecoration fillBoxDecoration() {
   return BoxDecoration(
-    color: Color(0xFF1C39BB),
+    color: const Color(0xFF1C39BB),
     borderRadius: BorderRadius.circular(16),
     border: Border.all(
-      color: Color(0xFF1C39BB),
+      color: const Color(0xFF1C39BB),
     ),
   );
 }

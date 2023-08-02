@@ -36,7 +36,7 @@ class LandingPage extends StatelessWidget {
               const SizedBox(
                 width: 10,
               ),
-              Expanded(
+              const Expanded(
                 child: Filter(),
               ),
             ]),
@@ -156,7 +156,7 @@ class LandingPage extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 10),
-            PropertyListingsGridView(
+            const PropertyListingsGridView(
               isRenter: true,
               isLoggedIn: true,
               needEditDeleteButton: false,

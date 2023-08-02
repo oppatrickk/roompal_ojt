@@ -29,7 +29,7 @@ class _OwnerReviewPageState extends State<OwnerReviewPage> {
       endDrawer: SideBar(
         isRenter: false,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: ReviewsSection(),
       ),
@@ -69,7 +69,7 @@ class _ReviewsSectionState extends State<ReviewsSection> {
               const SizedBox(
                 width: 10,
               ),
-              Expanded(
+              const Expanded(
                 child: Filter(),
               ),
             ],
@@ -197,7 +197,7 @@ class _ReviewsSectionState extends State<ReviewsSection> {
                         dataSource: chartData,
                         xValueMapper: (ReviewData data, _) => data.label,
                         yValueMapper: (ReviewData data, _) => data.value,
-                        dataLabelSettings: DataLabelSettings(
+                        dataLabelSettings: const DataLabelSettings(
                           isVisible: true,
                           labelAlignment: ChartDataLabelAlignment.outer,
                         ),

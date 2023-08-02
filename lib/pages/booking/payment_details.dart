@@ -5,9 +5,9 @@ import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
 import 'package:roompal_ojt/widgets/widget_elements.dart';
 
-enum paymentType { PaybyInstallment, Payinfull, Gcash, Paypal }
+enum PaymentType { paybyInstallment, payinfull, gcash, paypal }
 
-enum paymentMethod { CreditCard, OnlinePayment }
+enum PaymentMethod { creditCard, onlinePayment }
 
 class PaymentDetails extends StatefulWidget {
   const PaymentDetails({Key? key}) : super(key: key);
@@ -17,8 +17,8 @@ class PaymentDetails extends StatefulWidget {
 }
 
 class _PaymentDetailsState extends State<PaymentDetails> {
-  paymentType? _pType = paymentType.PaybyInstallment;
-  paymentMethod? _pMethod = paymentMethod.CreditCard;
+  PaymentType? _pType = PaymentType.paybyInstallment;
+  PaymentMethod? _pMethod = PaymentMethod.creditCard;
 
   IconData firstIcon = Icons.control_point_rounded;
   IconData secondIcon = Icons.control_point_rounded;
@@ -100,7 +100,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                         firstIcon = Icons.control_point_rounded;
                         isActive = true;
                       }
-                      _pMethod = paymentMethod.CreditCard;
+                      _pMethod = PaymentMethod.creditCard;
                     }),
                   ),
                   Visibility(
@@ -116,19 +116,19 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                          children: <Widget>[
                             paymentSelection(label: 'Pay by Installment', paymentOption: 1),
                             paymentSelection(label: 'Pay in Full', paymentOption: 2),
                           ],
                         ),
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Column(
-                            children: [
+                            children: <Widget>[
                               textFieldWithHintText(label: 'Card Number', hint: '0000-####'),
                               ksizedBoxTextFieldCol,
                               Row(
-                                children: [
+                                children: <Widget>[
                                   Expanded(
                                     flex: 3,
                                     child: textFieldWithHintText(label: 'Expiry Date', hint: 'MM/YY'),
@@ -172,15 +172,15 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                         secondIcon = Icons.control_point_rounded;
                         isActive = true;
                       }
-                      _pMethod = paymentMethod.OnlinePayment;
+                      _pMethod = PaymentMethod.onlinePayment;
                     }),
                   ),
                   Visibility(
                     visible: isPCVisible,
                     child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
+                      children: <Widget>[
+                        const Padding(
+                          padding: EdgeInsets.symmetric(
                             horizontal: 10,
                             vertical: 5,
                           ),
@@ -188,7 +188,7 @@ class _PaymentDetailsState extends State<PaymentDetails> {
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
+                          children: <Widget>[
                             paymentSelection(
                               label: 'Gcash',
                               paymentOption: 3,
@@ -236,21 +236,21 @@ class _PaymentDetailsState extends State<PaymentDetails> {
   }) {
     return Row(
       children: <Widget>[
-        Radio<paymentMethod>(
-          value: isFirst == true ? paymentMethod.CreditCard : paymentMethod.OnlinePayment,
+        Radio<PaymentMethod>(
+          value: isFirst == true ? PaymentMethod.creditCard : PaymentMethod.onlinePayment,
           groupValue: _pMethod,
-          onChanged: (paymentMethod? value) {
+          onChanged: (PaymentMethod? value) {
             setState(() {
               _pMethod = value;
             });
           },
-          focusColor: Color(0xFF242426),
-          activeColor: Color(0xFF242426),
+          focusColor: const Color(0xFF242426),
+          activeColor: const Color(0xFF242426),
         ),
         Expanded(
           flex: 5,
           child: Container(
-            padding: EdgeInsets.only(left: 20),
+            padding: const EdgeInsets.only(left: 20),
             child: Text(
               label,
               style: textStyleContent(size: 16, color: const Color(0xFF242426)),
@@ -269,31 +269,31 @@ class _PaymentDetailsState extends State<PaymentDetails> {
   // paymentOption: 1 = Pay by Installment, 2 = Pay in Full, 3 = Gcash, 4 = Paypal
   Row paymentSelection({required String label, required int paymentOption}) {
     return Row(
-      children: [
-        Radio<paymentType>(
+      children: <Widget>[
+        Radio<PaymentType>(
           value: (paymentOption == 1)
-              ? paymentType.PaybyInstallment
+              ? PaymentType.paybyInstallment
               : (paymentOption == 2)
-                  ? paymentType.Payinfull
+                  ? PaymentType.payinfull
                   : (paymentOption == 3)
-                      ? paymentType.Gcash
+                      ? PaymentType.gcash
                       : (paymentOption == 4)
-                          ? paymentType.Paypal
+                          ? PaymentType.paypal
                           : null!,
           groupValue: _pType,
-          onChanged: (paymentType? value) {
+          onChanged: (PaymentType? value) {
             setState(() {
               _pType = value;
             });
           },
-          focusColor: Color(0xFF242426),
-          activeColor: Color(0xFF242426),
+          focusColor: const Color(0xFF242426),
+          activeColor: const Color(0xFF242426),
         ),
         Text(
           label,
           style: textStyleContent(
             size: 14,
-            color: Color(0xFF242426),
+            color: const Color(0xFF242426),
           ),
         ),
       ],
@@ -302,11 +302,11 @@ class _PaymentDetailsState extends State<PaymentDetails> {
 
   Container circleIcon() {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         border: Border.all(
-          color: Color(0xFF242426),
+          color: const Color(0xFF242426),
         ),
       ),
     );

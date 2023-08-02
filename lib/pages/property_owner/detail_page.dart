@@ -48,15 +48,13 @@ class _DetailPageState extends State<DetailPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Container(
-                child: Center(
-                  child: Image.asset('assets/img/cl4.png'),
-                ),
+              Center(
+                child: Image.asset('assets/img/cl4.png'),
               ),
               kSizedBox,
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: <Widget>[
                   circleIcon(isFillRequired: true, isBorderRequired: false),
                   lineBetweenCI(isTrue: true),
                   circleIcon(isFillRequired: true, isBorderRequired: false),
@@ -97,12 +95,12 @@ class _DetailPageState extends State<DetailPage> {
                   children: <Widget>[
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
+                      children: <Widget>[
                         Text(
                           'House Rules',
                           style: textStyleContent(
                             size: 14,
-                            color: Color(0xFF575F6E),
+                            color: const Color(0xFF575F6E),
                           ),
                         ),
                       ],
@@ -144,12 +142,12 @@ class _DetailPageState extends State<DetailPage> {
         children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: [
+            children: <Widget>[
               Text(
                 label,
                 style: textStyleContent(
                   size: 14,
-                  color: Color(0xFF575F6E),
+                  color: const Color(0xFF575F6E),
                 ),
               ),
             ],
@@ -162,8 +160,8 @@ class _DetailPageState extends State<DetailPage> {
                   isExpanded: true,
                   icon: const Icon(Icons.arrow_drop_down),
                   elevation: 16,
-                  style: textStyleContent(size: 16, color: Color(0xFF575F6E)),
-                  decoration: InputDecoration(
+                  style: textStyleContent(size: 16, color: const Color(0xFF575F6E)),
+                  decoration: const InputDecoration(
                     contentPadding: EdgeInsets.all(0),
                   ),
                   value: isAmenity == true ? ddValAL : ddValIL,
