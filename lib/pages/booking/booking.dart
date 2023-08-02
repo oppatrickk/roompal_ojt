@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/booking/contact_details.dart';
 import 'package:roompal_ojt/pages/room_details.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
@@ -29,13 +31,14 @@ class _BookingState extends State<Booking> {
   }
 
   String dropdownValue = list.first;
-
   @override
   Widget build(BuildContext context) {
+    RenterState renterState = Provider.of<RenterState>(context);
+    bool isRenterStatus = renterState.isRenter;
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
-        isRenter: true,
+        isRenter: isRenterStatus, //
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -130,7 +133,7 @@ class _BookingState extends State<Booking> {
                         children: [
                           Column(
                             children: [
-                              Text(
+                              const Text(
                                 '14 days',
                                 style: TextStyle(
                                   fontSize: 14,

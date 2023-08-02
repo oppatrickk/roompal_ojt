@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:roompal_ojt/Log_In_State.dart';
+import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/pages/user_registration/login_page.dart';
 import 'package:roompal_ojt/widgets/const_elements.dart';
 import 'package:roompal_ojt/widgets/sidebar.dart';
@@ -19,9 +20,11 @@ class RoomDetails extends StatefulWidget {
 class _RoomDetailsState extends State<RoomDetails> {
   @override
   Widget build(BuildContext context) {
+    //Provider of status
+    RenterState renterState = Provider.of<RenterState>(context);
+    bool isRenterStatus = renterState.isRenter;
     LogInState logInState = Provider.of<LogInState>(context);
     bool isLoggedIn = logInState.isLoggedIn;
-    bool isRenterStatus = true;
     return Scaffold(
       appBar: appBar(),
       endDrawer: SideBar(
