@@ -7,8 +7,9 @@ import 'package:roompal_ojt/widgets/widget_property_owner.dart';
 
 // Listings View - Property Owner and Renter
 class PropertyListingsGridView extends StatefulWidget {
-  const PropertyListingsGridView({super.key, required this.isRenter, required this.needEditDeleteButton});
+  const PropertyListingsGridView({super.key, required this.isRenter, required this.needEditDeleteButton, this.isLoggedIn});
   final bool? isRenter;
+  final bool? isLoggedIn;
   final bool? needEditDeleteButton;
 
   @override

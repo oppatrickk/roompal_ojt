@@ -289,6 +289,7 @@ class _SideBarState extends State<SideBar> {
       trailing: trailingIcon,
       onTap: onTap,
       visualDensity: VisualDensity(horizontal: 0, vertical: -2),
+      hoverColor: Color(0xFF96A9CC),
     );
   }
 }

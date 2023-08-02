@@ -148,6 +148,7 @@ class LandingPage extends StatelessWidget {
             const SizedBox(height: 10),
             PropertyListingsGridView(
               isRenter: true,
+              isLoggedIn: true,
               needEditDeleteButton: false,
             ),
           ]),

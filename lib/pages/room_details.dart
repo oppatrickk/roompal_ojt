@@ -76,8 +76,8 @@ class _RoomDetailsState extends State<RoomDetails> {
                           ? () {
                               Navigator.pushNamed(context, Booking.id);
                               setState(() {
-                                widget.isLoggedInStatus = true;
-                                widget.isRenterStatus = true;
+                                widget.isLoggedInStatus = widget.isLoggedInStatus;
+                                widget.isRenterStatus = widget.isRenterStatus;
                               });
                             }
                           : () => Navigator.pushNamed(context, LoginPage.id),
@@ -207,8 +207,8 @@ class _RoomDetailsState extends State<RoomDetails> {
                           ? () {
                               Navigator.pushNamed(context, Booking.id);
                               setState(() {
-                                widget.isLoggedInStatus = true;
-                                widget.isRenterStatus = true;
+                                widget.isLoggedInStatus = widget.isLoggedInStatus;
+                                widget.isRenterStatus = widget.isRenterStatus;
                               });
                             }
                           : () => Navigator.pushNamed(context, LoginPage.id),
