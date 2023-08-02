@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/single_child_widget.dart';
 import 'package:roompal_ojt/Renter_State.dart';
 import 'package:roompal_ojt/Side_bar_State.dart';
 import 'package:roompal_ojt/pages/booking/booking.dart';
@@ -35,7 +36,7 @@ import 'Log_In_State.dart';
 import 'pages/room_details.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(RoompalOJT());
+void main() => runApp(const RoompalOJT());
 
 class RoompalOJT extends StatelessWidget {
   const RoompalOJT({super.key});
@@ -43,10 +44,10 @@ class RoompalOJT extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => LogInState()),
-        ChangeNotifierProvider(create: (_) => RenterState()),
-        ChangeNotifierProvider(create: (_) => SideBarState()),
+      providers: <SingleChildWidget>[
+        ChangeNotifierProvider<LogInState>(create: (_) => LogInState()),
+        ChangeNotifierProvider<RenterState>(create: (_) => RenterState()),
+        ChangeNotifierProvider<SideBarState>(create: (_) => SideBarState()),
       ],
       child: MaterialApp(
         title: 'Roompal OJT',
@@ -57,11 +58,11 @@ class RoompalOJT extends StatelessWidget {
         ),
         initialRoute: LandingPage.id,
         //add other screens here
-        routes: {
+        routes: <String, Widget Function(BuildContext)>{
           MyHomePage.id: (BuildContext context) => const MyHomePage(title: 'Roompal OJT'),
           RenterPage.id: (BuildContext context) => RenterPage(),
           LandingPage.id: (BuildContext context) => const LandingPage(),
-          RoomDetails.id: (BuildContext context) => RoomDetails(),
+          RoomDetails.id: (BuildContext context) => const RoomDetails(),
           ContactDetails.id: (BuildContext context) => const ContactDetails(),
           Booking.id: (BuildContext context) => const Booking(),
           BookingSummary.id: (BuildContext context) => const BookingSummary(),
@@ -69,7 +70,7 @@ class RoompalOJT extends StatelessWidget {
           PaymentFail.id: (BuildContext context) => const PaymentFail(),
           ContactOverview.id: (BuildContext context) => const ContactOverview(),
           OverviewPage.id: (BuildContext context) => const OverviewPage(),
-          LocationPage.id: (BuildContext context) => LocationPage(),
+          LocationPage.id: (BuildContext context) => const LocationPage(),
           PhotoPage.id: (BuildContext context) => const PhotoPage(),
           DetailPage.id: (BuildContext context) => const DetailPage(),
           PricePage.id: (BuildContext context) => const PricePage(),

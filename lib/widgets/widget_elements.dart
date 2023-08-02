@@ -8,8 +8,8 @@ AppBar appBar() {
   return AppBar(
     leadingWidth: 200,
     leading: Container(
-      padding: EdgeInsets.only(left: 10),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.only(left: 10),
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/img/wmB.png'),
         ),
@@ -141,12 +141,12 @@ Container detailFields({required String label, required String hintText1, requir
       children: <Widget>[
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: [
+          children: <Widget>[
             Text(
               label,
               style: textStyleContent(
                 size: 14,
-                color: Color(0xFF575F6E),
+                color: const Color(0xFF575F6E),
               ),
             ),
           ],
@@ -204,12 +204,12 @@ TextButton navigationButton({
     ),
     child: isGoBack == true
         ? Row(
-            children: [
-              iconStyle(icon: icon, color: Color(0xFF242426), size: 20),
+            children: <Widget>[
+              iconStyle(icon: icon, color: const Color(0xFF242426), size: 20),
               ksizedBoxTextFieldRow,
               Text(
                 label,
-                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+                style: const TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
               )
             ],
           )
@@ -217,10 +217,10 @@ TextButton navigationButton({
             children: <Widget>[
               Text(
                 label,
-                style: TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
+                style: const TextStyle(color: Color(0xFF242426), fontSize: 14.0, fontFamily: 'ProximaNovaBold'),
               ),
               ksizedBoxTextFieldRow,
-              iconStyle(icon: icon, color: Color(0xFF242426), size: 20),
+              iconStyle(icon: icon, color: const Color(0xFF242426), size: 20),
             ],
           ),
   );
@@ -244,7 +244,7 @@ TextButton noButtonIcons({
       ),
       side: isBorderRequired == true
           ? MaterialStateProperty.all(
-              BorderSide(
+              const BorderSide(
                 color: Color(0xFFBBBFC1),
               ),
             )
@@ -254,7 +254,7 @@ TextButton noButtonIcons({
           borderRadius: BorderRadius.circular(16),
         ),
       ),
-      backgroundColor: MaterialStatePropertyAll(buttonColor),
+      backgroundColor: MaterialStatePropertyAll<Color>(buttonColor),
     ),
     child: Center(
       child: Text(
@@ -268,14 +268,14 @@ TextButton noButtonIcons({
 // Circle indicator in Property Owner Create listing page
 Container circleIcon({required bool? isFillRequired, required bool? isBorderRequired}) {
   return Container(
-    padding: EdgeInsets.all(8),
+    padding: const EdgeInsets.all(8),
     decoration: BoxDecoration(
-      color: isFillRequired == true ? Color(0xFF1C39BB) : null,
+      color: isFillRequired == true ? const Color(0xFF1C39BB) : null,
       borderRadius: BorderRadius.circular(20),
       border: isBorderRequired == true
           ? Border.all(color: Colors.grey)
           : Border.all(
-              color: Color(0xFF1C39BB),
+              color: const Color(0xFF1C39BB),
             ),
     ),
   );
@@ -286,9 +286,9 @@ Padding lineBetweenCI({required bool? isTrue}) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 5.0),
     child: Container(
-      padding: EdgeInsets.all(1),
+      padding: const EdgeInsets.all(1),
       width: 30,
-      color: isTrue == true ? Color(0xFF1C39BB) : Colors.grey,
+      color: isTrue == true ? const Color(0xFF1C39BB) : Colors.grey,
     ),
   );
 }
@@ -304,7 +304,7 @@ Container addButton() {
     width: 60,
     child: IconButton(
       onPressed: () {},
-      icon: Icon(Icons.add),
+      icon: const Icon(Icons.add),
       hoverColor: Colors.black,
     ),
   );
@@ -312,8 +312,8 @@ Container addButton() {
 
 Container branding() {
   return Container(
-    padding: EdgeInsets.only(top: 40),
-    decoration: BoxDecoration(
+    padding: const EdgeInsets.only(top: 40),
+    decoration: const BoxDecoration(
       color: Color(0xFF1C39BB),
       borderRadius: BorderRadius.only(
         bottomLeft: Radius.circular(20),
@@ -321,13 +321,13 @@ Container branding() {
       ),
     ),
     child: Center(
-      child: Column(children: [
+      child: Column(children: <Widget>[
         Image.asset(
           'assets/img/logo2.png',
           height: 100,
           width: 120,
         ),
-        Text(
+        const Text(
           'roompal',
           style: TextStyle(color: Colors.white, fontFamily: 'ProximaNovaBold', fontSize: 50),
         )
@@ -338,7 +338,7 @@ Container branding() {
 
 Row displayDate() {
   return Row(
-    children: [
+    children: <Widget>[
       Container(
         width: 130,
         height: 30,
@@ -346,8 +346,8 @@ Row displayDate() {
           border: Border.all(color: Colors.black),
           borderRadius: BorderRadius.circular(5.0),
         ),
-        child: Row(
-          children: [
+        child: const Row(
+          children: <Widget>[
             Expanded(
               child: Text(
                 '07',
@@ -508,7 +508,7 @@ TextField textFieldwithHintTextDecoration(String hintText) {
     maxLines: null,
     decoration: InputDecoration(
       hintText: hintText,
-      hintStyle: TextStyle(
+      hintStyle: const TextStyle(
         color: Colors.grey,
         fontSize: 18,
         fontFamily: 'ProximaNovaRegular',
@@ -525,7 +525,7 @@ TextField textFieldwithHintTextDecoration(String hintText) {
         ),
       ),
     ),
-    style: TextStyle(
+    style: const TextStyle(
       color: Color(0xFF242426),
       fontSize: 18,
       fontFamily: 'ProximaNovaRegular',
@@ -591,7 +591,7 @@ Container confirmationDetails({required String details}) {
     padding: const EdgeInsets.symmetric(horizontal: 10),
     child: Text(
       details,
-      style: TextStyle(
+      style: const TextStyle(
         color: Color(0xFF242426),
         fontSize: 18,
         fontFamily: 'ProximaNovaRegular',

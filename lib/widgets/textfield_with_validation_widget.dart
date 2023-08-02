@@ -15,11 +15,10 @@ Container textFieldWithValidation({
   );
 }
 
-Column textFieldWithValidationStyle(String labelText, String hintText,
-    FormFieldValidator<String>? validatorLogic) {
+Column textFieldWithValidationStyle(String labelText, String hintText, FormFieldValidator<String>? validatorLogic) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
+    children: <Widget>[
       Text(
         labelText,
         style: textStyleContent(
@@ -38,7 +37,7 @@ Column textFieldWithValidationStyle(String labelText, String hintText,
             ),
           ),
           style: inputStyle(
-            textColor: Color(0xFF242426),
+            textColor: const Color(0xFF242426),
           ),
           validator: validatorLogic),
       ksizedBoxTextFieldCol,

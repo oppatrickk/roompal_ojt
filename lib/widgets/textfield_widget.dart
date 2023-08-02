@@ -5,10 +5,10 @@ import 'const_elements.dart';
 // Page title and its sub-content
 Column headerSub({required String pageTitle, required String subContent}) {
   return Column(
-    children: [
+    children: <Widget>[
       Text(
         pageTitle,
-        style: textStyleHeader(color: Color(0xFF242731), size: 32),
+        style: textStyleHeader(color: const Color(0xFF242731), size: 32),
         textAlign: TextAlign.center,
       ),
       ksizedBoxTextFieldCol,
@@ -16,7 +16,7 @@ Column headerSub({required String pageTitle, required String subContent}) {
         subContent,
         style: textStyleContent(
           size: 16,
-          color: Color(0xFF575F6E),
+          color: const Color(0xFF575F6E),
         ),
         textAlign: TextAlign.center,
       ),
@@ -69,7 +69,7 @@ Container passwordTextField({required String label, required String hint}) {
               ),
             ),
             hintText: hint,
-            hintStyle: TextStyle(
+            hintStyle: const TextStyle(
               color: Colors.grey,
               fontSize: 18,
               fontFamily: 'ProximaNovaRegular',
@@ -88,7 +88,7 @@ Container userName() {
     padding: const EdgeInsets.all(10),
     decoration: boxDecoration(),
     child: Column(
-      children: [
+      children: <Widget>[
         textFieldWithHintText(label: 'Last Name', hint: 'Enter Last Name'),
         ksizedBoxTextFieldCol,
         textFieldWithHintText(label: 'First Name', hint: 'Enter First Name'),
@@ -108,17 +108,17 @@ Expanded priceField({
   return Expanded(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: <Widget>[
         Text(
           label,
           style: textStyleContent(
             size: 14,
-            color: isTFee == true ? Color(0xFF1C39BB) : Color(0xFF242426),
+            color: isTFee == true ? const Color(0xFF1C39BB) : const Color(0xFF242426),
           ),
         ),
         TextField(
           decoration: InputDecoration(
-            border: UnderlineInputBorder(
+            border: const UnderlineInputBorder(
               borderSide: BorderSide(
                 color: Color(0xFFBBBFC1),
               ),
@@ -127,18 +127,18 @@ Expanded priceField({
             prefixStyle: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: isTFee == true ? Color(0xFF1C39BB) : Color(0xFF242426),
+              color: isTFee == true ? const Color(0xFF1C39BB) : const Color(0xFF242426),
             ),
             focusedBorder: UnderlineInputBorder(
               borderSide: BorderSide(
-                color: isTFee == true ? Color(0xFF1C39BB) : Color(0xFF242426),
+                color: isTFee == true ? const Color(0xFF1C39BB) : const Color(0xFF242426),
               ),
             ),
-            contentPadding: EdgeInsets.symmetric(horizontal: 10),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 10),
           ),
           style: TextStyle(
             fontSize: 18,
-            color: isTFee == true ? Color(0xFF1C39BB) : Color(0xFF242426),
+            color: isTFee == true ? const Color(0xFF1C39BB) : const Color(0xFF242426),
           ),
         ),
       ],
@@ -192,7 +192,7 @@ Container displayPhoneNumber() {
             ),
             ksizedBoxTextFieldCol,
             Row(
-              children: [
+              children: <Widget>[
                 Expanded(flex: 1, child: dNumberPrefix(label: '+63')),
                 ksizedBoxTextFieldRow,
                 Expanded(flex: 2, child: dNumberPrefix(label: '912 7689 991')),
@@ -208,10 +208,10 @@ Container displayPhoneNumber() {
 
 Column dNumberPrefix({required String label}) {
   return Column(
-    children: [
+    children: <Widget>[
       Text(
         label,
-        style: TextStyle(
+        style: const TextStyle(
           color: Color(0xFF242426),
           fontSize: 18,
           fontFamily: 'ProximaNovaRegular',
@@ -223,10 +223,10 @@ Column dNumberPrefix({required String label}) {
         padding: const EdgeInsets.only(top: 3),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
+          children: <Widget>[
             Container(
               height: 1,
-              color: Color(0xFF646060),
+              color: const Color(0xFF646060),
             ),
           ],
         ),

@@ -50,7 +50,7 @@ class ActionButtons extends StatelessWidget {
 
 //Card layout used in displaying property count details
 class PropertyCount extends StatelessWidget {
-  PropertyCount(
+  const PropertyCount(
     this.title,
     this.count, {
     super.key,
@@ -101,10 +101,10 @@ class BuildSegment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(6),
+      padding: const EdgeInsets.all(6),
       child: Text(
         text,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 12,
         ),
       ),
@@ -123,7 +123,7 @@ class BuildSegment1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(6),
+      padding: const EdgeInsets.all(6),
       child: Icon(
         icon,
         size: 24,

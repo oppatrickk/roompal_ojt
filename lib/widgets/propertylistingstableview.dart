@@ -30,14 +30,14 @@ class _PropertyListingsTableViewState extends State<PropertyListingsTableView> {
                 2: FlexColumnWidth(2),
               },
               defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-              children: [
-                TableRow(children: [
+              children: <TableRow>[
+                TableRow(children: <Widget>[
                   tableContent(content: list.propertyNumber.toString().padLeft(3, '0'), color: const Color(0xFF242731)),
                   Padding(
                     padding: const EdgeInsets.all(5.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
+                      children: <Widget>[
                         Container(
                           height: 100,
                           decoration: BoxDecoration(
