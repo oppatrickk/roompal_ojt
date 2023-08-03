@@ -1,17 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:roompal_ojt/pages/booking/booking.dart';
+import 'package:roompal_ojt/pages/booking/booking_summary.dart';
+import 'package:roompal_ojt/pages/booking/confirmation.dart';
+import 'package:roompal_ojt/pages/booking/contact_details.dart';
+import 'package:roompal_ojt/pages/booking/payment_fail.dart';
+import 'package:roompal_ojt/pages/booking/payment_success.dart';
+import 'package:roompal_ojt/pages/landing_page.dart';
+import 'package:roompal_ojt/pages/property_owner/contact_overview.dart';
+import 'package:roompal_ojt/pages/property_owner/detail_page.dart';
+import 'package:roompal_ojt/pages/property_owner/listing_ownersView.dart';
+import 'package:roompal_ojt/pages/property_owner/location_page.dart';
+import 'package:roompal_ojt/pages/property_owner/overview_page.dart';
+import 'package:roompal_ojt/pages/property_owner/personal_details_not_verified.dart';
+import 'package:roompal_ojt/pages/property_owner/personal_details_verified.dart';
+import 'package:roompal_ojt/pages/property_owner/photo_page.dart';
+import 'package:roompal_ojt/pages/property_owner/price_page.dart';
+import 'package:roompal_ojt/pages/property_owner/reviews_page.dart';
+import 'package:roompal_ojt/pages/property_owner/stay_view.dart';
+import 'package:roompal_ojt/pages/renter/main_renter_page.dart';
+import 'package:roompal_ojt/pages/room_details.dart';
+import 'package:roompal_ojt/pages/user_registration/as_Renter.dart';
+import 'package:roompal_ojt/pages/user_registration/as_property_owner.dart';
+import 'package:roompal_ojt/pages/user_registration/chooserole_page.dart';
+import 'package:roompal_ojt/pages/user_registration/forgot_password.dart';
+import 'package:roompal_ojt/pages/user_registration/login_page.dart';
+import 'package:roompal_ojt/pages/user_registration/reset_password.dart';
+import 'package:roompal_ojt/pages/user_registration/verification.dart';
+import 'package:roompal_ojt/widgets/pop_up.dart';
+
+import 'booking/payment_details.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
+  static const String id = 'MyHomePage';
   final String title;
 
   @override
@@ -19,71 +40,196 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, RenterPage.id);
+                },
+                child: const Text('renter page'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, RoomDetails.id);
+                },
+                child: const Text('room details'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, LandingPage.id);
+                },
+                child: const Text('landing page'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ContactDetails.id);
+                },
+                child: const Text('Contact Details'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, Booking.id);
+                },
+                child: const Text('booking'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, BookingSummary.id);
+                },
+                child: const Text('booking summary'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PaymentSuccess.id);
+                },
+                child: const Text('payment success'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PaymentFail.id);
+                },
+                child: const Text('payment fail'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ContactOverview.id);
+                },
+                child: const Text('contact overview'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, OverviewPage.id);
+                },
+                child: const Text('Property Owner: Overview'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, LocationPage.id);
+                },
+                child: const Text('Location Page'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PhotoPage.id);
+                },
+                child: const Text('Photo Page'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, DetailPage.id);
+                },
+                child: const Text('Detail Page'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PricePage.id);
+                },
+                child: const Text('Price Page'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ListingOwner.id);
+                },
+                child: const Text('Listing Owner'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, OwnerReviewPage.id);
+                },
+                child: const Text('Owner Review Page'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, StayView.id);
+                },
+                child: const Text('Stay View'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PersonalDetailsV.id);
+                },
+                child: const Text('Personal Details Verified'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PersonalDetailsNV.id);
+                },
+                child: const Text('Personal Details Not Verified'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, LoginPage.id);
+                },
+                child: const Text('Login Page'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ChooseRole.id);
+                },
+                child: const Text('Choose Role'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, AsPropertyOwner.id);
+                },
+                child: const Text('Sign up: As Property Owner'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, AsRenter.id);
+                },
+                child: const Text('Sign up: As Renter'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ForgotPassword.id);
+                },
+                child: const Text('Sign up: Forgot Password'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ResetPassword.id);
+                },
+                child: const Text('Sign up: Reset Password'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, Verification.id);
+                },
+                child: const Text('Sign up: Verification'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PaymentDetails.id);
+                },
+                child: const Text('Payment Details'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, PopUpTemporary.id);
+                },
+                child: const Text('PopUp Temporary'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, ConfirmationPage.id);
+                },
+                child: const Text('Confirmation Page'),
+              ),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
